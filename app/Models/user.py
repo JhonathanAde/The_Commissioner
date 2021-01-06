@@ -9,6 +9,9 @@ class User(db.model, UserMixin):
   username = db.Column(db.String(40), nullable = False, unique = True)
   email = db.Column(db.String(255), nullable = False, unique = True)
   hashed_password = db.Column(db.String(255), nullable = False)
+  location = db.Column(db.String(40), nullable = True)
+  artist = db.Column(db.Boolean, nullable = False)
+  comm_status = db.Column(db.Boolean, nullable = False)
 
 
   @property
@@ -26,5 +29,8 @@ class User(db.model, UserMixin):
     return {
       'id': self.id,
       'username': self.username,
-      'email': self.email
+      'email': self.email,
+      'location': self.location,
+      'artist': self.artist,
+      'comm_status': self.comm_status
     }

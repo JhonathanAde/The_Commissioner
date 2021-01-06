@@ -44,10 +44,12 @@ def inject_csrf_token(response):
                       httpsonly=True)
   return response
 
-@app.route('/', defaults=)
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def react_root(path):
+  print("path", path)
+  if path == 'favicon.ico':
+    return app.send_static_file('favicon.ico')
+  return app.send_static_file('index.html')
 
 
-
-@app.route('/')
-def hello_world():
-  return "Hello World"
