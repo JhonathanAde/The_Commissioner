@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, SelectField
 from wtforms.validators import DataRequired, Email, ValidationError
-from app.models import User
+from app.Models import User
 
 def user_exists(form, field):
   print("Checking if user exists", field.data)
@@ -14,6 +14,6 @@ class SignUpForm(FlaskForm):
   username = StringField('username', validators=[DataRequired()])
   email = StringField('email', validators=[DataRequired(), user_exists])
   password = StringField('password', validators=[DataRequired()])
-  location = SelectField('location', choices=[], [DataRequired()])
+  location = SelectField('location', [DataRequired()], choices=[])
   artist = BooleanField('artist', validators=[DataRequired()])
 

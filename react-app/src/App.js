@@ -6,6 +6,8 @@ import ProtectedRoute from "./Components/auth/ProtectedRoute"
 // import NavBar from "./components/NavBar";
 import TodoPage  from "./Components/Pages/TodoPage"
 import { authenticate } from "./Components/services/auth";
+import Homepage from "./Components/Pages/HomePage";
+import Profilepage from "./Components/Pages/Profilepage";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -30,6 +32,9 @@ function App() {
     <BrowserRouter>
       {/* <NavBar setAuthenticated={setAuthenticated} /> */}
       <Switch>
+        <Route path="/profile" exact={true}>
+          <Profilepage />
+        </Route>
         <Route path="/login" exact={true}>
           <LoginForm
             authenticated={authenticated}
@@ -41,9 +46,9 @@ function App() {
             authenticated={authenticated}
             setAuthenticated={setAuthenticated} />
         </Route>
-        <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-          <h1>My Homepage</h1>
-        </ProtectedRoute>
+        <Route>
+          <Homepage path="/" exact={true} authenticated={authenticated} />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
