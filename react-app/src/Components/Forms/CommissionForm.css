@@ -1,0 +1,37 @@
+.commform-div {
+  background-color: lightgray;
+  margin: 2rem 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  height: 32rem;
+  width: 20rem;
+
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input{
+  padding: 0.25rem 0rem;
+}
+
+form label {
+  padding: 0.25rem 0rem;
+}
+
+.duration-options {
+  display: flex;
+}
+
+.duration-options input{
+  width: 1rem;
+  height: 1rem;
+}
+
+button {
+  margin: .5rem 0rem;
+  height: 1.5rem;
+  width: 5rem;
+}
