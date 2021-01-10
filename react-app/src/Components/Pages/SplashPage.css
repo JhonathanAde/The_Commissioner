@@ -1,9 +1,22 @@
 .splashpage_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
-  top: 200px;
-  right: 100px;
-  background-color: lightgray;
-  width: 35%;
-  height: 60%;
+  top: 12rem;
+  right: 5rem;
+  background-color: whitesmoke;
+  width: 30rem;
+  height: 35rem;
   border-radius: 5px;
+  /* padding: 10rem 0rem 0rem 0rem */
+  box-shadow: -.5rem .5rem .5rem rgba(0, 0, 0, 0.2);
+}
+
+.splashpage-form_logo {
+  background-color: orangered;
+  width: 8rem;
+  height: 5rem;
+  position: absolute;
+  top: 5rem;
 }

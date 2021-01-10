@@ -9,7 +9,10 @@ const SplashPage = ({authenticated, setAuthenticated}) => {
   return (
     <>
         <div className="splashpage_form">
-        <LoginForm authenticated={authenticated} setAuthenticated={setAuthenticated}/>
+          <div className="splashpage-form_logo">
+            Logo
+          </div>
+          <LoginForm authenticated={authenticated} setAuthenticated={setAuthenticated}/>
         </div>
     </>
   )

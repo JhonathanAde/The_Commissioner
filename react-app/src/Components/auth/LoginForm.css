@@ -1,11 +1,13 @@
 .login-form {
-  font-size: 5em;
-  padding: 20px;
+  font-size: 1.5rem;
+  padding: 1rem;
 }
 
 .form-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 10rem 0rem 0rem 0rem
 }
 
 .email-field {
@@ -19,6 +21,6 @@
 }
 
 input {
-  width: 70%;
-  height: 100%;
+  width: 10rem;
+  height: 1rem;
 }

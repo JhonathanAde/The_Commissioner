@@ -59,7 +59,7 @@ const CommissionForm = () => {
           </label>
           <label>
             No
-          <input type="radio" value="no" onChange={setDuration}/>
+          <input type="radio" value="false" onChange={setDuration}/>
           </label>
         </div>
           <label>
