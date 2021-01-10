@@ -1,0 +1,24 @@
+.login-form {
+  font-size: 5em;
+  padding: 20px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.email-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.password-field {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 70%;
+  height: 100%;
+}

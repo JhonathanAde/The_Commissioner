@@ -1,0 +1,11 @@
+.nav-bar {
+  background-color: whitesmoke;
+  height: 50px;
+  border-bottom: 3px solid lightgray;
+}
+
+.nav-elements{
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 200px;
+}

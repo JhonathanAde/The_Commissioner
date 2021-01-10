@@ -3,11 +3,13 @@ import { BrowserRouter, Route, Switch} from "react-router-dom";
 import LoginForm from "./Components/auth/LoginForm";
 import SignUpForm from "./Components/auth/SignUpForm";
 import ProtectedRoute from "./Components/auth/ProtectedRoute"
-// import NavBar from "./components/NavBar";
+import NavBar from "./Components/NavBar/NavBar"
 import TodoPage  from "./Components/Pages/TodoPage"
 import { authenticate } from "./Components/services/auth";
 import Homepage from "./Components/Pages/HomePage";
 import Profilepage from "./Components/Pages/Profilepage";
+import CreateCommissionPage from "./Components/Pages/CreateCommissionPage";
+import SplashPage from "./Components/Pages/SplashPage";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -30,13 +32,16 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <NavBar setAuthenticated={setAuthenticated} /> */}
+      <NavBar setAuthenticated={setAuthenticated} />
       <Switch>
+        <Route path="/create-a-commission" exact={true}>
+          <CreateCommissionPage />
+        </Route>
         <Route path="/profile" exact={true}>
           <Profilepage />
         </Route>
         <Route path="/login" exact={true}>
-          <LoginForm
+          <SplashPage
             authenticated={authenticated}
             setAuthenticated={setAuthenticated}
             />
