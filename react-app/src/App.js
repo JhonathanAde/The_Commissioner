@@ -10,6 +10,7 @@ import Homepage from "./Components/Pages/HomePage";
 import Profilepage from "./Components/Pages/Profilepage";
 import CreateCommissionPage from "./Components/Pages/CreateCommissionPage";
 import SplashPage from "./Components/Pages/SplashPage";
+import RequestCommissionPage from "./Components/Pages/RequestCommissionPage";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -34,6 +35,9 @@ function App() {
     <BrowserRouter>
       <NavBar setAuthenticated={setAuthenticated} />
       <Switch>
+        <Route path="/request" exact={true}>
+          <RequestCommissionPage />
+        </Route>
         <Route path="/create-a-commission" exact={true}>
           <CreateCommissionPage />
         </Route>

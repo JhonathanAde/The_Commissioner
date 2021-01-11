@@ -1,24 +1,24 @@
 .homepage_banner-image {
   background-color: palevioletred;
-  margin: 0px 200px;
-  height: 500px;
+  margin: 0px 12.5rem;
+  height: 30rem;
 }
 
 .homepage_recentcommbar {
   background-color: white;
-  margin: 0px 200px;
-  padding: 2px;
+  margin: 0rem 13rem;
+  padding: .15rem;
 }
 
 .homepage_recentcommbar_items {
   display: flex;
-  margin: 10px;
+  margin: .75rem;
   overflow-x: scroll;
 }
 
 .homepage_recentcommbar h1 {
-  padding: 10px 0px;
-  margin-left: 10px;
-  margin-bottom: 10px;
+  padding: .55rem 0rem;
+  margin-left: .55rem;
+  margin-bottom: .55rem;
   border-bottom: 3px solid lightgray;
 }

@@ -1,37 +1,37 @@
 .commission-card{
   background-color: grey;
   border-radius: 3px;
-  height: 20rem;
-  width: 50rem;
+  height: 350px;
+  width: 300px;
   display: flex;
+  margin: .5rem;
   flex-direction: column;
-  margin: .6rem;
-  box-shadow: -.5rem .5rem .45rem rgba(0, 0, 0, 0.2);
+  box-shadow: -8px 8px 7.2px rgba(0, 0, 0, 0.2);
 }
 
 .commission-card__image{
   background-color: hotpink;
-  padding: .25rem;
-  height: 35rem;
+  padding: 5px;
+  height: 250px;
 }
 
 .commission-card__maininfo {
   background-color: wheat;
   /* padding: .35rem .25rem; */
-  height: 5rem;
-  margin-bottom: 2rem;
+  height: 80px;
+  margin-bottom: 32px;
 }
 
 .commission-card__maininfo p {
-  margin-top: 0rem;
-  margin-bottom: 0rem;
-  padding: .25rem;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 4px;
 }
 
 .commission-card__rating {
   display: flex;
   justify-content: space-between;
-  padding: .15rem .25rem
+  padding: 3px 4px
 }
 
 .commission-card__rating p {
