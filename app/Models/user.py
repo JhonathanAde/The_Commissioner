@@ -1,4 +1,5 @@
 from .db import db
+from sqlalchemy.orm import relationship
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
@@ -12,6 +13,9 @@ class User(db.Model, UserMixin):
   location = db.Column(db.String(40), nullable = True)
   artist = db.Column(db.Boolean, nullable = False)
   comm_status = db.Column(db.Boolean, nullable = False)
+
+  commissions = db.relationship('Commission', backref='artist')
+  requests = db.relationship('Request', backref='artist')
 
 
   @property
