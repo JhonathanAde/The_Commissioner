@@ -9,7 +9,9 @@ class Commission(db.Model):
   description = db.Column(db.String(255), nullable = False)
   image_url = db.Column(db.String(255), nullable = False)
   price = db.Column(db.Integer, nullable = True)
+  requests = db.Column(db.Integer, nullable = False)
   date_created = db.Column(db.Date, nullable = False)
+  duration = db.Column(db.Date, nullable = True)
   expired = db.Column(db.Boolean, nullable = False)
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
 
@@ -23,6 +25,7 @@ class Commission(db.Model):
       "image": self.image_url,
       "price": self.price,
       "date_created": self.date_created,
+      "duration": self.duration,
       "expired" : self.expired,
       "user_id" : self.user_id,
       "user": self.user.to_dict()

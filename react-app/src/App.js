@@ -49,7 +49,7 @@ function App() {
           <RequestCommissionPage />
         </Route>
         <Route path="/create-a-commission" exact={true}>
-          <CreateCommissionPage />
+          <CreateCommissionPage authenticated={authenticated} user={user}/>
         </Route>
         <Route path="/profile" exact={true}>
           <Profilepage />

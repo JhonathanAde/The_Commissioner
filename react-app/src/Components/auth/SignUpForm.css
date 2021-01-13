@@ -1,0 +1,46 @@
+.signup {
+  background-color: tomato;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.signup button {
+  margin-top: 1.5em;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.passwords {
+  display: flex;
+  flex-direction: column;
+  padding: .25rem 0rem 
+}
+
+.location-field {
+  display: flex;
+  flex-direction: column;
+  padding: .25rem 0rem;
+}
+
+.user-field {
+  display: flex;
+  flex-direction: column;
+  padding: .25rem 0rem;
+}
+
+.artist-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.choices label{
+  margin: 0rem;
+}
+.choices input{
+  margin: -3.2rem;
+}

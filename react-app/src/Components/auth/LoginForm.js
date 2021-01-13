@@ -37,9 +37,9 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser }) => {
     <form className="login-form" onSubmit={onLogin}>
       <div className="form-container">
         <div>
-          {errors.map((error) => {
+          {errors.map((error) => (
             <div>{error}</div>
-          })}
+          ))}
         </div>
         <div className="email-field">
         <label htmlFor="email">Email</label>

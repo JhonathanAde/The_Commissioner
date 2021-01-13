@@ -20,3 +20,36 @@
   position: absolute;
   top: 5rem;
 }
+
+.signup-form {
+  position: absolute;
+  top: 12rem;
+  bottom: 5rem;
+  left: 8.8rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-button{
+  margin-top: -.5em;
+}
+
+.login-button {
+  margin-top: -.5em;
+}
+
+.signup-form__hidden {
+  visibility: hidden;
+}
+
+.login-form__hidden {
+  visibility: hidden;
+}

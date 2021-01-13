@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../services/auth';
 import states from 'states-us';
+import "./SignUpForm.css"
 
 const SignUpForm = ({authenticated, setAuthenticated, setUser}) => {
   const [username, setUsername] = useState("");
@@ -63,7 +64,7 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser}) => {
   }
 
   return (
-    <>
+    <div className="signup">
     <div>
       {errors.map((error) => (
         <div className="error-list">
@@ -72,15 +73,17 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser}) => {
       ))}
     </div>
     <form onSubmit={onSignUp}>
-      <div>
+      <div className="user-field">
         <label>User Name</label>
         <input
           type="text"
           name="username"
+          placeholder="username"
           onChange={updateUsername}
           value = {username}></input>
       </div>
-      <div>
+      <div className="email-field">
+        <label>Email</label>
         <input
           type="text"
           name="email"
@@ -89,7 +92,7 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser}) => {
           value={email}
         />
       </div>
-      <div>
+      <div className="passwords">
         <label>Password</label>
         <input
           type="password"
@@ -97,8 +100,7 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser}) => {
           onChange={updatePassword}
           value={password}
           ></input>
-      </div>
-      <div>
+
         <label>Repeat Password</label>
         <input
           type="password"
@@ -108,7 +110,7 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser}) => {
           required={true}
           ></input>
       </div>
-      <div>
+      <div className="location-field">
         <label for="location">Location:</label>
         <input
           list="state-abbreviations"
@@ -121,8 +123,9 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser}) => {
           })}
         </datalist>
       </div>
-      <div>
+      <div className="artist-field">
           <label>Artist?</label>
+          <div className="choices">
           <label>
             Yes
           <input 
@@ -141,10 +144,11 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser}) => {
             onChange={updateArtistStatus}
           />
           </label>
+          </div>
         </div>
       <button type="submit">Sign up</button>
     </form>
-    </>
+    </div>
   );
 };
 
