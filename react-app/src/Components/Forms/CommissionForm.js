@@ -29,7 +29,7 @@ const CommissionForm = () => {
             Image:
           </label>
           <input
-            name="url"
+            name="image"
             type="text"
             placeholder="upload an image" 
             />

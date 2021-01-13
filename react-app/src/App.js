@@ -14,13 +14,15 @@ import RequestCommissionPage from "./Components/Pages/RequestCommissionPage";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
+  const [user, setUser] = useState({})
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     (async() => {
-      const user = await authenticate();
-      if (!user.errors) {
+      const data = await authenticate();
+      if (!data.errors) {
         setAuthenticated(true);
+        setUser(data)
       }
       setLoaded(true);
     })();
@@ -33,8 +35,16 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar setAuthenticated={setAuthenticated} />
+      <NavBar setAuthenticated={setAuthenticated} setUser={setUser} user={user} />
       <Switch>
+        <Route path="/login" exact={true}>
+          <SplashPage
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+            setUser={setUser}
+            user={user}
+            />
+        </Route>
         <Route path="/request" exact={true}>
           <RequestCommissionPage />
         </Route>
@@ -44,17 +54,11 @@ function App() {
         <Route path="/profile" exact={true}>
           <Profilepage />
         </Route>
-        <Route path="/login" exact={true}>
-          <SplashPage
-            authenticated={authenticated}
-            setAuthenticated={setAuthenticated}
-            />
-        </Route>
-        <Route path="/sign-up" exact={true}>
+        {/* <Route path="/sign-up" exact={true}>
           <SignUpForm 
             authenticated={authenticated}
             setAuthenticated={setAuthenticated} />
-        </Route>
+        </Route> */}
         <Route>
           <Homepage path="/" exact={true} authenticated={authenticated} />
         </Route>

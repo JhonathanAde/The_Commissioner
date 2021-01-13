@@ -1,11 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom' ;
 import CommissionForm from '../Forms/CommissionForm';
+import LogoutButton from '../auth/LogoutButton';
 
 // CSS
 import "./NavBar.css"
 
-const NavBar = ({ setAuthenticated }) => {
+const NavBar = ({ setAuthenticated, setUser, user }) => {
   return (
     <nav className="nav-bar">
         <div className="nav-elements">
@@ -23,6 +24,10 @@ const NavBar = ({ setAuthenticated }) => {
             Sign Up 
           </NavLink>
           </div> */}
+          <LogoutButton setAuthenticated={setAuthenticated} setUser={setUser} user={user}/>
+          <NavLink to="/login" exact={true} activeClassName="active">
+            Login
+          </NavLink>
         </div>
     </nav>
   )

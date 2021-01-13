@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
   hashed_password = db.Column(db.String(255), nullable = False)
   location = db.Column(db.String(40), nullable = True)
   artist = db.Column(db.Boolean, nullable = False)
-  comm_status = db.Column(db.Boolean, nullable = False)
+  comm_status = db.Column(db.Boolean, nullable = True)
 
   commissions = db.relationship('Commission', backref='artist')
   requests = db.relationship('Request', backref='artist')

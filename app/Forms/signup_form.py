@@ -14,6 +14,6 @@ class SignUpForm(FlaskForm):
   username = StringField('username', validators=[DataRequired()])
   email = StringField('email', validators=[DataRequired(), user_exists])
   password = StringField('password', validators=[DataRequired()])
-  location = SelectField('location', [DataRequired()], choices=[])
+  location = StringField('location', [DataRequired()])
   artist = BooleanField('artist', validators=[DataRequired()])
 
