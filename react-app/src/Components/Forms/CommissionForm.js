@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { useHistory } from "react-router-dom";
 import {createCommission} from "../services/commission"
 
 // CSS
@@ -8,7 +9,7 @@ const CommissionForm = ({authenticated, user}) => {
   const [duration, setDuration] = useState(false)
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
-  const [image, setImage] = useState("")
+  const [image_url, setImage] = useState("")
   const [requests, setRequests] = useState()
   const [price, setPrice] = useState(0.00)
   const [date, setDate] = useState("")
@@ -24,14 +25,26 @@ const CommissionForm = ({authenticated, user}) => {
   const currentMonth = currentDateTime.getMonth()
   const currentYear = currentDateTime.getFullYear()
 
-
-  
-
-
-
+  const dayFormat = String(currentDay).padStart(2, 0)
+  const monthFormat = String(currentMonth + 1).padStart(2, 0)
+  console.log(dayFormat)
+  console.log(monthFormat)
   console.log(currentDateTime)
 
+  const dateCreated = `${currentYear}-${monthFormat}-${dayFormat}`
+  console.log(dateCreated)
 
+  const history = useHistory()
+
+  const commisisonHandleSubmit = async (e) => {
+    e.preventDefault();
+    const commission = await createCommission(title, description, image_url, price, requests, dateCreated, date, userId, );
+    if (commission.errors) {
+      setErrors(commission.errors);
+    }
+
+    history.push("/")
+  }
 
   const updateTitle = (e) => {
     setTitle(e.target.value)
@@ -53,13 +66,7 @@ const CommissionForm = ({authenticated, user}) => {
     setDate(e.target.value)
   }
 
-  const commisisonHandleSubmit = async (e) => {
-    e.preventDefault();
-    const commission = await createCommission(title, description, image, requests, price, date, userId);
-    if (commission.errors) {
-      setErrors(commission.errors);
-    }
-  }
+
   console.log(date)
   console.log(price)
   console.log(requests)
@@ -95,7 +102,7 @@ const CommissionForm = ({authenticated, user}) => {
             Image:
           </label>
           <input
-            name="image"
+            name="image_url"
             type="text"
             placeholder="upload an image" 
             onChange={updateImage}
@@ -106,6 +113,7 @@ const CommissionForm = ({authenticated, user}) => {
           <input 
             name="price"
             type="number"
+            step="0.01"
             min= "0.00"
             placeholder="$0.00"
             onChange={updatePrice}

@@ -111,7 +111,7 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser}) => {
           ></input>
       </div>
       <div className="location-field">
-        <label for="location">Location:</label>
+        <label>Location:</label>
         <input
           list="state-abbreviations"
           name="location"
@@ -124,26 +124,28 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser}) => {
         </datalist>
       </div>
       <div className="artist-field">
-          <label>Artist?</label>
+        <label>Artist?</label>
           <div className="choices">
-          <label>
-            Yes
-          <input 
-            name="artist"
-            type="radio"
-            value={true}
-            onChange={updateArtistStatus}
-          />
-          </label>
-          <label>
-            No
-          <input 
-            name="artist"
-            type="radio"
-            value={false}
-            onChange={updateArtistStatus}
-          />
-          </label>
+              <label>
+                Yes
+                </label>
+              <input 
+                name="artist"
+                type="radio"
+                value={true}
+                onChange={updateArtistStatus}
+              />
+
+            <label>
+              No
+              </label>
+              <input 
+                name="artist"
+                type="radio"
+                value={false}
+                onChange={updateArtistStatus}
+              />
+
           </div>
         </div>
       <button type="submit">Sign up</button>

@@ -12,7 +12,7 @@ class Commission(db.Model):
   requests = db.Column(db.Integer, nullable = False)
   date_created = db.Column(db.Date, nullable = False)
   duration = db.Column(db.Date, nullable = True)
-  expired = db.Column(db.Boolean, nullable = False)
+  expired = db.Column(db.Boolean, nullable = True)
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
 
   user = relationship('User')
@@ -22,7 +22,7 @@ class Commission(db.Model):
       "id" : self.id,
       "title": self.title,
       "description": self.description,
-      "image": self.image_url,
+      "image_url": self.image_url,
       "price": self.price,
       "date_created": self.date_created,
       "duration": self.duration,

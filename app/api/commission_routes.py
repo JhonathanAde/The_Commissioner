@@ -31,13 +31,13 @@ def create_a_commission():
     commission = Commission(
       title=form.data['title'],
       description=form.data['description'],
-      image=form.data['image'],
+      image_url=form.data['image'],
       price=form.data['price'],
       requests=form.data['requests'],
       date_created=form.data['date_created'],
-      duration=form.data['date'],
+      duration=form.data['duration'],
       expired=form.data['expired'],
-      userId=form.data['user_id']
+      user_id=form.data['user_id']
     )
     print(commission)
 

@@ -35,7 +35,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar setAuthenticated={setAuthenticated} setUser={setUser} user={user} />
+      <NavBar setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user} />
       <Switch>
         <Route path="/login" exact={true}>
           <SplashPage
@@ -52,7 +52,7 @@ function App() {
           <CreateCommissionPage authenticated={authenticated} user={user}/>
         </Route>
         <Route path="/profile" exact={true}>
-          <Profilepage />
+          <Profilepage authenticated={authenticated} user={user}/>
         </Route>
         {/* <Route path="/sign-up" exact={true}>
           <SignUpForm 

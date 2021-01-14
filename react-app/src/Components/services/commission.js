@@ -3,7 +3,7 @@ export const getCommissions = async () => {
   return await response.json();
 } 
 
-export const createCommission = async (title, description, image, requests, price, date, userId) => {
+export const createCommission = async (title, description, image, price, requests, date_created, duration, user_id) => {
   const response = await fetch("/api/commissions/new", {
     method: 'POST',
     headers: {
@@ -12,11 +12,12 @@ export const createCommission = async (title, description, image, requests, pric
     body: JSON.stringify({ 
       title, 
       description, 
-      image, 
-      requests, 
+      image,
       price, 
-      date,
-      userId,
+      requests,
+      date_created,  
+      duration,
+      user_id,
     })
   });
 

@@ -38,9 +38,16 @@ form {
   flex-direction: column;
 }
 
+.choices {
+  display: flex;
+}
+
 .choices label{
   margin: 0rem;
 }
+
 .choices input{
-  margin: -3.2rem;
+  margin: .35rem 1.25rem;
+  padding: 0rem 0rem;
+  width: 1rem;
 }
