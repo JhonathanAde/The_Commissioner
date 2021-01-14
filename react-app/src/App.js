@@ -7,7 +7,7 @@ import NavBar from "./Components/NavBar/NavBar"
 import TodoPage  from "./Components/Pages/TodoPage"
 import { authenticate } from "./Components/services/auth";
 import Homepage from "./Components/Pages/HomePage";
-import Profilepage from "./Components/Pages/Profilepage";
+import Profilepage from "./Components/Pages/Profile/Profilepage";
 import CreateCommissionPage from "./Components/Pages/CreateCommissionPage";
 import SplashPage from "./Components/Pages/SplashPage";
 import RequestCommissionPage from "./Components/Pages/RequestCommissionPage";

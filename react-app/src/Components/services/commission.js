@@ -1,7 +1,12 @@
-export const getCommissions = async () => {
+export const getAllCommissions = async () => {
   const response = await fetch("/api/commissions/")
   return await response.json();
 } 
+
+export const getCommission = async (id) => {
+  const response = await fetch(`/api/commissions/${id}/commission`)
+  return await response.json();
+}
 
 export const createCommission = async (title, description, image, price, requests, date_created, duration, user_id) => {
   const response = await fetch("/api/commissions/new", {

@@ -1,0 +1,54 @@
+.procommission-card{
+  background-color:snow;
+  border-radius: 3px;
+  height: 350px;
+  width: 300px;
+  display: flex;
+  margin: .5rem;
+  flex-direction: column;
+  box-shadow: -8px 8px 7.2px rgba(0, 0, 0, 0.2);
+}
+
+.procommission-card__image{
+  /* background-color: hotpink; */
+  padding: 0px;
+  height: 250px;
+}
+
+.procommission-card__image img {
+  border-radius: 3px;
+  height: 15.6rem;
+  width: 18.75rem;
+}
+
+.procommission-card__maininfo {
+  /* background-color: wheat; */
+  /* padding: .35rem .25rem; */
+  height: 80px;
+  margin-bottom: 4px;
+}
+
+.procommission-card__maininfo h1 {
+  font-size: 1.5rem;
+  margin: 0.5rem .25rem
+}
+
+.procommission-card__maininfo h4 {
+  margin: 0.5rem .25rem
+}
+
+.procommission-card__rating {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 5px;
+  bottom: .6rem;
+}
+
+.procommission-card__rating p {
+  font-weight: bold;
+  font-size: .75rem;
+}
+
+
+

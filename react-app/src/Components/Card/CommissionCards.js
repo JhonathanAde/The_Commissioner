@@ -1,15 +1,15 @@
 // Dependencies
-import React from 'react';
+import React, {useEffect} from 'react';
 
 // CSS
 import "./CommissionCards.css";
 
-const CommissionCards = () => {
+const CommissionCards = ({com}) => {
   return (
     <>
       <div className="commission-card">
       <div className="commission-card__image">
-        image
+        Image
       </div>
       <div className="commission-card__maininfo">
         <p>product_name</p>

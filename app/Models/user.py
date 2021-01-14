@@ -14,7 +14,7 @@ class User(db.Model, UserMixin):
   artist = db.Column(db.Boolean, nullable = False)
   comm_status = db.Column(db.Boolean, nullable = True)
 
-  commissions = db.relationship('Commission', backref='artist')
+  commissions = db.relationship('Commission', back_populates='user', order_by='asc(Commission.id)')
   requests = db.relationship('Request', backref='artist')
 
 

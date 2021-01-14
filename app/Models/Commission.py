@@ -15,10 +15,10 @@ class Commission(db.Model):
   expired = db.Column(db.Boolean, nullable = True)
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
 
-  user = relationship('User')
+  user = relationship('User', back_populates="commissions")
 
   def to_dict(self):
-    return{
+    return {"commission": {
       "id" : self.id,
       "title": self.title,
       "description": self.description,
@@ -28,5 +28,6 @@ class Commission(db.Model):
       "duration": self.duration,
       "expired" : self.expired,
       "user_id" : self.user_id,
-      "user": self.user.to_dict()
+      "user": self.user.to_dict(),
+    }
     }
