@@ -1,9 +1,9 @@
 FROM node:12 AS build-stage
 
 WORKDIR /react-app
-COPY react-app/..
+COPY react-app/. .
 
-ENV REACT_APP_BASE_URL=<THIS WILL BE HEROKU URL>
+ENV REACT_APP_BASE_URL=https://art-commissioner.herokuapp.com/
 
 RUN npm install
 RUN npm run build

@@ -9,7 +9,7 @@ class Request(db.Model):
   details = db.Column(db.Text, nullable = False)
   references = db.Column(db.String(255), nullable = True)
   urgency = db.Column(db.String(130), nullable = False)
-  commission_id = db.Column(db.Integer, db.ForeignKey('commissions.id'), nullable = False)
+  commission_id = db.Column(db.Integer, db.ForeignKey('commissions.id'), nullable = True)
   price = db.Column(db.Integer, nullable = False)
   user_id = db.Column(db.Integer, nullable = False)
   buyer_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)

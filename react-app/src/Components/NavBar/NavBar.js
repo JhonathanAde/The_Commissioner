@@ -18,6 +18,7 @@ const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
           <NavLink to="/create-a-commission" exact={true} activeClassName="active">
             Create A Commission
           </NavLink>
+          <NavLink to="/request">Request</NavLink>
           <NavLink to="/profile">Profile</NavLink>
           <LogoutButton setAuthenticated={setAuthenticated} setUser={setUser} user={user}/>
           </>

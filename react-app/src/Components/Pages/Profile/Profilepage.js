@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import CommissionCards from '../../Card/CommissionCards'
-import { getCommission } from '../../services/commission'
+import { getCommissionsById } from '../../services/commission'
 import ProfileCommCards from './ProfileComCards'
 
 const Profilepage = ({authenticated, user}) => {
@@ -9,7 +9,7 @@ const Profilepage = ({authenticated, user}) => {
   
   useEffect(() => {
     (async () => {
-      const commissions = await getCommission(user.id)
+      const commissions = await getCommissionsById(user.id)
       setUserCommissions(commissions)
     })()
   },[user.id])

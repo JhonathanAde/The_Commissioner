@@ -3,8 +3,13 @@ export const getAllCommissions = async () => {
   return await response.json();
 } 
 
-export const getCommission = async (id) => {
+export const getCommissionsById = async (id) => {
   const response = await fetch(`/api/commissions/${id}/commission`)
+  return await response.json();
+}
+
+export const getACommission = async(id) => {
+  const response = await fetch(`/api/commissions/request/${id}`)
   return await response.json();
 }
 

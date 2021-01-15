@@ -20,7 +20,9 @@ const ProfileCommCards = ({com}) => {
         <img src={commission.image_url} />
       </div>
       <div className="procommission-card__maininfo">
-        <h1>{commission.title}</h1>
+        <NavLink to={`/product/${commission.id}`}>
+          <h1>{commission.title}</h1>
+        </NavLink>
         <NavLink to="/profile">
         <h4>{user.username}</h4>
         </NavLink>

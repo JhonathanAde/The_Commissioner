@@ -20,14 +20,19 @@ def get_all_commissions():
   print("commissions", commissions)
   return {"commissions": [commission.to_dict() for commission in commissions] }
 
-# GET A COMMISSION 
+# GET A COMMISSION ALL COMMISSIONS BY USER ID 
 @commission_routes.route('/<int:id>/commission', methods=['GET'])
 def get_commissions(id):
   commissions = Commission.query.filter_by(user_id = id).all()
   print("commissions!!!", commissions)
   return {"commissions" : [commission.to_dict() for commission in commissions]}
   # return {"commissions" : [commission.to_dict() for commission in commissions]}
-  
+
+# GET ONE COMMISSION
+@commission_routes.route('/request/<int:id>', methods=['GET'])
+def get_a_commission(id):
+  commission = Commission.query.get(id)
+  return commission.to_dict()
 
 
 # POST A COMMISSION (CREATE A COMMISSION)

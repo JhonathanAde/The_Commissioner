@@ -1,9 +1,21 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
-const RequestForm = () => {
+
+const RequestForm = ({user}) => {
+
+  const [urgency, setUrgency] = useState(false)
+
+  const updateUrgency = (e) => {
+    setUrgency(e.target.value)
+  }
+
+  console.log(urgency)
+  console.log(user)
 
   return (
+    <>
     <form>
+      <h1>Request</h1>
       <label>
         Title
       </label>
@@ -16,7 +28,7 @@ const RequestForm = () => {
         Description
       </label>
       <textarea
-        name="description"
+        name="details"
         placeholder="Enter description here"
       />
       <label>References</label>
@@ -27,8 +39,40 @@ const RequestForm = () => {
         placeholder="upload images"
       />
       
+      <label>
+        Urgent?
+      </label>
+      <div className="choices">
 
+      <label>Yes</label>
+      <input
+        name="urgent"
+        type="radio"
+        value={true}
+        onChange={updateUrgency} 
+      />
+
+      <label>No</label>
+      <input
+        name="urgent"
+        type="radio"
+        value={false} 
+        onChange={updateUrgency}
+      />
+      </div>
+
+      <label>Price</label>
+      <input 
+        name="price"
+        type="number"
+        placeholder="$0.00"
+        min="0.00"
+        step="0.01"      
+      />
     </form>
+
+    <div> </div>
+    </>
   )
 }
 
