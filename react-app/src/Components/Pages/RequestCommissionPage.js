@@ -22,9 +22,11 @@ const RequestCommissionPage = ({user}) => {
 
   return (
     <>
+    { comData &&
       <div>
-        <RequestForm user={user} commissionId={commissionId}/>
+        <RequestForm currentUser={user} commissionId={commissionId} commission={comData.commission}/>
       </div>
+    }
     </>
   )
 }

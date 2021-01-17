@@ -1,20 +1,66 @@
 import React, {useState, useEffect} from "react";
+import { createRequest } from "../services/request"
 
 
-const RequestForm = ({user}) => {
+const RequestForm = ({currentUser, commissionId, commission}) => {
 
+  const [title, setTitle] = useState("")
+  const [details, setDetails] = useState("")
+  const [references, setReferences] = useState("")
   const [urgency, setUrgency] = useState(false)
+  const [date, setDate] = useState("")
+  const [price, setPrice] = useState(0.00)
+  const [errors, setErrors] = useState([])
+
+
+  
+  const {user, image_url} = commission
+  const {id} = user
+  
+  console.log(currentUser.id)
+  console.log(id)
+  console.log(image_url)
+
+  const updateTitle = (e) => {
+    setTitle(e.target.value)
+  }
+
+  const updateDetails = (e) => {
+    setDetails(e.target.value)
+  }
+
+  const updateReferences = (e) => {
+    setReferences(e.target.value)
+  }
 
   const updateUrgency = (e) => {
     setUrgency(e.target.value)
   }
 
-  console.log(urgency)
-  console.log(user)
+  const updateDate = (e) => {
+    setDate(e.target.value)
+  }
+
+  const updatePrice = (e) => {
+    setPrice(e.target.value)
+  }
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const request = await createRequest(title, details, references, urgency, date, commissionId, price, id, currentUser.id, image_url)
+    if (request.errors) {
+      setErrors(commission.errors);
+    }
+  }
 
   return (
-    <>
-    <form>
+    <div>
+      <div>
+        {errors.map(error => {
+            <div>{error}</div>
+        })}
+      </div>
+    <form onSubmit={submitHandler}>
       <h1>Request</h1>
       <label>
         Title
@@ -23,6 +69,7 @@ const RequestForm = ({user}) => {
         name="title"
         type="text"
         placeholder="Title"
+        onChange={updateTitle}
       />
       <label>
         Description
@@ -30,6 +77,7 @@ const RequestForm = ({user}) => {
       <textarea
         name="details"
         placeholder="Enter description here"
+        onChange={updateDetails}
       />
       <label>References</label>
       <p>If you have any reference images that you want to provide please upload them below.</p>
@@ -37,6 +85,7 @@ const RequestForm = ({user}) => {
         name="references"
         type="url"
         placeholder="upload images"
+        onChange={updateReferences}
       />
       
       <label>
@@ -59,20 +108,18 @@ const RequestForm = ({user}) => {
         value={false} 
         onChange={updateUrgency}
       />
+
       </div>
 
-      <label>Price</label>
       <input 
-        name="price"
-        type="number"
-        placeholder="$0.00"
-        min="0.00"
-        step="0.01"      
+        name="date"
+        type="date"
+        onChange={updateDate}
       />
+      <img src={image_url} />
+      <button type="submit">Submit</button>
     </form>
-
-    <div> </div>
-    </>
+    </div>
   )
 }
 

@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 flask = "*"
+awscli = "*"
+boto3 = "*"
 
 [dev-packages]
 

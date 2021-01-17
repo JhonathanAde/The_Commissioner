@@ -1,5 +1,10 @@
 from flask import Blueprint, jsonify, request, url_for
+from werkzeug.utils import secure_filename
 
+import boto3
+import mimetypes
+
+# MODELS
 from app.Models import Commission, db
 from app.Forms import CommissionForm
 
@@ -41,7 +46,18 @@ def create_a_commission():
   form = CommissionForm()
   form['csrf_token'].data = request.cookies['csrf_token']
   print("it stops here!")
+
+  image = ''
+  image_path = '' 
   if form.validate_on_submit():
+      # if request.files:
+    #   image = request.files['image']
+    #   image_name = secure_filename(image.filename)
+
+    #   mime_type = mimetypes.guess_type(image_name)
+
+    #   s3 = boto3.resource('s3')
+    #   uploaded_image = s3.Bucket('')
     commission = Commission(
       title=form.data['title'],
       description=form.data['description'],
@@ -53,7 +69,6 @@ def create_a_commission():
       expired=form.data['expired'],
       user_id=form.data['user_id']
     )
-    print(commission)
 
     db.session.add(commission)
     db.session.commit()

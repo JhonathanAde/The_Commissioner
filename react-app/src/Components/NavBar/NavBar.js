@@ -19,7 +19,7 @@ const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
             Create A Commission
           </NavLink>
           <NavLink to="/request">Request</NavLink>
-          <NavLink to="/profile">Profile</NavLink>
+          <NavLink to={`/${user.username}/profile`}>Profile</NavLink>
           <LogoutButton setAuthenticated={setAuthenticated} setUser={setUser} user={user}/>
           </>
           : 

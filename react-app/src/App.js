@@ -18,6 +18,7 @@ import ProductPage from "./Components/Pages/Product/ProductPage"
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const [user, setUser] = useState({})
+  const [ids, setids] = useState({})
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -57,7 +58,10 @@ function App() {
         <Route path="/product/:commissionId" exact={true}>
           <ProductPage authenticated={authenticated} user={user}/>
         </Route>
-        <Route path="/profile" exact={true}>
+        <Route path="/:username/profile" exact={true}>
+          <Profilepage authenticated={authenticated} user={user}/>
+        </Route>
+        <Route path="/profile/:userId" exact={true}>
           <Profilepage authenticated={authenticated} user={user}/>
         </Route>
         {/* <Route path="/sign-up" exact={true}>
