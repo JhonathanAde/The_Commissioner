@@ -10,9 +10,12 @@ const BasicInfoCard = () => {
         <div className="name-info">
           <h1>Full Name</h1>
         </div>
-        <div>
+        <div className='plug-info'>
         <h3>Title</h3>
         <p>Website</p>
+        </div>
+        <div className="location">
+          <p>Location</p>
         </div>
         <div className="bio">
           <h5>bio</h5>

@@ -56,26 +56,39 @@ const Profilepage = ({authenticated, user}) => {
 
 
   return (
-    <div>
-      <div className="profile-banner" />
-      <div className="profile-card">
-        <BasicInfoCard />
-      </div>
-      <div className='commission-slot'>
-        <h1>Commissions</h1>
-        <div className='commission-slot-display'>
-       {userCommissions && userCommissions.commissions.map((com, idx) => (
-         <ProfileCommCards com={com} key={idx}/>
-       ))}
+    <>
+    <div className="profile-banner" />
+    <div className="profile-layout">
+      <div className="profile-left">
+        <div className="profile-card">
+          <BasicInfoCard />
+        </div>
+        <div className='commission-slot'>
+          <h1>Commissions</h1>
+          <div className='commission-slot-display'>
+        {userCommissions && userCommissions.commissions.map((com, idx) => (
+          <ProfileCommCards com={com} key={idx}/>
+        ))}
+          </div>
+        </div>
+        <div>
+          <div className="displays">
+
+
+          </div>
+          {/* {userRequests && userRequests.requests.map((req, idx) => (
+            <RequestCards request={req} key={idx}/>
+          ))} */}
         </div>
       </div>
-      <div>
-        {userRequests && userRequests.requests.map((req, idx) => (
-          <RequestCards request={req} key={idx}/>
-        ))}
-      </div>
 
+      <div className="profile-right">
+          <div className="reviews">
+            <h1>Reviews</h1>
+          </div>
+      </div>
     </div>
+    </>
   )
 }
 

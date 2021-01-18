@@ -1,15 +1,20 @@
+.profile-layout {
+  display: flex;
+}
+
 .commission-slot {
   display: flex;
   flex-direction: column;
-  height: 20rem;
-  width: 40rem;
-  margin-left: 20rem;
-  margin-top: -26rem;
+  height: 23rem;
+  width: 50rem;
+  margin-left: 21rem;
+  margin-top: -29rem;
 }
 
 .commission-slot-display {
   display: flex;
   overflow-x: scroll;
+  height: 23rem;
 }
 
 .profile-card {
@@ -22,4 +27,26 @@
 .profile-banner {
   background-color: black;
   height: 200px;
+}
+
+.displays {
+  background-color: lightgray;
+  height: 50rem;
+  width: 70rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.reviews {
+  background-color: lightgray;
+  position: relative;
+  width: 20rem;
+  height: 60rem;
+  margin-top: .75rem;
+  margin-left: 1.5rem;
+  top: .25rem
+}
+
+.reviews h1 {
+  padding-left: .25rem;
 }

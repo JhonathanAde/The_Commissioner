@@ -18,10 +18,6 @@
   border-radius: 100px;
 }
 
-.name-info {
-  /* margin: 2rem 2.75rem; */
-}
-
 .name-info h1 {
   font-size: 2rem;
   /* margin: .5rem; */
@@ -34,9 +30,32 @@
   padding: .5rem;
 }
 
+.plug-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -1.75rem;
+}
+
+.plug-info p {
+  margin-top: -.5rem;
+}
+
 
 .bio {
   background-color: lightgray;
   width: 15rem;
   height: 6rem;
+}
+
+.bio h5 {
+  margin-top: .25rem;
+  margin-left: .25rem;
+}
+
+.location {
+ display: flex;
+ align-items: center;
+ margin-bottom: 1rem;
+ margin-top: -1rem;
 }

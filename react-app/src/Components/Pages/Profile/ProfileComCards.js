@@ -15,26 +15,29 @@ const ProfileCommCards = ({com}) => {
 
   return (
     <>
-      <div className="procommission-card">
-      <div className="procommission-card__image">
-        <img src={commission.image_url} />
-      </div>
-      <div className="procommission-card__maininfo">
-        <NavLink to={`/product/${commission.id}`}>
-          <h1>{commission.title}</h1>
-        </NavLink>
-        <NavLink to="/profile">
-        <h4>{user.username}</h4>
-        </NavLink>
-      </div>
-      <div className="procommission-card__rating">
-        {/* <div className="commission-card__ratingdiv"> */}
-        <p>Rating_stars</p>
-        <p>rating_number</p>
-        <div className="procommission-card__pricediv">  
-        <p>{`$${commission.price}`}</p>
+      <div className="procommission-card-body">
+        <div className="procommission-card-content">
+          <div className="image-container">
+            <div className="image-container-img">
+              <img src={commission.image_url} />
+            </div>
+          </div>
+          <div className="info-container">
+            <div className="user-info">
+             <NavLink to={`/product/${commission.id}`}>
+             <h1>{commission.title}</h1>
+            </NavLink>
+            <NavLink to="/profile">
+              <h4>{user.username}</h4>
+            </NavLink>
+            </div>
+          <div className="rating-info">
+            <p>Rating_stars</p>
+            <p>rating_number</p>
+            <p>{`$${commission.price}`}</p>
+          </div>
+          </div>
         </div>
-      </div>
       </div>
     </>
   )
