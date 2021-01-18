@@ -16,9 +16,12 @@
 }
 
 .procommission-card__image img {
+  display: block;
   border-radius: 3px;
-  height: 15.6rem;
-  width: 18.75rem;
+  max-height: 15.6rem;
+  max-width: 18.75rem;
+  height: fit-content;
+  width: fit-content;
 }
 
 .procommission-card__maininfo {

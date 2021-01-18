@@ -6,6 +6,10 @@ import { getRequestsById } from '../../services/request'
 import ProfileCommCards from './ProfileComCards'
 import RequestCards from './RequestCards'
 
+//CSS
+import './ProfilePage.css'
+import BasicInfoCard from './BasicInfoCard'
+
 const Profilepage = ({authenticated, user}) => {
  
   const [userRequests, setUserRequests] = useState(null)
@@ -53,11 +57,17 @@ const Profilepage = ({authenticated, user}) => {
 
   return (
     <div>
-      <h1>Profile page</h1>
-      <div>
+      <div className="profile-banner" />
+      <div className="profile-card">
+        <BasicInfoCard />
+      </div>
+      <div className='commission-slot'>
+        <h1>Commissions</h1>
+        <div className='commission-slot-display'>
        {userCommissions && userCommissions.commissions.map((com, idx) => (
          <ProfileCommCards com={com} key={idx}/>
        ))}
+        </div>
       </div>
       <div>
         {userRequests && userRequests.requests.map((req, idx) => (

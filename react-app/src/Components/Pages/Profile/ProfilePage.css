@@ -1,0 +1,25 @@
+.commission-slot {
+  display: flex;
+  flex-direction: column;
+  height: 20rem;
+  width: 40rem;
+  margin-left: 20rem;
+  margin-top: -26rem;
+}
+
+.commission-slot-display {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.profile-card {
+  position: relative;
+  bottom: 5rem;
+  z-index: 100;
+  width: 17rem;
+}
+
+.profile-banner {
+  background-color: black;
+  height: 200px;
+}
