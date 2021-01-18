@@ -37,9 +37,13 @@ def get_requests_id(id):
 def create_request():
   form = RequestForm()
   form['csrf_token'].data = request.cookies['csrf_token']
+
+  image = ''
+  image_path = ''
   if form.validate_on_submit():
     if request.files:
-      image = request.files['image']
+      image = request.files['references']
+      print('went here')
       image_name = secure_filename(image.filename)
 
       mime_type = mimetypes.guess_type(image_name)
@@ -50,22 +54,23 @@ def create_request():
       image_path = f"https://commissioner-requests.s3.amazonaws.com/{image_name}"
     else:
       print("Files weren't sent!!")
-      com_request = Request(
-        title=form.data['title'],
-        details=form.data['details'],
-        references=image_path,
-        urgency=form.data['urgency'],
-        date=form.data['date'],
-        commission_id=form.data['commission_id'],
-        price=form.data['price'],
-        user_id=form.data['user_id'],
-        buyer_id=form.data['buyer_id'],
-        image_url=form.data['image_url']
-      )
 
-      db.session.add(com_request)
-      db.session.commit()
-      return com_request.to_dict()
+    com_request = Request(
+      title=form.data['title'],
+      details=form.data['details'],
+      references=image_path,
+      urgency=form.data['urgency'],
+      date=form.data['date'],
+      commission_id=form.data['commission_id'],
+      price=form.data['price'],
+      user_id=form.data['user_id'],
+      buyer_id=form.data['buyer_id'],
+      image_url=form.data['image_url']
+    )
+
+    db.session.add(com_request)
+    db.session.commit()
+    return com_request.to_dict()
 
   else:
     return {'errors': validation_errors_to_errors_messages(form.errors)}, 401

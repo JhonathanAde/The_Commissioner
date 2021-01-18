@@ -30,9 +30,9 @@ const RequestForm = ({currentUser, commissionId, commission}) => {
   }
 
   const updateReferences = (e) => {
-    setReferences(e.target.value)
+    setReferences(e.target.files[0])
   }
-
+  console.log(references)
   const updateUrgency = (e) => {
     setUrgency(e.target.value)
   }
@@ -45,17 +45,25 @@ const RequestForm = ({currentUser, commissionId, commission}) => {
     setPrice(e.target.value)
   }
 
+  const prevent = (e) => {
+    e.preventDefault()
+  }
+
   const submitHandler = async (e) => {
     e.preventDefault();
-    const requestData = FormData()
+    const requestData = new FormData()
     requestData.append('title', title)
     requestData.append('details', details)
     requestData.append('references', references)
     requestData.append('urgency', urgency)
     requestData.append('date', date)
     requestData.append('commission_id', commissionId)
-    requestData.append('price', )
-    const request = await createRequest(title, details, references, urgency, date, commissionId, price, id, currentUser.id, image_url)
+    requestData.append('price', price)
+    requestData.append('user_id', id)
+    requestData.append('buyer_id', currentUser.id)
+    requestData.append('image_url', image_url)
+    const request = await createRequest(requestData)
+    console.log(requestData)
     if (request.errors) {
       setErrors(commission.errors);
     }
@@ -87,14 +95,17 @@ const RequestForm = ({currentUser, commissionId, commission}) => {
         placeholder="Enter description here"
         onChange={updateDetails}
       />
-      <label>References</label>
+      <div>
+      <label htmlFor="images">References</label>
       <p>If you have any reference images that you want to provide please upload them below.</p>
       <input
         name="references"
-        type="url"
+        type="file"
         placeholder="upload images"
         onChange={updateReferences}
       />
+      <button className='file-button' onClick={prevent}>Upload</button>
+      </div>
       
       <label>
         Urgent?
