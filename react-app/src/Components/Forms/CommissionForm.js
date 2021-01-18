@@ -38,12 +38,21 @@ const CommissionForm = ({authenticated, user}) => {
 
   const commisisonHandleSubmit = async (e) => {
     e.preventDefault();
-    const commission = await createCommission(title, description, image_url, price, requests, dateCreated, date, userId, );
+    const commissionData = new FormData()
+    commissionData.append('title', title)
+    commissionData.append('description', description)
+    commissionData.append('image', image_url)
+    commissionData.append('price', price)
+    commissionData.append('request_amt', requests)
+    commissionData.append('date_created', dateCreated)
+    commissionData.append('duration', date)
+    commissionData.append('user_id', userId)
+    const commission = await createCommission(commissionData);
     if (commission.errors) {
       setErrors(commission.errors);
     }
 
-    history.push("/")
+    // history.push("/")
   }
 
   const updateTitle = (e) => {
@@ -54,8 +63,10 @@ const CommissionForm = ({authenticated, user}) => {
     setDescription(e.target.value)
   }
   const updateImage = (e) => {
-    setImage(e.target.value)
+    setImage(e.target.files[0])
   }
+  console.log(image_url)
+
   const updateRequests = (e) => {
     setRequests(e.target.value)
   }
@@ -64,6 +75,11 @@ const CommissionForm = ({authenticated, user}) => {
   }
   const updateDate = (e) => {
     setDate(e.target.value)
+  }
+
+  const prevent = (e) => {
+    e.preventDefault();
+    console.log('file uploaded')
   }
 
 
@@ -98,15 +114,18 @@ const CommissionForm = ({authenticated, user}) => {
             placeholder="Add description"
             onChange={updateDescription}
             />
-          <label>
+          <label htmlFor="">
             Image:
           </label>
+          <div className="image-file-input">
           <input
             name="image_url"
-            type="text"
+            type="file"
             placeholder="upload an image" 
             onChange={updateImage}
             />
+            <button className='file-button' onClick={prevent}>Upload</button>
+          </div>
           <label>
             Price:
           </label>

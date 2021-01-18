@@ -9,7 +9,7 @@ class Commission(db.Model):
   description = db.Column(db.String(255), nullable = False)
   image_url = db.Column(db.String(255), nullable = False)
   price = db.Column(db.Integer, nullable = True)
-  requests = db.Column(db.Integer, nullable = False)
+  request_amt = db.Column(db.Integer, nullable = False)
   date_created = db.Column(db.Date, nullable = False)
   duration = db.Column(db.Date, nullable = True)
   expired = db.Column(db.Boolean, nullable = True)
@@ -25,6 +25,7 @@ class Commission(db.Model):
       "description": self.description,
       "image_url": self.image_url,
       "price": self.price,
+      "request_amt": self.request_amt,
       "date_created": self.date_created,
       "duration": self.duration,
       "expired" : self.expired,

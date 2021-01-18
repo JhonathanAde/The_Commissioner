@@ -47,6 +47,14 @@ const RequestForm = ({currentUser, commissionId, commission}) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    const requestData = FormData()
+    requestData.append('title', title)
+    requestData.append('details', details)
+    requestData.append('references', references)
+    requestData.append('urgency', urgency)
+    requestData.append('date', date)
+    requestData.append('commission_id', commissionId)
+    requestData.append('price', )
     const request = await createRequest(title, details, references, urgency, date, commissionId, price, id, currentUser.id, image_url)
     if (request.errors) {
       setErrors(commission.errors);

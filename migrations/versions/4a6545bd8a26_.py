@@ -44,7 +44,7 @@ def upgrade():
     sa.Column('description', sa.String(length=255), nullable=False),
     sa.Column('image_url', sa.String(length=255), nullable=False),
     sa.Column('price', sa.Integer(), nullable=True),
-    sa.Column('requests', sa.Integer(), nullable=False),
+    sa.Column('request_amt', sa.Integer(), nullable=False),
     sa.Column('date_created', sa.Date(), nullable=False),
     sa.Column('duration', sa.Date(), nullable=True),
     sa.Column('expired', sa.Boolean(), nullable=True),

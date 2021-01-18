@@ -45,34 +45,39 @@ def get_a_commission(id):
 def create_a_commission():
   form = CommissionForm()
   form['csrf_token'].data = request.cookies['csrf_token']
-  print("it stops here!")
 
   image = ''
   image_path = '' 
   if form.validate_on_submit():
-      # if request.files:
-    #   image = request.files['image']
-    #   image_name = secure_filename(image.filename)
+    if request.files:
+      image = request.files['image']
+      image_name = secure_filename(image.filename)
 
-    #   mime_type = mimetypes.guess_type(image_name)
+      mime_type = mimetypes.guess_type(image_name)
 
-    #   s3 = boto3.resource('s3')
-    #   uploaded_image = s3.Bucket('')
+      s3 = boto3.resource('s3')
+      print(s3)
+      uploaded_image = s3.Bucket('commissioner-commissions').put_object(Key=image_name, Body=image, ACL='public-read', ContentType=mime_type[0])
+
+      image_path = f"https://commissioner-commissions.s3.amazonaws.com/{image_name}"
+    else:
+        print("Files weren't sent!!")
+
     commission = Commission(
       title=form.data['title'],
       description=form.data['description'],
-      image_url=form.data['image'],
+      image_url=image_path,
       price=form.data['price'],
-      requests=form.data['requests'],
+      request_amt=form.data['request_amt'],
       date_created=form.data['date_created'],
       duration=form.data['duration'],
       expired=form.data['expired'],
       user_id=form.data['user_id']
     )
-
+    print('it gets to here')
     db.session.add(commission)
     db.session.commit()
     return commission.to_dict()
   else:
-    return {'errors': validation_errors_to_errors_messages(form.errors)}, 401
+      return {'errors': validation_errors_to_errors_messages(form.errors)}, 401
     

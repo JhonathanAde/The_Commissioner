@@ -6,7 +6,7 @@ from flask_wtf.file import FileAllowed
 class RequestForm(FlaskForm):
   title = StringField('Title', validators=[DataRequired()])
   details = TextAreaField('Details', validators=[DataRequired()])
-  references = StringField('References')
+  references = FileField('References', validators=[FileAllowed(['jpg', 'jpeg', 'png'], 'jpg, jpeg and png only!')])
   urgency = BooleanField('Urgency',validators=[DataRequired()])
   date = DateField('Date')
   commission_id = IntegerField('CommissionId')
