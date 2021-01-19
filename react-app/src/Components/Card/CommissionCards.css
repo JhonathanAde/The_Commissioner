@@ -1,45 +1,92 @@
-.commission-card{
-  background-color: grey;
-  border-radius: 3px;
-  height: 350px;
-  width: 300px;
-  display: flex;
+.commission-card-body {
+  min-height: 15rem;
+  min-width: 13rem;
+  background-color: whitesmoke;
   margin: .5rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+}
+
+.commission-card-content {
+  display: flex;
   flex-direction: column;
-  box-shadow: -8px 8px 7.2px rgba(0, 0, 0, 0.2);
+  min-width: 13rem;
+  min-height: 11rem;
+  max-width: 13rem;
+  max-height: 11rem;
 }
 
-.commission-card__image{
-  background-color: hotpink;
-  padding: 5px;
-  height: 250px;
+.image-container {
+  /* background-color: burlywood; */
+  position: relative;
+  height: 12rem;
 }
 
-.commission-card__maininfo {
-  background-color: wheat;
-  /* padding: .35rem .25rem; */
-  height: 80px;
-  margin-bottom: 32px;
+.image-container-img {
+  position: relative;
+  /* height: 100%; */
+  min-width: 13rem;
+  max-width: 13rem;
+  min-height: 11rem;
+  max-height: 11rem;
+  /* visibility: hidden; */
 }
 
-.commission-card__maininfo p {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding: 4px;
+.image-container-img img {
+  height: 50%;
+  width: 50%;
+  min-width: 13rem;
+  max-width: 13rem;
+  min-height: 10rem;
+  max-height: 10rem;
+  /* visibility: hidden; */
 }
 
-.commission-card__rating {
+.info-container {
+  /* background-color: coral; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  top: -1rem;
+  /* margin-top: -.75rem; */
+  /* padding: .25rem; */
+}
+
+.user-info * {
+  padding: .05rem 0rem;
+  margin-bottom: 2rem;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  min-width: 12.5rem;
+}
+
+.user-info h1 {
+  font-size: 1rem;
+  font-weight: bold;
+  /* top: -.55rem; */
+  min-width: 13rem;
+  /* margin-bottom: -1rem; */
+}
+
+.rating-info {
   display: flex;
   justify-content: space-between;
-  padding: 3px 4px
+  
 }
 
-.commission-card__rating p {
-  font-size: .5rem;
+.rating-info * {
+  /* position: absolute; */
+  font-size: .70rem;
+  font-weight: bold;
+  
 }
 
-.commission-card__ratingdiv {
-  display: flex;
-  justify-content: space-evenly;
+.labels {
+  /* padding-bottom: .25rem; */
+  /* margin-bottom: -1.25rem; */
+  width: 2rem;
 }
-

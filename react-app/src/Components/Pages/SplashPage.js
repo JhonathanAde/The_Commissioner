@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from "react";
-import { NavLink } from "react-router-dom";
+import React, {useState} from "react";
 import LoginForm from "../auth/LoginForm";
 import SignUpForm from "../auth/SignUpForm";
+// import { NavLink } from "react-router-dom";
 
 //CSS
 import "./SplashPage.css"

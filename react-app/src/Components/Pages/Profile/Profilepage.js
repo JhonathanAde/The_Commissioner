@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import { useParams, useHistory } from "react-router-dom"
-import CommissionCards from '../../Card/CommissionCards'
 import { getCommissionsById } from '../../services/commission'
 import { getRequestsById } from '../../services/request'
 import ProfileCommCards from './ProfileComCards'
-import RequestCards from './RequestCards'
+// import CommissionCards from '../../Card/CommissionCards'
+// import RequestCards from './RequestCards'
 
 //CSS
 import './ProfilePage.css'
@@ -34,7 +34,7 @@ const Profilepage = ({authenticated, user}) => {
         history.push(`/profile/${userId}`)
       }
     })()
-  },[user.id])
+  },[user.id, history, userId])
 
 
   // useEffect(() => {
@@ -46,8 +46,8 @@ const Profilepage = ({authenticated, user}) => {
   // },[])
 
   
-  console.log(userCommissions)
-  console.log(userRequests)
+  // console.log(userCommissions)
+  // console.log(userRequests)
   // const {commissions} = userCommissions
   // console.log(commissions)
  

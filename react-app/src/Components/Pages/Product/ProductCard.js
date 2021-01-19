@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 // CSS:
@@ -7,13 +7,14 @@ import "./ProductCard.css"
 const ProductCard = ({commission}) => {
   const {id, title, description, image_url, user} = commission
   const {username} = user
-  console.log(commission)
-  console.log(username)
+  // console.log(commission)
+  // console.log(username)
 
   return (
+    <>
     <div className="product">
       <div className="product-display">
-        <img src={image_url} />
+        <img src={image_url} alt="product"/>
       </div>
 
       <div className="product-info">
@@ -30,6 +31,7 @@ const ProductCard = ({commission}) => {
         </NavLink>
       </div>
     </div>
+    </>
   )
 }
 

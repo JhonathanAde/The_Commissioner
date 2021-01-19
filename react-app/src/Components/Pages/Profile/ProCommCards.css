@@ -1,94 +1,91 @@
-
-/* .procommission-card-body{
-  background-color:blue;
-  border-radius: 3px;
-  height: 250px;
-  width: 200px;
-  display: flex;
-  margin: 1rem;
-  flex-direction: column;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
-}
-
- .procommission-card__image{
-   background-color: hotpink;
-   padding: 0px;
-   height: 175px; 
-  }  
-
-.procommission-card__image img {
-  display: block;
-  border-radius: 3px;
-  height: 8.7rem;
-  width: 12.5rem;
-  /* visibility: hidden; */
-/* } */
-
-/* .procommission-card__maininfo { */
-  /* background-color: wheat; */
-  /* padding: .35rem .25rem; */
-  /* height: 80px; */
-  /* margin-bottom: 12px; */
-/* } */
-
-/* .procommission-card__maininfo h1 {
-  font-size: 1.25rem;
-  margin: 0.15rem .25rem
-}
-
-.procommission-card__maininfo h4 {
-  margin: 0.5rem .25rem
-}
-
-.procommission-card__rating {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  padding: 3px 5px;
-  bottom: .6rem;
-}
-
-.procommission-card__rating p {
-  font-weight: bold;
-  font-size: .5rem;
-}  */
-
 .procommission-card-body {
-  height: 15rem;
-  width: 13rem;
-  background-color: blue;
-  margin: 1rem;
+  min-height: 15rem;
+  min-width: 13rem;
+  background-color: whitesmoke;
+  margin: .5rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
 }
 
 .procommission-card-content {
-  position: absolute;
   display: flex;
   flex-direction: column;
-  width: 12%;
-  height: 38%;
+  min-width: 13rem;
+  min-height: 11rem;
+  max-width: 13rem;
+  max-height: 11rem;
 }
 
 .image-container {
-  background-color: burlywood;
+  /* background-color: burlywood; */
   position: relative;
-  height: 65%;
+  height: 12rem;
 }
 
 .image-container-img {
   position: relative;
-  height: 100%;
+  /* height: 100%; */
+  min-width: 13rem;
+  max-width: 13rem;
+  min-height: 11rem;
+  max-height: 11rem;
   /* visibility: hidden; */
 }
 
 .image-container-img img {
-  position: absolute;
-  height: 100%;
-  width: 100%;
+  height: 50%;
+  width: 50%;
+  min-width: 13rem;
+  max-width: 13rem;
+  min-height: 10rem;
+  max-height: 10rem;
   /* visibility: hidden; */
 }
 
 .info-container {
-  background-color: coral;
+  /* background-color: coral; */
   position: relative;
-  height: 40%;
+  display: flex;
+  flex-direction: column;
+  top: -1rem;
+  margin-top: -.75rem;
+  padding: .25rem;
+}
+
+.user-info * {
+  padding: .05rem 0rem;
+  margin-bottom: 2rem;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  min-width: 12.5rem;
+}
+
+.user-info h1 {
+  font-size: 1rem;
+  font-weight: bold;
+  /* top: -.55rem; */
+  min-width: 13rem;
+  margin-bottom: -1rem;
+}
+
+.rating-info {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.rating-info * {
+  /* position: absolute; */
+  font-size: .70rem;
+  font-weight: bold;
+  
+}
+
+.labels {
+  padding-bottom: .25rem;
+  margin-bottom: -1.25rem;
 }

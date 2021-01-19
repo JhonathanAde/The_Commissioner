@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import { useHistory } from "react-router-dom";
 import {createCommission} from "../services/commission"
 
@@ -27,12 +27,12 @@ const CommissionForm = ({authenticated, user}) => {
 
   const dayFormat = String(currentDay).padStart(2, 0)
   const monthFormat = String(currentMonth + 1).padStart(2, 0)
-  console.log(dayFormat)
-  console.log(monthFormat)
-  console.log(currentDateTime)
+  // console.log(dayFormat)
+  // console.log(monthFormat)
+  // console.log(currentDateTime)
 
   const dateCreated = `${currentYear}-${monthFormat}-${dayFormat}`
-  console.log(dateCreated)
+  // console.log(dateCreated)
 
   const history = useHistory()
 
@@ -50,9 +50,10 @@ const CommissionForm = ({authenticated, user}) => {
     const commission = await createCommission(commissionData);
     if (commission.errors) {
       setErrors(commission.errors);
+    } else {
+      history.push(`/${user.username}/profile`)
     }
 
-    // history.push("/")
   }
 
   const updateTitle = (e) => {
@@ -83,91 +84,96 @@ const CommissionForm = ({authenticated, user}) => {
   }
 
 
-  console.log(date)
-  console.log(price)
-  console.log(requests)
-  console.log(description)
+  // console.log(date)
+  // console.log(price)
+  // console.log(requests)
+  // console.log(description)
 
   return (
-    <div className="commform-div">
-        <div>
-          {errors.map(error => {
-            <div>{error}</div>
-          })}
-        </div>
-      <form onSubmit={commisisonHandleSubmit}>
-          <label>
-            Title
-          </label>
-          <input
-            name="title"
-            type="text"
-            placeholder="Title"
-            onChange={updateTitle}
-            />
-          <label>
-            Description
-          </label>
-          <textarea
-            name="description"
-            type="textarea"
-            placeholder="Add description"
-            onChange={updateDescription}
-            />
-          <label htmlFor="">
-            Image:
-          </label>
-          <div className="image-file-input">
-          <input
-            name="image_url"
-            type="file"
-            placeholder="upload an image" 
-            onChange={updateImage}
-            />
-            <button className='file-button' onClick={prevent}>Upload</button>
+    <div>
+      <div className="image">
+        <img src={image_url} alt="Commission"/>
+      </div>
+      <div className="commform-div">
+          <div>
+            {errors.map(error => (
+              <div>{error}</div>
+            ))}
           </div>
-          <label>
-            Price:
-          </label>
-          <input 
-            name="price"
-            type="number"
-            step="0.01"
-            min= "0.00"
-            placeholder="$0.00"
-            onChange={updatePrice}
-            />
-          <label>Number Of Requests</label>
-          {/* <p> Set the maximum amount of requests that you want to receive for this commission</p> */}
-          <input
-            name="requests"
-            type="number"
-            min="0"
-            placeholder="0"
-            onChange={updateRequests}
-            />
-          <label>Duration</label>
-          <p>Do you want to set a duration for this commission?</p>
-        <div className="duration-options">
-          <label>
-            Yes
-          <input type="radio" value="true" onChange={setDuration}/>
-          </label>
-          <label>
-            No
-          <input type="radio" value="false" onChange={setDuration}/>
-          </label>
-        </div>
-          <label>
-            Ends:
-          </label>
-          <input 
-            name="date"
-            type="date"
-            onChange={updateDate}
-            />
-        <button type="submit">Submit</button>
-      </form>
+        <form onSubmit={commisisonHandleSubmit}>
+            <label>
+              Title
+            </label>
+            <input
+              name="title"
+              type="text"
+              placeholder="Title"
+              onChange={updateTitle}
+              />
+            <label>
+              Description
+            </label>
+            <textarea
+              name="description"
+              type="textarea"
+              placeholder="Add description"
+              onChange={updateDescription}
+              />
+            <label htmlFor="">
+              Image:
+            </label>
+            <div className="image-file-input">
+            <input
+              name="image_url"
+              type="file"
+              placeholder="upload an image" 
+              onChange={updateImage}
+              />
+              <button className='file-button' onClick={prevent}>Upload</button>
+            </div>
+            <label>
+              Price:
+            </label>
+            <input 
+              name="price"
+              type="number"
+              step="0.01"
+              min= "0.00"
+              placeholder="$0.00"
+              onChange={updatePrice}
+              />
+            <label>Number Of Requests</label>
+            {/* <p> Set the maximum amount of requests that you want to receive for this commission</p> */}
+            <input
+              name="requests"
+              type="number"
+              min="0"
+              placeholder="0"
+              onChange={updateRequests}
+              />
+            <label>Duration</label>
+            <p>Do you want to set a duration for this commission?</p>
+          <div className="duration-options">
+            <label>
+              Yes
+            <input type="radio" value="true" onChange={setDuration}/>
+            </label>
+            <label>
+              No
+            <input type="radio" value="false" onChange={setDuration}/>
+            </label>
+          </div>
+            <label>
+              Ends:
+            </label>
+            <input 
+              name="date"
+              type="date"
+              onChange={updateDate}
+              />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   )
 }

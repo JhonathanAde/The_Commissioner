@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from "react";
 import { BrowserRouter, Route, Switch} from "react-router-dom";
-import LoginForm from "./Components/auth/LoginForm";
-import SignUpForm from "./Components/auth/SignUpForm";
-import ProtectedRoute from "./Components/auth/ProtectedRoute"
 import NavBar from "./Components/NavBar/NavBar"
-import TodoPage  from "./Components/Pages/TodoPage"
 import { authenticate } from "./Components/services/auth";
+// import LoginForm from "./Components/auth/LoginForm";
+// import SignUpForm from "./Components/auth/SignUpForm";
+// import ProtectedRoute from "./Components/auth/ProtectedRoute"
+// import TodoPage  from "./Components/Pages/TodoPage"
 
 // Imported Pages
 import Homepage from "./Components/Pages/HomePage";
@@ -14,13 +14,13 @@ import CreateCommissionPage from "./Components/Pages/CreateCommissionPage";
 import SplashPage from "./Components/Pages/SplashPage";
 import RequestCommissionPage from "./Components/Pages/RequestCommissionPage";
 import ProductPage from "./Components/Pages/Product/ProductPage"
+// import Modal from "./Components/Pages/Modal/Modal"
+// import useModal from "./Components/Pages/Modal/useModal"
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const [user, setUser] = useState({})
-  const [ids, setids] = useState({})
   const [loaded, setLoaded] = useState(false);
-
   useEffect(() => {
     (async() => {
       const data = await authenticate();

@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 
 
 const Dropdown = () => {
-  const [click, setClick] = useState(false)
+  const [visible, setVisible] = useState(false)
 
-  const handleClick = () => setClick(!click)
+  const handleClick = () => setVisible(!visible)
 
   return (
     <>

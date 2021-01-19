@@ -10,7 +10,7 @@ const RequestCards = ({request}) => {
   return(
     <div className='request-card'>
       <div className='request-info'>
-        <img src={image_url} />
+        <img src={image_url} alt="Request photo"/>
         <h1>{title}</h1>
         <p>{date}</p>
       </div>

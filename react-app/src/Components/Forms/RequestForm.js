@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import { createRequest } from "../services/request"
 
 
@@ -17,9 +17,9 @@ const RequestForm = ({currentUser, commissionId, commission}) => {
   const {user, image_url} = commission
   const {id} = user
   
-  console.log(currentUser.id)
-  console.log(id)
-  console.log(image_url)
+  // console.log(currentUser.id)
+  // console.log(id)
+  // console.log(image_url)
 
   const updateTitle = (e) => {
     setTitle(e.target.value)
@@ -72,9 +72,9 @@ const RequestForm = ({currentUser, commissionId, commission}) => {
   return (
     <div>
       <div>
-        {errors.map(error => {
+        {errors.map(error => (
             <div>{error}</div>
-        })}
+        ))}
       </div>
     <form onSubmit={submitHandler}>
       <h1>Request</h1>
@@ -135,7 +135,7 @@ const RequestForm = ({currentUser, commissionId, commission}) => {
         type="date"
         onChange={updateDate}
       />
-      <img src={image_url} />
+      <img src={image_url} alt="Requested Commission"/>
       <button type="submit">Submit</button>
     </form>
     </div>

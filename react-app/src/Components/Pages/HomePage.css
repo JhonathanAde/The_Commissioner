@@ -4,6 +4,11 @@
   height: 30rem;
 }
 
+.homepage_banner-image img{
+  height: 30rem;
+  width: 83.5rem;
+}
+
 .homepage_recentcommbar {
   background-color: white;
   margin: 0rem 13rem;
