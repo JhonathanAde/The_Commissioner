@@ -22,7 +22,14 @@ const Homepage = ({authenticated}) => {
   return (
     <>
     <div className="homepage_banner-image">
-      {/* <img src="https://commissioner-commissions.s3.amazonaws.com/Banner.png" /> */}
+      <div className="banner-text">
+        <h1 id="banner-create">Create</h1>
+        <h1 id="banner-connect">Connect</h1>
+        <h1 id="banner-sell">Sell</h1>
+      </div>
+      <div className="homepage-image-container">
+      <img src="https://commissioner-commissions.s3.amazonaws.com/Commissioner_homepage_banner.png" />
+      </div>
     </div>
     <div className="homepage_recentcommbar">
       <h1>Recent commissions</h1>
