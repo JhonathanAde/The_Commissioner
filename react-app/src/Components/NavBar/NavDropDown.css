@@ -1,0 +1,39 @@
+.nav-dropmenu {
+  height: 20rem;
+  width: 17rem;
+  background-color: black;
+  position: absolute;
+  transform: translate(-15rem, 1rem);
+  animation-name: openUp;
+  animation-duration: 1s;
+}
+
+.nav-dropmenu ul {
+  list-style-type: none;
+  padding: 0rem;
+}
+
+.nav-dropmenu li {
+  border: solid 1px 
+}
+
+.nav-links {
+  font-size: 2rem;
+  text-decoration: none;
+  color: rgba(204, 115, 248, 0);
+  transition: color .5s;
+}
+
+.nav-links:hover {
+  color: rgba(204, 115, 248, 1);
+}
+
+@keyframes openUp {
+  0% {
+    height: 0rem;
+  }
+
+  100% {
+    height: 20rem;
+  }
+}

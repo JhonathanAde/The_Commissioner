@@ -9,7 +9,7 @@ body {
 
 .homepage_banner-image {
   position: relative;
-  /* background-color: violet; */
+  background-color: violet;
   height: 40rem;
   width: 100rem;
   transform: translate(35%, 10%);
@@ -64,6 +64,10 @@ body {
 #banner-sell {
   animation-name: moveInLeft;
   animation-duration: 5s;
+}
+
+#commbar-title {
+  font-size: 2rem;
 }
 
 @keyframes moveInLeft {

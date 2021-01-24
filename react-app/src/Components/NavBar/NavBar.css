@@ -8,8 +8,8 @@
   width: 100%;
   margin-top: -.15rem;
   border-bottom: 3px solid lightgray;
-  /* position: fixed; */
   z-index: 1000;
+  /* position: fixed; */
   /* display: flex; */
   /* justify-content: center; */
   /* justify-content: space-between; */
@@ -29,6 +29,18 @@
   display: flex;
 }
 
+
 button {
   color: black;
+  border: none;
+  background: none;
+  font-size: 2rem;
+}
+
+.navbar-dropdown {
+  width: 2rem;
+  height: 2rem;
+  background-color: violet;
+  border-radius: 10rem;
+
 }

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 import CommissionCards from '../Card/CommissionCards'
 import { getAllCommissions } from '../services/commission'
+
 // import CommissionForm from '../Forms/CommissionForm'
 
 // CSS
@@ -32,7 +33,7 @@ const Homepage = ({authenticated}) => {
       </div>
     </div>
     <div className="homepage_recentcommbar">
-      <h1>Recent commissions</h1>
+      <h1 id="commbar-title">Recent commissions</h1>
       <div className="homepage_recentcommbar_items">
           {recentComs && recentComs.commissions.map((comms, idx) => (
             <CommissionCards comms={comms} key={idx}/>
