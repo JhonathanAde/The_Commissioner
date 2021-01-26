@@ -15,11 +15,13 @@ const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
 
   const [openMenu, setOpenMenu] = useState(false)
 
-  const openDropDown = () => {
+  const openDropDown = (e) => {
+    e.target.focus()
     setOpenMenu(true)
   }
 
-  const closeDropDown = () => {
+  const closeDropDown = (e) => {
+    e.target.blur()
     setOpenMenu(false)
   }
 
@@ -40,13 +42,12 @@ const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
             Profile
           </NavLink>
           </div>
-          <LogoutButton className="nav-links" setAuthenticated={setAuthenticated} setUser={setUser} user={user}/>
           </div>
           <div className="user-selections">
               {`Welcome ${user.username}!`}
-            <button className="navbar-dropdown" onFocus={openDropDown} onBlur={closeDropDown}>
+            <div className="navbar-dropdown" onClick={openDropDown} onMouseLeave={closeDropDown} tabIndex="0">
             <Dropdown openMenu={openMenu} setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user}/>
-            </button>
+            </div>
           </div>
           </>
           : 

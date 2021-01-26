@@ -9,43 +9,45 @@ import "./SplashPage.css"
 const SplashPage = ({authenticated, setAuthenticated, setUser, user}) => {
 
   const [signup, setSignup] = useState("signup-form__hidden")
-  const [login, setLogin] = useState("login-form")
+  const [login, setLogin] = useState("splashlogin-form")
 
 
   if (authenticated) {
     console.log(user)
   }
 
-  const signUpVisibility = () => {
-    if (login === "login-form"){
-      setLogin("login-form__hidden")
-      setSignup("signup-form")
-    }
-  }
+  // const signUpVisibility = () => {
+  //   if (login === "login-form"){
+  //     setLogin("splashlogin-form__hidden")
+  //     setSignup("signup-form")
+  //   }
+  // }
 
   const logInVisibility = () => {
     if (login === "login-form__hidden"){
       setSignup("signup-form__hidden")
-      setLogin("login-form")
+      setLogin("splashlogin-form")
     }
   }
 
   return (
-    <>
+    <div className="splash-block">
+          <div className="splashpage_form-image">
+          </div>
         <div className="splashpage_form">
           <div className="splashpage-form_logo">
             Logo
           </div>
           <div className={login}>
-            <LoginForm authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} />
-            <button className="signup-button" onClick={signUpVisibility}>Sign Up</button>
+            <LoginForm authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} setLogin={setLogin} setSignup={setSignup} login={login}/>
+            {/* <div className="signup-button" className="sign-upreveal" onClick={signUpVisibility}>Sign Up</div> */}
           </div>
           <div className={signup}>
-            <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} />
-            <button className="login-button" onClick={logInVisibility}>Login</button>
+            <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} logInVisibility={logInVisibility()}/>
+            {/* <button className="login-button" onClick={logInVisibility}>Login</button> */}
           </div>
         </div>
-    </>
+    </div>
   )
 }
 

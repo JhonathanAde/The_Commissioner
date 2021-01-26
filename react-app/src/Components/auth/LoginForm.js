@@ -5,7 +5,7 @@ import { login } from "../services/auth";
 // CSS
 import "./LoginForm.css"
 
-const LoginForm = ({ authenticated, setAuthenticated, setUser }) => {
+const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSignup, login}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,6 +28,17 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser }) => {
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
+
+  const signUpVisibility = () => {
+    if (login === "splashlogin-form"){
+      setLogin("splashlogin-form__hidden")
+      setSignup("signup-form")
+      console.log("worked")
+    }
+    console.log("clicked!!")
+  }
+
+  console.log(login)
 
   if (authenticated) {
     return <Redirect to="/" />;
@@ -62,6 +73,9 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser }) => {
             />
         </div>
           <button type="submit">Login</button>
+          <a className="sign-upreveal" onClick={signUpVisibility}>
+            Sign Up
+            </a>
       </div>
     </form>
   );

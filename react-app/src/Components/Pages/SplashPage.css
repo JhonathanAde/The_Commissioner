@@ -1,4 +1,4 @@
-.splashpage_form {
+/* .splashpage_form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +9,6 @@
   width: 30rem;
   height: 35rem;
   border-radius: 5px;
-  /* padding: 10rem 0rem 0rem 0rem */
   box-shadow: -.5rem .5rem .5rem rgba(0, 0, 0, 0.2);
 }
 
@@ -52,4 +51,74 @@
 
 .login-form__hidden {
   visibility: hidden;
+} */
+
+.splash-block {
+  display: flex;
+  transform: translate(75%, 20%);
+  box-shadow: 0rem 0rem 2rem rgba(0, 0, 0, 0.5);
+  width: 70rem;
+}
+
+.splashpage_form-image {
+  background-color: black;
+  height: 45rem;
+  width: 35rem;
+}
+
+.splashpage_form {
+  height: 45rem;
+  width: 35rem;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  /* transform: translate(10%, 0%); */
+  margin: 0rem 0rem;
+}
+
+.sign-upreveal {
+  position: relative;
+  font-size: 2rem;
+  padding: .25rem;
+  color: black;
+  transition: color .5s;
+}
+
+.sign-upreveal:hover {
+  color: hotpink;
+  cursor: pointer;
+}
+
+.signup-form__hidden {
+  position: absolute;
+  transform: translate(7rem, 2.8rem);
+  background-color: tomato;
+  visibility: hidden;
+}
+
+.signup-form {
+  position: absolute;
+  transform: translate(7rem, 2.8rem);
+  background-color: tomato;
+  animation-name: openSignUp;
+  animation-duration: .8s;
+}
+
+.login-form {
+  width: 29rem;
+}
+
+@keyframes openSignUp {
+
+  0%{
+    opacity: 0;
+    transform: translate(20rem, 2.8rem);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translate(7rem, 2.8rem);
+  }
 }

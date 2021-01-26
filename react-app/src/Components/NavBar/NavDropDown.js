@@ -12,12 +12,17 @@ const Dropdown = ({openMenu, setAuthenticated, authenticated, setUser, user}) =>
       <div className="nav-dropmenu">
         <ul>
           <li>
+            <NavLink to="/create-a-commission" exact={true} className="nav-links" activeClassName="active">
+            Create
+          </NavLink>
+          </li>
+          <li>
             <NavLink to="" className="nav-links">
               Requests
               </NavLink>
           </li>
           <li>
-            <NavLink to={`/${user.username}/profile`} className="nav-links">
+            <NavLink to={`/${user.username}/profile`} className="nav-links" onClick={console.log('clicked!!')}>
             Profile
           </NavLink>
           </li>

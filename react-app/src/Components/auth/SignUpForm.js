@@ -4,7 +4,7 @@ import { signUp } from '../services/auth';
 import states from 'states-us';
 import "./SignUpForm.css"
 
-const SignUpForm = ({authenticated, setAuthenticated, setUser}) => {
+const SignUpForm = ({authenticated, setAuthenticated, setUser, logInVisibility}) => {
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState([])
   const [email, setEmail] = useState("");
@@ -72,8 +72,8 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser}) => {
         </div>
       ))}
     </div>
-    <form onSubmit={onSignUp}>
-      <div className="user-field">
+    <form onSubmit={onSignUp} className="signup-formdata">
+      <div className="signup-fields">
         <label>User Name</label>
         <input
           type="text"
@@ -82,7 +82,7 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser}) => {
           onChange={updateUsername}
           value = {username}></input>
       </div>
-      <div className="email-field">
+      <div className="signup-fields">
         <label>Email</label>
         <input
           type="text"
@@ -92,7 +92,7 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser}) => {
           value={email}
         />
       </div>
-      <div className="passwords">
+      <div className="signup-fields">
         <label>Password</label>
         <input
           type="password"
@@ -110,7 +110,7 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser}) => {
           required={true}
           ></input>
       </div>
-      <div className="location-field">
+      <div className="signup-fields">
         <label>Location:</label>
         <input
           list="state-abbreviations"
@@ -123,7 +123,7 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser}) => {
           })}
         </datalist>
       </div>
-      <div className="artist-field">
+      <div className="signup-fields">
         <label>Artist?</label>
           <div className="choices">
               <label>
@@ -149,6 +149,7 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser}) => {
           </div>
         </div>
       <button type="submit">Sign up</button>
+      <button className="login-button" onClick={logInVisibility}>Login</button>
     </form>
     </div>
   );
