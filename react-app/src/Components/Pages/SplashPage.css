@@ -95,15 +95,20 @@
   position: absolute;
   transform: translate(7rem, 2.8rem);
   background-color: tomato;
+  animation-name: closeSignUp;
+  animation-duration: .8s;
   visibility: hidden;
+  transition-delay: 0.5s;
 }
 
-.signup-form {
+.signup-form{
   position: absolute;
   transform: translate(7rem, 2.8rem);
   background-color: tomato;
   animation-name: openSignUp;
   animation-duration: .8s;
+  visibility: visible;
+  transition: visibility 0s;
 }
 
 .login-form {
@@ -120,5 +125,17 @@
   100%{
     opacity: 1;
     transform: translate(7rem, 2.8rem);
+  }
+}
+@keyframes closeSignUp {
+
+  0%{
+    opacity: 1;
+    transform: translate(7rem, 2.8rem);
+  }
+
+  100%{
+    opacity: 0;
+    transform: translate(20rem, 2.8rem);
   }
 }

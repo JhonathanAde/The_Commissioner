@@ -72,3 +72,9 @@ form {
   display: flex;
   flex-direction: column;
 }
+
+.signup-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

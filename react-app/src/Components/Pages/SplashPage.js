@@ -43,7 +43,7 @@ const SplashPage = ({authenticated, setAuthenticated, setUser, user}) => {
             {/* <div className="signup-button" className="sign-upreveal" onClick={signUpVisibility}>Sign Up</div> */}
           </div>
           <div className={signup}>
-            <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} logInVisibility={logInVisibility()}/>
+            <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} login={login} setSignup={setSignup} setLogin={setLogin}/>
             {/* <button className="login-button" onClick={logInVisibility}>Login</button> */}
           </div>
         </div>

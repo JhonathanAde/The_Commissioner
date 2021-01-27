@@ -4,7 +4,7 @@ import { signUp } from '../services/auth';
 import states from 'states-us';
 import "./SignUpForm.css"
 
-const SignUpForm = ({authenticated, setAuthenticated, setUser, logInVisibility}) => {
+const SignUpForm = ({authenticated, setAuthenticated, setUser, login, setSignup, setLogin}) => {
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState([])
   const [email, setEmail] = useState("");
@@ -57,6 +57,13 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser, logInVisibility})
     setLocation(e.target.value)
   }
   // console.log(location)
+
+  const logInVisibility = () => {
+    if (login === "splashlogin-form__hidden"){
+      setSignup("signup-form__hidden")
+      setLogin("splashlogin-form")
+    }
+  }
 
 
   if (authenticated) {
@@ -148,8 +155,10 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser, logInVisibility})
 
           </div>
         </div>
+        <div className="signup-buttons">
       <button type="submit">Sign up</button>
-      <button className="login-button" onClick={logInVisibility}>Login</button>
+      <a className="login-button" onClick={logInVisibility}>Login</a>
+        </div>
     </form>
     </div>
   );
