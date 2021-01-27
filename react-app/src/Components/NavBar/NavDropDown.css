@@ -1,9 +1,9 @@
 .nav-dropmenu {
   height: 20rem;
-  width: 17rem;
+  width: 18rem;
   background-color: black;
   position: absolute;
-  transform: translate(-15rem, 1rem);
+  transform: translate(-17rem, 2rem);
   z-index: 2000;
   animation-name: openUp;
   animation-duration: 1s;

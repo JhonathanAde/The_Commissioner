@@ -5,7 +5,7 @@
 .nav-bar {
   background-color: black;
   position: absolute;
-  height: 4rem;
+  height: 5rem;
   width: 350vh;
   margin-top: -.15rem;
   border-bottom: 3px solid lightgray;
@@ -19,7 +19,9 @@
 .nav-elements{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: .5rem 12.5rem;
+  margin-top: .5rem;
   width: 120rem;
   transform: translate(22.8%, 0%);
 }
@@ -41,8 +43,8 @@ button {
 }
 
 .navbar-dropdown {
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   background-color: violet;
   border-radius: 10rem;
   border: 0rem solid yellow;
@@ -51,4 +53,15 @@ button {
 
 .navbar-dropdown:hover {
   border: 1rem solid yellow;
+}
+
+.user-selections {
+  display: flex;
+  align-items: center;
+}
+
+.nav-username {
+  font-size: 2rem;
+  transform: translate(-1.5rem);
+  width: fit-content;
 }

@@ -5,7 +5,7 @@ import { login } from "../services/auth";
 // CSS
 import "./LoginForm.css"
 
-const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSignup, login}) => {
+const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSignup, showlogin}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,15 +30,13 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
   };
 
   const signUpVisibility = () => {
-    if (login === "splashlogin-form"){
+    if (showlogin === "splashlogin-form"){
       setLogin("splashlogin-form__hidden")
       setSignup("signup-form")
       console.log("worked")
     }
     console.log("clicked!!")
   }
-
-  console.log(login)
 
   if (authenticated) {
     return <Redirect to="/" />;
@@ -72,7 +70,7 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
             onChange={updatePassword}
             />
         </div>
-          <button type="submit">Login</button>
+          <button type="submit" className="login-submit">Login</button>
           <a className="sign-upreveal" onClick={signUpVisibility}>
             Sign Up
             </a>

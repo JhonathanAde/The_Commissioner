@@ -27,12 +27,22 @@ input {
 
 .splashlogin-form {
   font-size: 8rem;
-  width: 10rem;
-  transform: translate(10%, 15%);
+  width: 30rem;
+  transform: translate(5%, 15%);
+  visibility: visible;
+  transition: visibility 0s;
+  animation-name: showLogin;
+  animation-duration: .5s;
 }
 
 .splashlogin-form__hidden {
+  font-size: 8rem;
+  transform: translate(5%, 15%);
+  width: 30rem;
+  animation-name: hideLogin;
+  animation-duration: .5s;
   visibility: hidden;
+  transition-delay: 0.5s;
 }
 
 .splashpage-form_logo {
@@ -68,4 +78,43 @@ input {
 .password-field {
   display: flex;
   flex-direction: column;
+}
+
+.login-submit {
+  font-size: 2rem;
+  color: black;
+  transition: font-size 1s, color .5s;
+}
+
+.login-submit:hover {
+  font-size: 2.5rem;
+  color: hotpink;
+}
+
+@keyframes hideLogin {
+  
+  0% {
+    opacity: 1;
+    transform: translate(5%, 15%);
+  }
+
+  100%{
+    opacity: 0;
+    transform: translate(-5%, 15%);
+  }
+
+}
+
+@keyframes showLogin {
+  
+  0% {
+    opacity: 0;
+    transform: translate(-5%, 15%);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translate(5%, 15%);
+  }
+
 }

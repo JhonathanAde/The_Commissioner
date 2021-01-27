@@ -33,18 +33,10 @@ const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
           </NavLink>
           {authenticated?
           <>
-          <div className="user-options">
-          <NavLink to="/create-a-commission" exact={true} className="nav-links" activeClassName="active">
-            Create A Commission
-          </NavLink>
-          <div>
-          <NavLink to={`/${user.username}/profile`} className="nav-links">
-            Profile
-          </NavLink>
-          </div>
-          </div>
           <div className="user-selections">
+            <div className="nav-username">
               {`Welcome ${user.username}!`}
+            </div>
             <div className="navbar-dropdown" onClick={openDropDown} onMouseLeave={closeDropDown} tabIndex="0">
             <Dropdown openMenu={openMenu} setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user}/>
             </div>

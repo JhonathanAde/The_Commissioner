@@ -4,7 +4,7 @@ import { signUp } from '../services/auth';
 import states from 'states-us';
 import "./SignUpForm.css"
 
-const SignUpForm = ({authenticated, setAuthenticated, setUser, login, setSignup, setLogin}) => {
+const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSignup, setLogin}) => {
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState([])
   const [email, setEmail] = useState("");
@@ -59,7 +59,7 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser, login, setSignup,
   // console.log(location)
 
   const logInVisibility = () => {
-    if (login === "splashlogin-form__hidden"){
+    if (showlogin === "splashlogin-form__hidden"){
       setSignup("signup-form__hidden")
       setLogin("splashlogin-form")
     }
@@ -135,29 +135,29 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser, login, setSignup,
           <div className="choices">
               <label>
                 Yes
-                </label>
               <input 
                 name="artist"
                 type="radio"
                 value={true}
                 onChange={updateArtistStatus}
-              />
+                />
+                </label>
 
             <label>
               No
-              </label>
               <input 
                 name="artist"
                 type="radio"
                 value={false}
                 onChange={updateArtistStatus}
-              />
+                />
+            </label>
 
           </div>
         </div>
         <div className="signup-buttons">
-      <button type="submit">Sign up</button>
-      <a className="login-button" onClick={logInVisibility}>Login</a>
+      <button type="submit" className="signup-submit">Sign up</button>
+      <a className="reveal-login" onClick={logInVisibility}>Login</a>
         </div>
     </form>
     </div>

@@ -83,32 +83,33 @@
   font-size: 2rem;
   padding: .25rem;
   color: black;
-  transition: color .5s;
+  transition: font-size 1s, color .5s;
 }
 
 .sign-upreveal:hover {
   color: hotpink;
+  font-size: 2.5rem;
   cursor: pointer;
 }
 
 .signup-form__hidden {
   position: absolute;
-  transform: translate(7rem, 2.8rem);
-  background-color: tomato;
+  transform: translate(7rem, 1rem);
   animation-name: closeSignUp;
   animation-duration: .8s;
   visibility: hidden;
   transition-delay: 0.5s;
+  overflow-x: hidden;
 }
 
 .signup-form{
   position: absolute;
-  transform: translate(7rem, 2.8rem);
-  background-color: tomato;
+  transform: translate(7rem, 1rem);
   animation-name: openSignUp;
   animation-duration: .8s;
   visibility: visible;
   transition: visibility 0s;
+  overflow-x: hidden;
 }
 
 .login-form {
@@ -119,23 +120,23 @@
 
   0%{
     opacity: 0;
-    transform: translate(20rem, 2.8rem);
+    transform: translate(20rem, 1rem);
   }
 
   100%{
     opacity: 1;
-    transform: translate(7rem, 2.8rem);
+    transform: translate(7rem, 1rem);
   }
 }
 @keyframes closeSignUp {
 
   0%{
     opacity: 1;
-    transform: translate(7rem, 2.8rem);
+    transform: translate(7rem, 1rem);
   }
 
   100%{
     opacity: 0;
-    transform: translate(20rem, 2.8rem);
+    transform: translate(20rem, 1rem);
   }
 }
