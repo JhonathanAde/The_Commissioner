@@ -7,8 +7,12 @@ const CreateCommissionPage = ({authenticated, user}) => {
     <div>
       <h1>Create A Commission</h1>
     </div>
-    <div>
+    <div className="commform-container">
+    <div className="commform-display">
+    </div>
+    <div className="commform-component">
       <CommissionForm authenticated={authenticated} user={user}/>
+    </div>
     </div>
     </>
   )

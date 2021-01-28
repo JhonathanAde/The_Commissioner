@@ -15,7 +15,7 @@ def validation_errors_to_errors_messages(validation_errors):
   errorMessages = []
   for field in validation_errors:
     for error in validation_errors:
-      errorMessages.append(f"{field} : {error}")
+      errorMessages.append(f"*Please enter {error}")
   return errorMessages
 
 # GET ALL COMMISSIONS

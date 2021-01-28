@@ -1,35 +1,114 @@
-.commform-div {
-  background-color: lightgray;
-  margin: 2rem 1rem;
-  padding: 3rem;
-  border-radius: 5px;
-  height: 60rem;
-  width: 50rem;
-  transform: translate(60rem, 2rem);
+.commform-container {
+  display: flex;
+  transform: translate(75%, 20%);
+  box-shadow: 0rem 0rem 2rem rgba(0, 0, 0, 0.5);
+  width: 70rem;
 }
 
-.form-sections {
-  display: flex;
-  flex-direction: column;
-  /* align-content: center; */
+.commform-display {
+  background-color: black;
+  height: 45rem;
+  width: 35rem;
+}
+
+.commform-component {
+  position: relative;
+  transform: translate(3.5rem, 1.5rem);
 }
 
 .comm-form {
   display: flex;
   flex-direction: column;
-  font-size: 3rem;
 }
 
-.comm-form * {
-  padding: .5rem;
+.form-sections {
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
 }
 
-.comm-form input {
-  height: 3rem;
-  width: 26rem;
+.form-sections input {
+  margin: .25rem 0rem;
 }
 
-.comm-upload-bar {
-  height: 3.5rem;
-  width: 26rem;
+textarea {
+  resize: none;
+  height: 5rem;
+}
+
+.commform-labels {
+  font-weight: bold;
+  margin: .5rem 0rem;
+}
+
+.commduration__hidden{
+  visibility: hidden;
+  animation-name: hideDuration;
+  animation-duration: .7s;
+  transition-delay: .5s;
+}
+
+.commduration{
+  visibility: visible;
+  animation-name: showDuration;
+  animation-duration: .7s;
+  transition: visibility 0s;
+}
+
+.duration-options {
+  font-size: 2rem;
+}
+
+.duration-options input {
+  margin: 0rem 1.5rem;
+  transform: translate(0rem, .25rem);
+}
+
+.commform-submit {
+  color: black;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: color 1s, font-size 1s;
+  background: none;
+  border: none;
+  outline: inherit;
+}
+
+.commform-submit:hover {
+  color: hotpink;
+  font-size: 2.5rem;
+}
+
+.commform-submit:active {
+  border: none;
+}
+
+.commform-errors {
+  position: absolute;
+  transform: translate(35rem );
+  color: red;
+}
+
+@keyframes showDuration {
+  0% {
+    opacity: 0;
+    transform: translate(0rem, -1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0rem, 0rem);
+  }
+}
+
+@keyframes hideDuration {
+  0% {
+    opacity: 1;
+    transform: translate(0rem, 0rem);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(0rem, -1rem);
+  }
 }

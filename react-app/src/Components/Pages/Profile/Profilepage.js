@@ -72,7 +72,7 @@ const Profilepage = ({authenticated, user}) => {
           </div>
         </div>
         <div>
-          <div className="displays">
+          <div className="prof-displays">
 
 
           </div>

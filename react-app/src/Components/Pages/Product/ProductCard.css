@@ -1,34 +1,92 @@
 .product {
-  margin: .5rem;
-  padding: .75rem;
-  background-color: whitesmoke;
+  width: 150rem;
+  height: 60rem;
+  transform: translate(14rem, 5.5rem);
+  padding: 1rem;
   display: flex;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
-  border-radius: 3px;
+}
+
+.product-display {
+  background-color: cornflowerblue;
+  height: 50rem;
+  width: auto;
+  box-shadow: 0rem 0rem .8rem rgba(0, 0, 0, 0.7);
+  margin-right: 2rem;
 }
 
 .product-display img {
-  height: 15rem;
-  margin-top: .75rem;
-}
-
-.product-title h5 {
-  margin-top: -1rem;
-}
-
-.product-title p {
-  margin-top: -1rem;
-  font-size: .75rem;
+  height: 100%;
+  width: auto;
 }
 
 .product-info {
-  margin-left: .75rem;
-  margin-top: -1rem;
+  position: relative;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.divider {
-  background-color: blue;
-  height: .2rem;
-  width: 20rem;
-  margin-top: -.75rem;
+.product-title{
+  font-size: 5rem;
+}
+
+.product-headers h1{
+  margin: 0rem 0rem;
+  font-size: 4rem;
+}
+
+.product-headers p {
+  margin: 0rem;
+}
+
+.prod-details * {
+  margin: 0rem;
+}
+
+.prod-details {
+  height: 10rem;
+  font-size: 2.5rem;
+  transform: translate(0rem, 3rem);
+}
+
+.prod-details h3 {
+  font-size: 2rem;
+}
+
+.prodrequest-button {
+  color: black;
+  transform: translate(0rem, 5rem);
+  margin: 0rem;
+  padding: 0rem;
+  outline: none;
+  font-size: 5rem;
+  text-decoration: none;
+  transition: color 1s;
+}
+
+.prodrequest-button:hover {
+  color: hotpink;
+}
+
+.prod-active {
+  color: white;
+}
+
+.prodrequest-button:active {
+  transition: none;
+  color: gold
+}
+
+.prod-divider {
+  background-color: lightgray;
+  width: 50rem;
+  height: .25rem;
+}
+
+.prod-description {
+  width: 51rem;
+  height: 10rem;
+  padding: .25rem;
+  font-size: 2.5rem;
+  line-height: 2.2rem;
 }

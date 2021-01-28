@@ -6,7 +6,9 @@ const BasicInfoCard = () => {
   return (
     <div className="basicinfo-card">
       <div className="main-info-container">
-        <div className="profile-picture" />
+        <div className="profile-picture">
+          <div className="prof-photo"/>
+        </div>
         <div className="name-info">
           <h1>Full Name</h1>
         </div>

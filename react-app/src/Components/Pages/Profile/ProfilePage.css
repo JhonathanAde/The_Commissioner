@@ -1,53 +1,54 @@
+.profile-banner {
+  background-color: black;
+  height: 18rem;
+  width: 500vh;
+}
+
 .profile-layout {
+  height: 35rem;
+  width: auto;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 2rem;
+}
+
+.profile-card {
+  transform: translate(5rem, -8rem);
+}
+
+.profile-left {
   display: flex;
 }
 
 .commission-slot {
-  display: flex;
-  flex-direction: column;
-  height: 23rem;
-  width: 50rem;
-  margin-left: 21rem;
-  margin-top: -29rem;
+  height: 25rem;
+  width: 65rem;
+  
+  transform: translate(43rem, 7rem);
+  padding: .75rem;
 }
 
 .commission-slot-display {
-  display: flex;
+  background-color: cornflowerblue;
+  padding: 2rem;
+  width: 62rem;
+  height: 22rem;
   overflow-x: scroll;
-  overflow-y: hidden;
-  height: 23rem;
 }
 
-.profile-card {
-  position: relative;
-  bottom: 5rem;
-  z-index: 100;
-  width: 17rem;
+.profile-right {
+  position: absolute;
+  background-color: darkblue;
+  width: 40rem;
+  height: 73rem;
+  transform: translate(110rem, 7rem);
 }
 
-.profile-banner {
-  background-color: black;
-  height: 200px;
+.prof-displays {
+  background-color: darkgray;
+  width: 103rem;
+  height: 45rem;
+  margin: 0rem;
+  transform: translate(-60rem, 35rem);
 }
 
-.displays {
-  background-color: lightgray;
-  height: 50rem;
-  width: 70rem;
-  margin-top: 1rem;
-  margin-left: 1rem;
-}
-
-.reviews {
-  background-color: lightgray;
-  position: relative;
-  width: 20rem;
-  height: 60rem;
-  margin-top: .75rem;
-  margin-left: 1.5rem;
-  top: .25rem
-}
-
-.reviews h1 {
-  padding-left: .25rem;
-}

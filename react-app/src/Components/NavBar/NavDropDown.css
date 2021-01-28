@@ -15,7 +15,8 @@
 }
 
 .nav-dropmenu li {
-  border: solid 1px;
+  border-bottom: solid 1px;
+  padding: .5rem;
   background-color: rgba(255, 255, 255, 0);
   transition: background-color .5s;
 }
@@ -29,10 +30,15 @@
   text-decoration: none;
   color: rgba(204, 115, 248, 0);
   transition: color .5s;
+  cursor: pointer;
 }
 
 .nav-links:hover {
   color: rgba(204, 115, 248, 1);
+}
+
+#logout-button {
+  font-size: 2rem;
 }
 
 @keyframes openUp {

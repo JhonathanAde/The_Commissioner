@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useHistory } from "react-router-dom";
 import {createCommission} from "../services/commission"
 
@@ -6,7 +6,7 @@ import {createCommission} from "../services/commission"
 import "./CommissionForm.css"
 
 const CommissionForm = ({authenticated, user}) => {
-  const [duration, setDuration] = useState(false)
+  // let [duration, setDuration] = useState(false)
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [image_url, setImage] = useState("")
@@ -14,6 +14,7 @@ const CommissionForm = ({authenticated, user}) => {
   const [price, setPrice] = useState(0.00)
   const [date, setDate] = useState("")
   const [errors, setErrors] = useState([])
+  const [visibleDuration, setVisibleDuration] = useState("commduration__hidden")
 
   // console.log(user)
   const userId = user.id
@@ -35,6 +36,7 @@ const CommissionForm = ({authenticated, user}) => {
   // console.log(dateCreated)
 
   const history = useHistory()
+  // let visibleDuration = "commduration__hidden"
 
   const commisisonHandleSubmit = async (e) => {
     e.preventDefault();
@@ -83,6 +85,17 @@ const CommissionForm = ({authenticated, user}) => {
     console.log('file uploaded')
   }
 
+  const showDuration = (e) => {
+    setVisibleDuration("commduration")
+  }
+
+  const hideDuration = (e) => {
+    setVisibleDuration("commduration__hidden")
+  }
+  
+
+  console.log("Show Duration", visibleDuration)
+
 
   // console.log(date)
   // console.log(price)
@@ -91,18 +104,15 @@ const CommissionForm = ({authenticated, user}) => {
 
   return (
     <div>
-      <div className="image">
-        <img src={image_url} alt="Commission"/>
-      </div>
       <div className="commform-div">
-          <div>
-            {errors.map(error => (
-              <div>{error}</div>
+          <div className="commform-errors">
+            {errors.map((error, idx) => (
+              <div key={idx}>{error}</div>
             ))}
           </div>
         <form className="comm-form" onSubmit={commisisonHandleSubmit}>
           <div className="form-sections" id="commform-title">
-            <label>
+            <label className="commform-labels">
               Title
             </label>
             <input
@@ -112,8 +122,8 @@ const CommissionForm = ({authenticated, user}) => {
               onChange={updateTitle}
               />
           </div>
-          <div className="form-sections">
-            <label>
+          <div className="form-sections" id="commdescription-box">
+            <label className="commform-labels">
               Description
             </label>
             <textarea
@@ -124,7 +134,7 @@ const CommissionForm = ({authenticated, user}) => {
               />
           </div>
           <div className="form-sections">
-            <label htmlFor="">
+            <label htmlFor="" className="commform-labels">
               Image:
             </label>
             <div id="image-upload-div">
@@ -139,7 +149,7 @@ const CommissionForm = ({authenticated, user}) => {
             </div>
           </div>
           <div className="form-sections">
-            <label>
+            <label className="commform-labels">
               Price:
             </label>
             <input 
@@ -152,7 +162,7 @@ const CommissionForm = ({authenticated, user}) => {
               />
           </div>
           <div className="form-sections">
-            <label>Number Of Requests</label>
+            <label className="commform-labels">Number Of Requests</label>
             {/* <p> Set the maximum amount of requests that you want to receive for this commission</p> */}
             <input
               name="requests"
@@ -163,21 +173,22 @@ const CommissionForm = ({authenticated, user}) => {
               />
           </div>
           <div className="form-sections">
-            <label>Duration</label>
+            <label className="commform-labels">Duration</label>
             <p>Do you want to set a duration for this commission?</p>
           <div className="duration-options">
-            <label>
+            <label className="commform-labels">
               Yes
-            <input type="radio" value="true" onChange={setDuration}/>
+            <input name="duration" type="radio" value={true} onClick={showDuration}/>
             </label>
-            <label>
+            <label className="commform-labels">
               No
-            <input type="radio" value="false" onChange={setDuration}/>
+            <input name="duration" type="radio" value={false} onClick={hideDuration}/>
             </label>
           </div>
           </div>
+          <div className={visibleDuration}>
           <div className="form-sections">
-            <label>
+            <label className="commform-labels">
               Ends:
             </label>
             <input 
@@ -186,7 +197,8 @@ const CommissionForm = ({authenticated, user}) => {
               onChange={updateDate}
               />
           </div>
-          <button type="submit">Submit</button>
+          </div>
+          <button className="commform-submit" type="submit">Submit</button>
         </form>
       </div>
     </div>

@@ -19,7 +19,7 @@ const CommissionCards = ({comms}) => {
           <img src={image_url} />
           <div className="comm-title-container">
             <div className="title-box">
-            <NavLink to="" className="title-nav" activeClassName="title-nav-active" > 
+            <NavLink to={`/product/${id}`} className="title-nav" activeClassName="title-nav-active" > 
               {title}
             </NavLink>
             </div>

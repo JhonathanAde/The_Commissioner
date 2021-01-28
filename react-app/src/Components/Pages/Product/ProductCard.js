@@ -19,15 +19,21 @@ const ProductCard = ({commission}) => {
 
       <div className="product-info">
         <div className="product-title">
+        <div className="product-headers">
           <h1>{title}</h1>
-          <h5>{username}</h5>
+          <NavLink to={`/profile/${user.id}`}>{username}</NavLink>
           <p>  rating will go here </p>
         </div>
-        <h3>Description</h3>
-        <div className="divider"/>
-        <p>{description}</p>
-        <NavLink to={`/request/${id}`}>
-        <button>Request</button>
+        </div>
+        <div className="prod-details">
+          <h3>Description</h3>
+          <div className="prod-divider"/>
+          <div className="prod-description">
+          <p>{description}</p>
+          </div>
+        </div>
+        <NavLink to={`/request/${id}`} className="prodrequest-button" activeClassName = "prod-active">
+          Request
         </NavLink>
       </div>
     </div>
