@@ -25,12 +25,15 @@
   height: 28rem;
   width: 65rem;
   
-  transform: translate(43rem, 5rem);
+  transform: translate(43rem, 1rem);
   padding: .75rem;
 }
 
+.commission-slot h1 {
+  font-size: 2rem;
+}
+
 .commission-slot-display {
-  background-color: cornflowerblue;
   padding: 2rem;
   width: 65rem;
   height: 30rem;
