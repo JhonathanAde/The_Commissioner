@@ -10,6 +10,7 @@
   display: flex;
   justify-content: flex-start;
   font-size: 2rem;
+  transform: translate(23rem);
 }
 
 .profile-card {
@@ -21,34 +22,36 @@
 }
 
 .commission-slot {
-  height: 25rem;
+  height: 28rem;
   width: 65rem;
   
-  transform: translate(43rem, 7rem);
+  transform: translate(43rem, 5rem);
   padding: .75rem;
 }
 
 .commission-slot-display {
   background-color: cornflowerblue;
   padding: 2rem;
-  width: 62rem;
-  height: 22rem;
+  width: 65rem;
+  height: 30rem;
   overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
 }
 
-.profile-right {
+/* .profile-right {
   position: absolute;
   background-color: darkblue;
   width: 40rem;
   height: 73rem;
   transform: translate(110rem, 7rem);
-}
+} */
 
-.prof-displays {
+/* .prof-displays {
   background-color: darkgray;
   width: 103rem;
   height: 45rem;
   margin: 0rem;
   transform: translate(-60rem, 35rem);
-}
+} */
 

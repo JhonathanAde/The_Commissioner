@@ -18,16 +18,16 @@ const ProfileCommCards = ({com}) => {
       <div className="procommission-card-body">
         <div className="procommission-card-content">
           <div className="proimage-container">
-            <div className="proimage-container-img">
               <img src={commission.image_url} alt="Commission-preview"/>
-            </div>
           </div>
           <div className="proinfo-container">
             <div className="prouser-info">
-              <div className="prolabels">
+              <div className="protitle">
              <NavLink to={`/product/${commission.id}`}>
-             <h1>{(commission.title).toUpperCase()}</h1>
+             <h1>{(commission.title)}</h1>
             </NavLink>
+              </div>
+              <div className="prolabels">
             <NavLink to="/profile">
               <h4>{user.username}</h4>
             </NavLink>

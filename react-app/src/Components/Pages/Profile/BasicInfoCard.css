@@ -1,21 +1,28 @@
 .basicinfo-card {
   position: absolute;
   background-color: lightslategray;
-  width: 30rem;
-  height: 40rem;
+  width: 35rem;
+  height: 45rem;
 }
 
 .main-info-container {
-  font-size: 2rem;
+  font-size: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: pink;
-  width: 30rem;
-  height: 40rem;
+  width: 35rem;
+  height: 45rem;
+}
+
+.name-info {
+  font-weight: bold;
 }
 
 .profile-picture {
-  
+  width: 20rem;
+  height: 20rem;
+  border-radius: 30rem;
+  background-color: violet;
 }

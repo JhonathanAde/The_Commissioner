@@ -61,7 +61,7 @@ const Profilepage = ({authenticated, user}) => {
     <div className="profile-layout">
       <div className="profile-left">
         <div className="profile-card">
-          <BasicInfoCard />
+          <BasicInfoCard user={user}/>
         </div>
         <div className='commission-slot'>
           <h1>Commissions</h1>
@@ -84,7 +84,7 @@ const Profilepage = ({authenticated, user}) => {
 
       <div className="profile-right">
           <div className="reviews">
-            <h1>Reviews</h1>
+            {/* <h1>Reviews</h1> */}
           </div>
       </div>
     </div>

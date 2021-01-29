@@ -72,14 +72,25 @@ const RequestForm = ({currentUser, commissionId, commission}) => {
   }
 
   return (
-    <div className="request-form">
+    <div className="request-form-container">
+      <div className="request-imgblock">
+      <h1 className="request-blocktitle">Request</h1>
+        <div className="request-img">
+          <img src={image_url} alt="Requested Commission"/>
+        </div>
+        <div className="request-img-info">
+        </div>
+      </div>
+
+
+      <div className="request-form">
       <div>
         {errors.map(error => (
             <div>{error}</div>
         ))}
       </div>
     <form onSubmit={submitHandler}>
-      <h1>Request</h1>
+      <div className="request-form-elements">
       <label>
         Title
       </label>
@@ -89,17 +100,24 @@ const RequestForm = ({currentUser, commissionId, commission}) => {
         placeholder="Title"
         onChange={updateTitle}
       />
+      </div>
+
+      <div className="request-form-elements">
       <label>
         Description
       </label>
       <textarea
+        className="request-description-box"
         name="details"
         placeholder="Enter description here"
         onChange={updateDetails}
       />
-      <div>
+      </div>
+
+      <div className="request-form-elements">
       <label htmlFor="images">References</label>
       <p>If you have any reference images that you want to provide please upload them below.</p>
+      <div className="request-upload">
       <input
         name="references"
         type="file"
@@ -108,38 +126,46 @@ const RequestForm = ({currentUser, commissionId, commission}) => {
       />
       <button className='file-button' onClick={prevent}>Upload</button>
       </div>
-      
+      </div>
+
+  <div className="request-form-elements">
       <label>
         Urgent?
       </label>
-      <div className="choices">
 
-      <label>Yes</label>
+    <div className="choices">
+
+      <label>Yes
       <input
         name="urgent"
         type="radio"
         value={true}
         onChange={updateUrgency} 
       />
+      </label>
 
-      <label>No</label>
+      <label> No
       <input
         name="urgent"
         type="radio"
         value={false} 
         onChange={updateUrgency}
       />
+      </label>
+    </div>
+  </div>
 
-      </div>
+      <div className="request-form-elements">
 
       <input 
         name="date"
         type="date"
         onChange={updateDate}
       />
-      {/* <img src={image_url} alt="Requested Commission"/> */}
+      </div>
       <button type="submit">Submit</button>
     </form>
+      </div>
     </div>
   )
 }

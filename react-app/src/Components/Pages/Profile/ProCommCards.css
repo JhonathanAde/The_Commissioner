@@ -1,0 +1,34 @@
+.procommission-card-body {
+  background-color: tomato;
+  width: 18rem;
+  height: 25rem;
+  margin: 1rem;
+  transform: translate(0rem, -1rem);
+}
+
+.procommission-card-content {
+  width: 18rem;
+  height: 25rem;
+}
+
+.proimage-container {
+  background-color: turquoise;
+  width: 18rem;
+  height: 15rem;
+}
+
+.proimage-container img {
+  max-width: 100%;
+  width: 18rem;
+  height: 100%;
+}
+
+.protitle {
+  font-size: 4rem;
+  padding: .25rem;
+  transform: translate(0rem, -4.5rem);
+}
+
+.protitle h1 {
+  margin: 0rem;
+}

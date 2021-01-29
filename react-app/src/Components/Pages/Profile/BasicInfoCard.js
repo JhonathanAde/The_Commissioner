@@ -2,25 +2,26 @@ import React, {useEffect, useState} from 'react'
 
 import './BasicInfoCard.css'
 
-const BasicInfoCard = () => {
+const BasicInfoCard = ({user}) => {
   return (
     <div className="basicinfo-card">
       <div className="main-info-container">
         <div className="profile-picture">
-          <div className="prof-photo"/>
+          <div className="prof-photo">
+            <img src={user.profile_pic} />
+          </div>
         </div>
         <div className="name-info">
-          <h1>Full Name</h1>
-        </div>
-        <div className='plug-info'>
-        <h3>Title</h3>
-        <p>Website</p>
+          <h1>{user.first_name} {user.last_name}</h1>
         </div>
         <div className="location">
-          <p>Location</p>
+          <p>{user.location}</p>
+        </div>
+        <div className='plug-info'>
+        <p>Website</p>
         </div>
         <div className="bio">
-          <h5>bio</h5>
+          <h5>{user.bio}</h5>
         </div>
       </div>
     </div>
