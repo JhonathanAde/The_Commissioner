@@ -1,8 +1,13 @@
-from flask import Blueprint, jsonify, session, request
+from flask import Blueprint, jsonify, session, request, url_for
 from app.Models import User, db
 from app.Forms import LoginForm
 from app.Forms import SignUpForm
+from app.Forms import BasicInfoForm 
 from flask_login import current_user, login_user, logout_user, login_required
+from werkzeug.utils import secure_filename
+
+import boto3
+import mimetypes
 
 auth_routes = Blueprint('auth', __name__)
 
@@ -67,7 +72,7 @@ def sign_up():
       email=form.data['email'],
       password=form.data['password'],
       location=form.data['location'],
-      artist=form.data['artist']
+      artist=form.data['artist'],
     )
     db.session.add(user)
     db.session.commit()
@@ -76,6 +81,46 @@ def sign_up():
   return {'errors':
     validation_errors_to_error_messages(form.errors)
     }
+
+
+@auth_routes.route('/basicinfo/<int:id>', methods=['PATCH'])
+def edit_basic_info(id):
+  form = BasicInfoForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+
+  image = ''
+  image_path = '' 
+  if form.validate_on_submit():
+    if request.files:
+      image = request.files['image']
+      image_name = secure_filename(image.filename)
+
+      mime_type = mimetypes.guess_type(image_name)
+
+      s3 = boto3.resource('s3')
+      print(s3)
+      uploaded_image = s3.Bucket('commissioner-profilepics').put_object(Key=image_name, Body=image, ACL='public-read', ContentType=mime_type[0])
+
+      image_path = f"https://commissioner-profilepics.s3.amazonaws.com/{image_name}"
+    else:
+        print("Files weren't sent!!")
+    
+    basic_info = User.query.get(id)
+
+    basic_info.profile_pic = image_path
+    basic_info.first_name = form.data['first_name']
+    basic_info.last_name = form.data['last_name']
+    basic_info.website = form.data['website']
+    basic_info.bio = form.data['bio']
+
+    db.session.add(basic_info)
+    db.session.commit()
+
+    return basic_info.to_dict()
+  else:
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
 
 
 

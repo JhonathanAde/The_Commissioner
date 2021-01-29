@@ -46,3 +46,10 @@ export const signUp = async (username, email, password, location, artist) => {
   });
   return await response.json();
 }
+
+export const editBasicInfo = async (payload, id) => {
+  const response = await fetch(`/api/auth/basicinfo/${id}`, {
+    method: 'PATCH',
+    body: payload
+  });
+}

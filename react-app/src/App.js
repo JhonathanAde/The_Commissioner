@@ -14,6 +14,8 @@ import CreateCommissionPage from "./Components/Pages/CreateCommissionPage";
 import SplashPage from "./Components/Pages/SplashPage";
 import RequestCommissionPage from "./Components/Pages/RequestCommissionPage";
 import ProductPage from "./Components/Pages/Product/ProductPage"
+import SettingsPage from "./Components/Pages/Profile/SettingsPage";
+import ReqeustsPage from "./Components/Pages/Request/RequestPage";
 // import Modal from "./Components/Pages/Modal/Modal"
 // import useModal from "./Components/Pages/Modal/useModal"
 
@@ -59,6 +61,13 @@ function App() {
         </Route>
         <Route path="/product/:commissionId" exact={true}>
           <ProductPage authenticated={authenticated} user={user}/>
+        </Route>
+
+        <Route path="/:username/settings">
+          <SettingsPage user={user}/>
+        </Route>
+        <Route path="/:username/requests">
+          <ReqeustsPage user={user}/>
         </Route>
         <Route path="/:username/profile" exact={true}>
           <Profilepage authenticated={authenticated} user={user}/>

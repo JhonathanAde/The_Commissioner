@@ -1,0 +1,13 @@
+.user-request-cardsbody {
+  background-color: lightgray;
+  width: 60rem;
+  height: 20rem;
+  transform: translate(10rem, 20rem);
+}
+
+.no-request {
+  background-color: lightgreen;
+  width: 5rem;
+  height: 10rem;
+  transform: translate(0rem, 20rem);
+}

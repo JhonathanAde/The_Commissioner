@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { createRequest } from "../services/request"
 
+import './RequestForm.css'
+
 
 const RequestForm = ({currentUser, commissionId, commission}) => {
 
@@ -70,7 +72,7 @@ const RequestForm = ({currentUser, commissionId, commission}) => {
   }
 
   return (
-    <div>
+    <div className="request-form">
       <div>
         {errors.map(error => (
             <div>{error}</div>
@@ -135,7 +137,7 @@ const RequestForm = ({currentUser, commissionId, commission}) => {
         type="date"
         onChange={updateDate}
       />
-      <img src={image_url} alt="Requested Commission"/>
+      {/* <img src={image_url} alt="Requested Commission"/> */}
       <button type="submit">Submit</button>
     </form>
     </div>

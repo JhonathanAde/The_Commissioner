@@ -13,6 +13,11 @@ class User(db.Model, UserMixin):
   location = db.Column(db.String(40), nullable = True)
   artist = db.Column(db.Boolean, nullable = False)
   comm_status = db.Column(db.Boolean, nullable = True)
+  profile_pic = db.Column(db.String(255), nullable = True)
+  first_name = db.Column(db.String(130), nullable = True)
+  last_name = db.Column(db.String(130), nullable = True)
+  website = db.Column(db.String(130), nullable = True)
+  bio = db.Column(db.Text(255), nullable= True)
 
   commissions = db.relationship('Commission', back_populates='user', order_by='asc(Commission.id)')
   requests = db.relationship('Request', back_populates='users')
@@ -36,5 +41,10 @@ class User(db.Model, UserMixin):
       'email': self.email,
       'location': self.location,
       'artist': self.artist,
-      'comm_status': self.comm_status
+      'comm_status': self.comm_status,
+      'profile_pic': self.profile_pic,
+      'first_name': self.first_name,
+      'last_name': self.last_name,
+      'website': self.website,
+      'bio': self.bio,
     }

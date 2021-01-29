@@ -34,6 +34,11 @@ def upgrade():
     sa.Column('location', sa.String(length=40), nullable=True),
     sa.Column('artist', sa.Boolean(), nullable=False),
     sa.Column('comm_status', sa.Boolean(), nullable=True),
+    sa.Column('profile_pic', sa.String(length=255), nullable=True),
+    sa.Column('first_name', sa.String(length=130), nullable=True),
+    sa.Column('last_name', sa.String(length=130), nullable=True),
+    sa.Column('website', sa.String(length=130), nullable=True),
+    sa.Column('bio', sa.Text(), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')

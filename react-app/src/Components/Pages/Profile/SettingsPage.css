@@ -1,0 +1,8 @@
+.settings-basicinfo {
+  position: absolute;
+  transform: translate(0rem, 0rem);
+}
+
+.settings {
+  transform: translate(5rem, 10rem);
+}
