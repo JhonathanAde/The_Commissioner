@@ -2,7 +2,8 @@
   position: absolute;
   background-color: lightslategray;
   width: 35rem;
-  height: 45rem;
+  height: 47rem;
+  box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.8);
 }
 
 .main-info-container {
@@ -11,13 +12,23 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: pink;
+  background-color: whitesmoke;
   width: 35rem;
-  height: 45rem;
+  height: 47rem;
 }
 
 .name-info {
   font-weight: bold;
+  font-size: 5rem;
+}
+
+.location-info {
+  transform: translate(0rem, -3rem);
+}
+
+.plug-info {
+  font-size: 1.5rem;
+  transform: translate(0rem, -5rem);
 }
 
 .profile-picture {
@@ -25,4 +36,17 @@
   height: 20rem;
   border-radius: 30rem;
   background-color: violet;
+}
+
+.bio-info {
+  position: absolute;
+  /* background-color: tomato; */
+  width: 25rem;
+  height: 10rem;
+  margin: 0rem;
+  transform: translate(0.25rem, 18rem);
+}
+
+.bio-info h5 {
+  margin: 0rem;
 }

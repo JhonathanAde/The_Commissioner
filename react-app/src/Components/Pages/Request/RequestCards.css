@@ -1,13 +1,61 @@
 .user-request-cardsbody {
-  background-color: lightgray;
-  width: 60rem;
+  margin: 0rem;
+  background-color: whitesmoke;
   height: 20rem;
-  transform: translate(10rem, 20rem);
+  width: 45rem;
+  transform: translate(2rem, 2rem);
+  font-size: 5rem;
+  margin: 1.5rem;
+  display: flex;
+  box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.8);
 }
 
-.no-request {
+.user-request-imgcontainer {
+  background-color: cornflowerblue;
+  width: 20rem;
+  height: 20rem;
+}
+
+.user-request-imgcontainer img {
+  width: 20rem;
+  height: 20rem;
+}
+
+.user-request-cardinfo {
+  padding: .5rem;
+  padding-left: .75rem;
+}
+
+.userrequest-title {
+  font-weight: bold;
+  font-size: 4rem;
+  margin: 0rem;
+}
+
+.userrequest-username {
+  font-size: 1.5rem;
+  transform: translate(0rem, -2rem);
+}
+
+.user-request-detailsbox {
+  transform: translate(0rem, -2rem);
+}
+
+.userequest-details {
+  font-size: .5rem;
+  width: 23rem;
+  height: 7rem;
+}
+
+.userrequest-deadline {
+  font-size: 1rem;
+  color: red;
+  transform: translate(0rem, -2rem);
+}
+
+/* .no-request {
   background-color: lightgreen;
   width: 5rem;
   height: 10rem;
   transform: translate(0rem, 20rem);
-}
+} */

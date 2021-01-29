@@ -14,13 +14,13 @@ const BasicInfoCard = ({user}) => {
         <div className="name-info">
           <h1>{user.first_name} {user.last_name}</h1>
         </div>
-        <div className="location">
+        <div className="location-info">
           <p>{user.location}</p>
         </div>
         <div className='plug-info'>
         <p>Website</p>
         </div>
-        <div className="bio">
+        <div className="bio-info">
           <h5>{user.bio}</h5>
         </div>
       </div>

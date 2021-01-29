@@ -1,0 +1,12 @@
+.requestpage-maindiv {
+  background-color: whitesmoke;
+  width: 80rem;
+  height: auto;
+  transform: translate(45rem, 10rem);
+}
+
+.requestpage-header {
+  font-size: 5rem;
+  padding-left: 3rem;
+  margin: -1rem 0rem;
+}

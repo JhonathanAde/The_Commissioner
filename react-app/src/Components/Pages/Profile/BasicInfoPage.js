@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { editBasicInfo } from '../../services/auth';
 
+import "./BasicInfoPage.css"
+
 const BasicInfoForm = ({user}) => {
   const [photo, setPhoto] = useState('')
   const [firstname, setFirstName] = useState('')
@@ -44,27 +46,39 @@ const BasicInfoForm = ({user}) => {
     setBio(e.target.value)
   }
 
+  const prevent = (e) => {
+    e.preventDefault();
+    console.log('file uploaded')
+  }
+
   return (
-    <div>
+    <div className="basicinfo-maincontainer">
+      <div className="basicinfo-picbox">
+      </div>
       {/* <div>
         {errors.map((error, idx) => (
           <div key={idx}>{error}</div>
         ))}
       </div> */}
-      <form onSubmit={submitHandler}>
-        <div>
+      <div className="basicinfo-formcontainer">
+      <form onSubmit={submitHandler} className="basicinfo-form">
+        <div className="basicinfo-form-sections">
         <label>
           Profile Picture
         </label>
+        <div>
         <input 
           name='profile-picture'
           type='file'
           placeholder='upload a profile picture'
           onChange={updatePhoto}
         />
+
+        <button className='profile-button' onClick={prevent}>Upload</button>
+        </div>
         </div>
 
-        <div>
+        <div className="basicinfo-form-sections">
         <label>
           First Name
         </label>
@@ -76,7 +90,7 @@ const BasicInfoForm = ({user}) => {
         />
         </div>
 
-        <div>
+        <div className="basicinfo-form-sections">
         <label>
           Last Name
         </label>
@@ -88,7 +102,7 @@ const BasicInfoForm = ({user}) => {
         />
         </div>
 
-        <div>
+        <div className="basicinfo-form-sections">
         <label>
           Website
         </label>
@@ -100,7 +114,7 @@ const BasicInfoForm = ({user}) => {
         />
         </div>
 
-        <div>
+        <div className="basicinfo-form-sections">
         <label>
           Bio
         </label>
@@ -110,10 +124,11 @@ const BasicInfoForm = ({user}) => {
           onChange={updateBio}
         />
         </div>
-        <button type='submit'>
+        <button className="save-button" type='submit'>
           Save
         </button>
       </form>
+      </div>
     </div>
   )
 }

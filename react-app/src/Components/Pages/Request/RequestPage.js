@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import { getRequestsById } from '../../services/request';
 import RequestCards from './RequestCards';
 
+import "./RequestPage.css"
+
 const ReqeustsPage = ({user}) => {
 
   const {id} = user
@@ -14,12 +16,13 @@ const ReqeustsPage = ({user}) => {
     })()
   }, [])
 
-  // console.log(requestInfo)
+  console.log(requestInfo.requests)
 
   return (
-    <div>
+    <div className="requestpage-maindiv">
+      <h1 className="requestpage-header">Requests</h1>
       {requestInfo && requestInfo.requests.map((info, idx) => {
-          <RequestCards info={info} key={idx} />
+          return <RequestCards info={info} key={idx} />
       })}
       {/* <RequestCards/> */}
     </div>
