@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { createRequest } from "../services/request"
+import { useHistory } from "react-router-dom";
 
 import './RequestForm.css'
 
@@ -14,7 +15,7 @@ const RequestForm = ({currentUser, commissionId, commission}) => {
   const [price, setPrice] = useState(0.00)
   const [errors, setErrors] = useState([])
 
-
+  const history = useHistory()
   
   const {user, image_url} = commission
   const {id} = user
@@ -68,6 +69,8 @@ const RequestForm = ({currentUser, commissionId, commission}) => {
     console.log(requestData)
     if (request.errors) {
       setErrors(commission.errors);
+    } else {
+      history.push(`/${user.username}/requests`)
     }
   }
 
