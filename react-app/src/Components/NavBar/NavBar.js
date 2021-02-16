@@ -2,27 +2,24 @@ import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom' ;
 import LogoutButton from '../auth/LogoutButton';
 import Dropdown from './NavDropDown'
-// import CommissionForm from '../Forms/CommissionForm';
-// import Modal from "../Pages/Modal/Modal";
-// import useModal from "../Pages/Modal/useModal";
 
 // CSS
-import "./NavBar.css"
+import "./CSS/navbar.css"
 
 const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
 
-  // const {isVisible, toggleModal} = useModal();
+  // --- State ---
+  const [openMenu, setOpenMenu] = useState(false);
 
-  const [openMenu, setOpenMenu] = useState(false)
-
+  // --- Helper Functions ---
   const openDropDown = (e) => {
-    e.target.focus()
-    setOpenMenu(true)
+    e.target.focus();
+    setOpenMenu(true);
   }
 
   const closeDropDown = (e) => {
-    e.target.blur()
-    setOpenMenu(false)
+    e.target.blur();
+    setOpenMenu(false);
   }
 
   return (
@@ -38,15 +35,15 @@ const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
               {`Welcome ${user.username}!`}
             </div>
             <div className="navbar-dropdown" onClick={openDropDown} onMouseLeave={closeDropDown} tabIndex="0">
-            <Dropdown openMenu={openMenu} setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user}/>
+              <Dropdown openMenu={openMenu} setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user}/>
             </div>
           </div>
           </>
           : 
           <>
-          <NavLink to="/login" exact={true} activeClassName="active" className="nav-links">
-            Login
-          </NavLink>
+            <NavLink to="/login" exact={true} activeClassName="active" className="nav-links">
+              Login
+            </NavLink>
           {/* <button onClick={toggleModal}>Create a commission</button>
           <Modal isVisible={isVisible} hideModal={toggleModal} /> */}
           </>

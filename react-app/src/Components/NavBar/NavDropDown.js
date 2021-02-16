@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import LogoutButton from '../auth/LogoutButton';
 import { NavLink } from 'react-router-dom';
-import './NavDropDown.css'
+import './CSS/navdropdown.css'
 
 
 const Dropdown = ({openMenu, setAuthenticated, authenticated, setUser, user}) => {
@@ -13,18 +13,18 @@ const Dropdown = ({openMenu, setAuthenticated, authenticated, setUser, user}) =>
         <ul>
           <li>
             <NavLink to="/create-a-commission" exact={true} className="nav-links" activeClassName="active">
-            Create
-          </NavLink>
+              Create
+            </NavLink>
           </li>
           <li>
             <NavLink to={`/${user.username}/requests`} className="nav-links">
               Requests
-              </NavLink>
+            </NavLink>
           </li>
           <li>
             <NavLink to={`/${user.username}/profile`} className="nav-links" onClick={console.log('clicked!!')}>
-            Profile
-          </NavLink>
+              Profile
+            </NavLink>
           </li>
           <li>
             <NavLink to={`/${user.username}/settings`} exact={true} className="nav-links">
