@@ -2,75 +2,74 @@ import React, {useState} from "react";
 import { createRequest } from "../services/request"
 import { useHistory } from "react-router-dom";
 
-import './RequestForm.css'
+import './CSS/requestform.css'
 
 
 const RequestForm = ({currentUser, commissionId, commission}) => {
 
-  const [title, setTitle] = useState("")
-  const [details, setDetails] = useState("")
-  const [references, setReferences] = useState("")
-  const [urgency, setUrgency] = useState(false)
-  const [date, setDate] = useState("")
-  const [price, setPrice] = useState(0.00)
-  const [errors, setErrors] = useState([])
+  //--- State ---
+  const [date, setDate] = useState("");
+  const [details, setDetails] = useState("");
+  const [errors, setErrors] = useState([]);
+  const [price, setPrice] = useState(0.00);
+  const [references, setReferences] = useState("");
+  const [title, setTitle] = useState("");
+  const [urgency, setUrgency] = useState(false);
 
-  const history = useHistory()
+  //--- Redirect declaration ---
+  const history = useHistory();
   
-  const {user, image_url} = commission
-  const {id} = user
+  //--- User info ---
+  const {user, image_url} = commission;
+  const {id} = user;
   
-  // console.log(currentUser.id)
-  // console.log(id)
-  // console.log(image_url)
-
+  // --- Helper functions ---
   const updateTitle = (e) => {
-    setTitle(e.target.value)
+    setTitle(e.target.value);
   }
 
   const updateDetails = (e) => {
-    setDetails(e.target.value)
+    setDetails(e.target.value);
   }
 
   const updateReferences = (e) => {
-    setReferences(e.target.files[0])
+    setReferences(e.target.files[0]);
   }
-  console.log(references)
+
   const updateUrgency = (e) => {
-    setUrgency(e.target.value)
+    setUrgency(e.target.value);
   }
 
   const updateDate = (e) => {
-    setDate(e.target.value)
+    setDate(e.target.value);
   }
 
   const updatePrice = (e) => {
-    setPrice(e.target.value)
+    setPrice(e.target.value);
   }
 
   const prevent = (e) => {
-    e.preventDefault()
+    e.preventDefault();
   }
 
   const submitHandler = async (e) => {
     e.preventDefault();
     const requestData = new FormData()
-    requestData.append('title', title)
-    requestData.append('details', details)
-    requestData.append('references', references)
-    requestData.append('urgency', urgency)
-    requestData.append('date', date)
-    requestData.append('commission_id', commissionId)
-    requestData.append('price', price)
-    requestData.append('user_id', id)
-    requestData.append('buyer_id', currentUser.id)
-    requestData.append('image_url', image_url)
-    const request = await createRequest(requestData)
-    console.log(requestData)
+    requestData.append('title', title);
+    requestData.append('details', details);
+    requestData.append('references', references);
+    requestData.append('urgency', urgency);
+    requestData.append('date', date);
+    requestData.append('commission_id', commissionId);
+    requestData.append('price', price);
+    requestData.append('user_id', id);
+    requestData.append('buyer_id', currentUser.id);
+    requestData.append('image_url', image_url);
+    const request = await createRequest(requestData);
     if (request.errors) {
       setErrors(commission.errors);
     } else {
-      history.push(`/${user.username}/requests`)
+      history.push(`/${user.username}/requests`);
     }
   }
 

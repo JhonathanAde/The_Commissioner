@@ -3,52 +3,47 @@ import { useHistory } from "react-router-dom";
 import {createCommission} from "../services/commission"
 
 // CSS
-import "./CommissionForm.css"
+import "./CSS/commissionform.css"
 
 const CommissionForm = ({authenticated, user}) => {
   // let [duration, setDuration] = useState(false)
-  const [title, setTitle] = useState("")
-  const [description, setDescription] = useState("")
-  const [image_url, setImage] = useState("")
-  const [requests, setRequests] = useState()
-  const [price, setPrice] = useState(0.00)
-  const [date, setDate] = useState("")
-  const [errors, setErrors] = useState([])
-  const [visibleDuration, setVisibleDuration] = useState("commduration__hidden")
+  const [date, setDate] = useState("");
+  const [description, setDescription] = useState("");
+  const [errors, setErrors] = useState([]);
+  const [image_url, setImage] = useState("");
+  const [price, setPrice] = useState(0.00);
+  const [requests, setRequests] = useState();
+  const [title, setTitle] = useState("");
+  const [visibleDuration, setVisibleDuration] = useState("commduration__hidden");
 
-  // console.log(user)
+  //--- User Info ---
   const userId = user.id
-  // console.log(userId)
 
-  const currentDateTime = new Date()
+  //--- Date selection ---
+  const currentDateTime = new Date();
+  const currentDay = currentDateTime.getDate();
+  const currentMonth = currentDateTime.getMonth();
+  const currentYear = currentDateTime.getFullYear();
+  const dayFormat = String(currentDay).padStart(2, 0);
+  const monthFormat = String(currentMonth + 1).padStart(2, 0);
+  const dateCreated = `${currentYear}-${monthFormat}-${dayFormat}`;
 
-  const currentDay = currentDateTime.getDate()
-  const currentMonth = currentDateTime.getMonth()
-  const currentYear = currentDateTime.getFullYear()
-
-  const dayFormat = String(currentDay).padStart(2, 0)
-  const monthFormat = String(currentMonth + 1).padStart(2, 0)
-  // console.log(dayFormat)
-  // console.log(monthFormat)
-  // console.log(currentDateTime)
-
-  const dateCreated = `${currentYear}-${monthFormat}-${dayFormat}`
-  // console.log(dateCreated)
-
+  //--- Redirect Declaration ---
   const history = useHistory()
-  // let visibleDuration = "commduration__hidden"
 
+
+  //--- Helper Functions ---
   const commisisonHandleSubmit = async (e) => {
     e.preventDefault();
-    const commissionData = new FormData()
-    commissionData.append('title', title)
-    commissionData.append('description', description)
-    commissionData.append('image', image_url)
-    commissionData.append('price', price)
-    commissionData.append('request_amt', requests)
-    commissionData.append('date_created', dateCreated)
-    commissionData.append('duration', date)
-    commissionData.append('user_id', userId)
+    const commissionData = new FormData();
+    commissionData.append('title', title);
+    commissionData.append('description', description);
+    commissionData.append('image', image_url);
+    commissionData.append('price', price);
+    commissionData.append('request_amt', requests);
+    commissionData.append('date_created', dateCreated);
+    commissionData.append('duration', date);
+    commissionData.append('user_id', userId);
     const commission = await createCommission(commissionData);
     if (commission.errors) {
       setErrors(commission.errors);
@@ -68,7 +63,6 @@ const CommissionForm = ({authenticated, user}) => {
   const updateImage = (e) => {
     setImage(e.target.files[0])
   }
-  console.log(image_url)
 
   const updateRequests = (e) => {
     setRequests(e.target.value)
@@ -82,7 +76,6 @@ const CommissionForm = ({authenticated, user}) => {
 
   const prevent = (e) => {
     e.preventDefault();
-    console.log('file uploaded')
   }
 
   const showDuration = (e) => {
@@ -96,11 +89,6 @@ const CommissionForm = ({authenticated, user}) => {
 
   console.log("Show Duration", visibleDuration)
 
-
-  // console.log(date)
-  // console.log(price)
-  // console.log(requests)
-  // console.log(description)
 
   return (
     <div>
