@@ -5,30 +5,28 @@ import ProductCard from "./ProductCard";
 
 const ProductPage = () => {
 
+  //--- State ---//
   const [commissionData, setCommissionData] = useState(null)
 
+  //--- User Info ---//
   const {commissionId} = useParams()
 
-  console.log(commissionId)
-
+  //--- Fetch Call ---//
   useEffect(() => {
     (async () => {
       const product = await getACommission(commissionId)
       setCommissionData(product)
     })()
   }, [commissionId])
-
-  console.log(commissionData)
   
-
   return (
-      <>
+    <>
       {commissionData &&
       <>
-      <ProductCard commission={commissionData.commission}/>
+        <ProductCard commission={commissionData.commission}/>
       </>
       }
-      </>
+    </>
   )
 }
 

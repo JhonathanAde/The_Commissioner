@@ -7,7 +7,7 @@ import ProfileCommCards from './ProfileComCards'
 // import RequestCards from './RequestCards'
 
 //CSS
-import './ProfilePage.css'
+import './CSS/profilepage.css'
 import BasicInfoCard from './BasicInfoCard'
 
 const Profilepage = ({authenticated, user}) => {

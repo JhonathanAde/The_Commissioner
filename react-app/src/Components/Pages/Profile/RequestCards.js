@@ -1,5 +1,5 @@
 import React from 'react';
-import "./RequestCard.css"
+import "./CSS/requestcard.css"
 
 const RequestCards = ({request}) => {
 

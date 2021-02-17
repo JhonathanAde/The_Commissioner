@@ -1,7 +1,7 @@
 import React from 'react'
 import BasicInfoForm from './BasicInfoPage'
 
-import './SettingsPage.css'
+import './CSS/settingspage.css';
 
 const SettingsPage = ({user}) => {
 

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 
-import './BasicInfoCard.css'
+import './CSS/basicinfocard.css';
 
 const BasicInfoCard = ({user}) => {
   return (
@@ -18,7 +18,7 @@ const BasicInfoCard = ({user}) => {
           <p>{user.location}</p>
         </div>
         <div className='plug-info'>
-        <p>Website</p>
+          <p>Website</p>
         </div>
         <div className="bio-info">
           <h5>{user.bio}</h5>
