@@ -1,6 +1,7 @@
 // Dependencies
 import React from 'react';
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
+import Rating from 'react-rating';
 
 // CSS
 import "./CSS/procommcards.css";
@@ -10,6 +11,9 @@ const ProfileCommCards = ({com}) => {
   //--- User Info ---//
   const { commission } = com
   const { user } = commission
+
+  let emptyStars = <i class="far fa-star"></i>
+  let fullStars = <i class="fas fa-star"></i>
 
   return (
     <>
@@ -33,7 +37,7 @@ const ProfileCommCards = ({com}) => {
                   </NavLink>
                 </div>
               <div className="rating-info">
-                <p>Rating_stars</p>
+                <Rating emptySymbol={emptyStars} fullSymbol={fullStars} initialRating={2.5} readonly/>
                 <p>rating_number</p>
                 <p className="rating-price">{`$${commission.price}`}</p>
               </div>

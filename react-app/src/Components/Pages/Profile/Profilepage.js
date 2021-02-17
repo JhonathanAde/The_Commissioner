@@ -3,12 +3,14 @@ import { useParams, useHistory } from "react-router-dom"
 import { getCommissionsById } from '../../services/commission'
 import { getRequestsById } from '../../services/request'
 import ProfileCommCards from './ProfileComCards'
+import Rating from 'react-rating'
 // import CommissionCards from '../../Card/CommissionCards'
 // import RequestCards from './RequestCards'
 
 //CSS
 import './CSS/profilepage.css'
 import BasicInfoCard from './BasicInfoCard'
+// import Rating from '../../Ratings/Rating'
 
 const Profilepage = ({authenticated, user}) => {
  
@@ -71,6 +73,7 @@ const Profilepage = ({authenticated, user}) => {
         ))}
           </div>
         </div>
+        <Rating emptySymbol={<i class="far fa-star"></i>} fullSymbol={<i class="fas fa-star"></i>}/>
         <div>
           <div className="prof-displays">
 

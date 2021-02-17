@@ -87,3 +87,7 @@
   transform: translate(-1.5rem);
   font-weight: bold;
 }
+
+.fas.fa-star {
+  color: gold;
+}
