@@ -1,18 +1,30 @@
 * {
   font-size: 62.5%;
   box-sizing: border-box;
+  margin: 0rem;
+  padding: 0rem;
   }
 
 body {
  font-family: Arial, Helvetica, sans-serif; 
 }
 
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  clear: right;
+  height: 80rem;
+  /* overflow: hidden; */
+  overflow-y: scroll;
+}
+
 .homepage_banner-image {
   position: relative;
   background-color: violet;
-  height: 40rem;
-  width: 100rem;
-  transform: translate(35%, 10%);
+  height: 50rem;
+  width: 150rem;
+  /* transform: translate(35%, 10%); */
   z-index: 2;
 }
 
@@ -20,7 +32,7 @@ body {
   position: absolute;
   color: white;
   transform: translate(15%, 11%);
-  font-size: 14rem;
+  font-size: 20rem;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -31,22 +43,21 @@ body {
 
 
 .homepage-image-container{
-  height: 40rem;
-  width: 100rem;
-  z-index: -2;
+  height: 50rem;
+  width: 150rem;
+  /* z-index: -2; */
 }
 
 .homepage-image-container img{
   display: block;
   width: 100%;
   height: 100%;
-  z-index: 2;
+  /* z-index: 2; */
 }
 
 .homepage_recentcommbar{
   position: relative;
-  width: 100rem;
-  transform: translate(35%, 15%);
+  width: 150rem;
 }
 
 .homepage_recentcommbar_items{
@@ -71,7 +82,7 @@ body {
 
 #commbar-title {
   font-size: 2rem;
-}
+} 
 
 @keyframes moveInLeft {
   0% {

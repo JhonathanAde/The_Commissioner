@@ -1,0 +1,19 @@
+.footer {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 10rem;
+  background-color: black;
+  color: white;
+}
+
+.creator-info {
+  font-size: 4rem;
+  margin-left: 14rem;
+}
+
+.creator-info li {
+  display: inline-block;
+  padding: 1rem;
+}

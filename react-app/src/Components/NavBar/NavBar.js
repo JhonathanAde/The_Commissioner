@@ -24,31 +24,39 @@ const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
 
   return (
     <nav className="nav-bar">
-        <div className="nav-elements">
-          <NavLink to="/" exact={true} activeClassName="active" className="nav-links">
+          <ul className="homelinks">
+            <li>
+          <NavLink to="/" exact={true} activeClassName="active">
             Home 
           </NavLink>
+            </li>
+          </ul>
           {authenticated?
-          <>
-          <div className="user-selections">
-            <div className="nav-username">
-              {`Welcome ${user.username}!`}
-            </div>
-            <div className="navbar-dropdown" onClick={openDropDown} onMouseLeave={closeDropDown} tabIndex="0">
-              <Dropdown openMenu={openMenu} setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user}/>
-            </div>
-          </div>
-          </>
-          : 
-          <>
-            <NavLink to="/login" exact={true} activeClassName="active" className="nav-links">
-              Login
-            </NavLink>
-          {/* <button onClick={toggleModal}>Create a commission</button>
-          <Modal isVisible={isVisible} hideModal={toggleModal} /> */}
-          </>
+            <>
+          <ul className="authlinks">
+
+            <li>
+             {/* {`Welcome ${user.username}!`} */}
+            </li>
+
+            <li>
+              <div className="user-options">
+                <h1>{`Welcome ${user.username}!`}</h1>
+                <div className="navbar-dropdown" onClick={openDropDown} onMouseLeave={closeDropDown} tabIndex="0">
+                  <Dropdown openMenu={openMenu} setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user}/>
+                </div>
+              </div>
+            </li>
+          </ul>
+            </>
+
+            :
+            <ul>
+              <li>
+                <NavLink to="/login" exact={true} activeClassName="active" className="nav-links">Login</NavLink>
+              </li>
+            </ul>
           }
-        </div>
     </nav>
   )
 }

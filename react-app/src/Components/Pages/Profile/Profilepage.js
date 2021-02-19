@@ -73,7 +73,6 @@ const Profilepage = ({authenticated, user}) => {
         ))}
           </div>
         </div>
-        <Rating emptySymbol={<i class="far fa-star"></i>} fullSymbol={<i class="fas fa-star"></i>}/>
         <div>
           <div className="prof-displays">
 

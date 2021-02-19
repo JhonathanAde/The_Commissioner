@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 
 import CommissionCards from '../Card/CommissionCards'
+import Footer from '../Footer/Footer'
 import { getAllCommissions } from '../services/commission'
 
 // import CommissionForm from '../Forms/CommissionForm'
@@ -21,7 +22,7 @@ const Homepage = ({authenticated}) => {
 
   // console.log(recentComs)
   return (
-    <>
+    <div className="home">
     <div className="homepage_banner-image">
       <div className="banner-text">
         <h1 id="banner-create">Create</h1>
@@ -40,7 +41,8 @@ const Homepage = ({authenticated}) => {
           ))}
       </div>
     </div>
-    </>
+    <Footer />
+    </div>
   )
 }
 

@@ -1,9 +1,10 @@
 .procommission-card-body {
+  display: block;
   background-color: whitesmoke;
   width: 18rem;
   height: 25rem;
   margin: 1rem;
-  transform: translate(0rem, -1rem);
+  /* transform: translate(0rem, -1rem); */
   box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.8);
 }
 
@@ -13,16 +14,18 @@
 }
 
 .proimage-container {
-  background-color: transparent;
+  background-color: black;
   width: 18rem;
   height: 15rem;
+  overflow: hidden;
+  margin: 0rem;
 }
 
 .protitle-box {
   position: absolute;
   height: 15rem;
   width: 18rem;
-  transform: translate(0rem, -15.2rem);
+  /* transform: translate(0rem, -15.2rem); */
   background: linear-gradient(to top, rgba(0, 0, 0, 0.781), transparent 40%);
   opacity: 0;
   transition: opacity .5s;
@@ -34,18 +37,22 @@
 }
 
 .proimage-container img {
-  max-width: 100%;
-  width: 18rem;
-  height: 100%;
+  display: block;
+  width: 150%;
+  margin: -2rem -4rem
+  /* max-width: 100%; */
+  /* height: 100%; */
+  /* transform: translate(0rem, -2rem); */
+  /* height: 100%; */
 }
 
 .protitle {
   /* background-color: blue; */
-  font-size: 1.5rem;
-  padding: .25rem;
-  transform: translate(0rem, 9rem);
-  font-weight: bold;
-  width: fit-content;
+  /* font-size: 1.5rem; */
+  /* padding: .25rem; */
+  /* transform: translate(0rem, 9rem); */
+  /* font-weight: bold; */
+  /* width: fit-content; */
 }
 
 .protitle-nav{
