@@ -1,4 +1,12 @@
+.space-filler {
+  display: block;
+  background-color: tomato;
+  height: 20rem;
+  width: 40rem;
+  z-index: 2000;
+}
 .footer {
+  /* display: block; */
   position: absolute;
   right: 0;
   left: 0;
@@ -6,6 +14,7 @@
   height: 10rem;
   background-color: black;
   color: white;
+  z-index: 2000;
 }
 
 .creator-info {
@@ -16,4 +25,16 @@
 .creator-info li {
   display: inline-block;
   padding: 1rem;
+}
+
+.creator-info a {
+  color: white;
+}
+
+.creator-info a:active {
+  color: hotpink;
+}
+
+.creator-info a:hover {
+  color: yellow;
 }

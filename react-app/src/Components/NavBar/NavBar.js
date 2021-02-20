@@ -10,18 +10,44 @@ const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
 
   // --- State ---
   const [openMenu, setOpenMenu] = useState(false);
+  const [eventCheck, setEventCheck] = useState(null);
 
   // --- Helper Functions ---
   const openDropDown = (e) => {
-    e.target.focus();
-    setOpenMenu(true);
-  }
+    if(!openMenu){
+      setOpenMenu(true);
 
+      document.addEventListener('click', (e) => {
+        console.log(e.target)
+        console.log(eventCheck)
+        if(openMenu){
+          closeDropDown(e);
+        }
+          // if(eventCheck && eventCheck != e.target){
+          //   console.log("second check")
+          //   setOpenMenu(false);
+          // }
+    })
+    }
+}
+
+  
   const closeDropDown = (e) => {
-    e.target.blur();
-    setOpenMenu(false);
+    setOpenMenu(false)
+      // if(eventCheck.contains(e.target)){
+      //   console.log("got here")
+      //   setOpenMenu(false);
+      //   document.removeEventListener('click', (e) => {
+      //     closeDropDown(e)
+      //   })
+      // }
+    // }
   }
 
+  console.log(eventCheck)
+
+  // console.log(eventCheck);
+  
   return (
     <nav className="nav-bar">
           <ul className="homelinks">
@@ -42,8 +68,8 @@ const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
             <li>
               <div className="user-options">
                 <h1>{`Welcome ${user.username}!`}</h1>
-                <div className="navbar-dropdown" onClick={openDropDown} onMouseLeave={closeDropDown} tabIndex="0">
-                  <Dropdown openMenu={openMenu} setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user}/>
+                <div className="navbar-dropdown" onClick={openDropDown} tabIndex="-1">
+                  <Dropdown openMenu={openMenu} setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user} setEventCheck={setEventCheck}/>
                 </div>
               </div>
             </li>

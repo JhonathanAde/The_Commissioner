@@ -75,16 +75,21 @@
 } */
 
 .navbar-dropdown {
+  /* display: block; */
+  /* clear: both; */
   width: 3rem;
   height: 3rem;
   background-color: violet;
   border-radius: 10rem;
   border: 0rem solid yellow;
-  transition: border 1s
+  transition: border 1s;
+  z-index: 2000;
 }
 
 .navbar-dropdown:hover {
   border: 1rem solid yellow;
+  margin: 0;
+  padding: 0;
 }
 
 /* .user-selections {

@@ -4,12 +4,13 @@ import { NavLink } from 'react-router-dom';
 import './CSS/navdropdown.css'
 
 
-const Dropdown = ({openMenu, setAuthenticated, authenticated, setUser, user}) => {
+const Dropdown = ({openMenu, setAuthenticated, authenticated, setUser, user, setEventCheck}) => {
   if (!openMenu) return null
   
   return (
     <>
-      <div className="nav-dropmenu">
+    { openMenu &&
+      <div className="nav-dropmenu" ref={(element) => { setEventCheck(element)}}>
         <ul>
           <li>
             <NavLink to="/create-a-commission" exact={true} className="nav-links" activeClassName="active">
@@ -22,7 +23,7 @@ const Dropdown = ({openMenu, setAuthenticated, authenticated, setUser, user}) =>
             </NavLink>
           </li>
           <li>
-            <NavLink to={`/${user.username}/profile`} className="nav-links" onClick={console.log('clicked!!')}>
+            <NavLink to={`/${user.username}/profile`} className="nav-links">
               Profile
             </NavLink>
           </li>
@@ -36,6 +37,7 @@ const Dropdown = ({openMenu, setAuthenticated, authenticated, setUser, user}) =>
           </li>
         </ul>
       </div>
+}
     </>
   )
 }

@@ -1,12 +1,15 @@
+
+
 .nav-dropmenu {
-  height: 20rem;
-  width: 18rem;
+  display: block;
+  height: 40rem;
+  width: 27rem;
   background-color: black;
   position: absolute;
-  transform: translate(-17rem, 2rem);
+  transform: translate(-23rem, 4rem);
   z-index: 2000;
   animation-name: openUp;
-  animation-duration: 1s;
+  animation-duration: .5s;
 }
 
 .nav-dropmenu ul {
@@ -26,7 +29,7 @@
 }
 
 .nav-links {
-  font-size: 2rem;
+  font-size: 4rem;
   text-decoration: none;
   color: rgba(204, 115, 248, 0);
   transition: color .5s;
@@ -38,7 +41,7 @@
 }
 
 #logout-button {
-  font-size: 2rem;
+  font-size: 4rem;
 }
 
 @keyframes openUp {
@@ -47,6 +50,6 @@
   }
 
   100% {
-    height: 20rem;
+    height: 40rem;
   }
 }
