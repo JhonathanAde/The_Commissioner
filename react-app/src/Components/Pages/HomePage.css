@@ -1,3 +1,7 @@
+html, body {
+  height: 100%;
+}
+
 * {
   font-size: 62.5%;
   box-sizing: border-box;
@@ -14,9 +18,11 @@ body {
   flex-direction: column;
   align-items: center;
   clear: right;
-  height: 90rem;
+  min-height: 100%;
+  overflow: auto;
+  padding-bottom: 10rem;
   /* overflow: hidden; */
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 .homepage_banner-image {
@@ -57,11 +63,14 @@ body {
 .homepage_recentcommbar{
   position: relative;
   width: 150rem;
+  /* height: 100rem; */
 }
 
 .homepage_recentcommbar_items{
   display: flex;
   overflow-x: scroll;
+  padding: 1rem;
+  /* height: 55rem; */
 }
 
 #banner-create {

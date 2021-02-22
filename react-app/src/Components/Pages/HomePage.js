@@ -22,6 +22,7 @@ const Homepage = ({authenticated}) => {
 
   // console.log(recentComs)
   return (
+    <>
     <div className="home">
     <div className="homepage_banner-image">
       <div className="banner-text">
@@ -41,8 +42,9 @@ const Homepage = ({authenticated}) => {
           ))}
       </div>
     </div>
-    <Footer />
     </div>
+    <Footer />
+    </>
   )
 }
 

@@ -19,12 +19,16 @@ const ReqeustsPage = ({user}) => {
   console.log(requestInfo.requests)
 
   return (
-    <div className="requestpage-maindiv">
-      <h1 className="requestpage-header">Requests</h1>
-      {requestInfo && requestInfo.requests.map((info, idx) => {
-          return <RequestCards info={info} key={idx} />
-      })}
-      {/* <RequestCards/> */}
+    <div className="request-page">
+      <div className="request-page request-display">
+        <div className="request-page header">
+        <h1>Requests</h1>
+        </div>
+        {requestInfo && requestInfo.requests.map((info, idx) => {
+            return <RequestCards info={info} key={idx} />
+        })}
+      </div>
+      
     </div>
   )
 }

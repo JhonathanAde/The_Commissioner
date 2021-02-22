@@ -16,6 +16,7 @@ import RequestCommissionPage from "./Components/Pages/RequestCommissionPage";
 import ProductPage from "./Components/Pages/Product/ProductPage"
 import SettingsPage from "./Components/Pages/Profile/SettingsPage";
 import ReqeustsPage from "./Components/Pages/Request/RequestPage";
+import Footer from "./Components/Footer/Footer";
 // import Modal from "./Components/Pages/Modal/Modal"
 // import useModal from "./Components/Pages/Modal/useModal"
 
@@ -44,6 +45,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user} />
+      {/* <Footer /> */}
       <Switch>
         <Route path="/login" exact={true}>
           <SplashPage

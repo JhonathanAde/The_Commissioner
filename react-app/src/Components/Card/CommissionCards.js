@@ -14,34 +14,48 @@ const CommissionCards = ({comms}) => {
 
   const {image_url, user, title, price, id} = commission
 
-  let emptyStars = <i class="far fa-star"></i>
-  let fullStars = <i class="fas fa-star"></i>
+  let emptyStars = <i class="far fa-star fa-2x"></i>
+  let fullStars = <i class="fas fa-star fa-2x"></i>
 
   return (
-    <div className="commission-card-body">
-        <div className="comm-image-container">
-          <img src={image_url} />
-          <div className="comm-title-container">
-            <div className="title-box">
-            <NavLink to={`/product/${id}`} className="title-nav" activeClassName="title-nav-active" > 
-              {title}
+    <div className="commission-card body">
+        <div className="commission-card container">
+          <div className="commission-card img-container">
+            <img src={image_url} />
+          </div>
+          <div className="commission-card title-container">
+            <div className="title-container title-box">
+            <NavLink to={`/product/${id}`} className="title-container title-nav" activeClassName="title-container title-nav-active" > 
+              <h1>{title}</h1>
             </NavLink>
             </div>
           </div>
         </div>
-        <div className="comm-content-container">
-          <div className="comm-info-container">
-            <NavLink to={`/profile/${user.id}`}>
-            <h8>{user.username}</h8>
-            </NavLink>
-          </div>
-            <div className="comm-rating-info">
-              <Rating emptySymbol={emptyStars} fullSymbol={fullStars} initialRating={2.5} readonly/>
-              <p>Rating Number</p>
-              <div className="comm-pricing">
-              <p>{`$${price}`}</p>
+        <div className="commission-card content-container">
+          <ul>
+            <li>
+              <div className="content-container info-container">
+                <NavLink to={`/profile/${user.id}`}>
+                <h6>{user.username}</h6>
+                </NavLink>
               </div>
-            </div>
+            </li>
+            <li>
+              <div className="content-container rating-info">
+                <ul id="rating-list">
+                  <li>
+                    <Rating emptySymbol={emptyStars} fullSymbol={fullStars} initialRating={2.5} readonly/>
+                  </li>
+                  <li>
+                    <p>Rating Number</p>
+                  </li>
+                  <li>
+                    <p>{`$${price}`}</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
         </div>
   </div>
   )

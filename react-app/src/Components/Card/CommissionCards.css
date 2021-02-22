@@ -1,4 +1,99 @@
-.commission-card-body {
+.commission-card {
+  margin: 0rem;
+  padding: 0rem;
+}
+
+.commission-card.body{
+  display: block;
+  background-color: whitesmoke;
+  box-shadow: 0px 0px .5rem rgba(0, 0, 0, 0.7);
+  height: 40rem;
+  margin: 1rem;
+  width: 48rem;
+}
+
+.commission-card.container {
+  display: block;
+  background-color: black;
+  height: 80%;
+}
+
+.commission-card.img-container {
+  background-color: transparent;
+  width: 48rem;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+.commission-card.img-container img {
+  width: 125%;
+  margin: -5rem -5rem;
+  /* height: 100%; */
+}
+
+.commission-card.title-container {
+  display: block;
+  position: relative;
+  /* padding: .25rem; */
+  /* bottom: 0rem; */
+  height: 35%;
+  width: 100%;
+  top: -11.1rem;
+  opacity: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.87), transparent 80%);
+  transition: opacity 1s;
+}
+
+.commission-card.title-container:hover {
+  opacity: 1;
+}
+
+.title-container.title-box {
+  display: block;
+  font-size: 10rem;
+  padding: 1rem;
+  text-align: start;
+}
+
+.commission-card.content-container{
+  display: block;
+  padding: .5rem;
+}
+
+.commission-card.content-container ul {
+  list-style: none;
+}
+.commission-card.content-container li {
+  clear: both;
+  margin: 0;
+}
+
+.content-container.rating-info {
+  display: block;
+  position: relative;
+  top: 2rem;
+  bottom: 0;
+  /* background-color: tomato; */
+  font-size: 8rem;
+}
+
+.content-container.rating-info ul{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.content-container.rating-info span{
+  display: block;
+  margin-top: 0;
+  padding: 0;
+  clear: both;
+  /* margin-right: 7rem; */
+}
+
+
+/* .commission-card-body {
   background-color: whitesmoke;
   height: 25rem;
   width: 22.5rem;
@@ -20,8 +115,6 @@
   display: block;
   width: 100%;
   height: 100%;
-  /* overflow: hidden; */
-  /* object-fit: fill; */
 }
 
 .comm-content-container {
@@ -98,7 +191,7 @@
 .comm-pricing p {
   width: 3rem;
   font-weight: bold;
-}
+} */
 
 /* @keyframes fadeIn {
   0% {

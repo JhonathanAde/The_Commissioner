@@ -27,11 +27,11 @@ const Dropdown = ({openMenu, setAuthenticated, authenticated, setUser, user, set
               Profile
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to={`/${user.username}/settings`} exact={true} className="nav-links">
               Settings
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <LogoutButton className="nav-links" setAuthenticated={setAuthenticated} setUser={setUser} user={user}/>
           </li>
