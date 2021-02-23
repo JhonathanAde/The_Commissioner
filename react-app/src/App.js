@@ -17,6 +17,7 @@ import ProductPage from "./Components/Pages/Product/ProductPage"
 import SettingsPage from "./Components/Pages/Profile/SettingsPage";
 import ReqeustsPage from "./Components/Pages/Request/RequestPage";
 import Footer from "./Components/Footer/Footer";
+import "./app.css";
 // import Modal from "./Components/Pages/Modal/Modal"
 // import useModal from "./Components/Pages/Modal/useModal"
 
@@ -43,6 +44,8 @@ function App() {
 
 
   return (
+    <div className="page-container">
+    <div className="content-wrap">
     <BrowserRouter>
       <NavBar setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user} />
       {/* <Footer /> */}
@@ -87,6 +90,9 @@ function App() {
         </Route>
       </Switch>
     </BrowserRouter>
+    <Footer />
+    </div>
+    </div>
   );
 }
 

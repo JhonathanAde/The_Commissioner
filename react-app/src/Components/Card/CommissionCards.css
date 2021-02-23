@@ -27,6 +27,7 @@
 }
 
 .commission-card.img-container img {
+  display: block;
   width: 125%;
   margin: -5rem -5rem;
   /* height: 100%; */
@@ -43,6 +44,7 @@
   opacity: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.87), transparent 80%);
   transition: opacity 1s;
+
 }
 
 .commission-card.title-container:hover {
@@ -50,7 +52,9 @@
 }
 
 .title-container.title-box {
-  display: block;
+  /* display: block; */
+  display: flex;
+  align-items: flex-end;
   font-size: 10rem;
   padding: 1rem;
   text-align: start;
@@ -65,15 +69,21 @@
   list-style: none;
 }
 .commission-card.content-container li {
-  clear: both;
   margin: 0;
+}
+
+.content-container.info-container {
+  display: block;
+  font-size: 8rem;
 }
 
 .content-container.rating-info {
   display: block;
   position: relative;
-  top: 2rem;
+  top: 0rem;
   bottom: 0;
+  left: 0;
+  right: 0;
   /* background-color: tomato; */
   font-size: 8rem;
 }
@@ -90,6 +100,32 @@
   padding: 0;
   clear: both;
   /* margin-right: 7rem; */
+}
+
+.content-container.rating-info p {
+  font-weight: bold;
+}
+
+#rating-number {
+  font-size: 1.5rem;
+  /* margin-right: 17rem; */
+}
+
+.title-container.title-nav {
+  color: white;
+}
+.title-container.title-nav:hover {
+  color: hotpink;
+}
+
+.info-container.username {
+  color: black;
+  text-decoration: none;
+}
+
+.info-container.username:hover {
+  color: hotpink;
+  text-decoration: underline;
 }
 
 

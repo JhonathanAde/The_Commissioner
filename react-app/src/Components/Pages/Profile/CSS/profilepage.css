@@ -1,4 +1,25 @@
-.profile-banner {
+.profile {
+  min-height: 100%;
+  padding-bottom: 10rem;
+  overflow: auto;
+  clear: both;
+}
+
+.profile-page {
+  /* display: block; */
+  /* background-color: indianred; */
+  height: 85rem;
+}
+
+.profile-page.pro-banner {
+  position: relative;
+  left: 0;
+  right: 0;
+  background-color: indigo;
+  height: 30rem;
+}
+
+/* .profile-banner {
   background-color: black;
   height: 18rem;
   width: 500vh;
@@ -40,7 +61,7 @@
   overflow-x: scroll;
   overflow-y: hidden;
   display: flex;
-}
+} */
 
 /* .profile-right {
   position: absolute;

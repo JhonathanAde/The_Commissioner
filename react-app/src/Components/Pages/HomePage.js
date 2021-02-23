@@ -24,6 +24,7 @@ const Homepage = ({authenticated}) => {
   return (
     <>
     <div className="home">
+    <div className="home home-wrapper">
     <div className="homepage_banner-image">
       <div className="banner-text">
         <h1 id="banner-create">Create</h1>
@@ -43,7 +44,8 @@ const Homepage = ({authenticated}) => {
       </div>
     </div>
     </div>
-    <Footer />
+    </div>
+    {/* <Footer /> */}
     </>
   )
 }

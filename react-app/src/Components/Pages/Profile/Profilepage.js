@@ -10,6 +10,7 @@ import Rating from 'react-rating'
 //CSS
 import './CSS/profilepage.css'
 import BasicInfoCard from './BasicInfoCard'
+import Footer from '../../Footer/Footer'
 // import Rating from '../../Ratings/Rating'
 
 const Profilepage = ({authenticated, user}) => {
@@ -58,19 +59,19 @@ const Profilepage = ({authenticated, user}) => {
 
 
   return (
-    <>
-    <div className="profile-banner" />
-    <div className="profile-layout">
-      <div className="profile-left">
-        <div className="profile-card">
+    <div className="profile">
+    <div className="profile-page">
+    <div className="profile-page pro-banner" />
+      <div className="profile-page pro-left">
+        <div className="profile-page pro-card">
           <BasicInfoCard user={user}/>
         </div>
-        <div className='commission-slot'>
+        <div className='profile-page procomm-slot'>
           <h1>Commissions</h1>
-          <div className='commission-slot-display'>
-        {userCommissions && userCommissions.commissions.map((com, idx) => (
+          <div className='profile-page procomm-slot-display'>
+        {/* {userCommissions && userCommissions.commissions.map((com, idx) => (
           <ProfileCommCards com={com} key={idx}/>
-        ))}
+        ))} */}
           </div>
         </div>
         <div>
@@ -85,12 +86,10 @@ const Profilepage = ({authenticated, user}) => {
       </div>
 
       <div className="profile-right">
-          <div className="reviews">
-            {/* <h1>Reviews</h1> */}
-          </div>
       </div>
     </div>
-    </>
+    {/* <Footer /> */}
+    </div>
   )
 }
 

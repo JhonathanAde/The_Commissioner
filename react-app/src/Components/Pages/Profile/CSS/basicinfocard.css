@@ -1,12 +1,12 @@
-.basicinfo-card {
-  position: absolute;
+ .basicinfo-card {
+  display: block;
   background-color: lightslategray;
   width: 35rem;
   height: 47rem;
   box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.8);
 }
 
-.main-info-container {
+/* .main-info-container {
   font-size: 5rem;
   display: flex;
   flex-direction: column;
@@ -40,7 +40,6 @@
 
 .bio-info {
   position: absolute;
-  /* background-color: tomato; */
   width: 25rem;
   height: 10rem;
   margin: 0rem;
@@ -49,4 +48,4 @@
 
 .bio-info h5 {
   margin: 0rem;
-}
+} */

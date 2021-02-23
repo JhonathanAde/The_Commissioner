@@ -7,13 +7,16 @@
 }
 .footer {
   /* display: block; */
-  position: absolute;
+  position: relative;
   right: 0;
   left: 0;
+  bottom: 0;
   height: 10rem;
   background-color: black;
   color: white;
-  z-index: 2000;
+  /* z-index: 2000; */
+  clear: both;
+  margin-top: -10rem;
 }
 
 .creator-info {

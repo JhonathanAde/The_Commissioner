@@ -35,27 +35,25 @@ const CommissionCards = ({comms}) => {
           <ul>
             <li>
               <div className="content-container info-container">
-                <NavLink to={`/profile/${user.id}`}>
+                <NavLink to={`/profile/${user.id}`} className="info-container username">
                 <h6>{user.username}</h6>
                 </NavLink>
               </div>
             </li>
-            <li>
+          </ul>
               <div className="content-container rating-info">
                 <ul id="rating-list">
-                  <li>
+                  <li id="rating">
                     <Rating emptySymbol={emptyStars} fullSymbol={fullStars} initialRating={2.5} readonly/>
                   </li>
                   <li>
-                    <p>Rating Number</p>
+                    <p id="rating-number">Rating Number</p>
                   </li>
-                  <li>
                     <p>{`$${price}`}</p>
+                  <li>
                   </li>
                 </ul>
               </div>
-            </li>
-          </ul>
         </div>
   </div>
   )
