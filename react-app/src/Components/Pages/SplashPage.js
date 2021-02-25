@@ -31,20 +31,23 @@ const SplashPage = ({authenticated, setAuthenticated, setUser, user}) => {
   }
 
   return (
-    <div className="splash-block">
-          <div className="splashpage_form-image">
-          </div>
-        <div className="splashpage_form">
-          
-          <div className={showlogin}>
-            <LoginForm authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} setLogin={setLogin} setSignup={setSignup} showlogin={showlogin}/>
-            {/* <div className="signup-button" className="sign-upreveal" onClick={signUpVisibility}>Sign Up</div> */}
-          </div>
-          <div className={signup}>
-            <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} showlogin={showlogin} setSignup={setSignup} setLogin={setLogin}/>
-            {/* <button className="login-button" onClick={logInVisibility}>Login</button> */}
+    <div className="splashpage">
+      <div className="splashpage splashcontent-wrapper">
+        <div className="splashpage logincontent">
+            <div className="splashpage loginform-image">
+            </div>
+            <div className="splashpage loginform">
+              <div className={showlogin}>
+                <LoginForm authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} setLogin={setLogin} setSignup={setSignup} showlogin={showlogin}/>
+                {/* <div className="signup-button" className="sign-upreveal" onClick={signUpVisibility}>Sign Up</div> */}
+              </div>
+              <div className={signup}>
+                <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} showlogin={showlogin} setSignup={setSignup} setLogin={setLogin}/>
+                {/* <button className="login-button" onClick={logInVisibility}>Login</button> */}
+              </div>
           </div>
         </div>
+      </div>
     </div>
   )
 }
