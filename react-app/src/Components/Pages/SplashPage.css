@@ -163,27 +163,50 @@
   /* background-color: cadetblue; */
 }
 
+.login-form__hidden {
+  display: block;
+  /* background-color: cadetblue; */
+  visibility: hidden;
+}
+
+.signup-display {
+  position: absolute;
+  /* transform: translate(-22rem, -30rem); */
+  animation-name: openSignUp;
+  animation-duration: .8s;
+  visibility: visible;
+  transition: visibility 0s;
+}
+
+.signup-display__hidden {
+  position: absolute;
+  visibility: hidden;
+  /* transform: translate(-22rem, -30rem); */
+  animation-name: closeSignUp;
+  animation-duration: .8s;
+}
+
 @keyframes openSignUp {
 
   0%{
     opacity: 0;
-    transform: translate(20rem, 1rem);
+    transform: translate(2rem);
   }
 
   100%{
     opacity: 1;
-    transform: translate(7rem, 1rem);
+    transform: translate(0rem);
   }
 }
 @keyframes closeSignUp {
 
   0%{
     opacity: 1;
-    transform: translate(7rem, 1rem);
+    transform: translate(0rem);
   }
 
   100%{
     opacity: 0;
-    transform: translate(20rem, 1rem);
+    transform: translate(2rem);
   }
 }

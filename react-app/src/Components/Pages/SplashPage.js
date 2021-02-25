@@ -8,7 +8,7 @@ import "./SplashPage.css"
 
 const SplashPage = ({authenticated, setAuthenticated, setUser, user}) => {
 
-  const [signup, setSignup] = useState("signup-form__hidden")
+  const [signup, setSignup] = useState("signup-display__hidden")
   const [showlogin, setLogin] = useState("splashlogin-form")
 
 
@@ -25,7 +25,7 @@ const SplashPage = ({authenticated, setAuthenticated, setUser, user}) => {
 
   const logInVisibility = () => {
     if (showlogin === "login-form__hidden"){
-      setSignup("signup-form__hidden")
+      setSignup("signup-display__hidden")
       setLogin("splashlogin-form")
     }
   }

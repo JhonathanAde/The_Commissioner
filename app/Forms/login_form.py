@@ -9,7 +9,7 @@ def user_exists(form, field):
   email = field.data 
   user = User.query.filter(User.email == email).first()
   if not user:
-    raise ValidationError("Emial provided not found.")
+    raise ValidationError("Email provided not found.")
 
 def password_matches(form, field):
     print("Checking if password matches")

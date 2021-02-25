@@ -11,7 +11,7 @@ class User(db.Model, UserMixin):
   email = db.Column(db.String(255), nullable = False, unique = True)
   hashed_password = db.Column(db.String(255), nullable = False)
   location = db.Column(db.String(40), nullable = True)
-  artist = db.Column(db.Boolean, nullable = True)
+  artist = db.Column(db.Boolean, nullable = False)
   comm_status = db.Column(db.Boolean, nullable = True)
   profile_pic = db.Column(db.String(255), nullable = True)
   first_name = db.Column(db.String(130), nullable = True)

@@ -127,6 +127,26 @@ input {
   margin-right: 2rem;
   border: none;
   background: none;
+  outline: none;
+}
+
+.login-form.login-buttons button:hover {
+  color: hotpink;
+}
+
+
+.splashlogin-form__hidden {
+  animation-name: hideLogin;
+  animation-duration: .5s;
+  visibility: hidden;
+  transition-delay: 0.5s;
+}
+
+.splashlogin-form {
+  visibility: visible;
+  transition: visibility 0s;
+  animation-name: showLogin;
+  animation-duration: .5s;
 }
 
 
@@ -134,12 +154,12 @@ input {
   
   0% {
     opacity: 1;
-    transform: translate(5%, 15%);
+    /* transform: translate(5%, 15%); */
   }
 
   100%{
     opacity: 0;
-    transform: translate(-5%, 15%);
+    /* transform: translate(-5%, 15%); */
   }
 
 }
@@ -148,12 +168,12 @@ input {
   
   0% {
     opacity: 0;
-    transform: translate(-5%, 15%);
+    transform: translate(-3rem);
   }
 
   100%{
     opacity: 1;
-    transform: translate(5%, 15%);
+    transform: translate(0rem);
   }
 
 }

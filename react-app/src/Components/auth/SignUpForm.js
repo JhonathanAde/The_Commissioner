@@ -60,7 +60,7 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSig
 
   const logInVisibility = () => {
     if (showlogin === "splashlogin-form__hidden"){
-      setSignup("signup-form__hidden")
+      setSignup("signup-display__hidden")
       setLogin("splashlogin-form")
     }
   }
@@ -70,97 +70,122 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSig
     return <Redirect to="/" />;
   }
 
+
+
   return (
-    <div className="signup">
-    <div>
-      {errors.map((error) => (
-        <div className="error-list">
-          {error}
+    
+    <form onSubmit={onSignUp} className="signup-form">
+      <div className="signup-form signup-container">
+        <div className="signup-form signup-errors">
+          {errors.map((error, idx) => (
+            <div className="error-list">
+              <ul>
+                <li key={idx}>
+                  {error}
+                </li>
+              </ul>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-    <form onSubmit={onSignUp} className="signup-formdata">
-      <div className="signup-fields">
-        <label>User Name</label>
-        <input
-          type="text"
-          name="username"
-          placeholder="username"
-          onChange={updateUsername}
-          value = {username}></input>
-      </div>
-      <div className="signup-fields">
-        <label>Email</label>
-        <input
-          type="text"
-          name="email"
-          placeholder="Email"
-          onChange={updateEmail}
-          value={email}
-        />
-      </div>
-      <div className="signup-fields">
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          onChange={updatePassword}
-          value={password}
-          ></input>
+        <div className="signup-form signup-info">
+          <ul>
+            <li>
+              <label>User Name</label>
+            </li>
+            <li>
+              <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                onChange={updateUsername}
+                value = {username} />
+            </li>
+            <li>
+              <label>Email</label>
+            </li>
+            <li>
+              <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              onChange={updateEmail}
+              value={email}
+            />
+            </li>
+            <li>
+              <label>Password</label>
+            </li>
+            <li>
+              <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              onChange={updatePassword}
+              value={password}
+              />
+            </li>
+            <li>
+              <label>Repeat Password</label>
+            </li>
+            <li>
+              <input
+              type="password"
+              name="repeat_password"
+              placeholder="Repeat Password"
+              onChange={updateRepeatPassword}
+              value={repeatPassword}
+              required={true}
+              />
+            </li>
 
-        <label>Repeat Password</label>
-        <input
-          type="password"
-          name="repeat_password"
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-          ></input>
-      </div>
-      <div className="signup-fields">
-        <label>Location:</label>
-        <input
-          list="state-abbreviations"
-          name="location"
-          onChange={updateLocation}
-        />
-        <datalist id="state-abbreviations">
-          {statesList.map((state, idx) => {
-            return <option value={state} key={idx} />
-          })}
-        </datalist>
-      </div>
-      <div className="signup-fields">
-        <label>Artist?</label>
-          <div className="choices">
+            <li>
+              <label>Location:</label>
+            </li>
+          <li>
+          <input
+            list="state-abbreviations"
+            name="location"
+            onChange={updateLocation}
+          />
+          <datalist id="state-abbreviations">
+            {statesList.map((state, idx) => {
+              return <option value={state} key={idx} />
+            })}
+          </datalist>
+          </li>
+
+          <li>
+          <label>Artist?</label>
+            <div className="choices">
+                <label>
+                  Yes
+                <input 
+                  name="artist"
+                  type="radio"
+                  value="true"
+                  onChange={updateArtistStatus}
+                  />
+                  </label>
+
               <label>
-                Yes
-              <input 
-                name="artist"
-                type="radio"
-                value={true}
-                onChange={updateArtistStatus}
-                />
-                </label>
-
-            <label>
-              No
-              <input 
-                name="artist"
-                type="radio"
-                value={false}
-                onChange={updateArtistStatus}
-                />
-            </label>
-
+                No
+                <input 
+                  name="artist"
+                  type="radio"
+                  value="false"
+                  onChange={updateArtistStatus}
+                  />
+              </label>
+            </div>
+          </li>
+          </ul>
+          <div className="signup-form signup-buttons">
+            <button type="submit" className="signup-form signup-submit">Sign up</button>
+            <a className="reveal-login" onClick={logInVisibility}>Login</a>
           </div>
         </div>
-        <div className="signup-buttons">
-      <button type="submit" className="signup-submit">Sign up</button>
-      <a className="reveal-login" onClick={logInVisibility}>Login</a>
-        </div>
+      </div>
     </form>
-    </div>
   );
 };
 

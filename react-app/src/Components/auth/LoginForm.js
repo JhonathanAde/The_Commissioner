@@ -32,7 +32,7 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
   const signUpVisibility = () => {
     if (showlogin === "splashlogin-form"){
       setLogin("splashlogin-form__hidden")
-      setSignup("signup-form")
+      setSignup("signup-display")
       console.log("worked")
     }
     console.log("clicked!!")

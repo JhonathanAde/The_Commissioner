@@ -71,3 +71,45 @@
   color: hotpink;
   font-size: 2.5rem;
 } */
+
+.signup-form.signup-container {
+  padding: 1rem;
+}
+
+.signup-form.signup-container input {
+  /* margin: 0rem; */
+}
+
+.signup-form.signup-info{
+  display: block;
+  font-size: 11rem;
+}
+
+.signup-form.signup-info ul {
+  list-style: none;
+}
+
+.choices {
+  font-size: 3rem;
+}
+
+.signup-form.signup-buttons {
+  display: block;
+}
+
+.signup-form.signup-buttons button {
+  border: none;
+  background: none;
+  margin-right: 2rem;
+  outline: none;
+}
+
+.signup-form.signup-buttons a:hover {
+  color: hotpink;
+  cursor: pointer;
+}
+
+.signup-form.signup-buttons button:hover {
+  color: hotpink;
+  cursor: pointer;
+}
