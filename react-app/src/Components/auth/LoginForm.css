@@ -91,6 +91,45 @@ input {
   color: hotpink;
 } */
 
+.login-form.login-errors {
+  /* background-color: crimson; */
+  width: 42rem;
+  font-size: 6rem;
+  color: red;
+  margin: 0rem;
+}
+
+.login-form.login-errors ul {
+  list-style: none;
+}
+
+.login-form.login-container {
+  display: block;
+  font-size: 15rem;
+  padding: 1rem;
+}
+
+.login-form.login-info {
+  display: block;
+  list-style: none;
+  font-size: 10rem;
+}
+
+.login-form.login-info label{
+  margin-bottom: .5rem;
+}
+
+.login-form.login-buttons {
+  font-size: 5rem;
+}
+
+.login-form.login-buttons button {
+  margin-right: 2rem;
+  border: none;
+  background: none;
+}
+
+
 @keyframes hideLogin {
   
   0% {

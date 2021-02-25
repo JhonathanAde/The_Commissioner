@@ -132,12 +132,13 @@
 
 .splashpage.logincontent {
   display: flex;
-  background-color: coral;
+  /* background-color: coral; */
   width: 150rem;
   height: 80rem;
   padding: 0;
   margin: 2rem;
   /* clear: both; */
+  box-shadow: 0rem 0rem .8rem rgba(0, 0, 0, 0.5);
 }
 
 .splashpage.loginform-image {
@@ -159,7 +160,7 @@
 
 .splashlogin-form {
   display: block;
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
 }
 
 @keyframes openSignUp {

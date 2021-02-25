@@ -44,36 +44,46 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
 
   return (
     <form className="login-form" onSubmit={onLogin}>
-      <div className="form-container">
-        <div>
+      <div className="login-form login-container">
+        <div className="login-form login-errors">
           {errors.map((error) => (
-            <div>{error}</div>
+            <ul>
+              <li>*{error}</li>
+            </ul>
           ))}
         </div>
-        <div className="email-field">
-        <label htmlFor="email">Email</label>
-        <input 
-          name="email"
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={updateEmail}
-          />
-        </div>
-        <div className="password-field">
-          <label>Password</label>
-          <input 
-            name="pasword"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={updatePassword}
-            />
-        </div>
+        <ul className="login-form login-info">
+              <li>
+                <label htmlFor="email">Email</label>
+              </li>
+              <li>
+                <input 
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={updateEmail}
+                  />
+              </li>
+              <li>
+                <label>Password</label>
+              </li>
+              <li>
+                <input 
+                  name="pasword"
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={updatePassword}
+                  />
+              </li>
+        </ul>
+        <div className="login-form login-buttons">
           <button type="submit" className="login-submit">Login</button>
           <a className="sign-upreveal" onClick={signUpVisibility}>
             Sign Up
             </a>
+        </div>
       </div>
     </form>
   );
