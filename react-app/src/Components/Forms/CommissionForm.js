@@ -91,14 +91,14 @@ const CommissionForm = ({authenticated, user}) => {
 
 
   return (
-    <div>
-      <div className="commform-div">
+      <form className="comm-form" onSubmit={commisisonHandleSubmit}>
+        <div className="commform-div">
           <div className="commform-errors">
             {errors.map((error, idx) => (
               <div key={idx}>{error}</div>
             ))}
           </div>
-        <form className="comm-form" onSubmit={commisisonHandleSubmit}>
+        </div>
           <div className="form-sections" id="commform-title">
             <label className="commform-labels">
               Title
@@ -109,8 +109,7 @@ const CommissionForm = ({authenticated, user}) => {
               placeholder="Title"
               onChange={updateTitle}
               />
-          </div>
-          <div className="form-sections" id="commdescription-box">
+
             <label className="commform-labels">
               Description
             </label>
@@ -120,12 +119,11 @@ const CommissionForm = ({authenticated, user}) => {
               placeholder="Add description"
               onChange={updateDescription}
               />
-          </div>
-          <div className="form-sections">
+
             <label htmlFor="" className="commform-labels">
               Image:
             </label>
-            <div id="image-upload-div">
+
             <input
               className="comm-upload-bar"
               name="image_url"
@@ -134,9 +132,7 @@ const CommissionForm = ({authenticated, user}) => {
               onChange={updateImage}
               />
               <button className='file-button' onClick={prevent}>Upload</button>
-            </div>
-          </div>
-          <div className="form-sections">
+
             <label className="commform-labels">
               Price:
             </label>
@@ -148,9 +144,8 @@ const CommissionForm = ({authenticated, user}) => {
               placeholder="$0.00"
               onChange={updatePrice}
               />
-          </div>
-          <div className="form-sections">
-            <label className="commform-labels">Number Of Requests</label>
+
+            <label>Number Of Requests</label>
             {/* <p> Set the maximum amount of requests that you want to receive for this commission</p> */}
             <input
               name="requests"
@@ -159,8 +154,7 @@ const CommissionForm = ({authenticated, user}) => {
               placeholder="0"
               onChange={updateRequests}
               />
-          </div>
-          <div className="form-sections">
+      
             <label className="commform-labels">Duration</label>
             <p>Do you want to set a duration for this commission?</p>
           <div className="duration-options">
@@ -173,9 +167,7 @@ const CommissionForm = ({authenticated, user}) => {
             <input name="duration" type="radio" value={false} onClick={hideDuration}/>
             </label>
           </div>
-          </div>
           <div className={visibleDuration}>
-          <div className="form-sections">
             <label className="commform-labels">
               Ends:
             </label>
@@ -185,11 +177,9 @@ const CommissionForm = ({authenticated, user}) => {
               onChange={updateDate}
               />
           </div>
-          </div>
           <button className="commform-submit" type="submit">Submit</button>
+          </div>
         </form>
-      </div>
-    </div>
   )
 }
 
