@@ -92,83 +92,112 @@ const CommissionForm = ({authenticated, user}) => {
 
   return (
       <form className="comm-form" onSubmit={commisisonHandleSubmit}>
-        <div className="commform-div">
-          <div className="commform-errors">
+        <div className="comm-form commcontent-wrapper">
+          <div className="comm-form commform-errors">
             {errors.map((error, idx) => (
               <div key={idx}>{error}</div>
             ))}
           </div>
         </div>
-          <div className="form-sections" id="commform-title">
-            <label className="commform-labels">
-              Title
-            </label>
-            <input
-              name="title"
-              type="text"
-              placeholder="Title"
-              onChange={updateTitle}
-              />
+          <div className="comm-form commform-info">
+            <ul>
+              <li>
+                <label>
+                  Title
+                </label>
+              </li>
 
-            <label className="commform-labels">
-              Description
-            </label>
-            <textarea
-              name="description"
-              type="textarea"
-              placeholder="Add description"
-              onChange={updateDescription}
-              />
+              <li>
+                <input
+                  name="title"
+                  type="text"
+                  placeholder="Title"
+                  onChange={updateTitle}
+                  />
+              </li>
 
-            <label htmlFor="" className="commform-labels">
-              Image:
-            </label>
+              <li>
+                <label>
+                  Description
+                </label>
+              </li>
 
-            <input
-              className="comm-upload-bar"
-              name="image_url"
-              type="file"
-              placeholder="upload an image" 
-              onChange={updateImage}
-              />
-              <button className='file-button' onClick={prevent}>Upload</button>
+              <li>
+                <textarea
+                  name="description"
+                  type="textarea"
+                  placeholder="Add description"
+                  onChange={updateDescription}
+                  />
+              </li>
 
-            <label className="commform-labels">
-              Price:
-            </label>
-            <input 
-              name="price"
-              type="number"
-              step="0.01"
-              min= "0.00"
-              placeholder="$0.00"
-              onChange={updatePrice}
-              />
+              <li>
+                <label htmlFor="">
+                  Image:
+                </label>
+              </li>
 
-            <label>Number Of Requests</label>
-            {/* <p> Set the maximum amount of requests that you want to receive for this commission</p> */}
-            <input
-              name="requests"
-              type="number"
-              min="0"
-              placeholder="0"
-              onChange={updateRequests}
-              />
+              <li>
+                <input
+                  className="comm-upload-bar"
+                  name="image_url"
+                  type="file"
+                  placeholder="upload an image" 
+                  onChange={updateImage}
+                  />
+              </li>
+
+              <li>
+                <button className='file-button' onClick={prevent}>Upload</button>
+              </li>
+
+              <li>
+                <label>
+                  Price:
+                </label>
+              </li>
+
+              <li>
+                <input 
+                  name="price"
+                  type="number"
+                  step="0.01"
+                  min= "0.00"
+                  placeholder="$0.00"
+                  onChange={updatePrice}
+                  />
+              </li>
+
+              <li>
+                <label>Number Of Requests</label>
+              </li>
+
+              {/* <p> Set the maximum amount of requests that you want to receive for this commission</p> */}
+              <li>
+                <input
+                  name="requests"
+                  type="number"
+                  min="0"
+                  placeholder="0"
+                  onChange={updateRequests}
+                  />
+              </li>
+            </ul>
       
-            <label className="commform-labels">Duration</label>
-            <p>Do you want to set a duration for this commission?</p>
           <div className="duration-options">
-            <label className="commform-labels">
+            <label>Duration</label>
+            <p>Do you want to set a duration for this commission?</p>
+            <label>
               Yes
             <input name="duration" type="radio" value={true} onClick={showDuration}/>
             </label>
-            <label className="commform-labels">
+            <label >
               No
             <input name="duration" type="radio" value={false} onClick={hideDuration}/>
             </label>
           </div>
           <div className={visibleDuration}>
-            <label className="commform-labels">
+            <label>
               Ends:
             </label>
             <input 
