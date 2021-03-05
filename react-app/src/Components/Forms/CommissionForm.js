@@ -182,8 +182,7 @@ const CommissionForm = ({authenticated, user}) => {
                   onChange={updateRequests}
                   />
               </li>
-            </ul>
-      
+          <li>
           <div className="duration-options">
             <label>Duration</label>
             <p>Do you want to set a duration for this commission?</p>
@@ -206,6 +205,9 @@ const CommissionForm = ({authenticated, user}) => {
               onChange={updateDate}
               />
           </div>
+          </li>
+            </ul>
+      
           <button className="commform-submit" type="submit">Submit</button>
           </div>
         </form>
