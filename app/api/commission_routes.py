@@ -14,8 +14,8 @@ commission_routes = Blueprint('commissions', __name__)
 def validation_errors_to_errors_messages(validation_errors):
   errorMessages = []
   for field in validation_errors:
-    for error in validation_errors:
-      errorMessages.append(f"*Please enter {error}")
+    for error in validation_errors[field]:
+      errorMessages.append(f"*{error}")
   return errorMessages
 
 # GET ALL COMMISSIONS

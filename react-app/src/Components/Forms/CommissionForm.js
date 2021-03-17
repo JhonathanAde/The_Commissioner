@@ -12,9 +12,12 @@ const CommissionForm = ({authenticated, user}) => {
   const [errors, setErrors] = useState([]);
   const [image_url, setImage] = useState("");
   const [price, setPrice] = useState(0.00);
-  const [requests, setRequests] = useState();
+  const [requests, setRequests] = useState(0);
   const [title, setTitle] = useState("");
   const [visibleDuration, setVisibleDuration] = useState("commduration__hidden");
+
+  let desCharacters = description.length;
+  console.log(desCharacters);
 
   //--- User Info ---
   const userId = user.id
@@ -47,6 +50,7 @@ const CommissionForm = ({authenticated, user}) => {
     const commission = await createCommission(commissionData);
     if (commission.errors) {
       setErrors(commission.errors);
+      console.log(commission.errors)
     } else {
       history.push(`/${user.username}/profile`)
     }
@@ -87,6 +91,7 @@ const CommissionForm = ({authenticated, user}) => {
   }
   
 
+
   console.log("Show Duration", visibleDuration)
 
 
@@ -95,7 +100,13 @@ const CommissionForm = ({authenticated, user}) => {
         <div className="comm-form commcontent-wrapper">
           <div className="comm-form commform-errors">
             {errors.map((error, idx) => (
-              <div key={idx}>{error}</div>
+              <>
+              <ul>
+                <li>
+                  <div key={idx}>{error}</div>
+                </li>
+              </ul>
+              </>
             ))}
           </div>
         </div>
@@ -129,6 +140,9 @@ const CommissionForm = ({authenticated, user}) => {
                   placeholder="Add description"
                   onChange={updateDescription}
                   />
+                  <div>
+                    {`${desCharacters}/230(max.)`}
+                  </div>
               </li>
 
               <li>
@@ -183,32 +197,33 @@ const CommissionForm = ({authenticated, user}) => {
                   />
               </li>
           <li>
-          <div className="duration-options">
-            <label>Duration</label>
-            <p>Do you want to set a duration for this commission?</p>
-            <label>
-              Yes
-            <input name="duration" type="radio" value={true} onClick={showDuration}/>
-            </label>
-            <label >
-              No
-            <input name="duration" type="radio" value={false} onClick={hideDuration}/>
-            </label>
-          </div>
-          <div className={visibleDuration}>
-            <label>
-              Ends:
-            </label>
-            <input 
-              name="date"
-              type="date"
-              onChange={updateDate}
-              />
-          </div>
+            <div className="comm-form duration-options">
+              <label>Duration</label>
+                <p>Do you want to set a duration for this commission?</p>
+              <label>
+                Yes
+                <input name="duration" type="radio" value={true} onClick={showDuration}/>
+              </label>
+              <label >
+                No
+                <input name="duration" type="radio" value={false} onClick={hideDuration}/>
+              </label>
+            </div>
+            <div className={visibleDuration}>
+              <label>
+                Ends:
+              </label>
+              <input 
+                name="date"
+                type="date"
+                onChange={updateDate}
+                />
+            </div>
+          </li>
+          <li>
+            <button className="comm-form commform-submit" type="submit">Submit</button>
           </li>
             </ul>
-      
-          <button className="commform-submit" type="submit">Submit</button>
           </div>
         </form>
   )

@@ -5,13 +5,13 @@ const CreateCommissionPage = ({authenticated, user}) => {
   return (
     <div className="commission-page">
       <div className="commission-page commcontent-wrapper">
-        <div className="commission-page comm-header">
-          <h1>Create A Commission</h1>
-        </div>
-        <div className="commform-container">
-          <div className="commform-display">
+        <div className="commission-page commform-container">
+          <div className="commission-page commform-imgdisplay">
+            <div className="commission-page comm-header">
+              <h1>Create A Commission</h1>
+            </div>
           </div>
-          <div className="commform-component">
+          <div className="commission-page commform-component">
             <CommissionForm authenticated={authenticated} user={user}/>
           </div>
         </div>

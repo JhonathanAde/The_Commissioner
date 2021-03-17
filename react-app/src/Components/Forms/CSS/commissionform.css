@@ -94,6 +94,58 @@ textarea {
   padding-bottom: 15.2rem;
 }
 
+.commission-page.commcontent-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.commission-page.comm-header {
+  padding: 0rem;
+  color: white;
+}
+
+.commission-page.commform-container {
+  display: flex;
+  width: 150rem;
+  height: 80rem;
+  padding: 0;
+  margin: 2rem;
+  box-shadow: 0rem 0rem .8rem rgba(0, 0, 0, 0.5);
+}
+
+.commission-page.commform-imgdisplay {
+  width: 50%;
+  background-color: black;
+}
+
+.commission-page.commform-component {
+  width: 50%;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comm-form.commform-info {
+  font-size: 8rem;
+}
+
+.comm-form.commcontent-wrapper ul{
+  list-style: none;
+}
+
+.comm-form.commform-info ul{
+  list-style: none;
+}
+
+.comm-form.commform-info li {
+  padding: .25rem;
+}
+
+
+
+
 
 
 @keyframes showDuration {
