@@ -127,8 +127,43 @@ textarea {
   align-items: center;
 }
 
+.comm-form.commform-errors {
+  color: red;
+  font-size: 5rem;
+}
+
 .comm-form.commform-info {
   font-size: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comm-form.commform-info textarea {
+  resize: none;
+  height: 10rem;
+  width: 38rem;
+  padding: .50rem;
+}
+
+.comm-form.commform-info input {
+  padding: .50rem;
+}
+
+.comm-upload-bar {
+  width: 28rem;
+  margin-left: 1rem;
+}
+
+.file-button {
+  margin-left: 1rem;
+  border: none;
+  background: none;
+  font-size: 2.5rem;
+}
+
+.file-button:hover{
+  color: hotpink;
 }
 
 .comm-form.commcontent-wrapper ul{
@@ -143,9 +178,70 @@ textarea {
   padding: .25rem;
 }
 
+.comm-form.commform-info label {
+  font-weight: bold;
+}
+
+.comm-form.duration-options{
+    margin-top: 1rem;
+}
+
+.comm-form.duration-options *{
+  font-size: 2rem;
+}
+
+.comm-form.duration-options p {
+  padding: 1rem 0rem;
+}
 
 
+.duration-options.duration-label {
+  font-weight: bold;
+}
 
+.duration-options.radio-options {
+  padding: 1rem 0rem;
+}
+
+.duration-options.radio-options input {
+  margin-left: 2rem;
+}
+
+.duration-options.radio-options label {
+  margin-right: 2rem;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.comm-form.commform-submit {
+  border: none;
+  background: none;
+  font-size: 3rem;
+  outline: none;
+  margin-top: 2rem;
+}
+
+.comm-form.commform-submit:hover {
+  color: hotpink;
+}
+
+.commduration__hidden {
+  height: 0rem;
+  visibility: hidden;
+  animation-name: hideDuration;
+  animation-duration: .7s;
+  transition-delay: .5s;
+  transition: height .7s;
+}
+
+.commduration {
+  height: 4rem;
+  /* padding: 0rem 0rem; */
+  visibility: visible;
+  animation-name: showDuration;
+  animation-duration: .7s;
+  transition: visibility 0s, height .7s;
+}
 
 
 @keyframes showDuration {

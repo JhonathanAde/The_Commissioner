@@ -1,0 +1,23 @@
+.requestcomm-page {
+  min-height: 100%;
+  padding-bottom: 15.2rem;
+}
+
+.requestcomm-page.reqcommcontent-wrapper {
+   display: flex;
+  justify-content: center;
+}
+
+.requestcomm-page.reqcommform-container {
+  display: flex;
+  width: 150rem;
+  height: 80rem;
+  padding: 0;
+  margin: 2rem;
+  box-shadow: 0rem 0rem .8rem rgba(0, 0, 0, 0.5);
+}
+
+.requestcomm-page.reqcommform-imgdisplay {
+  width: 50%;
+  background-color: black;
+}

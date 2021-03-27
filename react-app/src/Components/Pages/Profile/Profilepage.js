@@ -21,6 +21,21 @@ const Profilepage = ({authenticated, user}) => {
   
   const history = useHistory()
 
+// let personalPage = true;
+/* 
+  if (user.id == userId){
+    useEffect(() => {
+      (async () => {
+        - getRequestsById;
+        - getCommissionsById;
+      })
+    })
+  }
+
+
+
+
+*/
 
   useEffect(() => {
     (async () => {

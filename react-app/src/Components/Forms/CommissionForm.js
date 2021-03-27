@@ -145,13 +145,10 @@ const CommissionForm = ({authenticated, user}) => {
                   </div>
               </li>
 
-              <li>
+              <li className="comm-upload upload-button">
                 <label htmlFor="">
                   Image:
                 </label>
-              </li>
-
-              <li>
                 <input
                   className="comm-upload-bar"
                   name="image_url"
@@ -159,11 +156,10 @@ const CommissionForm = ({authenticated, user}) => {
                   placeholder="upload an image" 
                   onChange={updateImage}
                   />
-              </li>
-
-              <li>
                 <button className='file-button' onClick={prevent}>Upload</button>
               </li>
+              {/* <li>
+              </li> */}
 
               <li>
                 <label>
@@ -198,8 +194,9 @@ const CommissionForm = ({authenticated, user}) => {
               </li>
           <li>
             <div className="comm-form duration-options">
-              <label>Duration</label>
+              <label className="duration-options duration-label">Duration</label>
                 <p>Do you want to set a duration for this commission?</p>
+              <div className="duration-options radio-options">
               <label>
                 Yes
                 <input name="duration" type="radio" value={true} onClick={showDuration}/>
@@ -211,7 +208,7 @@ const CommissionForm = ({authenticated, user}) => {
             </div>
             <div className={visibleDuration}>
               <label>
-                Ends:
+                Ends: 
               </label>
               <input 
                 name="date"
@@ -219,6 +216,7 @@ const CommissionForm = ({authenticated, user}) => {
                 onChange={updateDate}
                 />
             </div>
+              </div>
           </li>
           <li>
             <button className="comm-form commform-submit" type="submit">Submit</button>

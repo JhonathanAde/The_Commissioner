@@ -23,12 +23,21 @@ const RequestCommissionPage = ({user}) => {
   console.log(comData)
 
   return (
-    <div className="request-box">
-    { comData &&
-      <div>
-        <RequestForm currentUser={user} commissionId={commissionId} commission={comData.commission}/>
+    <div className="requestcomm-page">
+      <div className="requestcomm-page reqcommcontent-wrapper">
+        { comData &&
+          <div className="requestcomm-page reqcommform-container">
+            <section className="requestcomm-page reqcommform-imgdisplay">
+              <div>
+
+              </div>
+            </section>
+            <section className="requestcomm-page reqcommform-component">
+              <RequestForm currentUser={user} commissionId={commissionId} commission={comData.commission}/>
+            </section>
+          </div>
+        }
       </div>
-    }
     </div>
   )
 }

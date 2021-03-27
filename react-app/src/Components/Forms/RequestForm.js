@@ -74,17 +74,6 @@ const RequestForm = ({currentUser, commissionId, commission}) => {
   }
 
   return (
-    <div className="request-form-container">
-      <div className="request-imgblock">
-      <h1 className="request-blocktitle">Request</h1>
-        <div className="request-img">
-          <img src={image_url} alt="Requested Commission"/>
-        </div>
-        <div className="request-img-info">
-        </div>
-      </div>
-
-
       <div className="request-form">
       <div>
         {errors.map(error => (
@@ -92,83 +81,44 @@ const RequestForm = ({currentUser, commissionId, commission}) => {
         ))}
       </div>
     <form onSubmit={submitHandler}>
-      <div className="request-form-elements">
-      <label>
-        Title
-      </label>
-      <input
-        name="title"
-        type="text"
-        placeholder="Title"
-        onChange={updateTitle}
-      />
-      </div>
+      <ul>
+        <li>
+          <label>
+            Title
+          </label>
+          <input
+            name="title"
+            type="text"
+            onChange={updateTitle}
+            placeholder="Title"
+          />
+        </li>
+        <li>
+          <label>
+            Description
+          </label>
+          <textarea
+            name="description"
+            tpye="textarea"
+            placeholder="Add the details of your request.."
+            onChange={updateDetails}
+          />
+        </li>
 
-      <div className="request-form-elements">
-      <label>
-        Description
-      </label>
-      <textarea
-        className="request-description-box"
-        name="details"
-        placeholder="Enter description here"
-        onChange={updateDetails}
-      />
-      </div>
-
-      <div className="request-form-elements">
-      <label htmlFor="images">References</label>
-      <p>If you have any reference images that you want to provide please upload them below.</p>
-      <div className="request-upload">
-      <input
-        name="references"
-        type="file"
-        placeholder="upload images"
-        onChange={updateReferences}
-      />
-      <button className='file-button' onClick={prevent}>Upload</button>
-      </div>
-      </div>
-
-  <div className="request-form-elements">
-      <label>
-        Urgent?
-      </label>
-
-    <div className="choices">
-
-      <label>Yes
-      <input
-        name="urgent"
-        type="radio"
-        value={true}
-        onChange={updateUrgency} 
-      />
-      </label>
-
-      <label> No
-      <input
-        name="urgent"
-        type="radio"
-        value={false} 
-        onChange={updateUrgency}
-      />
-      </label>
-    </div>
-  </div>
-
-      <div className="request-form-elements">
-
-      <input 
-        name="date"
-        type="date"
-        onChange={updateDate}
-      />
-      </div>
+        <li>
+          <label>
+            References
+          </label>
+          <input 
+            type="file"
+            name="reference"
+            onChange={updateReferences}
+          />
+        </li>
+      </ul>
       <button type="submit">Submit</button>
     </form>
       </div>
-    </div>
   )
 }
 
