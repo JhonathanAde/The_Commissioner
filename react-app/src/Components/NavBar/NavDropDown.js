@@ -4,13 +4,13 @@ import { NavLink } from 'react-router-dom';
 import './CSS/navdropdown.css'
 
 
-const Dropdown = ({openMenu, setAuthenticated, authenticated, setUser, user, setEventCheck}) => {
-  if (!openMenu) return null
+const Dropdown = ({isOpen, setAuthenticated, authenticated, setUser, user, setEventCheck}) => {
+  if (!isOpen) return null
   
   return (
     <>
-    { openMenu &&
-      <div className="nav-dropmenu" ref={(element) => { setEventCheck(element)}}>
+    { isOpen &&
+      <div className="nav-dropmenu">
         <ul>
           <li>
             <NavLink to="/create-a-commission" exact={true} className="nav-links" activeClassName="active">

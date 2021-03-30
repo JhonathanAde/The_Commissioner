@@ -11,43 +11,26 @@ const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
   // --- State ---
   const [openMenu, setOpenMenu] = useState(false);
   const [eventCheck, setEventCheck] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   // --- Helper Functions ---
-  const openDropDown = (e) => {
-    if(!openMenu){
-      setOpenMenu(true);
 
-      document.addEventListener('click', (e) => {
-        console.log(e.target)
-        console.log(eventCheck)
-        if(openMenu){
-          closeDropDown(e);
-        }
-          // if(eventCheck && eventCheck != e.target){
-          //   console.log("second check")
-          //   setOpenMenu(false);
-          // }
-    })
-    }
-}
+  let timeOutId = null;
 
-  
-  const closeDropDown = (e) => {
-    setOpenMenu(false)
-      // if(eventCheck.contains(e.target)){
-      //   console.log("got here")
-      //   setOpenMenu(false);
-      //   document.removeEventListener('click', (e) => {
-      //     closeDropDown(e)
-      //   })
-      // }
-    // }
+  const onClickHandler = () => {
+    setIsOpen(true);
   }
 
-  console.log(eventCheck)
+  const onBlurHandler = () => {
+    timeOutId = setTimeout(() => {
+      setIsOpen(false);
+    })
+  }
 
-  // console.log(eventCheck);
-  
+  const onFocusHandler = () => {
+    clearTimeout(timeOutId);
+  }
+
   return (
     <nav className="nav-bar">
           <ul className="homelinks">
@@ -68,8 +51,8 @@ const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
             <li>
               <div className="user-options">
                 <h1>{`Welcome ${user.username}!`}</h1>
-                <div className="navbar-dropdown" onClick={openDropDown} tabIndex="-1">
-                  <Dropdown openMenu={openMenu} setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user} setEventCheck={setEventCheck}/>
+                <div className="navbar-dropdown" onBlur={onBlurHandler} onFocus={onFocusHandler} onClick={onClickHandler} tabIndex="-1">
+                  <Dropdown isOpen={isOpen} setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user}/>
                 </div>
               </div>
             </li>
