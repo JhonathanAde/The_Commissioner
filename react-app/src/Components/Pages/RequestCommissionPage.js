@@ -28,8 +28,26 @@ const RequestCommissionPage = ({user}) => {
         { comData &&
           <div className="requestcomm-page reqcommform-container">
             <section className="requestcomm-page reqcommform-imgdisplay">
-              <div>
-
+              <div className="reqcommform-imgdisplay reqimg-info">
+                <h1>
+                  {comData.commission.title}
+                </h1>
+              </div>
+              <div className="reqcommform-imgdisplay reqimg-container">
+                <img src={comData.commission.image_url}/>
+              </div>
+               <div className="reqcommform-imgdisplay reqimg-info">
+                 <div className="reqcommform-imgdisplay reqimg-userprice">
+                <h1>
+                  {`${comData.commission.user.username}`}
+                </h1>
+                <h1 className="req-price">
+                  {`$${comData.commission.price}`}
+                </h1>
+                 </div>
+                <p>
+                  {`${comData.commission.description}`}
+                </p>
               </div>
             </section>
             <section className="requestcomm-page reqcommform-component">

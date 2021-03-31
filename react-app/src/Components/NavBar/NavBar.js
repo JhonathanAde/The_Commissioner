@@ -9,8 +9,6 @@ import "./CSS/navbar.css"
 const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
 
   // --- State ---
-  const [openMenu, setOpenMenu] = useState(false);
-  const [eventCheck, setEventCheck] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
   // --- Helper Functions ---
