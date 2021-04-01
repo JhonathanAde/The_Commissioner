@@ -24,7 +24,7 @@ class RequestForm(FlaskForm):
   title = StringField('Title', validators=[check_title])
   details = TextAreaField('Details', validators=[check_details])
   references = FileField('References', validators=[FileAllowed(['jpg', 'jpeg', 'png'], 'jpg, jpeg and png only!')])
-  urgency = BooleanField('Urgency',validators=[DataRequired()])
+  urgency = BooleanField('Urgency',validators=[Optional()])
   date = DateField('Date', validators=[Optional()])
   commission_id = IntegerField('CommissionId')
   price = IntegerField('Price')

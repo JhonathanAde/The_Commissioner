@@ -98,6 +98,10 @@
   color: red;
 }
 
+.request-form.request-errors ul {
+  list-style: none;
+}
+
 .request-form.requestform-info {
   font-size: 8rem;
 }
