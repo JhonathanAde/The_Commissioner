@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
 import './RequestCards.css'
 
-const RequestCards = ({info}) => {
+const RequestCards = ({info, testRef}) => {
   // info.date = Deadline for requested art
   // info.details = Instructions/Details for requested art
   // info.image_url = Requested art image
   // info.title = Title of requested art
   // info.users.username = Username of Client
+
+
   
   return (
     <>
-      <div className="user-request cardsbody">
+      <div className="user-request cardsbody" ref={testRef}>
         <div className="user-request imgcontainer">
-          {/* <img src={info.image_url} /> */}
+          <img src={info.image_url} />
         </div>
         <div className="user-request cardinfo">
             <ul>

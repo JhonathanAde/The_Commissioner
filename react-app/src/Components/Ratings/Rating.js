@@ -12,26 +12,26 @@ const Rating = () => {
   const ratingScale = [
    {
     "value": 1,
-    "icon": <i class={fill}></i>
+    "icon": <i className={fill}></i>
   }
   , 
   {
     "value": 2,
-    "icon": <i class={fill}></i>
+    "icon": <i className={fill}></i>
   }
   , 
   {
     "value": 3,
-    "icon": <i class={fill}></i>
+    "icon": <i className={fill}></i>
   }
   , 
   {
    "value": 4,
-    "icon": <i class={fill}></i>
+    "icon": <i className={fill}></i>
   }
   , 
   {"value": 5,
-    "icon": <i class={fill}></i>
+    "icon": <i className={fill}></i>
   }
 ]
 

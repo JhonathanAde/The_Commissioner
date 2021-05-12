@@ -1,8 +1,34 @@
+:root {
+  --proportionH : calc(80rem * 2);
+  --proportionW : calc(50rem * 2);
+}
+
+
+
 .user-request * {
   margin: 0;
   padding: 0;
 }
 
 .user-request.cardsbody {
-  
+  display: block;
+  background-color: cadetblue;
+  width: 50rem;
+  height: 80rem;
+  margin: 1rem ;
+}
+
+.user-request.imgcontainer {
+  position: relative;
+  width: 50rem;
+  height: 50%;
+  overflow: hidden;
+  background-color: coral;
+}
+
+.user-request.imgcontainer img {
+  width: calc(100% * 1.5);
+  height: auto;
+  margin-top: -6rem;
+  margin-left: -10rem;
 }

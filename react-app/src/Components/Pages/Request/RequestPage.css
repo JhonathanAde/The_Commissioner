@@ -13,3 +13,13 @@
   width: 150rem;
   height: 200rem;
 }
+
+.carousel-container {
+  width: 500px;
+  margin: auto;
+  border: solid 5px ;
+}
+
+.carousel-slider {
+  display: flex;
+}

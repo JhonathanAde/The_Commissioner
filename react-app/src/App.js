@@ -71,9 +71,9 @@ function App() {
         <Route path="/:username/settings">
           <SettingsPage user={user}/>
         </Route>
-        {/* <Route path="/:username/requests">
+        <Route path="/:username/requests">
           <ReqeustsPage user={user}/>
-        </Route> */}
+        </Route>
         {/* <Route path="/:username/profile" exact={true}>
           <Profilepage authenticated={authenticated} user={user}/>
         </Route> */}
