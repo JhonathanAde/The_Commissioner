@@ -10,6 +10,7 @@ const ReqeustsPage = ({user}) => {
   const [requestInfo, setRequestInfo] = useState('')
   const [imgCards, setImgCards] = useState([]);
   const [carousel, setCarousel] = useState([]);
+  const [cardWidth, setCardWidth] = useState(0)
 
   useEffect(() => {
     (async () => {
@@ -21,22 +22,27 @@ const ReqeustsPage = ({user}) => {
   const cardRef = useRef(null);
   const carouselRef = useRef(null);
 
-
   useEffect(() => {
     // let imageCards = cardRef.current.querySelector(".carousel-slider").childNodes
-    let imageCards = cardRef.current.querySelectorAll(".user-request.cardsbody");
-    let carouselSlider = carouselRef.current.querySelector(".carousel-slider");
-    // let cardSize = imageCards[0].clientWidth
-    setImgCards(imageCards);
-    setCarousel(carouselSlider);
-    console.log(carouselSlider);
-    console.log(imageCards);
-    // console.log(cardSize);
+    const domStaller = setTimeout(() => {
+      let imageCards = cardRef.current.querySelectorAll(".user-request.cardsbody");
+      let carouselSlider = carouselRef.current.querySelector(".carousel-slider");
+      let cardSize = imageCards[0].clientWidth
+      setImgCards(imageCards);
+      setCarousel(carouselSlider);
+      setCardWidth(cardSize);
+    }, 200)
   }, [cardRef])
  
   console.log('outside of useEffect', carousel);
   console.log('outside of useEffect', imgCards);
-  // console.log('outside of useEffect', imgCards[0].clientWidth);
+  console.log('outside of useEffect', cardWidth);
+
+  // const staller = setTimeout(() => {
+  //   debugger
+  //   let width = imgCards[0].clientWidth;
+  // }, 5000)
+  
 
 
   // console.log(testRef.current.querySelectorAll(".user-request.cardsbody"));
