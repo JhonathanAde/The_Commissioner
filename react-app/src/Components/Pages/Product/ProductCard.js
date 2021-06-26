@@ -10,34 +10,53 @@ const ProductCard = ({commission}) => {
   const {id, title, description, image_url, user} = commission;
   const {username} = user;
 
-  return (
-    <>
-    <div className="product">
-      <div className="product-display">
-        <img src={image_url} alt="product"/>
-      </div>
+  console.log(commission);
 
-      <div className="product-info">
-        <div className="product-title">
-          <div className="product-headers">
-            <h1>{title}</h1>
-            <NavLink to={`/profile/${user.id}`}>{username}</NavLink>
-            <p>  rating will go here </p>
+  return (
+    <div className="artpage">
+      <div className="artpage-display">
+        <div className="artpage art-content">
+          <div className="artpage art-content__product-display">
+            <div className="artpage art-content__product-displaywindow">
+              <img src={commission.image_url}/>
+            </div>
+          </div>
+          <div className="artpage art-content__product-details">
+            <h6>{commission.title}</h6>
+              <h3>Artwork By: {commission.user.username}</h3>
+              <p>Description</p>
+              <div></div>
+              <div>
+                {commission.description}
+              </div>
+              <button>Request</button>
           </div>
         </div>
-        <div className="prod-details">
-          <h3>Description</h3>
-          <div className="prod-divider"/>
-          <div className="prod-description">
-            <p>{description}</p>
+          
+        <div className="artpage art-details">
+          <div className="artpage art-details__reviews">
+            <form>
+              <label>
+                Write A Review
+              </label>
+              <textarea></textarea>
+            </form>
+            <button>Submit</button>
+          </div>
+
+          <div className="artpage art-details__aboutartist">
+            <div>
+              <h3>
+                About The Artist
+              </h3>
+              <div>
+                {commission.user.username}
+              </div>
+            </div>
           </div>
         </div>
-        <NavLink to={`/request/${id}`} className="prodrequest-button" activeClassName = "prod-active">
-          Request
-        </NavLink>
       </div>
     </div>
-    </>
   )
 }
 

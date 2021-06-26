@@ -45,7 +45,6 @@ function App() {
 
   return (
     <div className="page-container">
-    <div className="content-wrap">
     <BrowserRouter>
       <NavBar setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user} />
       {/* <Footer /> */}
@@ -91,7 +90,6 @@ function App() {
       </Switch>
     </BrowserRouter>
     <Footer />
-    </div>
     </div>
   );
 }

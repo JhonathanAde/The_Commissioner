@@ -32,6 +32,7 @@ const ReqeustsPage = ({user}) => {
       setCarousel(carouselSlider);
       setCardWidth(cardSize);
     }, 200)
+    
   }, [cardRef])
  
   console.log('outside of useEffect', carousel);

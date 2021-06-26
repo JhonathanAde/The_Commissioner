@@ -36,7 +36,7 @@ const CommissionCards = ({comms}) => {
             <li>
               <div className="content-container info-container">
                 <NavLink to={`/profile/${user.id}`} className="info-container username">
-                <h6>{user.username}</h6>
+                <h2>Artwork by: {user.username}</h2>
                 </NavLink>
               </div>
             </li>

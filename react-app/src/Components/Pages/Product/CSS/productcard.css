@@ -1,92 +1,45 @@
-.product {
-  width: 150rem;
-  height: 60rem;
-  transform: translate(14rem, 5.5rem);
-  padding: 1rem;
+.root{
+  --main_black: #000000;
+  --card_grey: #e5e5e5;
+  --icon_pink: #ffb6ef;
+  --highlight: #ffdc60;
+  --main_window_width: 1500rem;
+  --main_window_height: 998rem;
+}
+
+.artpage {
   display: flex;
+  justify-content: center;
+  width: 1752px;
+  height: 2122px;
 }
 
-.product-display {
-  background-color: cornflowerblue;
-  height: 50rem;
-  width: auto;
-  box-shadow: 0rem 0rem .8rem rgba(0, 0, 0, 0.7);
-  margin-right: 2rem;
-}
 
-.product-display img {
-  height: 100%;
-  width: auto;
-}
-
-.product-info {
-  position: relative;
-  padding: 1rem;
+.artpage.display {
   display: flex;
+  align-content: center;
   flex-direction: column;
+  width: var(--main_window_width);
+  height: var(--main_window_height);
+  background-color: var(--icon_pink);
+
 }
 
-.product-title{
-  font-size: 5rem;
+.artpage.art-content {
+  width: 1492px;
+  height: 745px;
+  background-color: violet;
 }
 
-.product-headers h1{
-  margin: 0rem 0rem;
-  font-size: 4rem;
+.artpage.art-content__product-displaywindow {
+  overflow: hidden;
+  width: 676px;
+  height: 676px;
 }
 
-.product-headers p {
-  margin: 0rem;
+.artpage.art-details {
+  width: 1492px;
+  height: 1221px;
+  background-color: aqua;
 }
 
-.prod-details * {
-  margin: 0rem;
-}
-
-.prod-details {
-  height: 10rem;
-  font-size: 2.5rem;
-  transform: translate(0rem, 3rem);
-}
-
-.prod-details h3 {
-  font-size: 2rem;
-}
-
-.prodrequest-button {
-  color: black;
-  transform: translate(0rem, 5rem);
-  margin: 0rem;
-  padding: 0rem;
-  outline: none;
-  font-size: 5rem;
-  text-decoration: none;
-  transition: color 1s;
-}
-
-.prodrequest-button:hover {
-  color: hotpink;
-}
-
-.prod-active {
-  color: white;
-}
-
-.prodrequest-button:active {
-  transition: none;
-  color: gold
-}
-
-.prod-divider {
-  background-color: lightgray;
-  width: 50rem;
-  height: .25rem;
-}
-
-.prod-description {
-  width: 51rem;
-  height: 10rem;
-  padding: .25rem;
-  font-size: 2.5rem;
-  line-height: 2.2rem;
-}

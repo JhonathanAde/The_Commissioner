@@ -1,12 +1,11 @@
 .space-filler {
-  display: block;
+  /* display: block;
   background-color: tomato;
   height: 20rem;
   width: 40rem;
-  z-index: 2000;
+  z-index: 2000; */
 }
 .footer {
-  /* display: block; */
   position: relative;
   right: 0;
   left: 0;
@@ -14,14 +13,12 @@
   height: 10rem;
   background-color: black;
   color: white;
-  /* z-index: 2000; */
   clear: both;
-  margin-top: -10rem;
 }
 
 .creator-info {
   font-size: 4rem;
-  margin-left: 14rem;
+  margin: 0;
 }
 
 .creator-info li {
