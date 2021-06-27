@@ -24,11 +24,11 @@ const ProductCard = ({commission}) => {
           <div className="artpage art-content__product-details">
             <h6>{commission.title}</h6>
               <h3>Artwork By: {commission.user.username}</h3>
-              <p>Description</p>
-              <div></div>
-              <div>
+              <h1>Description</h1>
+              <div className="artpage art-content__description-divider"></div>
+              <p>
                 {commission.description}
-              </div>
+              </p>
               <button>Request</button>
           </div>
         </div>
@@ -36,9 +36,9 @@ const ProductCard = ({commission}) => {
         <div className="artpage art-details">
           <div className="artpage art-details__reviews">
             <form>
-              <label>
+              <h1>
                 Write A Review
-              </label>
+              </h1>
               <textarea></textarea>
             </form>
             <button>Submit</button>

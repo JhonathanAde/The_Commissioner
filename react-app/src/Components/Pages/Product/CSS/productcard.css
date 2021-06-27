@@ -1,27 +1,27 @@
-.root{
+:root{
   --main_black: #000000;
-  --card_grey: #e5e5e5;
-  --icon_pink: #ffb6ef;
+  --card-grey: #e5e5e5;
+  --icon-pink: #ffb6ef;
   --highlight: #ffdc60;
-  --main_window_width: 1500rem;
-  --main_window_height: 998rem;
+  --main-window_width: 1500rem;
+  --main-window_height: 998rem;
 }
 
 .artpage {
   display: flex;
   justify-content: center;
-  width: 1752px;
+  width: 100%;
   height: 2122px;
 }
 
 
 .artpage.display {
-  display: flex;
-  align-content: center;
-  flex-direction: column;
-  width: var(--main_window_width);
-  height: var(--main_window_height);
-  background-color: var(--icon_pink);
+  /* display: flex; */
+  /* align-content: center; */
+  /* flex-direction: column; */
+  width: var(--main-window_width);
+  height: var(--main-window_height);
+  background-color: var(--icon-pink);
 
 }
 
@@ -31,10 +31,70 @@
   background-color: violet;
 }
 
+.artpage.art-content__product-display {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  background-color: var(--card-grey);
+  width: 741px;
+  height: 741px;
+}
+
 .artpage.art-content__product-displaywindow {
+  /* background-color: blue; */
+  /* background-color: var(--card-grey); */
   overflow: hidden;
   width: 676px;
   height: 676px;
+  margin: 0rem;
+}
+
+.artpage.art-content__product-displaywindow img {
+  display: block;
+  height: 100%;
+}
+
+.artpage.art-content__product-details {
+  width: 1492px;
+  height: 741px;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.artpage.art-content__product-details h6 {
+  font-size: 96px;
+}
+
+.artpage.art-content__product-details h3{
+  font-size: 36px;
+  font-weight:600;
+}
+
+.artpage.art-content__product-details h1 {
+  font-size: 36px;
+  font-weight: normal;
+}
+
+.artpage.art-content__description-divider {
+  background-color: var(--card-grey);
+  height: 5px;
+  width: 722px;
+}
+
+.artpage.art-content__product-details p {
+  font-size: 18px;
+}
+
+.artpage.art-content__product-details button {
+  font-size: 36px;
+  color: white;
+  width: 265px;
+  height: 58px;
+  outline: none;
+  background: none;
+  border: none;
+  background-color: var(--main_black);
 }
 
 .artpage.art-details {
@@ -43,3 +103,7 @@
   background-color: aqua;
 }
 
+.artpage.art-details__reviews {
+  flex-direction: column;
+  justify-content: flex-start;
+}
