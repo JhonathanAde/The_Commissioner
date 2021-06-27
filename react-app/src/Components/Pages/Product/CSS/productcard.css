@@ -11,7 +11,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 2122px;
+  height: auto;
 }
 
 
@@ -28,7 +28,7 @@
 .artpage.art-content {
   width: 1492px;
   height: 745px;
-  background-color: violet;
+  /* background-color: violet; */
 }
 
 .artpage.art-content__product-display {
@@ -38,6 +38,9 @@
   background-color: var(--card-grey);
   width: 741px;
   height: 741px;
+  padding: 5px;
+  margin-top: 10px;
+  margin-right: 5px;
 }
 
 .artpage.art-content__product-displaywindow {
@@ -56,19 +59,22 @@
 
 .artpage.art-content__product-details {
   width: 1492px;
-  height: 741px;
+  height: auto;
   align-items: flex-start;
   flex-direction: column;
   justify-content: flex-start;
+  padding: 5px;
 }
 
 .artpage.art-content__product-details h6 {
-  font-size: 96px;
+  font-size: 76px;
+  margin-bottom: 5px;
 }
 
 .artpage.art-content__product-details h3{
   font-size: 36px;
   font-weight:600;
+  margin-bottom: 5px;
 }
 
 .artpage.art-content__product-details h1 {
@@ -80,10 +86,12 @@
   background-color: var(--card-grey);
   height: 5px;
   width: 722px;
+  margin: 5px 0;
 }
 
 .artpage.art-content__product-details p {
   font-size: 18px;
+  margin-bottom: 25px;
 }
 
 .artpage.art-content__product-details button {
@@ -95,15 +103,60 @@
   background: none;
   border: none;
   background-color: var(--main_black);
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.artpage.art-content__product-details button:hover {
+  background-color: var(--highlight);
 }
 
 .artpage.art-details {
   width: 1492px;
-  height: 1221px;
-  background-color: aqua;
+  height: auto;
+  /* background-color: aqua; */
+  margin-top: 30px;
 }
 
 .artpage.art-details__reviews {
   flex-direction: column;
   justify-content: flex-start;
+  height: 100%;
+  padding: 2px;
+  margin-bottom: 10px;
+}
+
+.artpage.art-details__reviews h1 {
+  font-size: 36px;
+  margin-bottom: 5px;
+
+}
+
+.artpage.artpage.art-details__reviews textarea {
+  width: 685px;
+  height: 310px;
+  resize: none;
+  margin-bottom: 5px;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.artpage.art-details__reviews button {
+  color: white;
+  width: 200px;
+  height: 57px;
+  font-size: 24px;
+  outline: none;
+  border: none;
+  background: none;
+  background-color: var(--main_black);
+  cursor: pointer;
+}
+
+.artpage.art-details__reviews button:hover {
+  background-color: var(--highlight);
+}
+
+.artpage.art-details__aboutartist {
+  height: 100%;
 }

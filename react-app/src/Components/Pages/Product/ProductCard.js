@@ -45,14 +45,14 @@ const ProductCard = ({commission}) => {
           </div>
 
           <div className="artpage art-details__aboutartist">
-            <div>
+            {/* <div>
               <h3>
                 About The Artist
               </h3>
               <div>
                 {commission.user.username}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
