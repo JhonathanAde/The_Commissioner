@@ -81,7 +81,9 @@ const Profilepage = ({authenticated, user}) => {
         <div className="profilepage-display profile-info">
           <div className="profilepage-display profile-info__profilecard">
             <div className="profilepage-display profile-info__profilecard" id="profile-image__container">
+              <div id="profile-image__container-div">
               <img></img>
+              </div>
             </div>
             <div className="profilepage-display profile-info__profilecard-userinfo">
               <h1 id="profile-username">

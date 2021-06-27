@@ -31,39 +31,33 @@ const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
 
   return (
     <nav className="nav-bar">
-          <ul className="homelinks">
-            <li>
+        <div className="nav-bar main-items"> 
+          <div className="nav-bar home-icon">
           <NavLink to="/" exact={true} activeClassName="active">
             Home 
           </NavLink>
-            </li>
-          </ul>
+          </div>
+
+          <div className="nav-bar user-options">
           {authenticated?
             <>
-          <ul className="authlinks">
-
-            <li>
-             {/* {`Welcome ${user.username}!`} */}
-            </li>
-
-            <li>
-              <div className="user-options">
-                <h1>{`Welcome ${user.username}!`}</h1>
-                <div className="navbar-dropdown" onBlur={onBlurHandler} onFocus={onFocusHandler} onClick={onClickHandler} tabIndex="-1">
+          
+              <div className="nav-bar user-options__loggedin-menu">
+                <h1 id="nav-bar__username">{`Welcome ${user.username}!`}</h1>
+                <div className="nav-bar user-options__dropdown"  onBlur={onBlurHandler} onFocus={onFocusHandler} onClick={onClickHandler} tabIndex="-1">
                   <Dropdown isOpen={isOpen} setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user}/>
                 </div>
               </div>
-            </li>
-          </ul>
             </>
 
             :
-            <ul>
-              <li id="login-link">
-                <NavLink to="/login" exact={true} activeClassName="active" className="nav-links">Login</NavLink>
-              </li>
-            </ul>
+            <div>
+              <NavLink to="/login" exact={true} activeClassName="active" className="nav-links__menu">Sign Up</NavLink>
+              <NavLink to="/login" exact={true} activeClassName="active" className="nav-links__menu">Login</NavLink>
+            </div>
           }
+          </div>
+        </div>
     </nav>
   )
 }

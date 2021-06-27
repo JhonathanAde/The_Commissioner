@@ -6,7 +6,7 @@
   width: 27rem;
   background-color: black;
   position: absolute;
-  transform: translate(-23rem, 4rem);
+  transform: translate(-11rem, 4rem);
   z-index: 2000;
   animation-name: openUp;
   animation-duration: .5s;
