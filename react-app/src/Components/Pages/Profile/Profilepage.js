@@ -3,13 +3,15 @@ import { useParams, useHistory } from "react-router-dom"
 import { getCommissionsById } from '../../services/commission'
 import { getRequestsById } from '../../services/request'
 import ProfileCommCards from './ProfileComCards'
+import CommissionCards from '../../Card/CommissionCards'
 import Rating from 'react-rating'
 // import CommissionCards from '../../Card/CommissionCards'
 // import RequestCards from './RequestCards'
 
 //CSS
 import './CSS/profilepage.css'
-import BasicInfoCard from './BasicInfoCard'
+import '../../Card/CommissionCards.css'
+// import BasicInfoCard from './BasicInfoCard'
 import Footer from '../../Footer/Footer'
 // import Rating from '../../Ratings/Rating'
 
@@ -74,36 +76,35 @@ const Profilepage = ({authenticated, user}) => {
 
 
   return (
-    <div className="profile">
-    <div className="profile-page">
-    <div className="profile-page pro-banner" />
-      <div className="profile-page pro-left">
-        <div className="profile-page pro-card">
-          <BasicInfoCard user={user}/>
-        </div>
-        <div className='profile-page procomm-slot'>
-          <h1>Commissions</h1>
-          <div className='profile-page procomm-slot-display'>
-        {/* {userCommissions && userCommissions.commissions.map((com, idx) => (
-          <ProfileCommCards com={com} key={idx}/>
-        ))} */}
+    <div className="profilepage">
+      <div className="profilepage-display">
+        <div className="profilepage-display profile-info">
+          <div className="profilepage-display profile-info__profilecard">
+            <div className="profilepage-display profile-info__profilecard" id="profile-image__container">
+              <img></img>
+            </div>
+            <div className="profilepage-display profile-info__profilecard-userinfo">
+              <h1 id="profile-username">
+                {user.username}
+              </h1>
+              <h1 id="profile-location">
+                {user.location}
+              </h1>
+            </div>
           </div>
         </div>
-        <div>
-          <div className="prof-displays">
-
-
+        <div className="profilepage-display profile-content">
+          <div className="filler-1"></div>
+          <button>Commissions</button>
+          <div className="profilepage-display profile-content__divider"></div>
+          <div className="profilepage-display profile-content__display">
+            {
+              userCommissions && userCommissions.commissions.map((comms, idx) => (
+                <CommissionCards comms={comms} key={idx}/>
+              ))}
           </div>
-          {/* {userRequests && userRequests.requests.map((req, idx) => (
-            <RequestCards request={req} key={idx}/>
-          ))} */}
         </div>
       </div>
-
-      <div className="profile-right">
-      </div>
-    </div>
-    {/* <Footer /> */}
     </div>
   )
 }

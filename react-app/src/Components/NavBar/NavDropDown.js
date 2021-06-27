@@ -22,11 +22,11 @@ const Dropdown = ({isOpen, setAuthenticated, authenticated, setUser, user,}) => 
               Requests
             </NavLink>
           </li>
-          {/* <li>
+          <li>
             <NavLink to={`/${user.username}/profile`} className="nav-links">
               Profile
             </NavLink>
-          </li> */}
+          </li>
           {/* <li>
             <NavLink to={`/${user.username}/settings`} exact={true} className="nav-links">
               Settings

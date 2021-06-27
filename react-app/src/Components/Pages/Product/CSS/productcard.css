@@ -15,16 +15,6 @@
 }
 
 
-.artpage.display {
-  /* display: flex; */
-  /* align-content: center; */
-  /* flex-direction: column; */
-  width: var(--main-window_width);
-  height: var(--main-window_height);
-  background-color: var(--icon-pink);
-
-}
-
 .artpage.art-content {
   width: 1492px;
   height: 745px;

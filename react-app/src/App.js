@@ -73,12 +73,12 @@ function App() {
         <Route path="/:username/requests">
           <ReqeustsPage user={user}/>
         </Route>
-        {/* <Route path="/:username/profile" exact={true}>
+        <Route path="/:username/profile" exact={true}>
           <Profilepage authenticated={authenticated} user={user}/>
-        </Route> */}
-        {/* <Route path="/profile/:userId" exact={true}>
+        </Route>
+        <Route path="/profile/:userId" exact={true}>
           <Profilepage authenticated={authenticated} user={user}/>
-        </Route> */}
+        </Route>
         {/* <Route path="/sign-up" exact={true}>
           <SignUpForm 
             authenticated={authenticated}
