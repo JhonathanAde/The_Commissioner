@@ -17,11 +17,11 @@ const Dropdown = ({isOpen, setAuthenticated, authenticated, setUser, user,}) => 
               Create
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to={`/${user.username}/requests`} className="nav-links">
               Requests
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink to={`/${user.username}/profile`} className="nav-links">
               Profile

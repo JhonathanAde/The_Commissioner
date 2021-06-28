@@ -39,6 +39,11 @@
   justify-content: flex-start;
 }
 
+#main-logo {
+  width: 44px;
+  height: 44px;
+}
+
 .nav-bar.user-options {
   font-size: 48px;
   font-weight: bold;
@@ -50,6 +55,10 @@
 .nav-links__menu {
   padding: 10px;
   text-decoration: none;
+}
+
+.nav-links__menu:hover {
+  color: var(--highlight);
 }
 
 .nav-bar.user-options__loggedin-menu {

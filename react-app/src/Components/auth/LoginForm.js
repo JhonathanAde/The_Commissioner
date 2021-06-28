@@ -1,14 +1,20 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { login } from "../services/auth";
 
 // CSS
 import "./LoginForm.css"
 
-const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSignup, showlogin}) => {
+const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSignup, showlogin, pathname}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const history = useHistory()
+  const emailInput = document.querySelector("#email-input")
+  const passInput = document.querySelector("#password-input")
+
+  console.log(emailInput);
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -21,6 +27,16 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
     }
   };
 
+  const demoLogin = async (e) => {
+    e.preventDefault();
+    const data = await login('demo@adesko.com', 'password');
+    if(!data.errors){
+      setAuthenticated(true);
+      setUser(data);
+      history.push("/");
+    }
+  }
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -29,14 +45,28 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
     setPassword(e.target.value);
   };
 
-  const signUpVisibility = () => {
+  const checkPath = () => {
+    if(pathname !== "/login"){
+      setLogin("splashlogin-form__hidden")
+      setSignup("signup-display")
+    }
+  }
+
+  const signUpVisibility = (e) => {
+    e.preventDefault();
+   
     if (showlogin === "splashlogin-form"){
+      history.push('/signup');
       setLogin("splashlogin-form__hidden")
       setSignup("signup-display")
       console.log("worked")
     }
     console.log("clicked!!")
   }
+
+  checkPath();
+
+  
 
   if (authenticated) {
     return <Redirect to="/" />;
@@ -60,6 +90,7 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
                 <input 
                   name="email"
                   type="email"
+                  id="email-input"
                   placeholder="Email"
                   value={email}
                   onChange={updateEmail}
@@ -73,6 +104,7 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
                   name="pasword"
                   type="password"
                   placeholder="Password"
+                  id="password-input"
                   value={password}
                   onChange={updatePassword}
                   />
@@ -80,9 +112,10 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
         </ul>
         <div className="login-form login-buttons">
           <button type="submit" className="login-submit">Login</button>
-          <a className="sign-upreveal" onClick={signUpVisibility}>
+          <button onClick={demoLogin}>Demo</button>
+          <button className="sign-upreveal" onClick={signUpVisibility}>
             Sign Up
-            </a>
+            </button>
         </div>
       </div>
     </form>

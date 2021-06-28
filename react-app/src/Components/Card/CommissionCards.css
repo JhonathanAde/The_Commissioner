@@ -1,3 +1,13 @@
+:root{
+  --main_black: #000000;
+  --card-grey: #e5e5e5;
+  --icon-pink: #ffb6ef;
+  --highlight: #ffdc60;
+  --card-boxshadow: 0px 0px .5rem rgba(0, 0, 0, 0.7);
+  --main-window_width: 1500rem;
+  --main-window_height: 998rem;
+}
+
 .commission-card {
   margin: 0rem;
   padding: 0rem;
@@ -73,42 +83,52 @@
 }
 
 .content-container.info-container {
-  display: block;
-  font-size: 8rem;
+  display: flex;
+  flex-direction: row;
+  /* font-size: 8rem; */
+}
+
+.content-container.info-container h2 {
+  font-size: 24px;
+  padding: 2px;
+  margin-right: 5px;
 }
 
 .content-container.rating-info {
-  display: block;
-  position: relative;
-  top: 0rem;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  /* background-color: tomato; */
-  font-size: 8rem;
-}
-
-.content-container.rating-info ul{
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: flex-end;
 }
 
-.content-container.rating-info span{
-  display: block;
-  margin-top: 0;
-  padding: 0;
-  clear: both;
-  /* margin-right: 7rem; */
+#rating-info__ratings {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.content-container.rating-info p {
-  font-weight: bold;
+#rating-info__ratings i {
+  font-size: 24px;
+  color: var(--highlight);
 }
 
 #rating-number {
+  padding: 10px;
+  margin-left: 5px;
   font-size: 1.5rem;
-  /* margin-right: 17rem; */
+}
+
+
+#rating-info__price {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 179px;
+}
+
+#price-display {
+  font-size: 28px;
+  font-weight: bold;
+  padding: 2px;
 }
 
 .title-container.title-nav {
@@ -124,7 +144,7 @@
 }
 
 .info-container.username:hover {
-  color: hotpink;
+  color: var(--icon-pink);
   text-decoration: underline;
 }
 

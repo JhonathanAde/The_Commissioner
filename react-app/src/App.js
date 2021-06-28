@@ -57,6 +57,14 @@ function App() {
             user={user}
             />
         </Route>
+        <Route path="/signup" exact={true}>
+          <SplashPage
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+            setUser={setUser}
+            user={user}
+            />
+        </Route>
         <Route path="/request/:commissionId" exact={true}>
           <RequestCommissionPage user={user}/>
         </Route>

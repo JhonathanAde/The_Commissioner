@@ -62,6 +62,37 @@
   margin-bottom: 5px;
 }
 
+#artwork-by__section {
+  display: flex;
+  flex-direction: row;
+}
+
+#artwork-by {
+  margin-right: 10px;
+}
+
+#artwork-by__section a {
+  font-size: 36px;
+  /* font-weight: bold; */
+}
+
+#artwork-by__section a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: var(--icon-pink)
+}
+
+
+
+#artwork-rating {
+  margin-bottom: 35px;;
+}
+
+#artwork-rating i {
+  font-size: 25px;
+  color: var(--highlight);
+}
+
 .artpage.art-content__product-details h3{
   font-size: 36px;
   font-weight:600;
@@ -99,7 +130,7 @@
 }
 
 .artpage.art-content__product-details button:hover {
-  background-color: var(--highlight);
+  background-color: var(--icon-pink);
 }
 
 .artpage.art-details {
@@ -132,6 +163,18 @@
   font-size: 18px;
 }
 
+.artpage.art-details__reviewform-submit {
+  width: 685px;
+  justify-content: space-between;
+}
+
+.artpage.art-details__reviewform-submit i{
+ font-size: 35px;
+ color: var(--highlight);
+}
+
+
+
 .artpage.art-details__reviews button {
   color: white;
   width: 200px;
@@ -145,7 +188,12 @@
 }
 
 .artpage.art-details__reviews button:hover {
-  background-color: var(--highlight);
+  background-color: var(--icon-pink);
+}
+
+.artpage.art-details__reviews-list{
+  flex-direction: column;
+  margin-bottom: 100px;
 }
 
 .artpage.art-details__aboutartist {

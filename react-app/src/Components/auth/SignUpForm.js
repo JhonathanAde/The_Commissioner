@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../services/auth';
 import states from 'states-us';
 import "./SignUpForm.css"
 
-const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSignup, setLogin}) => {
+const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSignup, setLogin, pathname}) => {
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState([])
   const [email, setEmail] = useState("");
@@ -12,6 +12,8 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSig
   const [repeatPassword, setRepeatPassword] = useState("");
   const [artist, setArtist] = useState(false)
   const [location, setLocation] = useState("")
+
+  const history = useHistory();
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -59,11 +61,27 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSig
   // console.log(location)
 
   const logInVisibility = () => {
+    // if(pathname !== "/login"){
+    //   setSignup("signup-display__hidden")
+    //   setLogin("splashlogin-form")
+    //   pathname = "/login"
+    // }
+
     if (showlogin === "splashlogin-form__hidden"){
+      history.push('/login');
       setSignup("signup-display__hidden")
       setLogin("splashlogin-form")
     }
   }
+
+  const checkPath = () => {
+    if(pathname !== "/signup"){
+      setSignup("signup-display__hidden")
+      setLogin("splashlogin-form")
+    }
+  }
+
+  checkPath();
 
 
   if (authenticated) {
@@ -181,7 +199,7 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSig
           </ul>
           <div className="signup-form signup-buttons">
             <button type="submit" className="signup-form signup-submit">Sign up</button>
-            <a className="reveal-login" onClick={logInVisibility}>Login</a>
+            <button className="reveal-login" onClick={logInVisibility}>Login</button>
           </div>
         </div>
       </div>

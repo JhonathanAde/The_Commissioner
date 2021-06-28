@@ -1,95 +1,12 @@
-/* .login-form {
-  font-size: 1.5rem;
-  padding: 1rem;
+:root{
+  --main_black: #000000;
+  --card-grey: #e5e5e5;
+  --icon-pink: #ffb6ef;
+  --highlight: #ffdc60;
+  --card-boxshadow: 0px 0px .5rem rgba(0, 0, 0, 0.7);
+  --main-window_width: 1500rem;
+  --main-window_height: 998rem;
 }
-
-.form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10rem 0rem 0rem 0rem
-}
-
-.email-field {
-  display: flex;
-  flex-direction: column;
-}
-
-.password-field {
-  display: flex;
-  flex-direction: column;
-}
-
-input {
-  width: 10rem;
-  height: 1rem;
-} */
-/* 
-.splashlogin-form {
-  font-size: 8rem;
-  width: 30rem;
-  transform: translate(5%, 15%);
-  visibility: visible;
-  transition: visibility 0s;
-  animation-name: showLogin;
-  animation-duration: .5s;
-}
-
-.splashlogin-form__hidden {
-  font-size: 8rem;
-  transform: translate(5%, 15%);
-  width: 30rem;
-  animation-name: hideLogin;
-  animation-duration: .5s;
-  visibility: hidden;
-  transition-delay: 0.5s;
-}
-
-.splashpage-form_logo {
-  background-color: orangered;
-  width: 8rem;
-  height: 5rem;
-  margin: .25rem;
-  transform: translate(13.3rem, -3rem);
-}
-
-.login-form input {
-  padding: .25rem;
-  margin: .25rem;
-}
-
-.login-form label {
-  margin: .25rem;
-  font-size: 2rem;
-}
-
-.form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transform: translate(2.2rem, -4rem)
-}
-
-.email-field {
-  display: flex;
-  flex-direction: column;
-}
-
-.password-field {
-  display: flex;
-  flex-direction: column;
-}
-
-.login-submit {
-  font-size: 2rem;
-  color: black;
-  transition: font-size 1s, color .5s;
-}
-
-.login-submit:hover {
-  font-size: 2.5rem;
-  color: hotpink;
-} */
 
 .login-form.login-errors {
   /* background-color: crimson; */
@@ -123,15 +40,19 @@ input {
   font-size: 5rem;
 }
 
+
 .login-form.login-buttons button {
   margin-right: 2rem;
   border: none;
   background: none;
   outline: none;
+  background-color: black;
+  color: white;
+  padding: 5px;
 }
 
 .login-form.login-buttons button:hover {
-  color: hotpink;
+  background-color: var(--highlight);
 }
 
 

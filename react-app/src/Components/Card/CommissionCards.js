@@ -17,6 +17,8 @@ const CommissionCards = ({comms}) => {
   let emptyStars = <i class="far fa-star fa-2x"></i>
   let fullStars = <i class="fas fa-star fa-2x"></i>
 
+ 
+
   return (
     <div className="commission-card body">
         <div className="commission-card container">
@@ -32,27 +34,21 @@ const CommissionCards = ({comms}) => {
           </div>
         </div>
         <div className="commission-card content-container">
-          <ul>
-            <li>
               <div className="content-container info-container">
+                <h2 id="card-artworkby">Artwork by:</h2>
                 <NavLink to={`/profile/${user.id}`} className="info-container username">
-                <h2>Artwork by: {user.username}</h2>
+                <h2 id="card-username">{user.username}</h2>
                 </NavLink>
               </div>
-            </li>
-          </ul>
+      
               <div className="content-container rating-info">
-                <ul id="rating-list">
-                  <li id="rating">
-                    <Rating emptySymbol={emptyStars} fullSymbol={fullStars} initialRating={2.5} readonly/>
-                  </li>
-                  <li>
-                    <p id="rating-number">Rating Number</p>
-                  </li>
-                    <p>{`$${price}`}</p>
-                  <li>
-                  </li>
-                </ul>
+                <div id="rating-info__ratings">
+                  <Rating emptySymbol={emptyStars} fullSymbol={fullStars} />
+                  {/* <p id="rating-number">Rating Number</p> */}
+                </div>
+                <div id="rating-info__price">
+                  <p id="price-display">{`$${price}`}</p>
+                </div>
               </div>
         </div>
   </div>

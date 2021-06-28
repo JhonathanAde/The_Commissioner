@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { useParams, useLocation } from "react-router-dom";
 import LoginForm from "../auth/LoginForm";
 import SignUpForm from "../auth/SignUpForm";
 // import { NavLink } from "react-router-dom";
@@ -16,6 +17,10 @@ const SplashPage = ({authenticated, setAuthenticated, setUser, user}) => {
     console.log(user)
   }
 
+  const {pathname} = useLocation();
+
+  console.log(pathname);
+
   // const signUpVisibility = () => {
   //   if (login === "login-form"){
   //     setLogin("splashlogin-form__hidden")
@@ -23,12 +28,23 @@ const SplashPage = ({authenticated, setAuthenticated, setUser, user}) => {
   //   }
   // }
 
+  // if(pathname === "/signup"){
+  //   setSignup("signup-display__hidden")
+  //   setLogin("splashlogin-form")
+  // }
+  
+
+
   const logInVisibility = () => {
-    if (showlogin === "login-form__hidden"){
+
+    if (showlogin === "login-form__hidden" && pathname !== "/signup"){
       setSignup("signup-display__hidden")
       setLogin("splashlogin-form")
     }
+
   }
+
+  // logInVisibility();
 
   return (
     <div className="splashpage">
@@ -38,11 +54,11 @@ const SplashPage = ({authenticated, setAuthenticated, setUser, user}) => {
             </div>
             <div className="splashpage loginform">
               <div className={showlogin}>
-                <LoginForm authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} setLogin={setLogin} setSignup={setSignup} showlogin={showlogin}/>
+                <LoginForm authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} setLogin={setLogin} setSignup={setSignup} showlogin={showlogin} pathname={pathname}/>
                 {/* <div className="signup-button" className="sign-upreveal" onClick={signUpVisibility}>Sign Up</div> */}
               </div>
               <div className={signup}>
-                <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} showlogin={showlogin} setSignup={setSignup} setLogin={setLogin}/>
+                <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} showlogin={showlogin} setSignup={setSignup} setLogin={setLogin} pathname={pathname}/>
                 {/* <button className="login-button" onClick={logInVisibility}>Login</button> */}
               </div>
           </div>

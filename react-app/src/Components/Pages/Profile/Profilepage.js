@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { useParams, useHistory } from "react-router-dom"
+import { useParams, useHistory, useLocation } from "react-router-dom"
 import { getCommissionsById } from '../../services/commission'
 import { getRequestsById } from '../../services/request'
 import ProfileCommCards from './ProfileComCards'
@@ -16,46 +16,62 @@ import Footer from '../../Footer/Footer'
 // import Rating from '../../Ratings/Rating'
 
 const Profilepage = ({authenticated, user}) => {
+
+  var visitor 
  
   const [userRequests, setUserRequests] = useState(null)
   const [userCommissions, setUserCommissions] = useState(null)
+  const [visitorRequests, setVisitorRequests] = useState(null)
+  const [visitorCommission, setVisitorCommissions] = useState(null)
+  const [otherUserName, setOtherUserName] = useState(null)
+  const [otherLocation, setOtherLocation] = useState(null)
   const {userId} = useParams()
-  
-  const history = useHistory()
+  const {pathname} = useLocation();
+  const history = useHistory();
 
-// let personalPage = true;
-/* 
-  if (user.id == userId){
-    useEffect(() => {
-      (async () => {
-        - getRequestsById;
-        - getCommissionsById;
-      })
-    })
-  }
-
-
-
-
-*/
 
   useEffect(() => {
     (async () => {
-      if(!userId){
-        const request = await getRequestsById(user.id)
-        const commissions = await getCommissionsById(user.id)
-        setUserRequests(request)
-        setUserCommissions(commissions)
-      } else {
-        const request = await getRequestsById(userId)
-        const commissions = await getCommissionsById(userId)
-        setUserRequests(request)
-        setUserCommissions(commissions)
-        history.push(`/profile/${userId}`)
-      }
+        if(userId){
+          const visitorReq = await getRequestsById(userId)
+          const visitorComm = await getCommissionsById(userId)
+          setVisitorRequests(visitorReq)
+          setVisitorCommissions(visitorComm)
+          setOtherUserName(visitorComm.commissions[0].commission.user.username)
+          setOtherLocation(visitorComm.commissions[0].commission.user.location)
+        }
     })()
   },[user.id, history, userId])
 
+  console.log("visitor commissions", visitorCommission)
+  console.log("visitor commissions", otherUserName)
+  // console.log("visitor commissions", visitorCommission.commissions[0].commission.user.username)
+  // const otherUserName = visitorCommission.commissions[0].commission.user.username;
+
+
+  useEffect(() => {
+    (async () => {
+       const request = await getRequestsById(user.id)
+        const commissions = await getCommissionsById(user.id)
+        setUserRequests(request)
+        setUserCommissions(commissions)
+    })()
+  }, [])
+
+  console.log(visitorCommission);
+  console.log(userCommissions);
+
+
+  const checkLocation = () => {
+  if(pathname === `/${user.username}/profile`){
+    visitor = false;
+    console.log(visitor);
+  } 
+  else {
+    visitor = true;
+    console.log(visitor);
+  }
+  }
 
   // useEffect(() => {
   //   (async () => {
@@ -72,10 +88,13 @@ const Profilepage = ({authenticated, user}) => {
   // console.log(commissions)
  
 
-
+  checkLocation();
 
 
   return (
+    <>
+    { !visitor ?
+
     <div className="profilepage">
       <div className="profilepage-display">
         <div className="profilepage-display profile-info">
@@ -108,6 +127,41 @@ const Profilepage = ({authenticated, user}) => {
         </div>
       </div>
     </div>
+    :
+    <div className="profilepage">
+      <div className="profilepage-display">
+        <div className="profilepage-display profile-info">
+          <div className="profilepage-display profile-info__profilecard">
+            <div className="profilepage-display profile-info__profilecard" id="profile-image__container">
+              <div id="profile-image__container-div">
+              <img></img>
+              </div>
+            </div>
+            <div className="profilepage-display profile-info__profilecard-userinfo">
+              <h1 id="profile-username">
+                {otherUserName}
+              </h1>
+              <h1 id="profile-location">
+                {otherLocation}
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div className="profilepage-display profile-content">
+          <div className="filler-1"></div>
+          <button>Commissions</button>
+          <div className="profilepage-display profile-content__divider"></div>
+          <div className="profilepage-display profile-content__display">
+            {
+              visitorCommission && visitorCommission.commissions.map((comms, idx) => (
+                <CommissionCards comms={comms} key={idx}/>
+              ))}
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+    </>
   )
 }
 

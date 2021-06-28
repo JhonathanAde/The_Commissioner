@@ -1,16 +1,110 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { withRouter } from 'react-router';
+import { NavLink, useHistory } from 'react-router-dom';
+import { createRating, getRatingsByCommissionId } from '../../services/ratings';
+import Rating from 'react-rating';
+
+import ReviewCard from '../../Reviews/reviews';
 
 // CSS:
 import "./CSS/productcard.css";
 
-const ProductCard = ({commission}) => {
 
+
+
+const ProductCard = ({commission, currentUser}) => {
+
+  
+  const history = useHistory();
+  
   //--- User Info ---
   const {id, title, description, image_url, user} = commission;
   const {username} = user;
+  
+  console.log(commission.id)
+  console.log(commission.user.id);
+  console.log(commission.user.id);
+  console.log(currentUser.id);
+  
+  const [comment, setComment] = useState("");
+  const [rating, setRating] = useState(0);
+  const [reviews, setReviews] = useState([]);
+  const [errors, setErrors] = useState([]);
+  const [ratingLength, setRatingLength] = useState(0);
+  
+ 
 
-  console.log(commission);
+  var profileLink;
+
+  if(currentUser.username !== commission.user.username){
+    profileLink = `/profile/${commission.user.id}`
+  } else {
+    profileLink = `/${user.username}/profile`
+  }
+
+
+  let emptyStars = <i class="far fa-star fa-7x"></i>
+  let fullStars = <i class="fas fa-star fa-7x"></i>
+
+  // console.log("currentUser",currentUser)
+  // console.log("comment",comment);
+
+  useEffect(() => {
+    (async () => {
+      const userReviews = await getRatingsByCommissionId(commission.id)
+      setReviews(userReviews);
+    })()
+  }, [])
+
+   var ratingsTotal = 0;
+
+
+  
+   
+   const updateReview = (e) => {
+     setComment(e.target.value);
+    }
+    
+    const checkRatings = (e) => {
+      setRating(e);
+      console.log(rating);
+    }
+    
+    const goToRequestForm = () => {
+      history.push(`/request/${commission.id}`);
+    }
+    
+    
+    
+    console.log(reviews);
+    console.log(ratingLength);
+    
+    const {ratings} = reviews;
+    
+  console.log(ratings);
+
+
+  const reviewSubmit = async(e) => {
+    e.preventDefault();
+    const requestData = new FormData()
+    requestData.append('rating', rating);
+    requestData.append('comment', comment)
+    requestData.append('user_id', currentUser.id)
+    requestData.append('artist_id', commission.user.id)
+    requestData.append('commission_id', commission.id)
+    const request = await createRating(requestData);
+    if(request.errors) {
+      setErrors(request.errors);
+      // console.log(buyerReview.errors)
+    } 
+    else {
+      console.log("review submitted!");
+      window.location.reload();
+      // history.push(`/product/${commission.id}`)
+    }
+    } 
+
+  // console.log(commission);
 
   return (
     <div className="artpage">
@@ -23,25 +117,45 @@ const ProductCard = ({commission}) => {
           </div>
           <div className="artpage art-content__product-details">
             <h6>{commission.title}</h6>
-              <h3>Artwork By: {commission.user.username}</h3>
+            <div id="artwork-by__section">
+              <h3 id="artwork-by">Artwork By: </h3>
+              <NavLink to={profileLink}>{commission.user.username}</NavLink>
+            </div>
+              <div id="artwork-rating">
+                <Rating emptySymbol={emptyStars} fullSymbol={fullStars}/>
+              </div>
               <h1>Description</h1>
               <div className="artpage art-content__description-divider"></div>
               <p>
                 {commission.description}
               </p>
-              <button>Request</button>
+              <button onClick={goToRequestForm}>Request</button>
           </div>
         </div>
           
         <div className="artpage art-details">
           <div className="artpage art-details__reviews">
-            <form>
+            <form onSubmit={reviewSubmit}>
               <h1>
                 Write A Review
               </h1>
-              <textarea></textarea>
+              <textarea
+                name="review"
+                type="textarea"
+                onChange = {updateReview}
+              ></textarea>
+              <div className="artpage art-details__reviewform-submit">
+                <Rating emptySymbol={emptyStars} fullSymbol={fullStars} onChange={checkRatings} />
+                <button type="submit">Submit</button>
+              </div>
             </form>
-            <button>Submit</button>
+            <div className="artpage art-details__reviews-list">
+              {
+                ratings && ratings.map((rating, key) => (
+                  <ReviewCard rating={rating} key={key}/>
+                ))
+              }
+            </div>
           </div>
 
           <div className="artpage art-details__aboutartist">

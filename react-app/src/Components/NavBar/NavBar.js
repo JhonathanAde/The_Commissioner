@@ -7,6 +7,9 @@ import Dropdown from './NavDropDown'
 import "./CSS/navbar.css"
 
 const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
+  
+  const logoSource = require('../../Logo/Commissioner_logo_white.png');
+  const logo = new Image('https://commissioner-icons.s3.amazonaws.com/Commissioner_logo_white.png');
 
   // --- State ---
   const [isOpen, setIsOpen] = useState(false);
@@ -15,26 +18,32 @@ const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
 
   let timeOutId = null;
 
-  const onClickHandler = () => {
+  const onClickHandler = (e) => {
+    e.preventDefault();
     setIsOpen(true);
   }
 
-  const onBlurHandler = () => {
+  const onBlurHandler = (e) => {
+    e.preventDefault();
     timeOutId = setTimeout(() => {
       setIsOpen(false);
     })
   }
 
-  const onFocusHandler = () => {
+  const onFocusHandler = (e) => {
+    e.preventDefault();
     clearTimeout(timeOutId);
   }
+
+
 
   return (
     <nav className="nav-bar">
         <div className="nav-bar main-items"> 
           <div className="nav-bar home-icon">
           <NavLink to="/" exact={true} activeClassName="active">
-            Home 
+            <img src='https://commissioner-icons.s3.amazonaws.com/Commissioner_logo_white.png' id="main-logo">
+            </img>
           </NavLink>
           </div>
 
@@ -52,7 +61,7 @@ const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
 
             :
             <div>
-              <NavLink to="/login" exact={true} activeClassName="active" className="nav-links__menu">Sign Up</NavLink>
+              <NavLink to="/signup" exact={true} activeClassName="active" className="nav-links__menu">Sign Up</NavLink>
               <NavLink to="/login" exact={true} activeClassName="active" className="nav-links__menu">Login</NavLink>
             </div>
           }
