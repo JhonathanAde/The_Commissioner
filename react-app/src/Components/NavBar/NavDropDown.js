@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import LogoutButton from '../auth/LogoutButton';
 import { NavLink } from 'react-router-dom';
 import './CSS/navdropdown.css'

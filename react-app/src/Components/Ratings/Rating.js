@@ -35,15 +35,13 @@ const Rating = () => {
   }
 ]
 
-  console.log(ratingScale)
+
 
   const valueChecker = (e) => {
     e.preventDefault()
     let ratingValue = Number(e.target.value)
     total += ratingValue
     counter ++
-    console.log(total)
-    console.log(counter)
   }
 
   return (

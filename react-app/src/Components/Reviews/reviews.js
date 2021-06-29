@@ -4,11 +4,9 @@ import "../Reviews/reviews.css";
 
 
 const ReviewCard = ({rating}) => {
-  console.log(rating);
 
   const {user, comment} = rating;
 
-  console.log(user.username)
   
 
   return (

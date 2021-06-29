@@ -35,23 +35,12 @@ const ReqeustsPage = ({user}) => {
     
   }, [cardRef])
  
-  console.log('outside of useEffect', carousel);
-  console.log('outside of useEffect', imgCards);
-  console.log('outside of useEffect', cardWidth);
 
   // const staller = setTimeout(() => {
   //   debugger
   //   let width = imgCards[0].clientWidth;
   // }, 5000)
   
-
-
-  // console.log(testRef.current.querySelectorAll(".user-request.cardsbody"));
-
-  // console.log(requestInfo.requests)
-
-  // let imageCards = document.querySelectorAll(".user-request.cardsbody");
-  // console.log(imageCards);
 
   return (
     <div className="request-page" ref={carouselRef}>

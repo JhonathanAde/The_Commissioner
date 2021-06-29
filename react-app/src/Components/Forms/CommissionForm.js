@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import { useHistory } from "react-router-dom";
 import {createCommission} from "../services/commission"
 
@@ -6,7 +6,6 @@ import {createCommission} from "../services/commission"
 import "./CSS/commissionform.css"
 
 const CommissionForm = ({authenticated, user}) => {
-  // let [duration, setDuration] = useState(false)
   const [date, setDate] = useState("");
   const [description, setDescription] = useState("");
   const [errors, setErrors] = useState([]);
@@ -17,7 +16,7 @@ const CommissionForm = ({authenticated, user}) => {
   const [visibleDuration, setVisibleDuration] = useState("commduration__hidden");
 
   let desCharacters = description.length;
-  console.log(desCharacters);
+  
 
   //--- User Info ---
   const userId = user.id
@@ -50,7 +49,7 @@ const CommissionForm = ({authenticated, user}) => {
     const commission = await createCommission(commissionData);
     if (commission.errors) {
       setErrors(commission.errors);
-      console.log(commission.errors)
+      
     } else {
       history.push(`/${user.username}/profile`)
     }
@@ -92,7 +91,7 @@ const CommissionForm = ({authenticated, user}) => {
   
 
 
-  console.log("Show Duration", visibleDuration)
+  
 
 
   return (

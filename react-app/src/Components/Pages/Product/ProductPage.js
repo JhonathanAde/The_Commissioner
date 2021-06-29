@@ -4,7 +4,7 @@ import {getACommission} from "../../services/commission";
 import { createRating, getRatingsByCommissionId } from "../../services/ratings";
 import ProductCard from "./ProductCard";
 
-const ProductPage = ({user}) => {
+const ProductPage = ({user, authenticated}) => {
 
   //--- State ---//
   const [commissionData, setCommissionData] = useState(null)
@@ -27,7 +27,7 @@ const ProductPage = ({user}) => {
     <>
       {commissionData && reviewData &&
       <>
-        <ProductCard commission={commissionData.commission} currentUser={user}/>
+        <ProductCard commission={commissionData.commission} currentUser={user} authenticated={authenticated}/>
       </>
       }
     </>

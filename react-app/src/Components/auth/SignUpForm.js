@@ -49,16 +49,15 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSig
   const updateArtistStatus = (e) => {
     setArtist(e.target.value)
   }
-  console.log(artist)
+ 
 
   const statesList = states.map( x => x.name)
-  // console.log(statesList)
-  // console.log(states)
+ 
 
   const updateLocation = (e) => {
     setLocation(e.target.value)
   }
-  // console.log(location)
+
 
   const logInVisibility = () => {
     // if(pathname !== "/login"){

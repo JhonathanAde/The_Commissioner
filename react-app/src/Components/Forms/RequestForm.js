@@ -17,7 +17,6 @@ const RequestForm = ({currentUser, commissionId, commission}) => {
   const [title, setTitle] = useState("");
   const [urgency, setUrgency] = useState(false);
   const [dueDate, setDueDate] = useState("due-date__hidden");
-  const [wordCount, setWordCount] = useState(0);
   let detailCharacters = details.length; 
   
   //--- Redirect declaration ---
@@ -58,10 +57,6 @@ const RequestForm = ({currentUser, commissionId, commission}) => {
   // const updatePrice = (e) => {
   //   setPrice(e.target.value);
   // }
-
-  const prevent = (e) => {
-    e.preventDefault();
-  }
 
 
   const submitHandler = async (e) => {

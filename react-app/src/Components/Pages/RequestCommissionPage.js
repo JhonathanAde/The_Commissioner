@@ -11,7 +11,7 @@ const RequestCommissionPage = ({user}) => {
 
   const [comData, setComData] = useState(null)
 
-  console.log(commissionId)
+  
 
   useEffect(() => {
     (async () => {
@@ -20,7 +20,7 @@ const RequestCommissionPage = ({user}) => {
     })()
   }, [commissionId])
 
-  console.log(comData)
+
 
   return (
     <div className="requestcomm-page">

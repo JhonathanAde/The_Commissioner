@@ -43,11 +43,6 @@ const Profilepage = ({authenticated, user}) => {
     })()
   },[user.id, history, userId])
 
-  console.log("visitor commissions", visitorCommission)
-  console.log("visitor commissions", otherUserName)
-  // console.log("visitor commissions", visitorCommission.commissions[0].commission.user.username)
-  // const otherUserName = visitorCommission.commissions[0].commission.user.username;
-
 
   useEffect(() => {
     (async () => {
@@ -58,35 +53,15 @@ const Profilepage = ({authenticated, user}) => {
     })()
   }, [])
 
-  console.log(visitorCommission);
-  console.log(userCommissions);
-
 
   const checkLocation = () => {
   if(pathname === `/${user.username}/profile`){
     visitor = false;
-    console.log(visitor);
   } 
   else {
     visitor = true;
-    console.log(visitor);
   }
   }
-
-  // useEffect(() => {
-  //   (async () => {
-  //     const res = await getRequestsById(user.id)
-  //     const json = res.json()
-  //     setUserRequests(json)
-  //   })()
-  // },[])
-
-  
-  // console.log(userCommissions)
-  // console.log(userRequests)
-  // const {commissions} = userCommissions
-  // console.log(commissions)
- 
 
   checkLocation();
 
@@ -116,7 +91,10 @@ const Profilepage = ({authenticated, user}) => {
         </div>
         <div className="profilepage-display profile-content">
           <div className="filler-1"></div>
+          <div>
           <button>Commissions</button>
+          <button>Requests</button>
+          </div>
           <div className="profilepage-display profile-content__divider"></div>
           <div className="profilepage-display profile-content__display">
             {

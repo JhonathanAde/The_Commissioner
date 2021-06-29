@@ -14,7 +14,7 @@ const LogoutButton = ({setAuthenticated, setUser, user}) => {
     history.push("/login");
   };
 
-  // console.log(user)
+ 
 
   return <div className="nav-links" id="logout-button" onClick={onLogout}>Logout</div>
 };

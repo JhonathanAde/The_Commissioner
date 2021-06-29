@@ -3,7 +3,6 @@ import "./CSS/requestcard.css"
 
 const RequestCards = ({request}) => {
 
-  console.log(request)
   const {image_url, title, date} = request
 
 

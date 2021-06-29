@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom' ;
-import LogoutButton from '../auth/LogoutButton';
 import Dropdown from './NavDropDown'
 
 // CSS
@@ -8,8 +7,6 @@ import "./CSS/navbar.css"
 
 const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
   
-  const logoSource = require('../../Logo/Commissioner_logo_white.png');
-  const logo = new Image('https://commissioner-icons.s3.amazonaws.com/Commissioner_logo_white.png');
 
   // --- State ---
   const [isOpen, setIsOpen] = useState(false);

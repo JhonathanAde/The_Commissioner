@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { withRouter } from 'react-router';
 import { NavLink, useHistory } from 'react-router-dom';
 import { createRating, getRatingsByCommissionId } from '../../services/ratings';
 import Rating from 'react-rating';
@@ -12,19 +11,15 @@ import "./CSS/productcard.css";
 
 
 
-const ProductCard = ({commission, currentUser}) => {
+const ProductCard = ({commission, currentUser, authenticated}) => {
 
   
   const history = useHistory();
   
   //--- User Info ---
-  const {id, title, description, image_url, user} = commission;
-  const {username} = user;
+  const {user} = commission;
   
-  console.log(commission.id)
-  console.log(commission.user.id);
-  console.log(commission.user.id);
-  console.log(currentUser.id);
+  
   
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
@@ -46,8 +41,6 @@ const ProductCard = ({commission, currentUser}) => {
   let emptyStars = <i class="far fa-star fa-7x"></i>
   let fullStars = <i class="fas fa-star fa-7x"></i>
 
-  // console.log("currentUser",currentUser)
-  // console.log("comment",comment);
 
   useEffect(() => {
     (async () => {
@@ -67,7 +60,6 @@ const ProductCard = ({commission, currentUser}) => {
     
     const checkRatings = (e) => {
       setRating(e);
-      console.log(rating);
     }
     
     const goToRequestForm = () => {
@@ -75,13 +67,8 @@ const ProductCard = ({commission, currentUser}) => {
     }
     
     
-    
-    console.log(reviews);
-    console.log(ratingLength);
-    
     const {ratings} = reviews;
     
-  console.log(ratings);
 
 
   const reviewSubmit = async(e) => {
@@ -95,16 +82,14 @@ const ProductCard = ({commission, currentUser}) => {
     const request = await createRating(requestData);
     if(request.errors) {
       setErrors(request.errors);
-      // console.log(buyerReview.errors)
     } 
     else {
-      console.log("review submitted!");
       window.location.reload();
       // history.push(`/product/${commission.id}`)
     }
     } 
 
-  // console.log(commission);
+
 
   return (
     <div className="artpage">
@@ -135,6 +120,12 @@ const ProductCard = ({commission, currentUser}) => {
           
         <div className="artpage art-details">
           <div className="artpage art-details__reviews">
+            { !authenticated ?
+
+            <>
+            </>
+
+            :
             <form onSubmit={reviewSubmit}>
               <h1>
                 Write A Review
@@ -149,6 +140,7 @@ const ProductCard = ({commission, currentUser}) => {
                 <button type="submit">Submit</button>
               </div>
             </form>
+            }
             <div className="artpage art-details__reviews-list">
               {
                 ratings && ratings.map((rating, key) => (

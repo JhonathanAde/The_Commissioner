@@ -25,7 +25,6 @@ function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const [user, setUser] = useState({})
   const [loaded, setLoaded] = useState(false);
-  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     (async() => {

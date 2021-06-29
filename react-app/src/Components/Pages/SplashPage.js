@@ -13,14 +13,13 @@ const SplashPage = ({authenticated, setAuthenticated, setUser, user}) => {
   const [showlogin, setLogin] = useState("splashlogin-form")
 
 
-  if (authenticated) {
-    console.log(user)
-  }
+  // if (authenticated) {
+    
+  // }
 
   const {pathname} = useLocation();
 
-  console.log(pathname);
-
+ 
   // const signUpVisibility = () => {
   //   if (login === "login-form"){
   //     setLogin("splashlogin-form__hidden")

@@ -14,7 +14,7 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
   const emailInput = document.querySelector("#email-input")
   const passInput = document.querySelector("#password-input")
 
-  console.log(emailInput);
+
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -59,9 +59,7 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
       history.push('/signup');
       setLogin("splashlogin-form__hidden")
       setSignup("signup-display")
-      console.log("worked")
     }
-    console.log("clicked!!")
   }
 
   checkPath();

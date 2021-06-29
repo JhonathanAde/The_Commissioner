@@ -8,7 +8,6 @@ import "./CommissionCards.css";
 
 const CommissionCards = ({comms}) => {
 
-  console.log(comms)
 
   const {commission} = comms
 
