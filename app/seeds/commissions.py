@@ -67,6 +67,114 @@ def seed_commissions():
     expired=False, 
     user_id=2)
   
+  artist2_comm1 = Commission ( 
+    title='Chaos', 
+    description='A painting in the style of my famous work “Chaos”.',
+    image_url= 'https://commissioner-commissions.s3.amazonaws.com/', 
+    price= 25000, 
+    request_amt= 5,
+    date_created='2021-06-01', 
+    duration='2021-06-24',
+    expired=False, 
+    user_id=3
+  )
+
+  artist2_comm2 = Commission (
+    title='Francis Bacon',
+    description='I’m doing portrait paintings in the style of my famous work “Francis Bacon”.', 
+    image_url= 'https://commissioner-commissions.s3.amazonaws.com/',
+    price= 50000,
+    request_amt= 10,
+    date_created='2021-03-05', 
+    duration='2021-08-15', 
+    expired=False,
+    user_id=3
+  )
+
+  artist2_comm3 = Commission (
+    title='Arhat Cycle Part 2', 
+    description='Paintings of monks in the style of my “Arhat Cycle part 2”.',
+    image_url= 'https://commissioner-commissions.s3.amazonaws.com/', 
+    price= 5,
+    request_amt= 60000,
+    date_created='2021-04-19',
+    duration='2021-07-12', 
+    expired=False, 
+    user_id=3
+  )
+
+  artist3_comm1 = Commission ( 
+    title='The Shining',
+    description='I’m doing portraits in the style of Stephen King’s “The Shining”. Please include any specific details in your request.',
+    image_url= 'https://commissioner-commissions.s3.amazonaws.com/', 
+    price= 500,
+    request_amt= 600,
+    date_created='2021-05-09',
+    duration='2021-07-22', 
+    expired=False,
+    user_id=4
+  )
+
+  artist3_comm2 = Commission ( 
+    title='The Conversation',
+    description='This is a limited edition work of art and there are only 5 prints left.', 
+    image_url= 'https://commissioner-commissions.s3.amazonaws.com/',
+    price= 1000,
+    request_amt= 5,
+    date_created='2021-06-05', 
+    duration='2021-07-15', 
+    expired=False, 
+    user_id=4
+  )
+
+  artist3_comm3 = Commission (
+    title='Dark Lords', 
+    description='Im doing a series of Dark Lord illustrations. All illustrations will be in black and white.',
+    image_url= 'https://commissioner-commissions.s3.amazonaws.com/',
+    price= 300, 
+    request_amt= 150,
+    date_created='2020-01-24', 
+    duration='2021-08-09', 
+    expired=False, 
+    user_id=4
+  )
+
+  artist4_comm1 = Commission ( 
+    title='Loreland spread', 
+    description='Explore Loreland with your own characters! I’ll draw and paint your character in my Loreland landscapes.', 
+    image_url= 'https://commissioner-commissions.s3.amazonaws.com/',
+    price= 150, 
+    request_amt= 5,
+    date_created='2021-04-16', 
+    duration='2021-05-15', 
+    expired=True,
+    user_id=5
+  )
+
+  artist4_comm2 = Commission ( 
+    title='MerMay',
+    description='It is MerMay and I will be taking requests for mermaid illustrations! All llustrations will be in color.', 
+    image_url= 'https://commissioner-commissions.s3.amazonaws.com/', 
+    price= 60,
+    request_amt= 10, 
+    date_created='2020-03-15', 
+    duration='2020-08-05', 
+    expired=True,
+    user_id=5
+  )
+
+  artist4_comm3 = Commission (
+    title='Potion Bottles', 
+    description='I will design a set of potion bottles as a print. All prints will be in color.',
+    image_url= 'https://commissioner-commissions.s3.amazonaws.com/',
+    price= 30, 
+    request_amt= 15, 
+    date_created='2021-01-29', 
+    duration='2021-07-27',
+    expired=False, 
+    user_id=5
+  )
+
   artist5_comm1 = Commission(
     title='Jet-Set-Commission', 
     description='Im taking commission requests of your favorite Jet Set Radio charatcers!! All work will be done digitally for print', 
@@ -109,6 +217,15 @@ def seed_commissions():
   db.session.add(artist1_comm1)
   db.session.add(artist1_comm2)
   db.session.add(artist1_comm3)
+  db.session.add(artist2_comm1)
+  db.session.add(artist2_comm2)
+  db.session.add(artist2_comm3)
+  db.session.add(artist3_comm1)
+  db.session.add(artist3_comm2)
+  db.session.add(artist3_comm3)
+  db.session.add(artist4_comm1)
+  db.session.add(artist4_comm2)
+  db.session.add(artist4_comm3)
   db.session.add(artist5_comm1)
   db.session.add(artist5_comm2)
   db.session.add(artist5_comm3)
