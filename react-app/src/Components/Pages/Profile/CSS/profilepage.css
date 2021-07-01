@@ -69,6 +69,7 @@
 }
 
 .profilepage-display.profile-content {
+  /* visibility: hidden; */
   flex-direction: column;
   width: 908px;
   padding: 5px;
@@ -90,6 +91,14 @@
   font-weight: bold;
   cursor: pointer;
   margin-right: 10px;
+}
+
+#profile-requests__button-active {
+  background-color: var(--icon-pink);
+}
+
+#profile-commissions__button-active {
+   background-color: var(--icon-pink);
 }
 
 .profilepage-display.profile-content__divider {
