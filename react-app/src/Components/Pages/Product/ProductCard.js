@@ -97,7 +97,7 @@ const ProductCard = ({commission, currentUser, authenticated}) => {
         <div className="artpage art-content">
           <div className="artpage art-content__product-display">
             <div className="artpage art-content__product-displaywindow">
-              <img src={commission.image_url}/>
+              <img loading="lazy" src={commission.image_url}/>
             </div>
           </div>
           <div className="artpage art-content__product-details">

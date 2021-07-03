@@ -69,7 +69,7 @@ def seed_commissions():
   
   artist2_comm1 = Commission ( 
     title='Chaos', 
-    description='A painting in the style of my famous work “Chaos”.',
+    description='A painting in the style of my famous work "Chaos".',
     image_url= 'https://commissioner-commissions.s3.amazonaws.com/Murakami_1.jpg', 
     price= 25000, 
     request_amt= 5,
@@ -81,7 +81,7 @@ def seed_commissions():
 
   artist2_comm2 = Commission (
     title='Francis Bacon',
-    description='I’m doing portrait paintings in the style of my famous work “Francis Bacon”.', 
+    description='I’m doing portrait paintings in the style of my famous work "Francis Bacon".', 
     image_url= 'https://commissioner-commissions.s3.amazonaws.com/Murakami_2.jpg',
     price= 50000,
     request_amt= 10,
@@ -93,9 +93,9 @@ def seed_commissions():
 
   artist2_comm3 = Commission (
     title='Arhat Cycle Part 2', 
-    description='Paintings of monks in the style of my “Arhat Cycle part 2”.',
+    description='Paintings of monks in the style of my "Arhat Cycle part 2".',
     image_url= 'https://commissioner-commissions.s3.amazonaws.com/Murakami_3.jpg', 
-    price= 5,
+    price= 50000,
     request_amt= 60000,
     date_created='2021-04-19',
     duration='2021-07-12', 
@@ -105,7 +105,7 @@ def seed_commissions():
 
   artist3_comm1 = Commission ( 
     title='The Shining',
-    description='I’m doing portraits in the style of Stephen King’s “The Shining”. Please include any specific details in your request.',
+    description='I’m doing portraits in the style of Stephen King’s "The Shining". Please include any specific details in your request.',
     image_url= 'https://commissioner-commissions.s3.amazonaws.com/Kinsella_1.jpg', 
     price= 500,
     request_amt= 600,

@@ -13,8 +13,9 @@ def seed_users():
     profile_pic='https://commissioner-profilepics.s3.amazonaws.com/tako_profile.jpeg', 
     first_name='Terrence', 
     last_name='Ntsako', 
-    website=None, 
-    bio=None)
+    website="https://thetakouniverse.tumblr.com/?fbclid=IwAR0gjig7rGvepvDbZbUmXt_e2cGTbQyuOEiAvZJp1zwy86Oqd5mjnakfSbo", 
+    bio="I'm a South African artist that focuses on both traditional and digital media. My previous clients were Warner Bro’s, Sony, Netflix, Bluesky, and Cartoon Network."
+    )
 
   artist1 =  User (
     username = 'JamesJean', 
@@ -26,8 +27,8 @@ def seed_users():
     profile_pic='https://commissioner-profilepics.s3.amazonaws.com/JamesJean_profile.jpeg', 
     first_name='James', 
     last_name='Jean', 
-    website=None, 
-    bio=None
+    website="http://www.jamesjean.com/", 
+    bio="I'm a Taiwanese-American artists that fuses contemporary subjects with aesthetic techniques inspired by traditional Chinese scroll paintings, Japanese woodblock prints, and Renaissance portraiture. "
     )
 
   artist2 = User(
@@ -40,8 +41,8 @@ def seed_users():
     profile_pic='https://commissioner-profilepics.s3.amazonaws.com/Murakami_profile.jpeg', 
     first_name='Takashi', 
     last_name='Murakami', 
-    website=None, 
-    bio=None
+    website="https://www.instagram.com/takashipom/?hl=en", 
+    bio="Im a Japanese artist that fuses traditional Japanese painting with Western influences, the realm of fine art with otaku lifestyle (juvenile culture obsessed with toys, anime, and video games), and commercial retail spaces with museums and other public venues. My work is recognized for its ambition, polish, and fine execution."
     )
 
   artist3 = User(
@@ -54,8 +55,8 @@ def seed_users():
     profile_pic='https://commissioner-profilepics.s3.amazonaws.com/Kinsella_profile.jpeg', 
     first_name='Ed', 
     last_name='Kinsella', 
-    website=None, 
-    bio=None
+    website="https://www.edwardkinsellaillustration.com/", 
+    bio="Im an artist that graduated with honors from Ringling School of Art and Design in 2006, and my work has since been commissioned by a variety of prestigious magazines and publishers. I've also shown my fine art and illustration in a number of gallery exhibitions."
     )
 
   artist4 = User(
@@ -68,8 +69,8 @@ def seed_users():
     profile_pic='https://commissioner-profilepics.s3.amazonaws.com/Iwona_profile.jpg', 
     first_name='Iwona', 
     last_name='Skiba', 
-    website=None, 
-    bio=None 
+    website="https://iwonaskibaart.wixsite.com/iwonaskiba", 
+    bio="Im a New Jersey based artist that love to draw fantasy like landscapes and I love drawing plants!"
     )
 
   artist5 = User(
@@ -82,8 +83,8 @@ def seed_users():
     profile_pic='https://commissioner-profilepics.s3.amazonaws.com/Kainonaut_profile.jpeg', 
     first_name='Kai', 
     last_name='Valentine', 
-    website=None, 
-    bio=None
+    website="https://kainonaut.com/", 
+    bio="Illustrator, Gamedev, Guitarist, Spaceman."
     )
 
   fan1 = User(
