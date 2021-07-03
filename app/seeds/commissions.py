@@ -70,7 +70,7 @@ def seed_commissions():
   artist2_comm1 = Commission ( 
     title='Chaos', 
     description='A painting in the style of my famous work “Chaos”.',
-    image_url= 'https://commissioner-commissions.s3.amazonaws.com/', 
+    image_url= 'https://commissioner-commissions.s3.amazonaws.com/Murakami_1.jpg', 
     price= 25000, 
     request_amt= 5,
     date_created='2021-06-01', 
@@ -82,7 +82,7 @@ def seed_commissions():
   artist2_comm2 = Commission (
     title='Francis Bacon',
     description='I’m doing portrait paintings in the style of my famous work “Francis Bacon”.', 
-    image_url= 'https://commissioner-commissions.s3.amazonaws.com/',
+    image_url= 'https://commissioner-commissions.s3.amazonaws.com/Murakami_2.jpg',
     price= 50000,
     request_amt= 10,
     date_created='2021-03-05', 
@@ -94,7 +94,7 @@ def seed_commissions():
   artist2_comm3 = Commission (
     title='Arhat Cycle Part 2', 
     description='Paintings of monks in the style of my “Arhat Cycle part 2”.',
-    image_url= 'https://commissioner-commissions.s3.amazonaws.com/', 
+    image_url= 'https://commissioner-commissions.s3.amazonaws.com/Murakami_3.jpg', 
     price= 5,
     request_amt= 60000,
     date_created='2021-04-19',
@@ -106,7 +106,7 @@ def seed_commissions():
   artist3_comm1 = Commission ( 
     title='The Shining',
     description='I’m doing portraits in the style of Stephen King’s “The Shining”. Please include any specific details in your request.',
-    image_url= 'https://commissioner-commissions.s3.amazonaws.com/', 
+    image_url= 'https://commissioner-commissions.s3.amazonaws.com/Kinsella_1.jpg', 
     price= 500,
     request_amt= 600,
     date_created='2021-05-09',
@@ -118,7 +118,7 @@ def seed_commissions():
   artist3_comm2 = Commission ( 
     title='The Conversation',
     description='This is a limited edition work of art and there are only 5 prints left.', 
-    image_url= 'https://commissioner-commissions.s3.amazonaws.com/',
+    image_url= 'https://commissioner-commissions.s3.amazonaws.com/Kinsella_2.jpg',
     price= 1000,
     request_amt= 5,
     date_created='2021-06-05', 
@@ -130,7 +130,7 @@ def seed_commissions():
   artist3_comm3 = Commission (
     title='Dark Lords', 
     description='Im doing a series of Dark Lord illustrations. All illustrations will be in black and white.',
-    image_url= 'https://commissioner-commissions.s3.amazonaws.com/',
+    image_url= 'https://commissioner-commissions.s3.amazonaws.com/Kinsella_3.jpg',
     price= 300, 
     request_amt= 150,
     date_created='2020-01-24', 
@@ -142,7 +142,7 @@ def seed_commissions():
   artist4_comm1 = Commission ( 
     title='Loreland spread', 
     description='Explore Loreland with your own characters! I’ll draw and paint your character in my Loreland landscapes.', 
-    image_url= 'https://commissioner-commissions.s3.amazonaws.com/',
+    image_url= 'https://commissioner-commissions.s3.amazonaws.com/iva_1.png',
     price= 150, 
     request_amt= 5,
     date_created='2021-04-16', 
@@ -154,7 +154,7 @@ def seed_commissions():
   artist4_comm2 = Commission ( 
     title='MerMay',
     description='It is MerMay and I will be taking requests for mermaid illustrations! All llustrations will be in color.', 
-    image_url= 'https://commissioner-commissions.s3.amazonaws.com/', 
+    image_url= 'https://commissioner-commissions.s3.amazonaws.com/iva_2.png', 
     price= 60,
     request_amt= 10, 
     date_created='2020-03-15', 
@@ -166,7 +166,7 @@ def seed_commissions():
   artist4_comm3 = Commission (
     title='Potion Bottles', 
     description='I will design a set of potion bottles as a print. All prints will be in color.',
-    image_url= 'https://commissioner-commissions.s3.amazonaws.com/',
+    image_url= 'https://commissioner-commissions.s3.amazonaws.com/iva_3.png',
     price= 30, 
     request_amt= 15, 
     date_created='2021-01-29', 

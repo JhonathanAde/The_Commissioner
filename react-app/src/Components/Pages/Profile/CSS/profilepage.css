@@ -50,6 +50,11 @@
   height: 248px;
   background-color: var(--main_black);
   border-radius: 200px;
+  overflow: hidden;
+}
+
+#profile-image__container-div img {
+  width: 250px;
 }
 
 .profilepage-display.profile-info__profilecard-userinfo {

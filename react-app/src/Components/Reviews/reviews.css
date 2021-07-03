@@ -19,7 +19,7 @@
   border-bottom: solid 3px var(--card-grey);
 }
 
-.review-card.user-icon__container {
+#card-image__container {
   background-color: var(--icon-pink);
   width: 107px;
   height: 107px;
@@ -31,12 +31,20 @@
   margin-bottom: 5px;
 }
 
-.review-card.user-icon__pic {
+#card-image__container-pic {
   background-color: var(--main_black);
   width: 97px;
   height: 97px;
   border-radius: 200px;
   overflow: hidden;
+}
+
+#card-image__container-pic img {
+  width: 99px;
+}
+
+.review-card.user-icon__pic img {
+  width: 97px;
 }
 
 .review-card.review-info {

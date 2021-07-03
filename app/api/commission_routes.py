@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request, url_for
 from werkzeug.utils import secure_filename
+from sqlalchemy.sql.expression import func
 
 import boto3
 import mimetypes
@@ -21,7 +22,8 @@ def validation_errors_to_errors_messages(validation_errors):
 # GET ALL COMMISSIONS
 @commission_routes.route('/')
 def get_all_commissions():
-  commissions = Commission.query.all()
+  print(Commission)
+  commissions = Commission.query.order_by(func.random()).limit(10).all()
   print("commissions", commissions)
   return {"commissions": [commission.to_dict() for commission in commissions] }
 

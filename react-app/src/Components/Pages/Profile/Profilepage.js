@@ -27,6 +27,7 @@ const Profilepage = ({authenticated, user}) => {
   const [visitorCommission, setVisitorCommissions] = useState(null)
   const [otherUserName, setOtherUserName] = useState(null)
   const [otherLocation, setOtherLocation] = useState(null)
+  const [otherProfPic, setOtherProfPic] = useState(null)
   const [commButton, setCommButton] = useState(null)
   const [reqButton, setReqButton] = useState(null)
   const [requestInfo, setRequestInfo] = useState('')
@@ -44,6 +45,7 @@ const Profilepage = ({authenticated, user}) => {
           setVisitorCommissions(visitorComm)
           setOtherUserName(visitorComm.commissions[0].commission.user.username)
           setOtherLocation(visitorComm.commissions[0].commission.user.location)
+          setOtherProfPic(visitorComm.commissions[0].commission.user.profile_pic)
         }
     })()
   },[user.id, history, userId])
@@ -126,7 +128,7 @@ const Profilepage = ({authenticated, user}) => {
           <div className="profilepage-display profile-info__profilecard">
             <div className="profilepage-display profile-info__profilecard" id="profile-image__container">
               <div id="profile-image__container-div">
-              <img></img>
+              <img src={user.profile_pic}></img>
               </div>
             </div>
             <div className="profilepage-display profile-info__profilecard-userinfo">
@@ -163,7 +165,7 @@ const Profilepage = ({authenticated, user}) => {
           <div className="profilepage-display profile-info__profilecard">
             <div className="profilepage-display profile-info__profilecard" id="profile-image__container">
               <div id="profile-image__container-div">
-              <img></img>
+              <img src={otherProfPic}></img>
               </div>
             </div>
             <div className="profilepage-display profile-info__profilecard-userinfo">

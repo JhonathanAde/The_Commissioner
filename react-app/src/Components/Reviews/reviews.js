@@ -12,8 +12,10 @@ const ReviewCard = ({rating}) => {
   return (
     <div className="review-card main">
       <div className="review-card user-icon__container">
-        <div className="review-card user-icon__pic">
-          <img></img>
+        <div className="review-card user-icon__container" id="card-image__container">
+          <div id="card-image__container-pic">
+            <img src={user.profile_pic}></img>
+          </div>
         </div>
       </div>
       <div className="review-card review-info">
