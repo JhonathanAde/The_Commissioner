@@ -1,13 +1,16 @@
 import React, {useEffect, useState} from 'react';
+import Rating from 'react-rating';
 
 import "../Reviews/reviews.css";
 
 
-const ReviewCard = ({rating}) => {
+const ReviewCard = ({cardRating}) => {
 
-  const {user, comment} = rating;
+  const {user, comment, rating} = cardRating;
 
-  
+  let emptyStars = <i class="far fa-star fa-7x"></i>
+  let fullStars = <i class="fas fa-star fa-7x"></i>
+
 
   return (
     <div className="review-card main">
@@ -20,6 +23,7 @@ const ReviewCard = ({rating}) => {
       </div>
       <div className="review-card review-info">
         <h1 id="review-info__username">{user.username}</h1>
+        <Rating emptySymbol={emptyStars} fullSymbol={fullStars} initialRating={rating} readonly/>
         <p id="review-info__review">
           {comment}
         </p>

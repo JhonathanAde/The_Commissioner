@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { createRating, getRatingsByCommissionId } from '../../services/ratings';
 import Rating from 'react-rating';
@@ -7,12 +7,15 @@ import ReviewCard from '../../Reviews/reviews';
 
 // CSS:
 import "./CSS/productcard.css";
+import { UserContext } from '../../context/UserContext';
 
 
 
 
 const ProductCard = ({commission, currentUser, authenticated}) => {
 
+
+  const {ratingAverage, setRatingAverage} = useContext(UserContext);
   
   const history = useHistory();
   
@@ -24,6 +27,7 @@ const ProductCard = ({commission, currentUser, authenticated}) => {
   const [comment, setComment] = useState("");
   const [rating, setRating] = useState(0);
   const [reviews, setReviews] = useState([]);
+  const [reviewsLength, setReviewsLength] = useState([]);
   const [errors, setErrors] = useState([]);
   const [ratingLength, setRatingLength] = useState(0);
   
@@ -46,10 +50,11 @@ const ProductCard = ({commission, currentUser, authenticated}) => {
     (async () => {
       const userReviews = await getRatingsByCommissionId(commission.id)
       setReviews(userReviews);
+      setReviewsLength(userReviews.ratings.length)
     })()
   }, [])
 
-   var ratingsTotal = 0;
+   var ratingsAvg = 0;
 
 
   
@@ -68,6 +73,24 @@ const ProductCard = ({commission, currentUser, authenticated}) => {
     
     
     const {ratings} = reviews;
+
+    console.log(ratings);
+
+    const calculateAverageRating = () => {
+      let avg = 0
+
+      for (let i = 0; i < reviewsLength; i++){
+        let eachRating = ratings[i].rating;
+        console.log(eachRating);
+        avg += eachRating;
+      }
+
+      setRatingAverage(Math.floor(avg/reviewsLength));
+      console.log(ratingAverage);
+      console.log(avg);
+    }
+
+    calculateAverageRating();
     
 
 
@@ -89,6 +112,8 @@ const ProductCard = ({commission, currentUser, authenticated}) => {
     }
     } 
 
+    console.log(commission.user.bio)
+
 
 
   return (
@@ -107,7 +132,7 @@ const ProductCard = ({commission, currentUser, authenticated}) => {
               <NavLink to={profileLink}>{commission.user.username}</NavLink>
             </div>
               <div id="artwork-rating">
-                <Rating emptySymbol={emptyStars} fullSymbol={fullStars}/>
+                <Rating emptySymbol={emptyStars} fullSymbol={fullStars} initialRating={ratingAverage} readonly/>
               </div>
               <h1>Description</h1>
               <div className="artpage art-content__description-divider"></div>
@@ -144,21 +169,34 @@ const ProductCard = ({commission, currentUser, authenticated}) => {
             <div className="artpage art-details__reviews-list">
               {
                 ratings && ratings.map((rating, key) => (
-                  <ReviewCard rating={rating} key={key}/>
+                  <ReviewCard cardRating={rating} key={key}/>
                 ))
               }
             </div>
           </div>
 
           <div className="artpage art-details__aboutartist">
-            {/* <div>
-              <h3>
-                About The Artist
-              </h3>
-              <div>
-                {commission.user.username}
+            <h3 id="about_artist-title">
+              About The Artist
+            </h3>
+            <div className="artpage art-details__aboutartist-artist">
+            <div className="artpage art-details__aboutartist-img__container">
+              <div className="artpage art-details__aboutartist-img__container" id="aboutimg__container">
+                <div id="aboutimg__container-image">
+                  <img loading="lazy" src={commission.user.profile_pic}>
+                  </img>
+                </div>
+            </div>
+            </div>
+              <div id="aboutartist-artist__info">
+                <h1 id="artist__username">
+                  {commission.user.username}
+                </h1>
+                <p id="artist__bio">
+                  {commission.user.bio}
+                </p>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

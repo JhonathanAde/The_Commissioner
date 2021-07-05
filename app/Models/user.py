@@ -17,7 +17,7 @@ class User(db.Model, UserMixin):
   first_name = db.Column(db.String(130), nullable = True)
   last_name = db.Column(db.String(130), nullable = True)
   website = db.Column(db.String(130), nullable = True)
-  bio = db.Column(db.String(255), nullable= True)
+  bio = db.Column(db.String(500), nullable= True)
 
   commissions = db.relationship('Commission', back_populates='user', order_by='asc(Commission.id)')
   requests = db.relationship('Request', back_populates='users')

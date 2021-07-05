@@ -1,20 +1,58 @@
 // Dependencies
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Rating from 'react-rating';
+import { getRatingsByCommissionId } from '../services/ratings';
 
 // CSS
 import "./CommissionCards.css";
 
 const CommissionCards = ({comms}) => {
 
+  const [review, setReviews] = useState(null);
+  const [reviewLength, setReviewLength] = useState(0);
 
+  var averageRating = 0
+
+  
+  
   const {commission} = comms
-
+  
   const {image_url, user, title, price, id} = commission
 
+  useEffect(() => {
+    (async () => {
+      const userReviews = await getRatingsByCommissionId(id)
+      setReviews(userReviews);
+      setReviewLength(userReviews.ratings.length)
+    })()
+  }, [])
+
+  console.log(review)
+
+  // const {ratings} = review
+  
   let emptyStars = <i class="far fa-star fa-2x"></i>
   let fullStars = <i class="fas fa-star fa-2x"></i>
+
+  const calculateAverageRating = () => {
+    let sum = 0 
+    for(let i = 0; i < reviewLength; i++){
+      let eachRating = review.ratings[i].rating;
+      sum += eachRating;
+    }
+
+    averageRating = Math.floor(sum / reviewLength);
+    console.log(averageRating);
+
+  }
+    calculateAverageRating()
+  // setTimeOut(calculateAverageRating(), 500);
+  // setTimeout(() => {
+  //   calculateAverageRating();
+  // }, 10000);
+
+
 
  
 
@@ -42,7 +80,7 @@ const CommissionCards = ({comms}) => {
       
               <div className="content-container rating-info">
                 <div id="rating-info__ratings">
-                  <Rating emptySymbol={emptyStars} fullSymbol={fullStars} />
+                  <Rating emptySymbol={emptyStars} fullSymbol={fullStars} initialRating={averageRating} readonly/>
                   {/* <p id="rating-number">Rating Number</p> */}
                 </div>
                 <div id="rating-info__price">

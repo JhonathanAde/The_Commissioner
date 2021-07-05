@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { BrowserRouter, Route, Switch} from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar"
 import { authenticate } from "./Components/services/auth";
+import {UserContext} from "./Components/context/UserContext"
 // import LoginForm from "./Components/auth/LoginForm";
 // import SignUpForm from "./Components/auth/SignUpForm";
 // import ProtectedRoute from "./Components/auth/ProtectedRoute"
@@ -25,6 +26,7 @@ function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const [user, setUser] = useState({})
   const [loaded, setLoaded] = useState(false);
+  const [ratingAverage, setRatingAverage] = useState(0);
 
   useEffect(() => {
     (async() => {
@@ -45,6 +47,7 @@ function App() {
   return (
     <div className="page-container">
     <BrowserRouter>
+    <UserContext.Provider value={{ratingAverage, setRatingAverage}}>
       <NavBar setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user} />
       {/* <Footer /> */}
       <Switch>
@@ -88,13 +91,14 @@ function App() {
         </Route>
         {/* <Route path="/sign-up" exact={true}>
           <SignUpForm 
-            authenticated={authenticated}
-            setAuthenticated={setAuthenticated} />
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated} />
         </Route> */}
         <Route>
           <Homepage path="/" exact={true} authenticated={authenticated} />
         </Route>
       </Switch>
+        </UserContext.Provider>
     </BrowserRouter>
     <Footer />
     </div>
