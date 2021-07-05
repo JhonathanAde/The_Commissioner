@@ -74,20 +74,16 @@ const ProductCard = ({commission, currentUser, authenticated}) => {
     
     const {ratings} = reviews;
 
-    console.log(ratings);
 
     const calculateAverageRating = () => {
       let avg = 0
 
       for (let i = 0; i < reviewsLength; i++){
         let eachRating = ratings[i].rating;
-        console.log(eachRating);
         avg += eachRating;
       }
 
       setRatingAverage(Math.floor(avg/reviewsLength));
-      console.log(ratingAverage);
-      console.log(avg);
     }
 
     calculateAverageRating();
@@ -111,8 +107,6 @@ const ProductCard = ({commission, currentUser, authenticated}) => {
       // history.push(`/product/${commission.id}`)
     }
     } 
-
-    console.log(commission.user.bio)
 
 
 

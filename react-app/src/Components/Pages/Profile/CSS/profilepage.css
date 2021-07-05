@@ -28,14 +28,15 @@
 .profilepage-display.profile-info__profilecard {
   background-color: var(--card-grey);
   width: 534px;
-  height: 586px;
+  max-height: 686px;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   margin-top: 50px;
   box-shadow: var(--card-boxshadow);
 }
 
 #profile-image__container {
+  align-items: center;
   width: 264px;
   height: 264px;
   background-color: var(--icon-pink);
@@ -61,6 +62,16 @@
   margin-top: 20px;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 60px;
+  width: 480px;
+  padding: 5px;
+}
+
+#userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
 }
 
 #profile-username {
@@ -73,6 +84,47 @@
   padding-top: 15px;
 }
 
+#profile-website {
+  width: 550px;
+  /* text-align: center; */
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+#profile-website p {
+  /* width: 100px; */
+  text-align: center;
+}
+
+#profcard-divider1 {
+  background-color: #c8c8c8;
+  height: 2px;
+  width: 440px;
+  margin-top: 20px;
+}
+
+#profile-aboutme {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+#about-me__title {
+  font-size: 20px;
+  margin-left: 52px;
+}
+
+#profile-bio {
+  /* text-align: center; */
+  margin-top: 10px;
+  max-width: 457px;
+  font-size: 18px;
+  margin-left: 52px;
+}
+
 .profilepage-display.profile-content {
   /* visibility: hidden; */
   flex-direction: column;
@@ -81,7 +133,19 @@
 }
 
 .filler-1 {
+  display: flex;
+  justify-content: flex-end;
   height: 271px;
+  /* background-color: var(--icon-pink); */
+}
+
+#prof-settings {
+  color: white;
+  background: none;
+  background-color: var(--main_black);
+  margin-top: 60px;
+  height: 61px;
+  width: 240px;
 }
 
 .profilepage-display.profile-content button {
@@ -110,13 +174,21 @@
   background-color: var(--card-grey);
   height: 3px;
   margin-bottom: 50px;
-
 }
 
 .profilepage-display.profile-content__display {
   /* background-color: violet; */
-  height: 435px;
+  display: flex;
+  height: auto;
   margin-bottom: 50px;
   overflow: hidden;
   overflow-x: scroll;
+}
+
+#no-req__display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 898px;
+  font-size: 64px;
 }

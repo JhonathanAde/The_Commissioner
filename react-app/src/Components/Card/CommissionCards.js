@@ -7,7 +7,7 @@ import { getRatingsByCommissionId } from '../services/ratings';
 // CSS
 import "./CommissionCards.css";
 
-const CommissionCards = ({comms}) => {
+const CommissionCards = ({comms, authenticated}) => {
 
   const [review, setReviews] = useState(null);
   const [reviewLength, setReviewLength] = useState(0);
@@ -28,7 +28,7 @@ const CommissionCards = ({comms}) => {
     })()
   }, [])
 
-  console.log(review)
+ 
 
   // const {ratings} = review
   
@@ -43,7 +43,7 @@ const CommissionCards = ({comms}) => {
     }
 
     averageRating = Math.floor(sum / reviewLength);
-    console.log(averageRating);
+    
 
   }
     calculateAverageRating()

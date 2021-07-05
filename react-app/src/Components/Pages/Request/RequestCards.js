@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
+import Rating from 'react-rating';
 import './RequestCards.css'
 
 const RequestCards = ({info, testRef}) => {
@@ -9,35 +10,38 @@ const RequestCards = ({info, testRef}) => {
   // info.title = Title of requested art
   // info.users.username = Username of Client
 
-
+  let emptyStars = <i class="far fa-star fa-2x"></i>
+  let fullStars = <i class="fas fa-star fa-2x"></i>
   
   return (
-    <>
-      <div className="user-request cardsbody" ref={testRef}>
-        <div className="user-request imgcontainer">
-          <img src={info.image_url} />
-        </div>
-        <div className="user-request cardinfo">
-            <ul>
-              <li>
-                {info.title}
-              </li>
-              <li>
-                <NavLink to="">
-                  <p className="user-request username">{info.users.username}</p>
-                </NavLink>
-              </li>
-              <li>
-                <div className="user-request detailsbox">
-                  <p>Details:</p>
-                  <p className="user-request details">{info.details}</p>
-                </div>
-              </li>
-            </ul>
+      <div className="user-request">
+        <div className="user-request request-card__image-container">
+          <div id="request-card__image">
+            <img src={info.image_url}/>
           </div>
-          <p className="user-request deadline">{`Due: ${info.date}`}</p>
         </div>
-    </>
+        <div>
+          <div>
+            <h1>Artwork By: </h1>
+            <h1>{info.users.username}</h1>
+          </div>
+          <p>{info.details}</p>
+        </div>
+        <div>
+          <div>
+            <Rating emptySymbol={emptyStars} fullSymbol={fullStars}/>
+          </div>
+          <div>
+            <h1>Expires</h1>
+            <h1>{info.date}</h1>
+          </div>
+          <div>
+            <h1>
+              {`$${info.price}`}
+            </h1>
+          </div>
+        </div>
+      </div>
   )
 }
 
