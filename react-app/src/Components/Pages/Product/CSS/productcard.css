@@ -82,6 +82,10 @@
   color: var(--icon-pink)
 }
 
+#artwork-price {
+  margin-bottom: 10px;
+}
+
 
 
 #artwork-rating {

@@ -134,9 +134,11 @@
   display: flex;
   /* background-color: coral; */
   width: 150rem;
-  height: 80rem;
+  height: 873px;
+  max-height: 1080px;
   padding: 0;
-  margin: 2rem;
+  margin-bottom: 50px;
+  /* margin: 2rem; */
   /* clear: both; */
   box-shadow: 0rem 0rem .8rem rgba(0, 0, 0, 0.5);
 }
@@ -170,20 +172,40 @@
 }
 
 .signup-display {
-  position: absolute;
+  /* position: absolute; */
+  /* z-index: 20; */
   /* transform: translate(-22rem, -30rem); */
   animation-name: openSignUp;
   animation-duration: .8s;
   visibility: visible;
   transition: visibility 0s;
+  margin-bottom: 10px;
+  /* align-self: center; */
+  /* justify-self: flex-start; */
 }
 
 .signup-display__hidden {
-  position: absolute;
+  /* position: absolute; */
   visibility: hidden;
   /* transform: translate(-22rem, -30rem); */
   animation-name: closeSignUp;
   animation-duration: .8s;
+}
+
+.splashpage.authforms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 750px;
+  height: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+#authforms-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes openSignUp {

@@ -4,7 +4,7 @@ import { signUp } from '../services/auth';
 import states from 'states-us';
 import "./SignUpForm.css"
 
-const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSignup, setLogin, pathname}) => {
+const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSignup, setLogin, setLoginForm, loginForm, pathname}) => {
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState([])
   const [email, setEmail] = useState("");
@@ -58,6 +58,8 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSig
     setLocation(e.target.value)
   }
 
+  
+
 
   const logInVisibility = () => {
     // if(pathname !== "/login"){
@@ -66,21 +68,20 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSig
     //   pathname = "/login"
     // }
 
-    if (showlogin === "splashlogin-form__hidden"){
+    if (pathname.includes("signup")){
+      setLoginForm(true);
       history.push('/login');
-      setSignup("signup-display__hidden")
-      setLogin("splashlogin-form")
     }
   }
 
-  const checkPath = () => {
-    if(pathname !== "/signup"){
-      setSignup("signup-display__hidden")
-      setLogin("splashlogin-form")
-    }
-  }
+  // const checkPath = () => {
+  //   if(pathname === "/signup"){
+  //    setLoginForm(false);
+  //   }
+  // }
 
-  checkPath();
+  // checkPath();
+  // console.log(loginForm);
 
 
   if (authenticated) {
@@ -98,7 +99,7 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSig
             <div className="error-list">
               <ul>
                 <li key={idx}>
-                  {error}
+                  *{error}
                 </li>
               </ul>
             </div>

@@ -5,7 +5,7 @@ import { login } from "../services/auth";
 // CSS
 import "./LoginForm.css"
 
-const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSignup, showlogin, pathname}) => {
+const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSignup, showlogin, setLoginForm, pathname}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -45,24 +45,23 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
     setPassword(e.target.value);
   };
 
-  const checkPath = () => {
-    if(pathname !== "/login"){
-      setLogin("splashlogin-form__hidden")
-      setSignup("signup-display")
-    }
-  }
+  // const checkPath = () => {
+  //   if(pathname !== "/login"){
+  //     setLogin("splashlogin-form__hidden")
+  //     setSignup("signup-display")
+  //   }
+  // }
 
   const signUpVisibility = (e) => {
     e.preventDefault();
    
-    if (showlogin === "splashlogin-form"){
+    if (pathname.includes("login")){
+      setLoginForm(true)
       history.push('/signup');
-      setLogin("splashlogin-form__hidden")
-      setSignup("signup-display")
     }
   }
 
-  checkPath();
+  // checkPath();
 
   
 

@@ -34,6 +34,8 @@ const Profilepage = ({authenticated, user}) => {
   const [reqButton, setReqButton] = useState(null)
   const [requestInfo, setRequestInfo] = useState('')
   const [displayReqs, setDisplayReqs] = useState(false);
+  const [review, setReviews] = useState(null);
+  const [reviewLength, setReviewLength] = useState(0);
   const {userId} = useParams()
   const {pathname} = useLocation();
   const history = useHistory();
@@ -75,7 +77,6 @@ const Profilepage = ({authenticated, user}) => {
       setRequestInfo(requests.requests)
     })()
   }, [])
-
 
   const checkLocation = () => {
   if(pathname.includes(`/${user.username}/profile`)){
@@ -120,6 +121,21 @@ const Profilepage = ({authenticated, user}) => {
 
   console.log(displayReqs);
   console.log(requestInfo);
+
+  // const calculateAverageRating = () => {
+  //   let sum = 0 
+  //   for(let i = 0; i < reviewLength; i++){
+  //     let eachRating = review.ratings[i].rating;
+  //     sum += eachRating;
+  //   }
+
+  //   averageRating = Math.floor(sum / reviewLength);
+    
+
+  // }
+
+  // calculateAverageRating()
+
 
   // checkButtons();
 

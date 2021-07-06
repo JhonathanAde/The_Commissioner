@@ -8,17 +8,18 @@
   --main-window_height: 998rem;
 }
 
-.user-request {
-  background-color: cadetblue;
+.user-request.main_body {
+  background-color: whitesmoke;
+  box-shadow: var(--card-boxshadow);
   width: 480px;
-  height: auto;
+  height: fit-content;
   margin-bottom: 10px;
   margin-right: 10px;
 }
 
 .user-request.request-card__image-container {
   width: 480px;
-  height: 45%;
+  height: 269px;
   overflow: hidden;
   margin: 0;
 }
@@ -26,4 +27,61 @@
 #request-card__image img {
   display: block;
   width: 482px;
+}
+
+.user-request.request-card__info-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.user-request.request-card__info-container p {
+  font-size: 18px;
+  width: 460px;
+  margin-top: 5px;
+}
+
+#request-artist__name {
+  display: flex;
+  flex-direction: row;
+}
+
+#request-artist__name h1 {
+  font-size: 24px;
+  margin-right: 5px;
+}
+
+.user-request.request-card__importants__container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+#request-expiration__date {
+  display: flex;
+  align-items: center;
+  width: 280px;
+}
+
+#request-expiration__date p {
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+#request-ratings {
+  width: 130px;
+}
+
+#request-ratings i {
+  color: var(--highlight);
+  font-size: 20px;
+}
+
+#request-price {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 36px;
+  font-weight: bold;
 }

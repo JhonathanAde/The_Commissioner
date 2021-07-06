@@ -11,6 +11,7 @@ const SplashPage = ({authenticated, setAuthenticated, setUser, user}) => {
 
   const [signup, setSignup] = useState("signup-display__hidden")
   const [showlogin, setLogin] = useState("splashlogin-form")
+  const [loginForm, setLoginForm] = useState(null);
 
 
   // if (authenticated) {
@@ -31,7 +32,26 @@ const SplashPage = ({authenticated, setAuthenticated, setUser, user}) => {
   //   setSignup("signup-display__hidden")
   //   setLogin("splashlogin-form")
   // }
+
   
+
+  // console.log(loginForm);
+
+  const checkPath = () => {
+    if(pathname === "/login"){
+      if(!loginForm){
+        setLoginForm(true)
+      }
+    }
+
+    if(pathname === "/signup"){
+      if(loginForm){
+        setLoginForm(false);
+      }
+    }
+  }
+
+  checkPath();
 
 
   const logInVisibility = () => {
@@ -51,14 +71,17 @@ const SplashPage = ({authenticated, setAuthenticated, setUser, user}) => {
         <div className="splashpage logincontent">
             <div className="splashpage loginform-image">
             </div>
-            <div className="splashpage loginform">
-              <div className={showlogin}>
-                <LoginForm authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} setLogin={setLogin} setSignup={setSignup} showlogin={showlogin} pathname={pathname}/>
+            <div className="splashpage authforms">
+              <div id="authforms-display">
+                {loginForm && pathname === "/login" &&
+
+                <LoginForm authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} setLogin={setLogin} setSignup={setSignup} showlogin={showlogin} setLoginForm={setLoginForm} pathname={pathname}/>
+                }
+
+                {!loginForm && pathname === "/signup" &&
+                  <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} showlogin={showlogin} setSignup={setSignup} setLogin={setLogin} setLoginForm={setLoginForm} loginForm={loginForm} pathname={pathname}/>
+                }
                 {/* <div className="signup-button" className="sign-upreveal" onClick={signUpVisibility}>Sign Up</div> */}
-              </div>
-              <div className={signup}>
-                <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} showlogin={showlogin} setSignup={setSignup} setLogin={setLogin} pathname={pathname}/>
-                {/* <button className="login-button" onClick={logInVisibility}>Login</button> */}
               </div>
           </div>
         </div>

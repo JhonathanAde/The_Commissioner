@@ -10,11 +10,23 @@
 
 
 .signup-form.signup-container {
-  padding: 1rem;
+  
 }
 
 .signup-form.signup-container input {
   /* margin: 0rem; */
+}
+
+.signup-form.signup-errors {
+  color: red;
+  /* list-style: none; */
+  font-size: 84px;
+  width: 375px;
+  margin-top: 20px;
+}
+
+.signup-form.signup-errors ul {
+  list-style: none;
 }
 
 .signup-form.signup-info{

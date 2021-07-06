@@ -125,6 +125,7 @@ const ProductCard = ({commission, currentUser, authenticated}) => {
               <h3 id="artwork-by">Artwork By: </h3>
               <NavLink to={profileLink}>{commission.user.username}</NavLink>
             </div>
+              <h1 id="artwork-price">{`$${commission.price}`}</h1>
               <div id="artwork-rating">
                 <Rating emptySymbol={emptyStars} fullSymbol={fullStars} initialRating={ratingAverage} readonly/>
               </div>
