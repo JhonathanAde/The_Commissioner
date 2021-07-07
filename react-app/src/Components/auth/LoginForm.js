@@ -45,13 +45,6 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
     setPassword(e.target.value);
   };
 
-  // const checkPath = () => {
-  //   if(pathname !== "/login"){
-  //     setLogin("splashlogin-form__hidden")
-  //     setSignup("signup-display")
-  //   }
-  // }
-
   const signUpVisibility = (e) => {
     e.preventDefault();
    
@@ -70,52 +63,44 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
   }
 
   return (
-    <form className="login-form" onSubmit={onLogin}>
-      <div className="login-form login-container">
+    <div>
+      <form className="login-form" onSubmit={onLogin}>
         <div className="login-form login-errors">
-          {errors.map((error) => (
-            <ul>
-              <li>*{error}</li>
+          {errors.map((error, idx) => (
+            <ul id="login-form__error-list">
+              <li key={idx}>
+                *{error}
+              </li>
             </ul>
           ))}
         </div>
-        <ul className="login-form login-info">
-              <li>
-                <label htmlFor="email">Email</label>
-              </li>
-              <li>
-                <input 
-                  name="email"
-                  type="email"
-                  id="email-input"
-                  placeholder="Email"
-                  value={email}
-                  onChange={updateEmail}
-                  />
-              </li>
-              <li>
-                <label>Password</label>
-              </li>
-              <li>
-                <input 
-                  name="pasword"
-                  type="password"
-                  placeholder="Password"
-                  id="password-input"
-                  value={password}
-                  onChange={updatePassword}
-                  />
-              </li>
-        </ul>
-        <div className="login-form login-buttons">
-          <button type="submit" className="login-submit">Login</button>
-          <button onClick={demoLogin}>Demo</button>
-          <button className="sign-upreveal" onClick={signUpVisibility}>
-            Sign Up
-            </button>
+        <div className="login-form login-email">
+          <label id="login-email__label">Email</label>
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            id="login-email__input"
+            onChange={updateEmail}
+          ></input>
         </div>
-      </div>
-    </form>
+        <div className="login-form login-pass">
+          <label id="login-password__label">Password</label>
+          <input 
+            name="password"
+            type="password"
+            placeholder="Password"
+            id="login-password__input"
+            onChange={updatePassword}
+          ></input>
+        </div>
+        <div className="login-form login-buttons">
+          <button id="login-buttons__login" type="submit">Login</button>
+          <button id="login-buttons__demo" onClick={demoLogin}>Demo</button>
+          <button id="login-buttons__signup" onClick={signUpVisibility}>Sign Up</button>
+        </div>
+      </form>
+    </div>
   );
 };
 

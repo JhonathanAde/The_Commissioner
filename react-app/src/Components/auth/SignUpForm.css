@@ -6,44 +6,73 @@
   --card-boxshadow: 0px 0px .5rem rgba(0, 0, 0, 0.7);
   --main-window_width: 1500rem;
   --main-window_height: 998rem;
-}
-
-
-.signup-form.signup-container {
-  
-}
-
-.signup-form.signup-container input {
-  /* margin: 0rem; */
+  --input__width: 386px;
+  --input__height: 35px;
+  --login-label__fontsize: 36px;
+  --login-input__fontsize: 28px;
 }
 
 .signup-form.signup-errors {
-  color: red;
-  /* list-style: none; */
-  font-size: 84px;
-  width: 375px;
-  margin-top: 20px;
+  color: crimson;
 }
 
-.signup-form.signup-errors ul {
-  list-style: none;
+/* -- Signup Username -- */
+
+.signup-form.signup-username {
+  display: flex;
+  flex-direction: column;
 }
 
-.signup-form.signup-info{
-  display: block;
-  font-size: 11rem;
+#signup-username__label {
+  font-size: var(--login-label__fontsize);
 }
 
-.signup-form.signup-info ul {
-  list-style: none;
+/* -- Signup Email -- */
+
+.signup-form.signup-email {
+  display: flex;
+  flex-direction: column;
 }
 
-.choices {
-  font-size: 3rem;
+#signup-email__label {
+  font-size: var(--login-label__fontsize);
 }
 
-.signup-form.signup-buttons {
-  display: block;
+.signup-form.signup-password {
+  display: flex;
+  flex-direction: column;
+}
+
+#signup-password__label {
+  font-size: var(--login-label__fontsize);
+}
+
+.signup-form.signup-rep__pass {
+  display: flex;
+  flex-direction: column;
+
+}
+
+#signup-rep__pass__label {
+  font-size: var(--login-label__fontsize);
+}
+
+.signup-form.signup-location {
+  display: flex;
+  flex-direction: column;
+}
+
+#signup-location__label {
+  font-size: var(--login-label__fontsize);
+}
+
+#artist-status__label {
+  font-size: var(--login-label__fontsize);
+}
+
+#status-choices__label {
+  font-size: 26px;
+  font-weight: 300;
 }
 
 .signup-form.signup-buttons button {
@@ -55,7 +84,6 @@
   background-color: black;
   color: white;
   padding: 5px;
-  /* border-radius: 2px; */
 }
 
 .signup-form.signup-buttons a:hover {

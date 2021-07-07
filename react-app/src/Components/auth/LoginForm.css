@@ -6,34 +6,59 @@
   --card-boxshadow: 0px 0px .5rem rgba(0, 0, 0, 0.7);
   --main-window_width: 1500rem;
   --main-window_height: 998rem;
+  --login-input__width: 386px;
+  --login-input__height: 35px;
+  --login-label__fontsize: 36px;
+  --login-input__fontsize: 28px;
+}
+
+.login-form div {
+  margin-bottom: 10px;
 }
 
 .login-form.login-errors {
-  /* background-color: crimson; */
-  width: 42rem;
-  font-size: 6rem;
+  width: 420px;
+  font-size: 60px;
   color: red;
-  margin: 0rem;
 }
 
-.login-form.login-errors ul {
+#login-form__error-list {
   list-style: none;
 }
 
-.login-form.login-container {
-  display: block;
-  font-size: 15rem;
-  padding: 1rem;
+
+.login-form.login-email {
+  display: flex;
+  flex-direction: column;
 }
 
-.login-form.login-info {
-  display: block;
-  list-style: none;
-  font-size: 10rem;
+#login-email__label {
+  font-size: 36px;
+  margin-bottom: 10px;
 }
 
-.login-form.login-info label{
-  margin-bottom: .5rem;
+#login-email__input {
+  width: var(--login-input__width);
+  height: var(--login-input__height);
+  font-size: 28px;
+  padding: 5px;
+}
+
+.login-form.login-pass {
+  display: flex;
+  flex-direction: column;
+}
+
+#login-password__input {
+  width: var(--login-input__width);
+  height: var(--login-input__height);
+  font-size: var(--login-input__fontsize);
+  padding: 5px;
+}
+
+#login-password__label {
+  font-size: var(--login-label__fontsize);
+  margin-bottom: 10px;
 }
 
 .login-form.login-buttons {
@@ -49,52 +74,10 @@
   background-color: black;
   color: white;
   padding: 5px;
+  cursor: pointer;
 }
 
 .login-form.login-buttons button:hover {
   background-color: var(--highlight);
 }
 
-
-.splashlogin-form__hidden {
-  animation-name: hideLogin;
-  animation-duration: .5s;
-  visibility: hidden;
-  transition-delay: 0.5s;
-}
-
-.splashlogin-form {
-  visibility: visible;
-  transition: visibility 0s;
-  animation-name: showLogin;
-  animation-duration: .5s;
-}
-
-
-@keyframes hideLogin {
-  
-  0% {
-    opacity: 1;
-    /* transform: translate(5%, 15%); */
-  }
-
-  100%{
-    opacity: 0;
-    /* transform: translate(-5%, 15%); */
-  }
-
-}
-
-@keyframes showLogin {
-  
-  0% {
-    opacity: 0;
-    transform: translate(-3rem);
-  }
-
-  100%{
-    opacity: 1;
-    transform: translate(0rem);
-  }
-
-}

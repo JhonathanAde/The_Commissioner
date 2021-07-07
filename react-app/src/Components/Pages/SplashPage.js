@@ -81,7 +81,6 @@ const SplashPage = ({authenticated, setAuthenticated, setUser, user}) => {
                 {!loginForm && pathname === "/signup" &&
                   <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} setUser={setUser} showlogin={showlogin} setSignup={setSignup} setLogin={setLogin} setLoginForm={setLoginForm} loginForm={loginForm} pathname={pathname}/>
                 }
-                {/* <div className="signup-button" className="sign-upreveal" onClick={signUpVisibility}>Sign Up</div> */}
               </div>
           </div>
         </div>
