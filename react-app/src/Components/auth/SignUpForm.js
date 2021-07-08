@@ -88,38 +88,40 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSig
     return <Redirect to="/" />;
   }
 
+  
+
 
 
   return (
     
     <div>
-      <form className="signup-form">
+      <form className="signup-form" onSubmit={onSignUp}>
         <div className="signup-form signup-errors">
           {errors.map((error, idx) => (
-            <ul>
+            <ul id="signup-errors__errors-list">
               <li key={idx}>*{error}</li>
             </ul>
           ))}
         </div>
         <div className="signup-form signup-username">
           <label id="signup-username__label">Username</label>
-          <input id="signup-username__input"></input>
+          <input id="signup-username__input" onChange={updateUsername}></input>
         </div>
         <div className="signup-form signup-email">
           <label id="signup-email__label">Email</label>
-          <input id="signup-email__input"></input>
+          <input id="signup-email__input" onChange={updateEmail}></input>
         </div>
         <div className="signup-form signup-password">
           <label id="signup-password__label">Password</label>
-          <input id="signup-password__input"></input>
+          <input id="signup-password__input" type="password" onChange={updatePassword}></input>
         </div>
         <div className="signup-form signup-rep__pass">
           <label id="signup-rep__pass__label">Repeat Password</label>
-          <input id="signup-rep__pass__input"></input>
+          <input id="signup-rep__pass__input" onChange={updateRepeatPassword}></input>
         </div>
         <div className="signup-form signup-location">
           <label id="signup-location__label">Location</label>
-          <select id="signup-location__select">
+          <select id="signup-location__select" onChange={updateLocation}>
             <>
               <option value="">-- Please select a state --</option>
               {statesList.map((state, idx) => (
@@ -132,15 +134,15 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSig
           <label id="artist-status__label">Artist?</label>
           <div id="artist-status__choices">
           <label id="status-choices__label">Yes</label>
-          <input type="radio" name="artist-status" value={true}></input>
+          <input id="status-choices__button" type="radio" name="artist-status" value={true}></input>
 
           <label id="status-choices__label">No</label>
-          <input type="radio" name="artist-status" value={false}></input>
+          <input id="status-choices__button"type="radio" name="artist-status" value={false}></input>
           </div>
         </div>
         <div className="signup-form signup-buttons">
-          <button id="signup-buttons__signup">Sign Up</button>
-          <button id="signup-buttons__login">Login</button>
+          <button id="signup-buttons__signup" type="submit">Sign Up</button>
+          <button id="signup-buttons__login" onClick={logInVisibility}>Login</button>
         </div>
       </form>
     </div>

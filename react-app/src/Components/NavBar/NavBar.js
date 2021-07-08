@@ -35,7 +35,7 @@ const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
 
 
   return (
-    <nav className="nav-bar">
+    <nav className="nav-bar bar-base">
         <div className="nav-bar main-items"> 
           <div className="nav-bar home-icon">
           <NavLink to="/" exact={true} activeClassName="active">
@@ -49,9 +49,17 @@ const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
             <>
           
               <div className="nav-bar user-options__loggedin-menu">
-                <h1 id="nav-bar__username">{`Welcome ${user.username}!`}</h1>
-                <div className="nav-bar user-options__dropdown"  onBlur={onBlurHandler} onFocus={onFocusHandler} onClick={onClickHandler} tabIndex="-1">
-                  <Dropdown isOpen={isOpen} setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user}/>
+                  <h1 id="nav-bar__username">{`Welcome ${user.username}!`}</h1>
+                  <div className="nav-bar user-options__dropdown"  onBlur={onBlurHandler} onFocus={onFocusHandler} onClick={onClickHandler} tabIndex="-1">
+                    <div className="user-options__dropdown-profilepic">
+                      <div className="user-options__dropdown-profilepic" id="dropdown-profilepic__container">
+                        <div id="dropdown-profilepic__img">
+                          <img src={user.profile_pic}>
+                          </img>
+                        </div>
+                    </div>
+                    <Dropdown isOpen={isOpen} setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user}/>
+                  </div>
                 </div>
               </div>
             </>

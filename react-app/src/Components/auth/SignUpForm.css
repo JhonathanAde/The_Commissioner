@@ -12,68 +12,170 @@
   --login-input__fontsize: 28px;
 }
 
+/* Signup Errors */
+
 .signup-form.signup-errors {
   color: crimson;
+  font-size: 60px;
+  margin-bottom: 10px;
 }
+
+#signup-errors__errors-list {
+  list-style: none;
+}
+
+/* --------------------------------- */
+
+
 
 /* -- Signup Username -- */
 
 .signup-form.signup-username {
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 }
 
 #signup-username__label {
   font-size: var(--login-label__fontsize);
+  margin-bottom: 5px;
 }
+
+#signup-username__input {
+  width: var(--input__width);
+  height: var(--input__height);
+  font-size: var(--login-input__fontsize);
+  padding: 5px;
+}
+
+/* --------------------------------- */
+
+
 
 /* -- Signup Email -- */
 
 .signup-form.signup-email {
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 }
 
 #signup-email__label {
   font-size: var(--login-label__fontsize);
+  margin-bottom: 5px;
 }
+
+#signup-email__input {
+  width: var(--input__width);
+  height: var(--input__height);
+  font-size: var(--login-input__fontsize);
+  padding: 5px;
+}
+
+/* --------------------------------- */
+
+
+
+/* -- Signup Password -- */
 
 .signup-form.signup-password {
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 }
 
 #signup-password__label {
   font-size: var(--login-label__fontsize);
+  margin-bottom: 5px;
 }
+
+#signup-password__input {
+  width: var(--input__width);
+  height: var(--input__height);
+  font-size: var(--login-input__fontsize);
+  padding: 5px;
+}
+
+/* --------------------------------- */
+
+
+
+/* -- Signup Rep. Password -- */
 
 .signup-form.signup-rep__pass {
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 
 }
 
 #signup-rep__pass__label {
   font-size: var(--login-label__fontsize);
+  margin-bottom: 5px;
 }
+
+#signup-rep__pass__input {
+  width: var(--input__width);
+  height: var(--input__height);
+  font-size: var(--login-input__fontsize);
+  padding: 5px;
+}
+
+/* --------------------------------- */
+
+
+
+/* -- Signup Location -- */
 
 .signup-form.signup-location {
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 }
 
 #signup-location__label {
   font-size: var(--login-label__fontsize);
+  margin-bottom: 5px;
+}
+
+#signup-location__select {
+  width: var(--input__width);
+  height: var(--input__height);
+  font-size: var(--login-input__fontsize);
+  font-weight: 300;
+}
+
+/* --------------------------------- */
+
+
+
+
+/* -- Signup Rep. Artist Status -- */
+
+.signup-form.signup-artist__status {
+  margin-bottom: 20px;
 }
 
 #artist-status__label {
   font-size: var(--login-label__fontsize);
+  margin-bottom: 5px;
 }
 
 #status-choices__label {
   font-size: 26px;
   font-weight: 300;
+  margin-right: 10px;
 }
+
+#status-choices__button {
+  margin-right: 20px;
+}
+
+/* --------------------------------- */
+
+
+
+/* -- Signup Buttons -- */
 
 .signup-form.signup-buttons button {
   font-size: 3rem;
@@ -95,3 +197,5 @@
   background-color: var(--highlight);
   cursor: pointer;
 }
+
+/* --------------------------------- */

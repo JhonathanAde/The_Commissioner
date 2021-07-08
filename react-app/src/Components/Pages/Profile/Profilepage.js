@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useParams, useHistory, useLocation } from "react-router-dom"
 import { getCommissionsById } from '../../services/commission'
 import { getRequestsById } from '../../services/request'
-import ProfileCommCards from './ProfileComCards'
+import Modal from '../Modal/Modal'
 import CommissionCards from '../../Card/CommissionCards'
 import RequestCards from '../Request/RequestCards'
 import Rating from 'react-rating'
@@ -20,6 +20,13 @@ const Profilepage = ({authenticated, user}) => {
 
   var visitor
   var buttons
+
+  const closeIconFile = require('./close-icon.png');
+
+  const closeIcon = new Image();
+  closeIcon.src = "https://commissioner-icons.s3.amazonaws.com/close-icon.png"
+
+  console.log(closeIconFile);
  
   const [userRequests, setUserRequests] = useState(null)
   const [userCommissions, setUserCommissions] = useState(null)
@@ -34,11 +41,17 @@ const Profilepage = ({authenticated, user}) => {
   const [reqButton, setReqButton] = useState(null)
   const [requestInfo, setRequestInfo] = useState('')
   const [displayReqs, setDisplayReqs] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [review, setReviews] = useState(null);
   const [reviewLength, setReviewLength] = useState(0);
   const {userId} = useParams()
   const {pathname} = useLocation();
   const history = useHistory();
+
+  const button_wrapper_styles = {
+    position: 'relative',
+    zIndex: 1
+  }
 
 
   useEffect(() => {
@@ -161,7 +174,7 @@ const Profilepage = ({authenticated, user}) => {
                 {user.location}
               </h1>
               <a href={user.website} id="profile-website">
-                <p>{user.website}</p>
+                <p>Website</p>
               </a>
               <div id="profcard-divider1"></div>
               </div>
@@ -176,7 +189,42 @@ const Profilepage = ({authenticated, user}) => {
         </div>
         <div className="profilepage-display profile-content">
           <div className="filler-1">
-            <button id="prof-settings">Settings</button>
+            <button id="prof-settings" onClick={() => setIsOpen(true)}>Settings</button>
+            <Modal open={isOpen} onClose={() => setIsOpen(false)} title={"Settings"} closeIcon={closeIcon}>
+              
+              <div className="profilepage settings-window">
+                <div>
+                    <div className="settings-window settings-tab">
+                      <button>User Info</button>
+                      <button>Profile Image</button>
+                    </div>
+                    <div className="settings-window settings-tab__divider"/>
+                    <div className="settings-window settings-forms">
+                      <form className="settings-forms settings-username__form">
+                        <div className="settings-forms settings-username__form-wrapper">
+                          <label id="settings-username__label">Username</label>
+                          <input id="settings-username__input"></input>
+                        </div>
+                      </form>
+                      <form className="settings-forms settings-website__form">
+                        <div className="settings-forms settings-website__form-wrapper">
+                          <label id="settings-website__label">Website</label>
+                          <input id="settings-website__input"></input>
+                        </div>
+                      </form>
+                      <form className="settings-forms settings-bio__form">
+                        <div className="settings-forms settings-bio__form-wrapper">
+                          <label id="settings-bio__label">Bio</label>
+                          <textarea id="settings-bio__textarea"/>
+                        </div>
+                      </form>
+                    </div>
+                    <div className="settings-window settings-buttons">
+                      <button id="settings-save__button">Save</button>
+                    </div>
+                  </div>
+                </div>
+            </Modal>
           </div>
           <div id="profile-display__buttons">
           <button id="profile-commissions__button-active" onClick={commClickHandler}>Commissions</button>
@@ -221,7 +269,7 @@ const Profilepage = ({authenticated, user}) => {
                 {otherLocation}
               </h1>
                <a href={otherWebsite} id="profile-website">
-                <p>{otherWebsite}</p>
+                <p>Website</p>
               </a>
               <div id="profcard-divider1"></div>
               </div>
@@ -235,7 +283,7 @@ const Profilepage = ({authenticated, user}) => {
           </div>
         </div>
         <div className="profilepage-display profile-content">
-          <div className="filler-1"></div>
+          <div className="filler-1__otheruser"></div>
           <button>Commissions</button>
           <div className="profilepage-display profile-content__divider"></div>
           <div className="profilepage-display profile-content__display">

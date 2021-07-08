@@ -12,9 +12,17 @@
   --login-input__fontsize: 28px;
 }
 
+/* -- Login Main Div -- */
+
 .login-form div {
   margin-bottom: 10px;
 }
+
+/* --------------------------------- */
+
+
+
+/* -- Login Errors -- */
 
 .login-form.login-errors {
   width: 420px;
@@ -26,6 +34,11 @@
   list-style: none;
 }
 
+/* --------------------------------- */
+
+
+
+/* -- Login Email -- */
 
 .login-form.login-email {
   display: flex;
@@ -44,6 +57,12 @@
   padding: 5px;
 }
 
+/* --------------------------------- */
+
+
+
+/* -- Login Password -- */
+
 .login-form.login-pass {
   display: flex;
   flex-direction: column;
@@ -60,6 +79,12 @@
   font-size: var(--login-label__fontsize);
   margin-bottom: 10px;
 }
+
+/* --------------------------------- */
+
+
+
+/* -- Login Buttons -- */
 
 .login-form.login-buttons {
   font-size: 5rem;
@@ -80,4 +105,6 @@
 .login-form.login-buttons button:hover {
   background-color: var(--highlight);
 }
+
+/* --------------------------------- */
 

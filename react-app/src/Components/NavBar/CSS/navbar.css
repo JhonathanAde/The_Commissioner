@@ -83,8 +83,37 @@
   transition: border .7s;
 }
 
-.nav-bar.user-options__dropdown:hover {
+.user-options__dropdown-profilepic {
+  display: flex;
+  align-items: center;
+  border-radius: 200px;
+}
+
+#dropdown-profilepic__img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 200px;
+  overflow: hidden;
+}
+
+#dropdown-profilepic__img img {
+  width: 47px;
+  border-radius: 200px;
+  border: solid 0px var(--highlight);
+  transition: border 1s;
+}
+
+/* .nav-bar.user-options__dropdown:hover {
   border: solid 5px var(--highlight);
+  transition: border 1s;
+} */
+
+
+#dropdown-profilepic__container img:hover {
+  border: solid 3px var(--highlight);
   transition: border 1s;
 }
 

@@ -177,7 +177,7 @@
   justify-content: space-between;
 }
 
-.artpage.art-details__reviewform-submit i{
+.artpage.art-details__reviewform-submit i {
  font-size: 35px;
  color: var(--highlight);
 }

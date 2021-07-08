@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { createRating, getRatingsByCommissionId } from '../../services/ratings';
 import Rating from 'react-rating';
+import { getCommissionsById} from '../../services/commission'
 
 import ReviewCard from '../../Reviews/reviews';
 
@@ -30,6 +31,8 @@ const ProductCard = ({commission, currentUser, authenticated}) => {
   const [reviewsLength, setReviewsLength] = useState([]);
   const [errors, setErrors] = useState([]);
   const [ratingLength, setRatingLength] = useState(0);
+  const [ratingColor, setRatingColor] = useState("");
+  const [otherCommissions, setOtherCommissions] = useState(null);
   
  
 
@@ -49,12 +52,28 @@ const ProductCard = ({commission, currentUser, authenticated}) => {
   useEffect(() => {
     (async () => {
       const userReviews = await getRatingsByCommissionId(commission.id)
+      const artistCommissions = await getCommissionsById(commission.user_id)
       setReviews(userReviews);
       setReviewsLength(userReviews.ratings.length)
+      setOtherCommissions(artistCommissions);
     })()
   }, [])
 
+  useEffect(() => {
+    let ratingEl = document.querySelectorAll(".rating-stars")
+    
+    // const changeRatingColor = () => {
+    //   ratingEl.style.color = "#ffdc60"
+    // }
+    console.log(ratingEl)
+    // setRatingColor(changeRatingColor);
+  })
+
    var ratingsAvg = 0;
+
+  //  const changeRatingColor = (e) => {
+  //   setRatingColor ("#ffdc60");
+  //  }
 
 
   
@@ -87,7 +106,7 @@ const ProductCard = ({commission, currentUser, authenticated}) => {
     }
 
     calculateAverageRating();
-    
+    console.log(otherCommissions);
 
 
   const reviewSubmit = async(e) => {
@@ -156,7 +175,7 @@ const ProductCard = ({commission, currentUser, authenticated}) => {
                 onChange = {updateReview}
               ></textarea>
               <div className="artpage art-details__reviewform-submit">
-                <Rating emptySymbol={emptyStars} fullSymbol={fullStars} onChange={checkRatings} />
+                <Rating emptySymbol={emptyStars} fullSymbol={fullStars} onChange={checkRatings}  />
                 <button type="submit">Submit</button>
               </div>
             </form>
@@ -169,6 +188,7 @@ const ProductCard = ({commission, currentUser, authenticated}) => {
               }
             </div>
           </div>
+          <div>
 
           <div className="artpage art-details__aboutartist">
             <h3 id="about_artist-title">
@@ -193,7 +213,21 @@ const ProductCard = ({commission, currentUser, authenticated}) => {
               </div>
             </div>
           </div>
+          <div className="artpage art-details__other-works">
+            <h4>Other Works From This Artist</h4>
+            <div>
+              { otherCommissions && otherCommissions.commissions.map((comm, key) => (
+                comm.commission.id === commission.id ? false
+                  :
+                <>
+                  {/* <img src={comm.commission.image_url}/> */}
+                  <h1>hey</h1>
+                </>
+              ))}
+            </div>
+          </div>
         </div>
+          </div>
       </div>
     </div>
   )
