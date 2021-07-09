@@ -43,6 +43,10 @@ const Profilepage = ({authenticated, user}) => {
   const [displayReqs, setDisplayReqs] = useState(false);
   const [isVisitor, setVisitor] = useState(false)
   const [isOpen, setIsOpen] = useState(false);
+  const [isUserInfo, setIsUserInfo] = useState(true);
+  const [isProfileImage, setIsProfileImage] = useState(false);
+  const [userInfoId, setUserInfoId] = useState('settings-user_info-active')
+  const [profImgId, setProfImgId] = useState('settings-profile_image')
   const [review, setReviews] = useState(null);
   const [reviewLength, setReviewLength] = useState(0);
   const {userId} = useParams()
@@ -92,6 +96,20 @@ const Profilepage = ({authenticated, user}) => {
     })()
   }, [])
 
+
+  const [currentUsername, setCurrentUsername] = useState(user.username);
+  const [currentWebsite, setCurrentWebsite] = useState(user.website);
+  const [currentBio, setCurrentBio] = useState(user.bio);
+  const [currentProfilepic, setCurrentProfilepic] = useState(user.profile_pic);
+  const [currentFirstName, setCurrentFirstName] = useState(user.first_name);
+  const [currentLastName, setCurrentLastName] = useState(user.last_name);
+
+  const userInfoBtn = document.getElementById("settings-user_info-active")
+  const profImgBtn = document.getElementById("settings-profile_image")
+
+
+  // console.log(userInfoBtn);
+
   const checkLocation = () => {
     if(pathname === `/${user.username}/profile`){
       if(!authenticated){
@@ -117,48 +135,12 @@ const Profilepage = ({authenticated, user}) => {
           visitor = true;
         }
       }
-      
-
-    }
-    // if(!authenticated){
-    //     if(pathname.includes(`/profile/${userId}`)){
-    //       visitor = true;
-    //     }
-    //   } 
-    // else if(authenticated){
-    // if(pathname.includes(`/${user.username}/profile`)){
-    //   visitor = false;
-    // }
-    // else if(authenticated){
-    //   if(pathname.includes(`/profile/${userId}`)){
-    //     visitor = true;
-    //   }
-    // }
-  }
-    // redirectUser();
-
-
-  const redirectUser = () => {
-    if(visitor){
-      history.push(`/profile/${userId}`);
-    }
-    else {
-      history.push(`/${user.username}/profile`);
     }
   }
-
-  // console.log(typeof user.id.toString())
-  // console.log(typeof userId)
-
-
-    // visitor = true;
-    // history.push(`/profile/${userId}`)
-  
+    
 
   checkLocation();
-  // setVisitor(visitor);
-
-  // console.log(visitor);
+  
   
 
   const reqClickHandler = () => {
@@ -167,7 +149,6 @@ const Profilepage = ({authenticated, user}) => {
       reqButton.id = "profile-requests__button-active";
       if(buttons !== 1){
       commButton.id = "profile-commissions__button";
-      // window.location.reload()
     }
   }
 
@@ -180,35 +161,40 @@ const Profilepage = ({authenticated, user}) => {
     }
   }
 
-  const checkButtons = () => {
-    if(buttons !== 1){
-      commButton.id = "profile-commissions__button";
+  const displayProfImgSettings = (e) => {
+    e.preventDefault()
+    if(isUserInfo){
+      setIsUserInfo(false)
     }
-    else if(buttons !== 2){
-      reqButton.id = "profile-requests__button"
-    }
-
+    setUserInfoId('settings-user_info')
+    setProfImgId('settings-profile_image-active')
+    setIsProfileImage(true);
   }
 
-  // console.log(displayReqs);
-  // console.log(requestInfo);
-
-  // const calculateAverageRating = () => {
-  //   let sum = 0 
-  //   for(let i = 0; i < reviewLength; i++){
-  //     let eachRating = review.ratings[i].rating;
-  //     sum += eachRating;
-  //   }
-
-  //   averageRating = Math.floor(sum / reviewLength);
-    
-
-  // }
-
-  // calculateAverageRating()
+  const displayUserInfo = (e) => {
+    e.preventDefault();
+    if(isProfileImage){
+      setIsProfileImage(false);
+    }
+    setProfImgId('settings-profile_image')
+    setUserInfoId('settings-user_info-active')
+    setIsUserInfo(true);
+  }
 
 
-  // checkButtons();
+  const setUsername = (e) => {
+    setCurrentUsername(e.target.value)
+  }
+
+  const setWebsite = (e) => {
+    setCurrentWebsite(e.target.value)
+  }
+
+  const setBio = (e) => {
+    setCurrentBio(e.target.value)
+  }
+
+
 
   return (
     <>
@@ -253,33 +239,49 @@ const Profilepage = ({authenticated, user}) => {
               <div className="profilepage settings-window">
                 <div>
                     <div className="settings-window settings-tab">
-                      <button>User Info</button>
-                      <button>Profile Image</button>
+                      <button id={userInfoId} onClick={displayUserInfo}>User Info</button>
+                      <button id={profImgId} onClick={displayProfImgSettings}>Profile Image</button>
+                      <div className="settings-window settings-tab__divider"/>
                     </div>
-                    <div className="settings-window settings-tab__divider"/>
+                  { isUserInfo &&
+                  <>
                     <div className="settings-window settings-forms">
+                      <form className="settings-forms settings-name_form">
+                        <div className="settings-forms settings-name__form-wrapper">
+                          <div id="first-name_wrapper">
+                            <label id="first-name__label">First Name</label>
+                            <input id="first-name__input"value={currentFirstName}></input>
+                          </div>
+                          <div id="last-name_wrapper">
+                            <label id="last-name__label">Last Name</label>
+                            <input id="last-name__input" value={currentLastName}></input>
+                          </div>
+                        </div>
+                      </form>
                       <form className="settings-forms settings-username__form">
                         <div className="settings-forms settings-username__form-wrapper">
                           <label id="settings-username__label">Username</label>
-                          <input id="settings-username__input"></input>
+                          <input id="settings-username__input" value={currentUsername} onChange={setUsername}></input>
                         </div>
                       </form>
                       <form className="settings-forms settings-website__form">
                         <div className="settings-forms settings-website__form-wrapper">
                           <label id="settings-website__label">Website</label>
-                          <input id="settings-website__input"></input>
+                          <input id="settings-website__input" value={currentWebsite} onChange={setWebsite}></input>
                         </div>
                       </form>
                       <form className="settings-forms settings-bio__form">
                         <div className="settings-forms settings-bio__form-wrapper">
                           <label id="settings-bio__label">Bio</label>
-                          <textarea id="settings-bio__textarea"/>
+                          <textarea id="settings-bio__textarea" value={currentBio} onChange={setBio}/>
                         </div>
                       </form>
                     </div>
                     <div className="settings-window settings-buttons">
-                      <button id="settings-save__button">Save</button>
                     </div>
+                    </>
+                  }
+                      <button id="settings-save__button">Save</button>
                   </div>
                 </div>
             </Modal>

@@ -188,13 +188,62 @@
 }
 
 #settings-save__button:hover {
-  background-color: var(--highlight);
+  background-color: var(--icon-pink);
 }
 
 .settings-window.settings-tab button {
   background: none;
   outline: none;
   background-color: var(--card-grey);
+  color: black;
+  border: none;
+  margin-right: 10px;
+  padding: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#settings-user_info {
+  background: none;
+  outline: none;
+  background-color: var(--card-grey);
+  color: black;
+  border: none;
+  margin-right: 10px;
+  padding: 10px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#settings-user_info-active {
+  background: none;
+  outline: none;
+  background-color: var(--icon-pink);
+  color: black;
+  border: none;
+  margin-right: 10px;
+  padding: 10px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#settings-profile_image {
+  background: none;
+  outline: none;
+  background-color: var(--card-grey);
+  color: black;
+  border: none;
+  margin-right: 10px;
+  padding: 10px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#settings-profile_image-active {
+  background: none;
+  outline: none;
+  background-color: var(--icon-pink);
   color: black;
   border: none;
   margin-right: 10px;
@@ -209,6 +258,57 @@
   width: 750px;
   margin-bottom: 10px;
 }
+
+
+/* -- Settings Name Form */
+  .settings-forms.settings-name__form-wrapper {
+    display: flex;
+    /* flex-direction: row; */
+  }
+
+  #first-name_wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  #first-name__label {
+    font-size: var(--settings-label__fontsize);
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  #first-name__input {
+    width: 365px;
+    height: var(--settings-input__height);
+    margin-right: 20px;
+    font-size: var(--settings-input__fontsize);
+    padding: 5px;
+  }
+
+  #last-name_wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #last-name__label {
+    font-size: var(--settings-label__fontsize);
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  #last-name__input {
+    width: 365px;
+    height: var(--settings-input__height);
+    font-size: var(--settings-input__fontsize);
+    padding: 5px;
+  }
+
+
+
+
+
+/* ------------------------ */
 
 /* -- Settings Username Form */
 
@@ -275,7 +375,7 @@
   width: var(--settings-input__width);
   height: 144px;
   resize: none;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-size: var(--settings-input__fontsize);
   padding: 5px;
 }

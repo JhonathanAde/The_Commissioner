@@ -27,7 +27,7 @@ const ProductPage = ({user, authenticated}) => {
     <>
       {commissionData && reviewData &&
       <>
-        <ProductCard commission={commissionData.commission} currentUser={user} authenticated={authenticated}/>
+        <ProductCard commission={commissionData.commission} currentUser={user} authenticated={authenticated} commissionId={commissionId}/>
       </>
       }
     </>

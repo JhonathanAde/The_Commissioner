@@ -13,6 +13,13 @@
   height: 187px;
 }
 
+.other-works button {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+
 .other-works.otherworks_container{
   position: relative;
   margin-right: 10px;

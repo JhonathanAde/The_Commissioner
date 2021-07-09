@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useParams } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { createRating, getRatingsByCommissionId } from '../../services/ratings';
 import Rating from 'react-rating';
@@ -14,7 +14,7 @@ import { UserContext } from '../../context/UserContext';
 
 
 
-const ProductCard = ({commission, currentUser, authenticated}) => {
+const ProductCard = ({commission, currentUser, authenticated, commissionId}) => {
 
 
   const {ratingAverage, setRatingAverage} = useContext(UserContext);
@@ -52,7 +52,7 @@ const ProductCard = ({commission, currentUser, authenticated}) => {
 
   useEffect(() => {
     (async () => {
-      const userReviews = await getRatingsByCommissionId(commission.id)
+      const userReviews = await getRatingsByCommissionId(commissionId)
       const artistCommissions = await getCommissionsById(commission.user_id)
       setReviews(userReviews);
       setReviewsLength(userReviews.ratings.length)
