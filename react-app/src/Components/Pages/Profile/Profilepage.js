@@ -18,15 +18,15 @@ import Footer from '../../Footer/Footer'
 
 const Profilepage = ({authenticated, user}) => {
 
-  var visitor
   var buttons
+  var visitor
 
   const closeIconFile = require('./close-icon.png');
 
   const closeIcon = new Image();
   closeIcon.src = "https://commissioner-icons.s3.amazonaws.com/close-icon.png"
 
-  console.log(closeIconFile);
+  // console.log(closeIconFile);
  
   const [userRequests, setUserRequests] = useState(null)
   const [userCommissions, setUserCommissions] = useState(null)
@@ -41,6 +41,7 @@ const Profilepage = ({authenticated, user}) => {
   const [reqButton, setReqButton] = useState(null)
   const [requestInfo, setRequestInfo] = useState('')
   const [displayReqs, setDisplayReqs] = useState(false);
+  const [isVisitor, setVisitor] = useState(false)
   const [isOpen, setIsOpen] = useState(false);
   const [review, setReviews] = useState(null);
   const [reviewLength, setReviewLength] = useState(0);
@@ -92,16 +93,73 @@ const Profilepage = ({authenticated, user}) => {
   }, [])
 
   const checkLocation = () => {
-  if(pathname.includes(`/${user.username}/profile`)){
-    visitor = false;
+    if(pathname === `/${user.username}/profile`){
+      if(!authenticated){
+        visitor = true;
+        console.log('not authenticated and redirected to other path', 'got here!')
+      }
+      else {
+        visitor = false;
+        console.log('authenticated and user profile path', 'got here!')
+      }
+    }
+    
+    else if(pathname === `/profile/${userId}`){
+      if(!authenticated){
+        visitor = true;
+      }
+      if(authenticated){
+        if(user.id.toString() === userId){
+          history.push(`/${user.username}/profile`);
+          console.log('Got redirected to profile path!')
+        }
+        else {
+          visitor = true;
+        }
+      }
+      
+
+    }
+    // if(!authenticated){
+    //     if(pathname.includes(`/profile/${userId}`)){
+    //       visitor = true;
+    //     }
+    //   } 
+    // else if(authenticated){
+    // if(pathname.includes(`/${user.username}/profile`)){
+    //   visitor = false;
+    // }
+    // else if(authenticated){
+    //   if(pathname.includes(`/profile/${userId}`)){
+    //     visitor = true;
+    //   }
+    // }
+  }
+    // redirectUser();
+
+
+  const redirectUser = () => {
+    if(visitor){
+      history.push(`/profile/${userId}`);
+    }
+    else {
+      history.push(`/${user.username}/profile`);
+    }
   }
 
-  else {
-    visitor = true;
-  }
-  }
+  // console.log(typeof user.id.toString())
+  // console.log(typeof userId)
+
+
+    // visitor = true;
+    // history.push(`/profile/${userId}`)
+  
 
   checkLocation();
+  // setVisitor(visitor);
+
+  // console.log(visitor);
+  
 
   const reqClickHandler = () => {
     setDisplayReqs(true);
@@ -132,8 +190,8 @@ const Profilepage = ({authenticated, user}) => {
 
   }
 
-  console.log(displayReqs);
-  console.log(requestInfo);
+  // console.log(displayReqs);
+  // console.log(requestInfo);
 
   // const calculateAverageRating = () => {
   //   let sum = 0 
@@ -154,7 +212,7 @@ const Profilepage = ({authenticated, user}) => {
 
   return (
     <>
-    { !visitor ?
+    { !visitor &&
 
     <div className="profilepage">
       <div className="profilepage-display">
@@ -250,7 +308,8 @@ const Profilepage = ({authenticated, user}) => {
         </div>
       </div>
     </div>
-    :
+}
+  { visitor &&
     <div className="profilepage">
       <div className="profilepage-display">
         <div className="profilepage-display profile-info">
@@ -295,7 +354,8 @@ const Profilepage = ({authenticated, user}) => {
         </div>
       </div>
     </div>
-    }
+
+}
     </>
   )
 }

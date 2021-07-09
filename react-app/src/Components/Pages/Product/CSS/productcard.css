@@ -265,3 +265,23 @@
   width: 500px;
   margin-bottom: 20px;
 }
+
+.artpage.art-details__other-works{
+  display: flex;
+  flex-direction: column;
+  margin-top: 55px;
+}
+
+#otherworks-title {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.artpage.art-details__other-works__display {
+  display: flex;
+  justify-content: flex-start;
+  /* flex-wrap: wrap; */
+  width: 748px;
+  height: 750px;
+  padding: 5px;
+}

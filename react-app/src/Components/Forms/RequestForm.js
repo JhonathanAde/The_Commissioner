@@ -76,7 +76,7 @@ const RequestForm = ({currentUser, commissionId, commission}) => {
     if (request.errors) {
       setErrors(request.errors);
     } else {
-      history.push(`/${user.username}/profile`);
+      history.push(`/${currentUser.username}/profile`);
     }
   }
 

@@ -3,6 +3,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { createRating, getRatingsByCommissionId } from '../../services/ratings';
 import Rating from 'react-rating';
 import { getCommissionsById} from '../../services/commission'
+import OtherWorks  from './OtherWorks.js'
 
 import ReviewCard from '../../Reviews/reviews';
 
@@ -55,7 +56,7 @@ const ProductCard = ({commission, currentUser, authenticated}) => {
       const artistCommissions = await getCommissionsById(commission.user_id)
       setReviews(userReviews);
       setReviewsLength(userReviews.ratings.length)
-      setOtherCommissions(artistCommissions);
+      setOtherCommissions(artistCommissions.commissions);
     })()
   }, [])
 
@@ -214,14 +215,15 @@ const ProductCard = ({commission, currentUser, authenticated}) => {
             </div>
           </div>
           <div className="artpage art-details__other-works">
-            <h4>Other Works From This Artist</h4>
-            <div>
-              { otherCommissions && otherCommissions.commissions.map((comm, key) => (
+            <h4 id="otherworks-title">Other Works From This Artist:</h4>
+            <div className="artpage art-details__other-works__display">
+              { otherCommissions && otherCommissions.map((comm, key) => (
                 comm.commission.id === commission.id ? false
                   :
                 <>
                   {/* <img src={comm.commission.image_url}/> */}
-                  <h1>hey</h1>
+                  
+                    <OtherWorks image={comm.commission.image_url} title={comm.commission.title} id={comm.commission.id}/>
                 </>
               ))}
             </div>

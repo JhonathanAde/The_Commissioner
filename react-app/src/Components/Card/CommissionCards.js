@@ -52,7 +52,7 @@ const CommissionCards = ({comms, authenticated}) => {
   //   calculateAverageRating();
   // }, 10000);
 
-
+  // console.log(user.id);
 
  
 

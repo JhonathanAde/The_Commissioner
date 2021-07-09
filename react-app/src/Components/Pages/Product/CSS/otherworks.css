@@ -1,0 +1,59 @@
+:root{
+  --main_black: #000000;
+  --card-grey: #e5e5e5;
+  --icon-pink: #ffb6ef;
+  --highlight: #ffdc60;
+  --card-boxshadow: 0px 0px .5rem rgba(0, 0, 0, 0.7);
+  --main-window_width: 1500rem;
+  --main-window_height: 998rem;
+}
+
+
+.other-works {
+  height: 187px;
+}
+
+.other-works.otherworks_container{
+  margin-right: 10px;
+  background-color: black;
+}
+
+.other-works.other-works__overlay {
+  position: absolute;
+  height: 187px;
+  width: 187px;
+  z-index: 2;
+  top: 1260px;
+  background-color: var(--main_black);
+  opacity: 0;
+  margin: 0;
+  transition: opacity .3s;
+}
+
+.other-works.other-works__overlay:hover {
+  position: absolute;
+  height: 187px;
+  width: 187px;
+  z-index: 2;
+  top: 1260px;
+  background-color: var(--main_black);
+  opacity: .6;
+  margin: 0;
+  transition: opacity .3s;
+}
+
+
+
+#image-container__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 187px;
+  height: 187px;
+  overflow: hidden;
+}
+
+#image-container__image img {
+  width: 192px;
+  
+}
