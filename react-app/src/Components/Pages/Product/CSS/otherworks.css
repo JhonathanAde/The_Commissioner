@@ -14,8 +14,13 @@
 }
 
 .other-works.otherworks_container{
+  position: relative;
   margin-right: 10px;
   background-color: black;
+}
+
+.other-works.otherworks_image-container {
+  position: relative;
 }
 
 .other-works.other-works__overlay {
@@ -23,7 +28,7 @@
   height: 187px;
   width: 187px;
   z-index: 2;
-  top: 1260px;
+  top: 0px;
   background-color: var(--main_black);
   opacity: 0;
   margin: 0;
@@ -34,8 +39,8 @@
   position: absolute;
   height: 187px;
   width: 187px;
-  z-index: 2;
-  top: 1260px;
+  z-index: 500;
+  top: 0px;
   background-color: var(--main_black);
   opacity: .6;
   margin: 0;
@@ -46,8 +51,8 @@
 
 #image-container__image {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  /* justify-content: center; */
   width: 187px;
   height: 187px;
   overflow: hidden;
@@ -55,5 +60,4 @@
 
 #image-container__image img {
   width: 192px;
-  
 }

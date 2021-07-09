@@ -9,9 +9,9 @@ const OtherWorks = ({image, title, id}) => {
     <>
     <div className="other-works">
       <NavLink to={`/product/${id}`}>
-      <div className="other-works other-works__overlay"/>
       <div className="other-works otherworks_container">
         <div className="other-works otherworks_image-continer">
+      <div className="other-works other-works__overlay"/>
           <div className="other-works otherworks_image-continer" id="image-container__image">
             <img src={image} />
           </div>
