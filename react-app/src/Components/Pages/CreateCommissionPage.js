@@ -1,5 +1,6 @@
 import React from 'react';
 import CommissionForm from '../Forms/CommissionForm';
+import '../Forms/CSS/commission-page.css'
 
 const CreateCommissionPage = ({authenticated, user}) => {
   return (
@@ -7,8 +8,13 @@ const CreateCommissionPage = ({authenticated, user}) => {
       <div className="commission-page commcontent-wrapper">
         <div className="commission-page commform-container">
           <div className="commission-page commform-imgdisplay">
-            <div className="commission-page comm-header">
-              <h1>Create A Commission</h1>
+            <div className="commission-page commform-imgdisplay__content">
+              <h5 id="commission-header">Create A Commission</h5>
+              <div className="commform-imgdisplay commform-image__container">
+                <div id="commform__image">
+                  <img></img>
+                </div>
+              </div>
             </div>
           </div>
           <div className="commission-page commform-component">

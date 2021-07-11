@@ -1,0 +1,60 @@
+
+
+.commission-page {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.commission-page.commcontent-wrapper {
+  height: 873px;
+  background-color: burlywood;
+  margin-bottom: 100px;
+  width: 1500px;
+  box-shadow: 0rem 0rem .8rem rgba(0, 0, 0, 0.5);
+}
+
+.commission-page.commform-imgdisplay {
+  background-color: black;
+  width: 750px;
+  display: flex;
+  align-items: center;
+}
+
+.commission-page.commform-imgdisplay__content {
+  width: 600px;
+  height: 600px;
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.commform-imgdisplay.commform-image__container{
+  width: 500px;
+  height: 500px;
+  background-color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#commission-header {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.commform-imgdisplay.commform-image__container img {
+  width: 480px;
+}
+
+.commission-page.commform-component {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  width: 750px;
+}

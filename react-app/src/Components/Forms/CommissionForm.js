@@ -10,10 +10,21 @@ const CommissionForm = ({authenticated, user}) => {
   const [description, setDescription] = useState("");
   const [errors, setErrors] = useState([]);
   const [image_url, setImage] = useState("");
-  const [price, setPrice] = useState(0.00);
+  const [price, setPrice] = useState("0.00");
   const [requests, setRequests] = useState(0);
   const [title, setTitle] = useState("");
-  const [visibleDuration, setVisibleDuration] = useState("commduration__hidden");
+  const [isDuration, setIsDuration] = useState(false);
+
+  const inputButtonStyles = {
+    fontSize: "3rem",
+    border: "none",
+    background: "none",
+    marginRight: "2rem",
+    outline: "none",
+    backgroundColor: "black",
+    color: "white",
+    padding: "5px",
+  }
 
   let desCharacters = description.length;
   
@@ -35,7 +46,7 @@ const CommissionForm = ({authenticated, user}) => {
 
 
   //--- Helper Functions ---
-  const commisisonHandleSubmit = async (e) => {
+  const commissionHandleSubmit = async (e) => {
     e.preventDefault();
     const commissionData = new FormData();
     commissionData.append('title', title);
@@ -82,11 +93,11 @@ const CommissionForm = ({authenticated, user}) => {
   }
 
   const showDuration = (e) => {
-    setVisibleDuration("commduration")
+    setIsDuration(true);
   }
 
   const hideDuration = (e) => {
-    setVisibleDuration("commduration__hidden")
+    setIsDuration(false);
   }
   
 
@@ -95,134 +106,69 @@ const CommissionForm = ({authenticated, user}) => {
 
 
   return (
-      <form className="comm-form" onSubmit={commisisonHandleSubmit}>
-        <div className="comm-form commcontent-wrapper">
-          <div className="comm-form commform-errors">
-            {errors.map((error, idx) => (
-              <>
-              <ul>
-                <li>
-                  <div key={idx}>{error}</div>
+      <div>
+        <form className="commission-form" onSubmit={commissionHandleSubmit}>
+          <div className="commission-form commission-errors">
+            {errors.map((error, key) => (
+              <ul id="commission-form__error-list">
+                <li key={key}>
+                  *{error}
                 </li>
               </ul>
-              </>
             ))}
           </div>
-        </div>
-          <div className="comm-form commform-info">
-            <ul>
-              <li>
-                <label>
-                  Title
-                </label>
-              </li>
-
-              <li>
-                <input
-                  name="title"
-                  type="text"
-                  placeholder="Title"
-                  onChange={updateTitle}
-                  />
-              </li>
-
-              <li>
-                <label>
-                  Description
-                </label>
-              </li>
-
-              <li>
-                <textarea
-                  name="description"
-                  type="textarea"
-                  placeholder="Add description"
-                  onChange={updateDescription}
-                  />
-                  <div>
-                    {`${desCharacters}/230(max.)`}
-                  </div>
-              </li>
-
-              <li className="comm-upload upload-button">
-                <label htmlFor="">
-                  Image:
-                </label>
-                <input
-                  className="comm-upload-bar"
-                  name="image_url"
-                  type="file"
-                  placeholder="upload an image" 
-                  onChange={updateImage}
-                  />
-                <button className='file-button' onClick={prevent}>Upload</button>
-              </li>
-              {/* <li>
-              </li> */}
-
-              <li>
-                <label>
-                  Price:
-                </label>
-              </li>
-
-              <li>
-                <input 
-                  name="price"
-                  type="number"
-                  step="0.01"
-                  min= "0.00"
-                  placeholder="$0.00"
-                  onChange={updatePrice}
-                  />
-              </li>
-
-              <li>
-                <label>Number Of Requests</label>
-              </li>
-
-              {/* <p> Set the maximum amount of requests that you want to receive for this commission</p> */}
-              <li>
-                <input
-                  name="requests"
-                  type="number"
-                  min="0"
-                  placeholder="0"
-                  onChange={updateRequests}
-                  />
-              </li>
-          <li>
-            <div className="comm-form duration-options">
-              <label className="duration-options duration-label">Duration</label>
-                <p>Do you want to set a duration for this commission?</p>
-              <div className="duration-options radio-options">
-              <label>
-                Yes
-                <input name="duration" type="radio" value={true} onClick={showDuration}/>
-              </label>
-              <label >
-                No
-                <input name="duration" type="radio" value={false} onClick={hideDuration}/>
-              </label>
+          <div className="commission-form commission-title">
+            <label id="commission-title__label">Title</label>
+            <input id="commission-title__input" onChange={updateTitle}></input>
+          </div>
+          <div className="commission-form commission-description">
+            <div id="description__headers">
+              <label id="commission-description__label">Description</label>
+              <h1>Count</h1>
             </div>
-            <div className={visibleDuration}>
-              <label>
-                Ends: 
-              </label>
-              <input 
-                name="date"
-                type="date"
-                onChange={updateDate}
-                />
+            <textarea id="commission-description__textarea"conChange={updateDescription}></textarea>
+          </div>
+          <div className="commission-form commission-image">
+              <label id="commission-image__label">Image</label>
+            <div>
+              <input id="commission-image__input" type="file"></input>
+              <button id="commission-image__upload">Upload</button>
             </div>
-              </div>
-          </li>
-          <li>
-            <button className="comm-form commform-submit" type="submit">Submit</button>
-          </li>
-            </ul>
+          </div>
+          <div className="commission-form commission-price">
+            <label id="commission-price__label">Price</label>
+            <input id="commission-price__input" type="number" min="0.00" step="1.00" value={price} onChange={updatePrice}></input>
+          </div>
+          <div className="commission-form commission-requests-cap">
+            <label id="commission-request_cap__label">Number Of Requests</label>
+            <p id="commission-request_cap__info">How many requests will you accept for this commisison?</p>
+            <input id="commission-request_cap__input" type="number" min="0" step="1" onChange={updateRequests}></input>
+          </div>
+          <div className="commission-form commission-duration">
+            <label id="commission-duration__label">Duration</label>
+            <p id="commission-duration__info">Do you want to set a duration for this commisison?</p>
+            <div id="commission-duration__choices">
+              <label>Yes</label>
+              <input name="duration__choices" type="radio" value={true} onClick={showDuration}></input>
+
+              <label>No</label>
+              <input name="duration__choices" type="radio" value={false} onClick={hideDuration}></input>
+            </div>
+            { isDuration &&
+              <>
+                <div id="commission-duration__date">
+                  <label id="commission-duration__date__label">Ends:</label>
+                  <input id="commission-duration__date__input" type="date" onChange={updateDate}></input>
+                </div>
+              </>
+            }
+            </div>
+          <div className="commission-form commission-buttons">
+            <button id="commission-buttons__submit" type="submit">Submit</button>
+            <input id="commission-buttons__reset" type="reset"/>
           </div>
         </form>
+      </div>
   )
 }
 

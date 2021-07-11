@@ -87,8 +87,14 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
       setRating(e);
     }
     
-    const goToRequestForm = () => {
-      history.push(`/request/${commission.id}`);
+    const goToRequestForm = (e) => {
+      e.preventDefault();
+      if(!authenticated){
+        history.push(`/login`);
+      }
+      else{
+        history.push(`/request/${commission.id}`);
+      }
     }
     
     

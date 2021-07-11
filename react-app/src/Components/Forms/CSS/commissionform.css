@@ -1,269 +1,232 @@
-/* .commform-container {
-  display: flex;
-  transform: translate(75%, 20%);
-  box-shadow: 0rem 0rem 2rem rgba(0, 0, 0, 0.5);
-  width: 70rem;
+:root{
+  --main_black: #000000;
+  --card-grey: #e5e5e5;
+  --icon-pink: #ffb6ef;
+  --highlight: #ffdc60;
+  --card-boxshadow: 0px 0px .5rem rgba(0, 0, 0, 0.7);
+  --main-window_width: 1486rem;
+  --main-window_height: 998px;
+  --login-input__width: 386px;
+  --login-input__height: 35px;
+  --login-label__fontsize: 36px;
+  --login-input__fontsize: 28px;
+  --settings-label__fontsize: 24px;
+  --settings-input__fontsize: 24px;
+  --settings-input__width: 750px;
+  --settings-input__height: 40px;
 }
 
-.commform-display {
-  background-color: black;
-  height: 45rem;
-  width: 35rem;
+
+.commission-form.commission-errors {
+  color: crimson;
+  font-size: 18px;
+  width: 180px;
 }
 
-.commform-component {
-  position: relative;
-  transform: translate(3.5rem, 1.5rem);
-}
+/* -- Commission Form Title -- */
 
-.comm-form {
+.commission-form.commission-title {
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 }
 
-.form-sections {
-  display: flex;
-  flex-direction: column;
-  font-size: 2rem;
-}
-
-.form-sections input {
-  margin: .25rem 0rem;
-}
-
-textarea {
-  resize: none;
-  height: 5rem;
-}
-
-.commform-labels {
+#commission-title__label {
+  font-size: var(--settings-label__fontsize);
+  margin-bottom: 5px;
   font-weight: bold;
-  margin: .5rem 0rem;
 }
 
-.commduration__hidden{
-  visibility: hidden;
-  animation-name: hideDuration;
-  animation-duration: .7s;
-  transition-delay: .5s;
+#commission-title__input {
+  width: var(--login-input__width);
+  height: var(--login-input__height);
+  font-size: var(--login-input__fontsize);
+  padding: 5px;
 }
 
-.commduration{
-  visibility: visible;
-  animation-name: showDuration;
-  animation-duration: .7s;
-  transition: visibility 0s;
+/* --------------------------- */
+
+
+/* -- Commission Form Description -- */
+
+.commission-form.commission-description {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 
-.duration-options {
-  font-size: 2rem;
+#description__headers {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 386px;
 }
 
-.duration-options input {
-  margin: 0rem 1.5rem;
-  transform: translate(0rem, .25rem);
+#commission-description__label {
+  font-size: var(--settings-label__fontsize);
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-.commform-submit {
-  color: black;
-  cursor: pointer;
-  font-size: 2rem;
-  transition: color 1s, font-size 1s;
-  background: none;
-  border: none;
-  outline: inherit;
+#commission-description__textarea {
+  resize: none;
+  width: var(--login-input__width);
+  height: 200px;
+  font-size: var(--login-input__fontsize);
+  padding: 5px;
 }
 
-.commform-submit:hover {
-  color: hotpink;
-  font-size: 2.5rem;
+/* --------------------------- */
+
+
+/* -- Commission Form Image -- */
+
+.commission-form.commission-image {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 
-.commform-submit:active {
-  border: none;
+#commission-image__label {
+  font-size: var(--settings-label__fontsize);
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-.commform-errors {
-  position: absolute;
-  transform: translate(35rem );
-  color: red;
+/* #commission-image__input {
+  width: 300px;
+  height: var(--login-input__height);
 } */
 
-.commission-page {
-  min-height: 100%;
-  padding-bottom: 15.2rem;
-}
-
-.commission-page.commcontent-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.commission-page.comm-header {
-  padding: 0rem;
-  color: white;
-}
-
-.commission-page.commform-container {
-  display: flex;
-  width: 150rem;
-  height: 80rem;
-  padding: 0;
-  margin: 2rem;
-  box-shadow: 0rem 0rem .8rem rgba(0, 0, 0, 0.5);
-}
-
-.commission-page.commform-imgdisplay {
-  width: 50%;
-  background-color: black;
-}
-
-.commission-page.commform-component {
-  width: 50%;
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-.comm-form.commform-errors {
-  color: red;
-  font-size: 5rem;
-}
-
-.comm-form.commform-info {
-  font-size: 8rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.comm-form.commform-info textarea {
-  resize: none;
-  height: 10rem;
-  width: 38rem;
-  padding: .50rem;
-}
-
-.comm-form.commform-info input {
-  padding: .50rem;
-}
-
-.comm-upload-bar {
-  width: 28rem;
-  margin-left: 1rem;
-}
-
-.file-button {
-  margin-left: 1rem;
+.commission-form.commission-image button {
+  font-size: 20px;
   border: none;
   background: none;
-  font-size: 2.5rem;
-}
-
-.file-button:hover{
-  color: hotpink;
-}
-
-.comm-form.commcontent-wrapper ul{
-  list-style: none;
-}
-
-.comm-form.commform-info ul{
-  list-style: none;
-}
-
-.comm-form.commform-info li {
-  padding: .25rem;
-}
-
-.comm-form.commform-info label {
-  font-weight: bold;
-}
-
-.comm-form.duration-options{
-    margin-top: 1rem;
-}
-
-.comm-form.duration-options *{
-  font-size: 2rem;
-}
-
-.comm-form.duration-options p {
-  padding: 1rem 0rem;
-}
-
-
-.duration-options.duration-label {
-  font-weight: bold;
-}
-
-.duration-options.radio-options {
-  padding: 1rem 0rem;
-}
-
-.duration-options.radio-options input {
-  margin-left: 2rem;
-}
-
-.duration-options.radio-options label {
   margin-right: 2rem;
-  font-size: 2rem;
-  font-weight: normal;
+  outline: none;
+  background-color: black;
+  color: white;
+  padding: 5px;
 }
 
-.comm-form.commform-submit {
+.commission-form.commission-image input[type="file"]::file-selector-button {
+  font-size: 20px;
   border: none;
   background: none;
-  font-size: 3rem;
+  margin-right: 2rem;
   outline: none;
-  margin-top: 2rem;
+  background-color: black;
+  color: white;
+  padding: 5px;
 }
 
-.comm-form.commform-submit:hover {
-  color: hotpink;
-}
-
-.commduration__hidden {
-  height: 0rem;
-  visibility: hidden;
-  animation-name: hideDuration;
-  animation-duration: .7s;
-  transition-delay: .5s;
-  transition: height .7s;
-}
-
-.commduration {
-  height: 4rem;
-  /* padding: 0rem 0rem; */
-  visibility: visible;
-  animation-name: showDuration;
-  animation-duration: .7s;
-  transition: visibility 0s, height .7s;
+#commission-image__input {
+  font-size: 20px;
+  width: 310px;
 }
 
 
-@keyframes showDuration {
-  0% {
-    opacity: 0;
-    transform: translate(0rem, -1rem);
-  }
+/* --------------------------- */
 
-  100% {
-    opacity: 1;
-    transform: translate(0rem, 0rem);
-  }
+
+/* -- Commission Form Price -- */
+
+.commission-form.commission-price {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 
-@keyframes hideDuration {
-  0% {
-    opacity: 1;
-    transform: translate(0rem, 0rem);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate(0rem, -1rem);
-  }
+#commission-price__label {
+  font-size: var(--settings-label__fontsize);
+  margin-bottom: 5px;
+  font-weight: bold;
 }
+
+#commission-price__input {
+  width: var(--login-input__width);
+  height: var(--login-input__height);
+  font-size: var(--login-input__fontsize);
+  padding: 5px;
+}
+
+/* --------------------------- */
+
+
+
+/* -- Commission Form Requests -- */
+
+.commission-form.commission-requests-cap {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#commission-request_cap__label {
+  font-size: var(--settings-label__fontsize);
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#commission-request_cap__input {
+  width: var(--login-input__width);
+  height: var(--login-input__height);
+  font-size: var(--login-input__fontsize);
+  padding: 5px;
+}
+
+/* --------------------------- */
+
+
+/* -- Commission Form Duration -- */
+
+.commission-form.commission-duration {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#commission-duration__label {
+  font-size: var(--settings-label__fontsize);
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* --------------------------- */
+
+
+/* -- Commission Form Buttons -- */
+
+.commission-form.commission-buttons button {
+  font-size: 3rem;
+  border: none;
+  background: none;
+  margin-right: 2rem;
+  outline: none;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.commission-form.commission-buttons input {
+  font-size: 3rem;
+  border: none;
+  background: none;
+  margin-right: 2rem;
+  outline: none;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#commission-buttons__submit:hover {
+  background-color: var(--icon-pink);
+}
+
+#commission-buttons__reset:hover {
+  background-color: var(--icon-pink);
+}
+
+/* --------------------------- */
