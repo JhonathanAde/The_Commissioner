@@ -67,12 +67,12 @@
   width: 35px;
   height: 35px;
   background: none;
-  border: solid 0px var(--highlight);
+  border: solid 0px var(--icon-pink);
   /* filter: grayscale(0%) hue-rotate(10deg);  */
 }
 
 #close-bar img:hover {
-  border: solid 3px var(--highlight);
+  border: solid 3px var(--icon-pink);
 }
 
 #modal-title {

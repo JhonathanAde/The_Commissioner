@@ -41,11 +41,14 @@
   width: 676px;
   height: 676px;
   margin: 0rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 .artpage.art-content__product-displaywindow img {
-  display: block;
-  height: 100%;
+  box-shadow: 0rem 0rem .8rem rgba(0, 0, 0, 0.5);
 }
 
 .artpage.art-content__product-details {

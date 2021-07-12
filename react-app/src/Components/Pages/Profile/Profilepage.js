@@ -382,7 +382,8 @@ const Profilepage = ({authenticated, user}) => {
                       currentBio={currentBio}
                       setBio={setBio}
                     />
-                    <button form="basicinfo-update__form">test</button>
+                    <button id="basic-info__save" form="basicinfo-update__form">Save</button>
+                    {/* <input id="basic-info__reset" form="basicinfo-update__form" type="reset"></input> */}
                     </>
                   }
                   { isUserName &&
@@ -394,7 +395,7 @@ const Profilepage = ({authenticated, user}) => {
                         setUsername={setUsername}
                         userNameUpdated={userNameUpdated}
                       />
-                      <button form="username-update__form">test</button>
+                      <button id="username_save" form="username-update__form">Save</button>
                     </>
                   }
                   </div>

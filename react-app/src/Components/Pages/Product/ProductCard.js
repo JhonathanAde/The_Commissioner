@@ -34,6 +34,9 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
   const [ratingLength, setRatingLength] = useState(0);
   const [ratingColor, setRatingColor] = useState("");
   const [otherCommissions, setOtherCommissions] = useState(null);
+  const [imgDisplay, setImgDisplay] = useState("");
+  const [imgWidth, setImgWidth] = useState(0);
+  const [imgHeight, setImgHeight] = useState(0);
   
  
 
@@ -57,6 +60,7 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
       setReviews(userReviews);
       setReviewsLength(userReviews.ratings.length)
       setOtherCommissions(artistCommissions.commissions);
+      setImgDisplay(commission.image_url);
     })()
   }, [])
 
@@ -76,7 +80,31 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
   //   setRatingColor ("#ffdc60");
   //  }
 
+  
 
+  let imgStyle = {}
+  let displayImg = new Image();
+  displayImg.src = imgDisplay;
+
+  console.log(imgDisplay);
+
+  displayImg.onload = function (){
+    setImgWidth(this.width)
+    setImgHeight(this.height)
+  }
+
+  if(imgWidth > imgHeight){
+    imgStyle["width"] = "600px";
+    delete imgStyle["height"]
+  }
+  else if (imgHeight > imgWidth) {
+    imgStyle["height"] = "600px";
+    delete imgStyle["width"];
+  }
+  else {
+    imgStyle["width"] = "600px"
+    imgStyle["height"] = "600px"
+  }
   
    
    const updateReview = (e) => {
@@ -142,7 +170,7 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
         <div className="artpage art-content">
           <div className="artpage art-content__product-display">
             <div className="artpage art-content__product-displaywindow">
-              <img loading="lazy" src={commission.image_url}/>
+              <img loading="lazy" src={displayImg.src} style={imgStyle}/>
             </div>
           </div>
           <div className="artpage art-content__product-details">

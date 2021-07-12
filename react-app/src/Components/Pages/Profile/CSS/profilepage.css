@@ -96,7 +96,7 @@
   width: 550px;
   /* text-align: center; */
   margin-top: 10px;
-  font-size: 20px;
+  font-size: 40px;
 }
 
 #profile-website p {
@@ -425,6 +425,54 @@
   width: 750px;
   display: flex;
   justify-content: center;
+}
+
+#basic-info__save {
+  font-size: 3rem;
+  border: none;
+  background: none;
+  margin-right: 2rem;
+  outline: none;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#basic-info__save:hover {
+  background-color: var(--icon-pink);
+}
+
+#basic-info__reset {
+  font-size: 3rem;
+  border: none;
+  background: none;
+  margin-right: 2rem;
+  outline: none;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#basic-info__reset:hover {
+  background-color: var(--icon-pink);
+}
+
+#username_save {
+  font-size: 3rem;
+  border: none;
+  background: none;
+  margin-right: 2rem;
+  outline: none;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#username_save:hover {
+  background-color: var(--icon-pink);
 }
 
 
