@@ -182,7 +182,7 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
                 onChange = {updateReview}
               ></textarea>
               <div className="artpage art-details__reviewform-submit">
-                <Rating emptySymbol={emptyStars} fullSymbol={fullStars} onChange={checkRatings}  />
+                <Rating emptySymbol={emptyStars} fullSymbol={fullStars} initialRating={rating} onChange={checkRatings}  />
                 <button type="submit">Submit</button>
               </div>
             </form>

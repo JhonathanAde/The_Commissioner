@@ -1,19 +1,21 @@
 import React, {useState} from 'react'
 import { useHistory } from "react-router-dom";
-import {createCommission} from "../services/commission"
+import {createCommission, uploadCommissionImage} from "../services/commission"
 
 // CSS
 import "./CSS/commissionform.css"
 
-const CommissionForm = ({authenticated, user}) => {
+const CommissionForm = ({authenticated, user, image_url, setImage}) => {
   const [date, setDate] = useState("");
   const [description, setDescription] = useState("");
   const [errors, setErrors] = useState([]);
-  const [image_url, setImage] = useState("");
+  const [file, setFile] = useState(null)
+  const [fileName, setFileName] = useState("");
   const [price, setPrice] = useState("0.00");
   const [requests, setRequests] = useState(0);
   const [title, setTitle] = useState("");
   const [isDuration, setIsDuration] = useState(false);
+  const [uploadErrors, setUploadErrors] = useState([])
 
   const inputButtonStyles = {
     fontSize: "3rem",
@@ -46,6 +48,54 @@ const CommissionForm = ({authenticated, user}) => {
 
 
   //--- Helper Functions ---
+  
+  const updateTitle = (e) => {
+    setTitle(e.target.value)
+  }
+  
+  const updateDescription = (e) => {
+    setDescription(e.target.value)
+  }
+  const updateFile = (e) => {
+    setFile(e.target.files[0])
+    setFileName(e.target.files[0].name)
+  }
+  
+  const updateRequests = (e) => {
+    setRequests(e.target.value)
+  }
+  const updatePrice = (e) => {
+    setPrice(e.target.value)
+  }
+  const updateDate = (e) => {
+    setDate(e.target.value)
+  }
+  
+  const prevent = (e) => {
+    e.preventDefault();
+  }
+  
+  const showDuration = (e) => {
+    setIsDuration(true);
+  }
+  
+  const hideDuration = (e) => {
+    setIsDuration(false);
+  }
+  
+  const uploadImage = async (e) => {
+    e.preventDefault();
+    const fileData = new FormData();
+    fileData.append('file_path', file)
+    const uploadFile = await uploadCommissionImage(fileData);
+    if(uploadFile.errors){
+      setUploadErrors(uploadFile.errors)
+    }
+    else {
+      setImage(`https://commissioner-commissions.s3.amazonaws.com/${fileName}`);
+    }
+  } 
+
   const commissionHandleSubmit = async (e) => {
     e.preventDefault();
     const commissionData = new FormData();
@@ -67,52 +117,14 @@ const CommissionForm = ({authenticated, user}) => {
 
   }
 
-  const updateTitle = (e) => {
-    setTitle(e.target.value)
-  }
-
-  const updateDescription = (e) => {
-    setDescription(e.target.value)
-  }
-  const updateImage = (e) => {
-    setImage(e.target.files[0])
-  }
-
-  const updateRequests = (e) => {
-    setRequests(e.target.value)
-  }
-  const updatePrice = (e) => {
-    setPrice(e.target.value)
-  }
-  const updateDate = (e) => {
-    setDate(e.target.value)
-  }
-
-  const prevent = (e) => {
-    e.preventDefault();
-  }
-
-  const showDuration = (e) => {
-    setIsDuration(true);
-  }
-
-  const hideDuration = (e) => {
-    setIsDuration(false);
-  }
-  
-
-
-  
-
-
   return (
       <div>
-        <form className="commission-form" onSubmit={commissionHandleSubmit}>
+        <form className="commission-form" id="commission-form" onSubmit={commissionHandleSubmit}>
           <div className="commission-form commission-errors">
             {errors.map((error, key) => (
-              <ul id="commission-form__error-list">
-                <li key={key}>
-                  *{error}
+              <ul key={key} id="commission-form__error-list">
+                <li>
+                  {error}
                 </li>
               </ul>
             ))}
@@ -124,15 +136,15 @@ const CommissionForm = ({authenticated, user}) => {
           <div className="commission-form commission-description">
             <div id="description__headers">
               <label id="commission-description__label">Description</label>
-              <h1>Count</h1>
+              <h1>{`${description.length}/230.`}</h1>
             </div>
-            <textarea id="commission-description__textarea"conChange={updateDescription}></textarea>
+            <textarea id="commission-description__textarea" maxlength="230" onChange={updateDescription}></textarea>
           </div>
           <div className="commission-form commission-image">
-              <label id="commission-image__label">Image</label>
+              <label id="commission-image__label" htmlFor="image-upload">Image</label>
             <div>
-              <input id="commission-image__input" type="file"></input>
-              <button id="commission-image__upload">Upload</button>
+              <input id="commission-image__input" name="image-upload" type="file" onChange={updateFile}></input>
+              <button id="commission-image__upload" onClick={uploadImage}>Upload</button>
             </div>
           </div>
           <div className="commission-form commission-price">
@@ -142,16 +154,16 @@ const CommissionForm = ({authenticated, user}) => {
           <div className="commission-form commission-requests-cap">
             <label id="commission-request_cap__label">Number Of Requests</label>
             <p id="commission-request_cap__info">How many requests will you accept for this commisison?</p>
-            <input id="commission-request_cap__input" type="number" min="0" step="1" onChange={updateRequests}></input>
+            <input id="commission-request_cap__input" type="number" min="0" step="1" value={requests} onChange={updateRequests}></input>
           </div>
           <div className="commission-form commission-duration">
             <label id="commission-duration__label">Duration</label>
             <p id="commission-duration__info">Do you want to set a duration for this commisison?</p>
             <div id="commission-duration__choices">
-              <label>Yes</label>
+              <label id="duration-yes__label">Yes</label>
               <input name="duration__choices" type="radio" value={true} onClick={showDuration}></input>
 
-              <label>No</label>
+              <label id="duration-no__label">No</label>
               <input name="duration__choices" type="radio" value={false} onClick={hideDuration}></input>
             </div>
             { isDuration &&
@@ -164,7 +176,7 @@ const CommissionForm = ({authenticated, user}) => {
             }
             </div>
           <div className="commission-form commission-buttons">
-            <button id="commission-buttons__submit" type="submit">Submit</button>
+            <button id="commission-buttons__submit" type="submit" form="commission-form">Submit</button>
             <input id="commission-buttons__reset" type="reset"/>
           </div>
         </form>

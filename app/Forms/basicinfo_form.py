@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import IntegerField, StringField, TextAreaField, FileField, DateField, BooleanField, DecimalField, FloatField
 from wtforms.validators import DataRequired, ValidationError
 from flask_wtf.file import FileAllowed
+from app.Models import User
 
 
 class BasicInfoForm(FlaskForm):

@@ -21,3 +21,12 @@ export const createCommission = async (payload) => {
 
   return await response.json();
 }
+
+export const uploadCommissionImage = async (payload) => {
+  const response = await fetch("/api/commissions/upload-image", {
+    method: 'POST',
+    body: payload
+  });
+
+  return await response.json();
+}

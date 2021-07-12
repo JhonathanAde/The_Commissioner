@@ -52,4 +52,13 @@ export const editBasicInfo = async (payload, id) => {
     method: 'PATCH',
     body: payload
   });
+  return await response.json();
+}
+
+export const editUserName = async (payload, id) => {
+  const response = await fetch(`/api/auth/basicinfo/username/${id}`, {
+    method: 'PATCH',
+    body: payload
+  });
+  return await response.json();
 }

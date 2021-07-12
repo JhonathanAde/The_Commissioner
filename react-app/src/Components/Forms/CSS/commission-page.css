@@ -41,6 +41,11 @@
   overflow: hidden;
 }
 
+/* #commform__image img {
+  width: 340px;
+} */
+
+
 #commission-header {
   color: white;
   font-size: 40px;
@@ -48,9 +53,6 @@
   margin-bottom: 20px;
 }
 
-.commform-imgdisplay.commform-image__container img {
-  width: 480px;
-}
 
 .commission-page.commform-component {
   display: flex;

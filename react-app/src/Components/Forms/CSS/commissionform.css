@@ -19,8 +19,14 @@
 
 .commission-form.commission-errors {
   color: crimson;
-  font-size: 18px;
-  width: 180px;
+  font-size: 40px;
+  width: 386px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#commission-form__error-list {
+  list-style: none;
 }
 
 /* -- Commission Form Title -- */
@@ -40,7 +46,7 @@
 #commission-title__input {
   width: var(--login-input__width);
   height: var(--login-input__height);
-  font-size: var(--login-input__fontsize);
+  font-size: 18px;
   padding: 5px;
 }
 
@@ -71,8 +77,8 @@
 #commission-description__textarea {
   resize: none;
   width: var(--login-input__width);
-  height: 200px;
-  font-size: var(--login-input__fontsize);
+  height: 150px;
+  font-size: 18px;
   padding: 5px;
 }
 
@@ -121,7 +127,7 @@
 }
 
 #commission-image__input {
-  font-size: 20px;
+  font-size: 18px;
   width: 310px;
 }
 
@@ -144,9 +150,9 @@
 }
 
 #commission-price__input {
-  width: var(--login-input__width);
+  width: fit-content;
   height: var(--login-input__height);
-  font-size: var(--login-input__fontsize);
+  font-size: 18px;
   padding: 5px;
 }
 
@@ -169,10 +175,15 @@
 }
 
 #commission-request_cap__input {
-  width: var(--login-input__width);
+  width: fit-content;
   height: var(--login-input__height);
   font-size: var(--login-input__fontsize);
   padding: 5px;
+}
+
+#commission-request_cap__info {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 /* --------------------------- */
@@ -188,8 +199,51 @@
 
 #commission-duration__label {
   font-size: var(--settings-label__fontsize);
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-weight: bold;
+}
+
+#commission-duration__info {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#commission-duration__choices {
+  margin-bottom: 10px;
+}
+
+#commission-duration__choices input {
+  margin-right: 10px;
+}
+
+#duration-yes__label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+#duration-no__label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+#commission-duration__date {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#commission-duration__date__label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#commission-duration__date__input {
+  width: var(--login-input__width);
+  height: var(--login-input__height);
+  font-size: 18px;
 }
 
 /* --------------------------- */

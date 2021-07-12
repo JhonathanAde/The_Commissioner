@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react'
 import { useParams, useHistory, useLocation } from "react-router-dom"
 import { getCommissionsById } from '../../services/commission'
 import { getRequestsById } from '../../services/request'
+import { editBasicInfo, editUserName } from '../../services/auth'
+import BasicInfoForm from './BasicInfoForm'
+import UserNameForm from './UserNameForm'
 import Modal from '../Modal/Modal'
 import CommissionCards from '../../Card/CommissionCards'
 import RequestCards from '../Request/RequestCards'
@@ -20,6 +23,8 @@ const Profilepage = ({authenticated, user}) => {
 
   var buttons
   var visitor
+  var settingsUpdated = false;
+  var settingsMenu = 1
 
   const closeIconFile = require('./close-icon.png');
 
@@ -45,8 +50,10 @@ const Profilepage = ({authenticated, user}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isUserInfo, setIsUserInfo] = useState(true);
   const [isProfileImage, setIsProfileImage] = useState(false);
+  const [isUserName, setIsUserName] = useState(false);
   const [userInfoId, setUserInfoId] = useState('settings-user_info-active')
   const [profImgId, setProfImgId] = useState('settings-profile_image')
+  const [userNameId, setUserNameId] = useState('settings-user_name')
   const [review, setReviews] = useState(null);
   const [reviewLength, setReviewLength] = useState(0);
   const {userId} = useParams()
@@ -87,7 +94,7 @@ const Profilepage = ({authenticated, user}) => {
         setCommButton(commButtonEl);
         setReqButton(reqButtonEl);
     })()
-  }, [])
+  }, [user.id])
 
   useEffect(() => {
     (async () => {
@@ -103,6 +110,10 @@ const Profilepage = ({authenticated, user}) => {
   const [currentProfilepic, setCurrentProfilepic] = useState(user.profile_pic);
   const [currentFirstName, setCurrentFirstName] = useState(user.first_name);
   const [currentLastName, setCurrentLastName] = useState(user.last_name);
+  const [basicInfoErrors, setBasicInfoErrors] = useState([]);
+  const [userNameErrors, setUserNameErrors] = useState([]);
+  const [updateSuccess, setUpdateSuccess] = useState(false);
+  const [userNameUpdated, setUserNameUpdated] = useState(false);
 
   const userInfoBtn = document.getElementById("settings-user_info-active")
   const profImgBtn = document.getElementById("settings-profile_image")
@@ -137,7 +148,11 @@ const Profilepage = ({authenticated, user}) => {
       }
     }
   }
-    
+  
+
+  useEffect(() => {
+    console.log("hi")
+  },)
 
   checkLocation();
   
@@ -166,7 +181,11 @@ const Profilepage = ({authenticated, user}) => {
     if(isUserInfo){
       setIsUserInfo(false)
     }
+    if(isUserName){
+      setIsUserName(false)
+    }
     setUserInfoId('settings-user_info')
+    setUserNameId('settings-user_name')
     setProfImgId('settings-profile_image-active')
     setIsProfileImage(true);
   }
@@ -176,14 +195,83 @@ const Profilepage = ({authenticated, user}) => {
     if(isProfileImage){
       setIsProfileImage(false);
     }
+    if(isUserName){
+      setIsUserName(false);
+    }
+    setUserNameId('settings-user_name')
     setProfImgId('settings-profile_image')
     setUserInfoId('settings-user_info-active')
     setIsUserInfo(true);
   }
 
+  const displayUserName = (e) => {
+    e.preventDefault();
+    if(isUserInfo){
+      setIsUserInfo(false);
+    }
+    if(isProfileImage){
+      setIsProfileImage(false);
+    }
+    setUserNameId('settings-user_name-active')
+    setUserInfoId('settings-user_info')
+    setProfImgId('settings-profile_image')
+    setIsUserName(true)
+  }
+
+  // const settingsChecker = () => {
+  //   if(isUserInfo){
+  //     settingsMenu = 1
+  //   }
+  //   else if(isUserName){
+  //     settingsMenu = 2
+  //   }
+  //   else if(isProfileImage){
+  //     settingsMenu = 3
+  //   }
+
+  // }
+
+  // const settingsSwitch = () => {
+  //   // settingsChecker()
+
+  //   switch(settingsMenu) {
+  //     case 1:
+  //       setUserInfoId('settings-user_info-active')
+  //       setUserNameId('settings-user_name')
+  //       setProfImgId('settings-profile_image')
+  //       setIsProfileImage(false);
+  //       setIsUserName(false)
+  //       break;
+  //     case 2:
+  //       setUserNameId('settings-user_name-active')
+  //       setUserInfoId('settings-user_info')
+  //       setProfImgId('settings-profile_image')
+  //       setIsUserInfo(false);
+  //       setIsProfileImage(false);
+  //       break;
+  //     case 3:
+  //       setProfImgId('settings-profile_image-active')
+  //       setUserNameId('settings-user_name')
+  //       setProfImgId('settings-profile_image')
+  //       setIsUserInfo(false);
+  //       setIsUserName(false);
+  //       break;
+  //   }
+  // }
+
+  // settingsSwitch()
+
 
   const setUsername = (e) => {
-    setCurrentUsername(e.target.value)
+    setCurrentUsername(e.target.value);
+  }
+
+  const setFirstName = (e) => {
+    setCurrentFirstName(e.target.value);
+  }
+
+  const setLastName = (e) => {
+    setCurrentLastName(e.target.value);
   }
 
   const setWebsite = (e) => {
@@ -194,7 +282,42 @@ const Profilepage = ({authenticated, user}) => {
     setCurrentBio(e.target.value)
   }
 
+  const changeBasicInfo = async (e) => {
+    e.preventDefault();
+    const basicInfoData = new FormData();
+    basicInfoData.append('username', currentUsername)
+    basicInfoData.append('first_name', currentFirstName)
+    basicInfoData.append('last_name', currentLastName)
+    basicInfoData.append('website', currentWebsite)
+    basicInfoData.append('bio', currentBio)
+    const basicInfo = await editBasicInfo(basicInfoData, user.id);
+    // changeUsername(e);
+    if(basicInfo.errors){
+      setBasicInfoErrors(basicInfo.errors);
+    }
+    else {
+      setUpdateSuccess(true);
+      setTimeout(()=>{
+        setUpdateSuccess(false);
+      }, 5000)
+    }
+  }
 
+  const changeUsername = async (e) => {
+    e.preventDefault();
+    const userNameData = new FormData()
+    userNameData.append('username', currentUsername)
+    const userName = await editUserName(userNameData, user.id)
+    if(userName.errors){
+      setUserNameErrors(userName.errors);
+    }
+    else {
+      setUserNameUpdated(true);
+      setTimeout(() => {
+        setUserNameUpdated(false);
+      }, 5000)
+    }
+  }
 
   return (
     <>
@@ -212,12 +335,12 @@ const Profilepage = ({authenticated, user}) => {
                 </div>
               </div>
               <h1 id="profile-username">
-                {user.username}
+                {currentUsername}
               </h1>
               <h1 id="profile-location">
                 {user.location}
               </h1>
-              <a href={user.website} id="profile-website">
+              <a href={currentWebsite} id="profile-website">
                 <p>Website</p>
               </a>
               <div id="profcard-divider1"></div>
@@ -225,7 +348,7 @@ const Profilepage = ({authenticated, user}) => {
               <div id="profile-aboutme">
               <h1 id="about-me__title">Bio</h1>
               <p id="profile-bio">
-                {user.bio}
+                {currentBio}
               </p>
               </div>
             </div>
@@ -240,48 +363,40 @@ const Profilepage = ({authenticated, user}) => {
                 <div>
                     <div className="settings-window settings-tab">
                       <button id={userInfoId} onClick={displayUserInfo}>User Info</button>
+                      <button id={userNameId} onClick={displayUserName}>Username</button>
                       <button id={profImgId} onClick={displayProfImgSettings}>Profile Image</button>
                       <div className="settings-window settings-tab__divider"/>
                     </div>
                   { isUserInfo &&
-                  <>
-                    <div className="settings-window settings-forms">
-                      <form className="settings-forms settings-name_form">
-                        <div className="settings-forms settings-name__form-wrapper">
-                          <div id="first-name_wrapper">
-                            <label id="first-name__label">First Name</label>
-                            <input id="first-name__input"value={currentFirstName}></input>
-                          </div>
-                          <div id="last-name_wrapper">
-                            <label id="last-name__label">Last Name</label>
-                            <input id="last-name__input" value={currentLastName}></input>
-                          </div>
-                        </div>
-                      </form>
-                      <form className="settings-forms settings-username__form">
-                        <div className="settings-forms settings-username__form-wrapper">
-                          <label id="settings-username__label">Username</label>
-                          <input id="settings-username__input" value={currentUsername} onChange={setUsername}></input>
-                        </div>
-                      </form>
-                      <form className="settings-forms settings-website__form">
-                        <div className="settings-forms settings-website__form-wrapper">
-                          <label id="settings-website__label">Website</label>
-                          <input id="settings-website__input" value={currentWebsite} onChange={setWebsite}></input>
-                        </div>
-                      </form>
-                      <form className="settings-forms settings-bio__form">
-                        <div className="settings-forms settings-bio__form-wrapper">
-                          <label id="settings-bio__label">Bio</label>
-                          <textarea id="settings-bio__textarea" value={currentBio} onChange={setBio}/>
-                        </div>
-                      </form>
-                    </div>
-                    <div className="settings-window settings-buttons">
-                    </div>
+                    <>
+                    <BasicInfoForm 
+                      changeBasicInfo={changeBasicInfo}
+                      updateSuccess={updateSuccess}
+                      basicInfoErrors={basicInfoErrors}
+                      currentFirstName={currentFirstName}
+                      setFirstName={setFirstName}
+                      currentLastName={currentLastName}
+                      setLastName={setLastName}
+                      currentWebsite={currentWebsite}
+                      setWebsite={setWebsite}
+                      currentBio={currentBio}
+                      setBio={setBio}
+                    />
+                    <button form="basicinfo-update__form">test</button>
                     </>
                   }
-                      <button id="settings-save__button">Save</button>
+                  { isUserName &&
+                    <>
+                      <UserNameForm 
+                        changeUsername={changeUsername}
+                        userNameErrors={userNameErrors}
+                        currentUsername={currentUsername}
+                        setUsername={setUsername}
+                        userNameUpdated={userNameUpdated}
+                      />
+                      <button form="username-update__form">test</button>
+                    </>
+                  }
                   </div>
                 </div>
             </Modal>

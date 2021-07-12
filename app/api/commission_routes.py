@@ -8,6 +8,7 @@ import mimetypes
 # MODELS
 from app.Models import Commission, db
 from app.Forms import CommissionForm
+from app.Forms import UploadForm
 
 commission_routes = Blueprint('commissions', __name__)
 
@@ -83,3 +84,28 @@ def create_a_commission():
   else:
       return {'errors': validation_errors_to_errors_messages(form.errors)}, 401
     
+
+@commission_routes.route('/upload-image', methods=['POST'])
+def upload_to_s3():
+  form = UploadForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+
+  image = ''
+  image_path = ''
+  if form.validate_on_submit():
+    if request.files:
+      image = request.files['file_path']
+      image_name = secure_filename(image.filename)
+
+      mime_type = mimetypes.guess_type(image_name)
+
+      s3 = boto3.resource('s3')
+      uploaded_image = s3.Bucket('commissioner-commissions').put_object(Key=image_name, Body=image, ACL='public-read', ContentType=mime_type[0])
+
+      image_path = f"https://commissioner-commission.s3.amazonaws.com/{image_name}"
+
+      return {"image_url": image_path}
+    else:
+      print("Files weren't sent!!")  
+  else:
+    return {'errors': validation_errors_to_errors_messages(form.errors)}, 401
