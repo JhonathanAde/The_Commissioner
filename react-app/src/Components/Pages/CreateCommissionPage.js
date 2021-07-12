@@ -16,9 +16,6 @@ const CreateCommissionPage = ({authenticated, user}) => {
   }
   imageDisplay.src = image_url;
 
-  console.log(img_width)
-  console.log(img_height)
-
   if(img_width > img_height){
     imgStyles["width"] = "450px"
     delete imgStyles["height"]

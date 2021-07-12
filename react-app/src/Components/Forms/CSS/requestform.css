@@ -1,0 +1,253 @@
+:root{
+  --main_black: #000000;
+  --card-grey: #e5e5e5;
+  --icon-pink: #ffb6ef;
+  --highlight: #ffdc60;
+  --card-boxshadow: 0px 0px .5rem rgba(0, 0, 0, 0.7);
+  --main-window_width: 1486rem;
+  --main-window_height: 998px;
+  --login-input__width: 386px;
+  --login-input__height: 35px;
+  --login-label__fontsize: 36px;
+  --login-input__fontsize: 28px;
+  --settings-label__fontsize: 24px;
+  --settings-input__fontsize: 24px;
+  --settings-input__width: 750px;
+  --settings-input__height: 40px;
+}
+
+
+.request-form.request-form__errors {
+  color: crimson;
+  font-size: 40px;
+  width: 386px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#request-form__errors-list {
+  list-style: none;
+}
+
+
+/* Request Form Title */
+.request-form.request-form__title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  
+}
+
+#request-title__label {
+  font-size: var(--login-label__fontsize);
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#request-title__input {
+  width: var(--login-input__width);
+  height: var(--login-input__height);
+  font-size: 18px;
+  padding: 5px;
+}
+
+/* ------------------- */
+
+/* Request Form Description */
+.request-form.request-form__description {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#request-description__label {
+  font-size: var(--login-label__fontsize);
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#request-description__input {
+  width: var(--login-input__width);
+  height: 147px;
+  font-size: 18px;
+  padding: 5px;
+}
+
+/* ------------------- */
+
+/* Request Form References */
+.request-form.request-form__references {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#request-references__label {
+  font-size: var(--login-label__fontsize);
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#references-input__container {
+  display: flex;
+  align-items: center;
+}
+
+#request-references__input {
+  font-size: 18px;
+  width: 310px;
+}
+
+.request-form.request-form__references input[type="file"]::file-selector-button {
+  font-size: 20px;
+  border: none;
+  background: none;
+  margin-right: 2rem;
+  outline: none;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.request-form.request-form__references input[type="file"]::file-selector-button:hover {
+  background-color: var(--icon-pink);
+}
+
+#request-references__input-upload {
+  font-size: 20px;
+  border: none;
+  background: none;
+  margin-right: 2rem;
+  outline: none;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#request-references__input-upload:hover {
+  background-color: var(--icon-pink);
+}
+
+/* ------------------- */
+
+/* Request Form Urgent */
+.request-form.request-form__urgent {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+#request-urgent__label {
+  font-size: var(--login-label__fontsize);
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.request-form__urgent-choices {
+  margin-bottom: 10px;
+}
+
+.request-form__urgent-choices input {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#urgent-choices__yes {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+#urgent-choices__no {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.request-form.request-form__urgent-date-active {
+  animation-name: showUrgent;
+  animation-duration: .7s;
+}
+
+.request-form.request-form__urgent-date {
+  animation-name: hideUrgent;
+  animation-duration: .7s;
+}
+
+#urgent-date__prompt {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+#urgent-date__input {
+  width: var(--login-input__width);
+  height: var(--login-input__height);
+  font-size: 18px;
+  padding: 5px;
+}
+
+/* ------------------- */
+
+
+/* Request Form Buttons */
+
+  #request-form__submit-button {
+    font-size: 3rem;
+    border: none;
+    background: none;
+    margin-right: 2rem;
+    outline: none;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  #request-form__submit-button:hover {
+    background-color: var(--icon-pink);
+
+  }
+
+  #request-form__reset-button {
+    font-size: 3rem;
+  border: none;
+  background: none;
+  margin-right: 2rem;
+  outline: none;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#request-form__reset-button:hover {
+  background-color: var(--icon-pink);
+}
+
+/* ------------------- */
+
+@keyframes showUrgent {
+  0%{
+    margin-top: -10px;
+    opacity: 0;
+  }
+
+  100%{
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes hideUrgent {
+  0%{
+    margin-top: 0px;
+    opacity: 1;
+  }
+
+  100%{
+    margin-top: -10px;
+    opacity: 0;
+  }
+}
