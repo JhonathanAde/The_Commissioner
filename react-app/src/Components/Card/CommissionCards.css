@@ -29,6 +29,9 @@
 }
 
 .commission-card.img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: transparent;
   width: 48rem;
   height: 100%;
@@ -38,8 +41,8 @@
 
 .commission-card.img-container img {
   display: block;
-  width: 125%;
-  margin: -5rem -5rem;
+  width: 100%;
+  /* margin: -5rem -5rem; */
   /* height: 100%; */
 }
 
@@ -135,7 +138,7 @@
   color: white;
 }
 .title-container.title-nav:hover {
-  color: hotpink;
+  color: var(--icon-pink);
 }
 
 .info-container.username {

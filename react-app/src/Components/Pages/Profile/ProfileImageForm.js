@@ -8,12 +8,11 @@ const ProfileImageForm = ({setImgFile, imgFile, imgName, setImgName, setProfileI
   
   let inputEl = useRef(null)
 
-  // console.log(inputEl);
+
   useEffect(() => {
     let proImgFile = document.getElementById("profileimg__input")
     let proImgName = document.getElementById("profileimg__input")
     setImgFile(proImgFile.files.item(0))
-    console.log(proImgFile);
   }, [])
 
 
@@ -21,9 +20,6 @@ const ProfileImageForm = ({setImgFile, imgFile, imgName, setImgName, setProfileI
   
   const updateFile = (e) => {
     e.preventDefault()
-    // console.log(proImgName.files.item(0).name);
-    console.log(e.target.files.item(0).name);
-    // console.log(proImgName.files.item(0));
     setImgFile(e.target.files.item(0))
     setImgName(e.target.files.item(0).name);
   }
@@ -37,7 +33,6 @@ const ProfileImageForm = ({setImgFile, imgFile, imgName, setImgName, setProfileI
       setUploadErrors(uploadImg.errors)
     }
     else {
-      console.log(imgName);
       setProfileImg(`https://commissioner-profilepics.s3.amazonaws.com/${imgName}`)
     }
   }

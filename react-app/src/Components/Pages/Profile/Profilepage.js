@@ -10,15 +10,11 @@ import Modal from '../Modal/Modal'
 import CommissionCards from '../../Card/CommissionCards'
 import RequestCards from '../Request/RequestCards'
 import Rating from 'react-rating'
-// import CommissionCards from '../../Card/CommissionCards'
-// import RequestCards from './RequestCards'
 
 //CSS
 import './CSS/profilepage.css'
 import '../../Card/CommissionCards.css'
-// import BasicInfoCard from './BasicInfoCard'
 import Footer from '../../Footer/Footer'
-// import Rating from '../../Ratings/Rating'
 
 const Profilepage = ({authenticated, user}) => {
 
@@ -28,7 +24,7 @@ const Profilepage = ({authenticated, user}) => {
   var settingsMenu = 1
 
   const closeIconFile = require('./close-icon.png');
-
+ 
   const closeIcon = new Image();
   closeIcon.src = "https://commissioner-icons.s3.amazonaws.com/close-icon.png"
  
@@ -117,11 +113,48 @@ const Profilepage = ({authenticated, user}) => {
   const [imgFile, setImgFile] = useState(null);
   const [uploadErrors, setUploadErrors] = useState([]);
   const [imgName, setImgName] = useState("");
-
+  const [profWidth, setProfWidth] = useState(0);
+  const [profHeight, setProfHeight] = useState(0);
+  const [otherWidth, setOtherWidth] = useState(0);
+  const [otherHeight, setOtherHeight] = useState(0);
+  const [otherPercentagePort, setOtherPercentPort] = useState(0);
+  const [otherPercentageLan, setOtherPercentLan] = useState(0);
+  
   const userInfoBtn = document.getElementById("settings-user_info-active")
   const profImgBtn = document.getElementById("settings-profile_image")
   let proImgName = document.getElementById("profileimg__input")
 
+  const largerMeasurePort = 446.4;  
+  const largerMeasureLan = 372;  
+
+  // for Other Profile //
+  const otherImgContainer = new Image();
+  // var otherPercentagePort
+  // var otherPercentageLan
+  
+  
+  otherImgContainer.onload = function() {
+    setOtherWidth(this.width)
+    setOtherHeight(this.height)
+  }
+  
+  otherImgContainer.src = otherProfPic;
+  
+  // -------------------------------//
+  
+
+  // ----- For User Profile -------//
+  const imgContainer = new Image();
+  
+  imgContainer.onload = function(){
+    setProfWidth(this.width);
+    setProfHeight(this.height);
+  }
+  imgContainer.src = user.profile_pic;
+
+
+  //---------------------------------------//
+  
   const checkLocation = () => {
     if(pathname === `/${user.username}/profile`){
       if(!authenticated){
@@ -212,49 +245,6 @@ const Profilepage = ({authenticated, user}) => {
     setIsUserName(true)
   }
 
-  // const settingsChecker = () => {
-  //   if(isUserInfo){
-  //     settingsMenu = 1
-  //   }
-  //   else if(isUserName){
-  //     settingsMenu = 2
-  //   }
-  //   else if(isProfileImage){
-  //     settingsMenu = 3
-  //   }
-
-  // }
-
-  // const settingsSwitch = () => {
-  //   // settingsChecker()
-
-  //   switch(settingsMenu) {
-  //     case 1:
-  //       setUserInfoId('settings-user_info-active')
-  //       setUserNameId('settings-user_name')
-  //       setProfImgId('settings-profile_image')
-  //       setIsProfileImage(false);
-  //       setIsUserName(false)
-  //       break;
-  //     case 2:
-  //       setUserNameId('settings-user_name-active')
-  //       setUserInfoId('settings-user_info')
-  //       setProfImgId('settings-profile_image')
-  //       setIsUserInfo(false);
-  //       setIsProfileImage(false);
-  //       break;
-  //     case 3:
-  //       setProfImgId('settings-profile_image-active')
-  //       setUserNameId('settings-user_name')
-  //       setProfImgId('settings-profile_image')
-  //       setIsUserInfo(false);
-  //       setIsUserName(false);
-  //       break;
-  //   }
-  // }
-
-  // settingsSwitch()
-
 
   const setUsername = (e) => {
     setCurrentUsername(e.target.value);
@@ -285,7 +275,7 @@ const Profilepage = ({authenticated, user}) => {
     basicInfoData.append('website', currentWebsite)
     basicInfoData.append('bio', currentBio)
     const basicInfo = await editBasicInfo(basicInfoData, user.id);
-    // changeUsername(e);
+  
     if(basicInfo.errors){
       setBasicInfoErrors(basicInfo.errors);
     }
@@ -324,9 +314,21 @@ const Profilepage = ({authenticated, user}) => {
               <div className="profilepage-display profile-info__profilecard">
                 <div id="userinfo">
                 <div className="profilepage-display profile-info__profilecard" id="profile-image__container">
-                <div id="profile-image__container-div">
-                  <img src={user.profile_pic}></img>
-                </div>
+                    <div id="profile-image__container-div">
+                  { profWidth > profHeight &&
+                        <img id="prof-pic__landscape" loading="eager" src={user.profile_pic}></img>
+                  }
+                    { profHeight > profWidth &&
+                      <img id="prof-pic__portrait" loading="eager" src={user.profile_pic}
+                      ></img>
+                    }
+
+                    {profWidth === profHeight &&
+                      <img id="prof-pic__square" loading="eager" src={user.profile_pic} />
+                    }
+
+
+                    </div>
               </div>
               <h1 id="profile-username">
                 {currentUsername}
@@ -454,7 +456,17 @@ const Profilepage = ({authenticated, user}) => {
               <div id="userinfo">
                 <div className="profilepage-display profile-info__profilecard" id="profile-image__container">
                   <div id="profile-image__container-div">
-                  <img src={otherProfPic}></img>
+                    { otherWidth > otherHeight &&
+                      <img id="otherprof-pic__landscape" loading="lazy"  src={otherProfPic} width="375"></img>
+                    }
+                    {
+                     otherHeight > otherWidth  &&
+                      <img id="otherprof-pic__portrait" height="375" loading="lazy"  src={otherProfPic}></img>
+                    }
+                    {
+                      otherWidth === otherHeight &&
+                      <img id="otherprof-pic__square" loading="lazy" src={otherProfPic}></img>
+                    }
                   </div>
                 </div>
               <h1 id="profile-username">

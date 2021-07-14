@@ -60,7 +60,6 @@ const CommissionForm = ({authenticated, user, image_url, setImage}) => {
   const updateFile = (e) => {
     setFile(imgFileName.files.item(0))
     setFileName(imgFileName.files.item(0).name)
-    console.log(imgFileName.files.item(0).name);
   }
   
   const updateRequests = (e) => {
@@ -94,7 +93,6 @@ const CommissionForm = ({authenticated, user, image_url, setImage}) => {
       setUploadErrors(uploadFile.errors)
     }
     else {
-      console.log(fileName)
       setImage(`https://commissioner-commissions.s3.amazonaws.com/${fileName}`);
     }
   } 
