@@ -113,6 +113,11 @@
   background-color: black;
   color: white;
   padding: 5px;
+  cursor: pointer;
+}
+
+.commission-form.commission-image button:hover {
+  background-color: var(--icon-pink);
 }
 
 .commission-form.commission-image input[type="file"]::file-selector-button {
@@ -124,6 +129,11 @@
   background-color: black;
   color: white;
   padding: 5px;
+  cursor: pointer;
+}
+
+.commission-form.commission-image input[type="file"]::file-selector-button:hover {
+  background-color: var(--icon-pink);
 }
 
 #commission-image__input {
@@ -177,7 +187,7 @@
 #commission-request_cap__input {
   width: fit-content;
   height: var(--login-input__height);
-  font-size: var(--login-input__fontsize);
+  font-size: 18px;
   padding: 5px;
 }
 

@@ -34,11 +34,13 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
   const [ratingLength, setRatingLength] = useState(0);
   const [ratingColor, setRatingColor] = useState("");
   const [otherCommissions, setOtherCommissions] = useState(null);
-  const [imgDisplay, setImgDisplay] = useState("https://commissioner-icons.s3.amazonaws.com/Img_placeholder.png");
+  const [imgDisplay, setImgDisplay] = useState("");
   const [imgWidth, setImgWidth] = useState(0);
   const [imgHeight, setImgHeight] = useState(0);
+  // const [isLandscape, setIsLandscape] = useState(false);
+  const [oreientation, setOrientation] = useState(null);
   
- 
+  var isLandscape
 
   var profileLink;
 
@@ -81,7 +83,19 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
 
   
 
-  let imgStyle = {}
+  let imgStyleWidth = {
+    width: "576px"
+  }
+
+  let imgStyleHeight = {
+    height: "576px"
+  }
+
+  let imgStyleSquare = {
+    width: "576px",
+    height: "576px"
+  }
+
   let displayImg = new Image();
   displayImg.src = imgDisplay;
 
@@ -90,18 +104,6 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
     setImgHeight(this.height)
   }
 
-  if(imgWidth > imgHeight){
-    imgStyle["width"] = "600px";
-    delete imgStyle["height"]
-  }
-  else if (imgHeight > imgWidth) {
-    imgStyle["height"] = "600px";
-    delete imgStyle["width"];
-  }
-  else {
-    imgStyle["width"] = "600px"
-    imgStyle["height"] = "600px"
-  }
   
    
    const updateReview = (e) => {
@@ -158,6 +160,17 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
     }
     } 
 
+    const setOrientationLand = () => {
+      setOrientation("landscape")
+    }
+    const setOrientationPort = () => {
+      setOrientation("portrait")
+    }
+    const setOrientationSq = () => {
+      setOrientation("square")
+    }
+
+
 
 
   return (
@@ -167,7 +180,19 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
           <div className="artpage art-content">
             <div className="artpage art-content__product-display">
               <div className="artpage art-content__product-displaywindow">
-                <img loading="lazy" src={displayImg.src} style={imgStyle}/>
+                { imgWidth > imgHeight ?
+                  <img loading="eager" src={imgDisplay} width="600"/>
+                
+                : imgHeight > imgWidth ?  
+                  <img loading="eager" src={imgDisplay} height="600"/>
+                
+
+                 : imgWidth === imgHeight ?
+                  <img loading="eager" src={imgDisplay} widht="600" height="600"/>
+
+                  : 
+                  <img loading="eager" src="https://commissioner-icons.s3.amazonaws.com/Img_placeholder.png" width="576" height="576"/>
+                }
               </div>
             </div>
             <div className="artpage art-content__product-details">
