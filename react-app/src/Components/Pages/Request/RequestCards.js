@@ -19,8 +19,6 @@ const RequestCards = ({info, testRef}) => {
 
   var averageRating = 0
 
-  console.log(info);
-
   useEffect(() => {
     (async () => {
       const userReviews = await getRatingsByCommissionId(info.commission_id)
@@ -32,9 +30,6 @@ const RequestCards = ({info, testRef}) => {
     })()
   }, [])
 
-  console.log(review)
-  console.log(commissionArtist)
-  // console.log(review)
 
   const calculateAverageRating = () => {
     let sum = 0 

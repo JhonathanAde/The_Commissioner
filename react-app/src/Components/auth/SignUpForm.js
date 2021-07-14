@@ -74,15 +74,6 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSig
     }
   }
 
-  // const checkPath = () => {
-  //   if(pathname === "/signup"){
-  //    setLoginForm(false);
-  //   }
-  // }
-
-  // checkPath();
-  // console.log(loginForm);
-
 
   if (authenticated) {
     return <Redirect to="/" />;

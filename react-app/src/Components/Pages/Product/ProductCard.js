@@ -34,7 +34,7 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
   const [ratingLength, setRatingLength] = useState(0);
   const [ratingColor, setRatingColor] = useState("");
   const [otherCommissions, setOtherCommissions] = useState(null);
-  const [imgDisplay, setImgDisplay] = useState("");
+  const [imgDisplay, setImgDisplay] = useState("https://commissioner-icons.s3.amazonaws.com/Img_placeholder.png");
   const [imgWidth, setImgWidth] = useState(0);
   const [imgHeight, setImgHeight] = useState(0);
   
@@ -70,7 +70,6 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
     // const changeRatingColor = () => {
     //   ratingEl.style.color = "#ffdc60"
     // }
-    console.log(ratingEl)
     // setRatingColor(changeRatingColor);
   })
 
@@ -85,8 +84,6 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
   let imgStyle = {}
   let displayImg = new Image();
   displayImg.src = imgDisplay;
-
-  console.log(imgDisplay);
 
   displayImg.onload = function (){
     setImgWidth(this.width)
@@ -141,7 +138,6 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
     }
 
     calculateAverageRating();
-    console.log(otherCommissions);
 
 
   const reviewSubmit = async(e) => {
@@ -165,105 +161,108 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
 
 
   return (
-    <div className="artpage">
-      <div className="artpage-display">
-        <div className="artpage art-content">
-          <div className="artpage art-content__product-display">
-            <div className="artpage art-content__product-displaywindow">
-              <img loading="lazy" src={displayImg.src} style={imgStyle}/>
-            </div>
-          </div>
-          <div className="artpage art-content__product-details">
-            <h6>{commission.title}</h6>
-            <div id="artwork-by__section">
-              <h3 id="artwork-by">Artwork By: </h3>
-              <NavLink to={profileLink}>{commission.user.username}</NavLink>
-            </div>
-              <h1 id="artwork-price">{`$${commission.price}`}</h1>
-              <div id="artwork-rating">
-                <Rating emptySymbol={emptyStars} fullSymbol={fullStars} initialRating={ratingAverage} readonly/>
+    <div className="artpage-window">
+      <div className="artpage">
+        <div className="artpage-display">
+          <div className="artpage art-content">
+            <div className="artpage art-content__product-display">
+              <div className="artpage art-content__product-displaywindow">
+                <img loading="lazy" src={displayImg.src} style={imgStyle}/>
               </div>
-              <h1>Description</h1>
-              <div className="artpage art-content__description-divider"></div>
-              <p>
-                {commission.description}
-              </p>
-              <button onClick={goToRequestForm}>Request</button>
-          </div>
-        </div>
-          
-        <div className="artpage art-details">
-          <div className="artpage art-details__reviews">
-            { !authenticated ?
-
-            <>
-            </>
-
-            :
-            <form onSubmit={reviewSubmit}>
-              <h1>
-                Write A Review
-              </h1>
-              <textarea
-                name="review"
-                type="textarea"
-                onChange = {updateReview}
-              ></textarea>
-              <div className="artpage art-details__reviewform-submit">
-                <Rating emptySymbol={emptyStars} fullSymbol={fullStars} initialRating={rating} onChange={checkRatings}  />
-                <button type="submit">Submit</button>
-              </div>
-            </form>
-            }
-            <div className="artpage art-details__reviews-list">
-              {
-                ratings && ratings.map((rating, key) => (
-                  <ReviewCard cardRating={rating} key={key}/>
-                ))
-              }
             </div>
-          </div>
-          <div>
-
-          <div className="artpage art-details__aboutartist">
-            <h3 id="about_artist-title">
-              About The Artist
-            </h3>
-            <div className="artpage art-details__aboutartist-artist">
-            <div className="artpage art-details__aboutartist-img__container">
-              <div className="artpage art-details__aboutartist-img__container" id="aboutimg__container">
-                <div id="aboutimg__container-image">
-                  <img loading="lazy" src={commission.user.profile_pic}>
-                  </img>
+            <div className="artpage art-content__product-details">
+              <h6>{commission.title}</h6>
+              <div id="artwork-by__section">
+                <h3 id="artwork-by">Artwork By: </h3>
+                <NavLink to={profileLink}>{commission.user.username}</NavLink>
+              </div>
+                <h1 id="artwork-price">{`$${commission.price}`}</h1>
+                <div id="artwork-rating">
+                  <Rating emptySymbol={emptyStars} fullSymbol={fullStars} initialRating={ratingAverage} readonly/>
                 </div>
-            </div>
-            </div>
-              <div id="aboutartist-artist__info">
-                <h1 id="artist__username">
-                  {commission.user.username}
-                </h1>
-                <p id="artist__bio">
-                  {commission.user.bio}
+                <h1>Description</h1>
+                <div className="artpage art-content__description-divider"></div>
+                <p>
+                  {commission.description}
                 </p>
+                <button onClick={goToRequestForm}>Request</button>
+            </div>
+          </div>
+            
+          <div className="artpage art-details">
+            <div className="artpage art-details__reviews">
+              { !authenticated ?
+
+              <>
+              </>
+
+              :
+              <form onSubmit={reviewSubmit}>
+                <h1>
+                  Write A Review
+                </h1>
+                <textarea
+                  name="review"
+                  type="textarea"
+                  onChange = {updateReview}
+                ></textarea>
+                <div className="artpage art-details__reviewform-submit">
+                  <Rating emptySymbol={emptyStars} fullSymbol={fullStars} initialRating={rating} onChange={checkRatings}  />
+                  <button type="submit">Submit</button>
+                </div>
+              </form>
+              }
+              <div className="artpage art-details__reviews-list">
+                {
+                  ratings && ratings.map((rating, key) => (
+                    <ReviewCard cardRating={rating} key={key}/>
+                  ))
+                }
+              </div>
+            </div>
+            <div>
+
+            <div className="artpage art-details__aboutartist">
+              <h3 id="about_artist-title">
+                About The Artist
+              </h3>
+              <div className="artpage art-details__aboutartist-artist">
+              <div className="artpage art-details__aboutartist-img__container">
+                <div className="artpage art-details__aboutartist-img__container" id="aboutimg__container">
+                  <div id="aboutimg__container-image">
+                    <img loading="lazy" src={commission.user.profile_pic}>
+                    </img>
+                  </div>
+              </div>
+              </div>
+                <div id="aboutartist-artist__info">
+                  <h1 id="artist__username">
+                    {commission.user.username}
+                  </h1>
+                  <p id="artist__bio">
+                    {commission.user.bio}
+                  </p>
+                </div>
+              </div>
+  
+            </div>
+            <div className="artpage art-details__other-works">
+              <h4 id="otherworks-title">Other Works From This Artist:</h4>
+              <div className="artpage art-details__other-works__display">
+                { otherCommissions && otherCommissions.map((comm, key) => (
+                  comm.commission.id === commission.id ? false
+                    :
+                  <>
+                    {/* <img src={comm.commission.image_url}/> */}
+                    
+                      <OtherWorks image={comm.commission.image_url} title={comm.commission.title} id={comm.commission.id}/>
+                  </>
+                ))}
               </div>
             </div>
           </div>
-          <div className="artpage art-details__other-works">
-            <h4 id="otherworks-title">Other Works From This Artist:</h4>
-            <div className="artpage art-details__other-works__display">
-              { otherCommissions && otherCommissions.map((comm, key) => (
-                comm.commission.id === commission.id ? false
-                  :
-                <>
-                  {/* <img src={comm.commission.image_url}/> */}
-                  
-                    <OtherWorks image={comm.commission.image_url} title={comm.commission.title} id={comm.commission.id}/>
-                </>
-              ))}
             </div>
-          </div>
         </div>
-          </div>
       </div>
     </div>
   )

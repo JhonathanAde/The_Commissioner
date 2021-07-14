@@ -35,7 +35,7 @@ def check_requests(form, field):
 class CommissionForm(FlaskForm):
   title = StringField('Title', validators=[check_title])
   description = TextAreaField('Description', validators=[check_description])
-  image = FileField('Image', validators=[FileAllowed(['jpg', 'jpeg', 'png'], 'jpg, jpeg, and png only!')])
+  image_url = StringField('Image_Url', validators=[])
   price = FloatField('Price', validators=[check_price])
   request_amt = IntegerField('Number of Requests', validators=[NumberRange(min=0), check_requests])
   date_created = DateField('Date Created')

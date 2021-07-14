@@ -11,6 +11,7 @@
 
 .footer-window {
   background-color: var(--main_black);
+  /* position: absolute; */
   position: relative;
   right: 0;
   left: 0;

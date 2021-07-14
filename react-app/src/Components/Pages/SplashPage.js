@@ -33,9 +33,6 @@ const SplashPage = ({authenticated, setAuthenticated, setUser, user}) => {
   //   setLogin("splashlogin-form")
   // }
 
-  
-
-  // console.log(loginForm);
 
   const checkPath = () => {
     if(pathname === "/login"){
@@ -70,6 +67,19 @@ const SplashPage = ({authenticated, setAuthenticated, setUser, user}) => {
       <div className="splashpage splashcontent-wrapper">
         <div className="splashpage logincontent">
             <div className="splashpage loginform-image">
+            <div className="splashpage login-header">
+            {loginForm &&
+              <h1 id="login-header">LOGIN</h1>
+            }
+            {!loginForm &&
+              <h1 id="signup-header">SIGN UP</h1>
+            }
+            </div>
+              <div className="splashpage loginform-image__container">
+                <div id="loginform-image__container-image">
+                  <img src="https://commissioner-icons.s3.amazonaws.com/login-signup-bg.png"></img>
+                </div>
+              </div>
             </div>
             <div className="splashpage authforms">
               <div id="authforms-display">

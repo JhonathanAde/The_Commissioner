@@ -2,9 +2,10 @@ import React, {useState, useEffect} from 'react'
 import { useParams, useHistory, useLocation } from "react-router-dom"
 import { getCommissionsById } from '../../services/commission'
 import { getRequestsById } from '../../services/request'
-import { editBasicInfo, editUserName } from '../../services/auth'
+import { editBasicInfo, editUserName, uploadProfilePic } from '../../services/auth'
 import BasicInfoForm from './BasicInfoForm'
 import UserNameForm from './UserNameForm'
+import ProfileImageForm from './ProfileImageForm'
 import Modal from '../Modal/Modal'
 import CommissionCards from '../../Card/CommissionCards'
 import RequestCards from '../Request/RequestCards'
@@ -30,8 +31,6 @@ const Profilepage = ({authenticated, user}) => {
 
   const closeIcon = new Image();
   closeIcon.src = "https://commissioner-icons.s3.amazonaws.com/close-icon.png"
-
-  // console.log(closeIconFile);
  
   const [userRequests, setUserRequests] = useState(null)
   const [userCommissions, setUserCommissions] = useState(null)
@@ -114,22 +113,22 @@ const Profilepage = ({authenticated, user}) => {
   const [userNameErrors, setUserNameErrors] = useState([]);
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const [userNameUpdated, setUserNameUpdated] = useState(false);
+  const [profileImg, setProfileImg] = useState(null);
+  const [imgFile, setImgFile] = useState(null);
+  const [uploadErrors, setUploadErrors] = useState([]);
+  const [imgName, setImgName] = useState("");
 
   const userInfoBtn = document.getElementById("settings-user_info-active")
   const profImgBtn = document.getElementById("settings-profile_image")
-
-
-  // console.log(userInfoBtn);
+  let proImgName = document.getElementById("profileimg__input")
 
   const checkLocation = () => {
     if(pathname === `/${user.username}/profile`){
       if(!authenticated){
         visitor = true;
-        console.log('not authenticated and redirected to other path', 'got here!')
       }
       else {
         visitor = false;
-        console.log('authenticated and user profile path', 'got here!')
       }
     }
     
@@ -140,7 +139,6 @@ const Profilepage = ({authenticated, user}) => {
       if(authenticated){
         if(user.id.toString() === userId){
           history.push(`/${user.username}/profile`);
-          console.log('Got redirected to profile path!')
         }
         else {
           visitor = true;
@@ -149,10 +147,6 @@ const Profilepage = ({authenticated, user}) => {
     }
   }
   
-
-  useEffect(() => {
-    console.log("hi")
-  },)
 
   checkLocation();
   
@@ -397,6 +391,30 @@ const Profilepage = ({authenticated, user}) => {
                       />
                       <button id="username_save" form="username-update__form">Save</button>
                     </>
+                  }
+
+                  {
+                    isProfileImage &&
+                    <div className="settings-page settings-profileimg">
+                      <div className="settings-page settings-img__display">
+                        <div className="settings-img__display img-container">
+                          <div id="img-container__img">
+                            <img src={profileImg}/>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="settings-page setting-profileimg__form">
+                        <ProfileImageForm 
+                        setProfileImg={setProfileImg} 
+                        profileImg={profileImg}
+                        imgFile={imgFile} 
+                        setImgFile={setImgFile} 
+                        imgName={imgName}
+                        setImgName={setImgName}
+                        user={user}
+                        />
+                      </div>
+                    </div>
                   }
                   </div>
                 </div>

@@ -4,6 +4,7 @@ from app.Forms import LoginForm
 from app.Forms import SignUpForm
 from app.Forms import BasicInfoForm 
 from app.Forms import UserNameForm
+from app.Forms import UploadForm
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.utils import secure_filename
 
@@ -124,32 +125,41 @@ def edit_username(id):
   else:
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-
-@auth_routes.route('/basicinfo/profile_pic/<int:id>', methods=['PATCH'])
-def edit_profile_pic():
-  form = BasicInfoForm()
+@auth_routes.route('/basicinfo/profile_pic/upload', methods=['POST'])
+def upload_profile_pic():
+  form = UploadForm()
   form['csrf_token'].data = request.cookies['csrf_token']
 
   image = ''
-  image_path = '' 
+  image_path = ''
   if form.validate_on_submit():
     if request.files:
-      image = request.files['image']
+      image = request.files['file_path']
       image_name = secure_filename(image.filename)
 
       mime_type = mimetypes.guess_type(image_name)
 
       s3 = boto3.resource('s3')
-      print(s3)
       uploaded_image = s3.Bucket('commissioner-profilepics').put_object(Key=image_name, Body=image, ACL='public-read', ContentType=mime_type[0])
 
       image_path = f"https://commissioner-profilepics.s3.amazonaws.com/{image_name}"
+
+      return {"image_url": image_path}
     else:
-        print("Files weren't sent!!")
+      print("Files weren't sent!!")
+  else:
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@auth_routes.route('/basicinfo/profile_pic/<int:id>', methods=['PATCH'])
+def edit_profile_pic(id):
+  form = BasicInfoForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+
+  if form.validate_on_submit():
     
     basic_info = User.query.get(id)
 
-    basic_info.profile_pic = image_path
+    basic_info.profile_pic = form.data['profile_pic']
 
     db.session.add(basic_info)
     db.session.commit()

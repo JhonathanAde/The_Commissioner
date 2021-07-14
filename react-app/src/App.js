@@ -45,6 +45,7 @@ function App() {
 
 
   return (
+    <>
     <div className="page-container">
     <BrowserRouter>
     <UserContext.Provider value={{ratingAverage, setRatingAverage}}>
@@ -100,8 +101,9 @@ function App() {
       </Switch>
         </UserContext.Provider>
     </BrowserRouter>
-    <Footer />
     </div>
+    <Footer />
+    </>
   );
 }
 

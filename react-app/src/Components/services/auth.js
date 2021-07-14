@@ -62,3 +62,19 @@ export const editUserName = async (payload, id) => {
   });
   return await response.json();
 }
+
+export const uploadProfilePic = async (payload) => {
+  const response = await fetch(`/api/auth/basicinfo/profile_pic/upload`, {
+    method: 'POST',
+    body: payload
+  });
+  return await response.json();
+}
+
+export const editProfilePic = async (payload, id) => {
+  const response = await fetch(`/api/auth/basicinfo/profile_pic/${id}`, {
+    method: 'PATCH',
+    body: payload
+  })
+  return await response.json();
+}

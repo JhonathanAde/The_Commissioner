@@ -4,7 +4,7 @@ import '../Forms/CSS/commission-page.css'
 
 const CreateCommissionPage = ({authenticated, user}) => {
 
-  const [image_url, setImage] = useState("");
+  const [image_url, setImage] = useState("https://commissioner-icons.s3.amazonaws.com/Img_placeholder.png");
   const [img_width, setImgWidth] = useState(0);
   const [img_height, setImgHeight] = useState(0);
 
@@ -16,15 +16,15 @@ const CreateCommissionPage = ({authenticated, user}) => {
   }
   imageDisplay.src = image_url;
 
+  console.log(image_url);
+
   if(img_width > img_height){
     imgStyles["width"] = "450px"
     delete imgStyles["height"]
-    console.log("landscape")
   }
   else if (img_height > img_width){
     imgStyles["height"] = "450px"
     delete imgStyles["width"]
-    console.log("Portrait");
   }
   else {
     imgStyles["width"] = "450px" 

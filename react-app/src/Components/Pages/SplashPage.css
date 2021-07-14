@@ -16,6 +16,7 @@
 
 .splashpage.logincontent {
   display: flex;
+  position: relative;
   /* background-color: coral; */
   width: 150rem;
   height: 873px;
@@ -27,11 +28,39 @@
   box-shadow: 0rem 0rem .8rem rgba(0, 0, 0, 0.5);
 }
 
+.splashpage.login-header {
+  position: absolute;
+  width: 750px;
+  height: 873px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#login-header {
+  margin-top: 90px;
+  color: white;
+  font-size: 100px;
+}
+
+#signup-header {
+  margin-top: 90px;
+  color: white;
+  font-size: 100px;
+}
+
 .splashpage.loginform-image {
   width: 50%;
   background-color: black;
   margin: 0;
   padding: 0;
+}
+
+.splashpage.loginform-image__container {
+  width: 750px;
+  height: 873px;
+  overflow: hidden;
+  opacity: .08;
 }
 
 .splashpage.loginform {

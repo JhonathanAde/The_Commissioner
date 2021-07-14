@@ -26,8 +26,6 @@ const RequestForm = ({currentUser, commissionId, commission, seller}) => {
   //--- User info ---
   const {user, image_url, price} = commission;
   const {id} = seller;
-
-  console.log(id)
   
   // --- Helper functions ---
   const updateTitle = (e) => {

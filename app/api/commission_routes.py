@@ -52,24 +52,24 @@ def create_a_commission():
   image = ''
   image_path = '' 
   if form.validate_on_submit():
-    if request.files:
-      image = request.files['image']
-      image_name = secure_filename(image.filename)
+    # if request.files:
+    #   image = request.files['image']
+    #   image_name = secure_filename(image.filename)
 
-      mime_type = mimetypes.guess_type(image_name)
+    #   mime_type = mimetypes.guess_type(image_name)
 
-      s3 = boto3.resource('s3')
-      print(s3)
-      uploaded_image = s3.Bucket('commissioner-commissions').put_object(Key=image_name, Body=image, ACL='public-read', ContentType=mime_type[0])
+    #   s3 = boto3.resource('s3')
+    #   print(s3)
+    #   uploaded_image = s3.Bucket('commissioner-commissions').put_object(Key=image_name, Body=image, ACL='public-read', ContentType=mime_type[0])
 
-      image_path = f"https://commissioner-commissions.s3.amazonaws.com/{image_name}"
-    else:
-        print("Files weren't sent!!")
+    #   image_path = f"https://commissioner-commissions.s3.amazonaws.com/{image_name}"
+    # else:
+    #     print("Files weren't sent!!")
 
     commission = Commission(
       title=form.data['title'],
       description=form.data['description'],
-      image_url=image_path,
+      image_url=form.data['image_url'],
       price=form.data['price'],
       request_amt=form.data['request_amt'],
       date_created=form.data['date_created'],

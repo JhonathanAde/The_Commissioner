@@ -46,7 +46,7 @@ const CommissionForm = ({authenticated, user, image_url, setImage}) => {
   //--- Redirect Declaration ---
   const history = useHistory()
 
-
+  let imgFileName = document.getElementById('commission-image__input')
   //--- Helper Functions ---
   
   const updateTitle = (e) => {
@@ -56,9 +56,11 @@ const CommissionForm = ({authenticated, user, image_url, setImage}) => {
   const updateDescription = (e) => {
     setDescription(e.target.value)
   }
+
   const updateFile = (e) => {
-    setFile(e.target.files[0])
-    setFileName(e.target.files[0].name)
+    setFile(imgFileName.files.item(0))
+    setFileName(imgFileName.files.item(0).name)
+    console.log(imgFileName.files.item(0).name);
   }
   
   const updateRequests = (e) => {
@@ -92,6 +94,7 @@ const CommissionForm = ({authenticated, user, image_url, setImage}) => {
       setUploadErrors(uploadFile.errors)
     }
     else {
+      console.log(fileName)
       setImage(`https://commissioner-commissions.s3.amazonaws.com/${fileName}`);
     }
   } 
@@ -101,7 +104,7 @@ const CommissionForm = ({authenticated, user, image_url, setImage}) => {
     const commissionData = new FormData();
     commissionData.append('title', title);
     commissionData.append('description', description);
-    commissionData.append('image', image_url);
+    commissionData.append('image_url', image_url);
     commissionData.append('price', price);
     commissionData.append('request_amt', requests);
     commissionData.append('date_created', dateCreated);
@@ -143,7 +146,7 @@ const CommissionForm = ({authenticated, user, image_url, setImage}) => {
           <div className="commission-form commission-image">
               <label id="commission-image__label" htmlFor="image-upload">Image</label>
             <div>
-              <input id="commission-image__input" name="image-upload" type="file" onChange={updateFile}></input>
+              <input id="commission-image__input" name="image-upload" type="file" accept=".jpeg, .jpg, .png" onChange={updateFile}></input>
               <button id="commission-image__upload" onClick={uploadImage}>Upload</button>
             </div>
           </div>

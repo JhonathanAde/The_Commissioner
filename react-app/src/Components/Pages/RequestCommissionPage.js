@@ -50,11 +50,6 @@ const RequestCommissionPage = ({user}) => {
     imageStyle["width"] = "450px";
     imageStyle["height"] = "450px";
   }
-
-
-
-  console.log(comData);
-  console.log(commission)
   
 
 
