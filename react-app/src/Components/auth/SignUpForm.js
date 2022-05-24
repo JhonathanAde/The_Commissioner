@@ -62,12 +62,6 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSig
 
 
   const logInVisibility = () => {
-    // if(pathname !== "/login"){
-    //   setSignup("signup-display__hidden")
-    //   setLogin("splashlogin-form")
-    //   pathname = "/login"
-    // }
-
     if (pathname.includes("signup")){
       setLoginForm(true);
       history.push('/login');

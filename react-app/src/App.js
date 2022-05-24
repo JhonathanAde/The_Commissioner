@@ -3,10 +3,6 @@ import { BrowserRouter, Route, Switch} from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar"
 import { authenticate } from "./Components/services/auth";
 import {UserContext} from "./Components/context/UserContext"
-// import LoginForm from "./Components/auth/LoginForm";
-// import SignUpForm from "./Components/auth/SignUpForm";
-// import ProtectedRoute from "./Components/auth/ProtectedRoute"
-// import TodoPage  from "./Components/Pages/TodoPage"
 
 // Imported Pages
 import Homepage from "./Components/Pages/HomePage";
@@ -19,8 +15,6 @@ import SettingsPage from "./Components/Pages/Profile/SettingsPage";
 import ReqeustsPage from "./Components/Pages/Request/RequestPage";
 import Footer from "./Components/Footer/Footer";
 import "./app.css";
-// import Modal from "./Components/Pages/Modal/Modal"
-// import useModal from "./Components/Pages/Modal/useModal"
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -50,7 +44,6 @@ function App() {
     <BrowserRouter>
     <UserContext.Provider value={{ratingAverage, setRatingAverage}}>
       <NavBar setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user} />
-      {/* <Footer /> */}
       <Switch>
         <Route path="/login" exact={true}>
           <SplashPage
@@ -90,11 +83,6 @@ function App() {
         <Route path="/profile/:userId" exact={true}>
           <Profilepage authenticated={authenticated} user={user}/>
         </Route>
-        {/* <Route path="/sign-up" exact={true}>
-          <SignUpForm 
-          authenticated={authenticated}
-          setAuthenticated={setAuthenticated} />
-        </Route> */}
         <Route>
           <Homepage path="/" exact={true} authenticated={authenticated} />
         </Route>

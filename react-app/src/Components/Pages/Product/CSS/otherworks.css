@@ -59,8 +59,6 @@
 
 #image-container__image {
   display: flex;
-  /* align-items: center; */
-  /* justify-content: center; */
   width: 187px;
   height: 187px;
   overflow: hidden;

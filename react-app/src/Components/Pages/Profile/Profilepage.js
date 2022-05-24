@@ -129,8 +129,6 @@ const Profilepage = ({authenticated, user}) => {
 
   // for Other Profile //
   const otherImgContainer = new Image();
-  // var otherPercentagePort
-  // var otherPercentageLan
   
   
   otherImgContainer.onload = function() {
@@ -379,7 +377,6 @@ const Profilepage = ({authenticated, user}) => {
                       setBio={setBio}
                     />
                     <button id="basic-info__save" form="basicinfo-update__form">Save</button>
-                    {/* <input id="basic-info__reset" form="basicinfo-update__form" type="reset"></input> */}
                     </>
                   }
                   { isUserName &&

@@ -61,10 +61,6 @@ const RequestForm = ({currentUser, commissionId, commission, seller}) => {
     
   }
 
-  // const updatePrice = (e) => {
-  //   setPrice(e.target.value);
-  // }
-
 
   const submitHandler = async (e) => {
     e.preventDefault();

@@ -28,9 +28,6 @@ const CommissionCards = ({comms, authenticated}) => {
     })()
   }, [])
 
- 
-
-  // const {ratings} = review
   
   let emptyStars = <i class="far fa-star fa-2x"></i>
   let fullStars = <i class="fas fa-star fa-2x"></i>
@@ -47,10 +44,6 @@ const CommissionCards = ({comms, authenticated}) => {
 
   }
     calculateAverageRating()
-  // setTimeOut(calculateAverageRating(), 500);
-  // setTimeout(() => {
-  //   calculateAverageRating();
-  // }, 10000);
 
  
 
@@ -79,7 +72,6 @@ const CommissionCards = ({comms, authenticated}) => {
               <div className="content-container rating-info">
                 <div id="rating-info__ratings">
                   <Rating emptySymbol={emptyStars} fullSymbol={fullStars} initialRating={averageRating} readonly/>
-                  {/* <p id="rating-number">Rating Number</p> */}
                 </div>
                 <div id="rating-info__price">
                   <p id="price-display">{`$${price}`}</p>

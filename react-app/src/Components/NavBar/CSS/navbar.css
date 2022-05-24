@@ -17,8 +17,6 @@
   display: flex;
   justify-content: center;
   background-color: black; 
-  /* content: "";
-  clear: both; */
   height: 50px;
   width: 100%;
   margin-bottom: 20px;
@@ -27,8 +25,6 @@
 .nav-bar.main-items {
   display: flex;
   flex-direction: row;
-  /* align-items: flex-end; */
-  /* justify-content: space-between; */
   height: 100%;
   width: 1495px;
 }
@@ -105,12 +101,6 @@
   border: solid 0px var(--highlight);
   transition: border 1s;
 }
-
-/* .nav-bar.user-options__dropdown:hover {
-  border: solid 5px var(--highlight);
-  transition: border 1s;
-} */
-
 
 #dropdown-profilepic__container img:hover {
   border: solid 3px var(--highlight);

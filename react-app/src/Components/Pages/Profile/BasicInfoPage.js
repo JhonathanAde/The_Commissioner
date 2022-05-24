@@ -55,11 +55,6 @@ const BasicInfoForm = ({user}) => {
     <div className="basicinfo-maincontainer">
       <div className="basicinfo-picbox">
       </div>
-      {/* <div>
-        {errors.map((error, idx) => (
-          <div key={idx}>{error}</div>
-        ))}
-      </div> */}
       <div className="basicinfo-formcontainer">
         <form onSubmit={submitHandler} className="basicinfo-form">
           <div className="basicinfo-form-sections">

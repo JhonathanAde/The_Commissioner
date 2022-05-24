@@ -171,17 +171,6 @@ def edit_profile_pic(id):
 
 
 
-# @auth_routes.route('/basicinfo/username/<int:id>', method=['PATCH'])
-# def edit_username():
-#   form = BasicInfoForm()
-#   form['csrf_token'].data = request.cookies['csrf_token']
-
-#   basic_info = User.query.get(id)
-#   basic_info.username =
-
-
-
-
 @auth_routes.route('/unauthorized')
 def unauthorized():
     """
