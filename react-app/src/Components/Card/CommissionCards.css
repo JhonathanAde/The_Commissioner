@@ -42,15 +42,11 @@
 .commission-card.img-container img {
   display: block;
   width: 100%;
-  /* margin: -5rem -5rem; */
-  /* height: 100%; */
 }
 
 .commission-card.title-container {
   display: block;
   position: relative;
-  /* padding: .25rem; */
-  /* bottom: 0rem; */
   height: 35%;
   width: 100%;
   top: -11.1rem;
@@ -65,7 +61,6 @@
 }
 
 .title-container.title-box {
-  /* display: block; */
   display: flex;
   align-items: flex-end;
   font-size: 10rem;
@@ -88,7 +83,6 @@
 .content-container.info-container {
   display: flex;
   flex-direction: row;
-  /* font-size: 8rem; */
 }
 
 .content-container.info-container h2 {
@@ -151,113 +145,3 @@
   text-decoration: underline;
 }
 
-
-/* .commission-card-body {
-  background-color: whitesmoke;
-  height: 25rem;
-  width: 22.5rem;
-  margin: 1rem;
-  min-width: 22.5rem;
-  position: relative;
-  box-shadow: 0px 0px .5rem rgba(0, 0, 0, 0.7);
-  border-radius: .3rem;
-}
-
-.comm-image-container {
-  position: relative;
-  background-color: crimson;
-  height: 60%;
-  object-fit: fill;
-}
-
-.comm-image-container img {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.comm-content-container {
-  position: relative;
-  padding: .1rem;
-}
-
-.comm-info-container {
-  height: 3rem;
-  padding: .25rem;
-  height: 2rem;
-}
-
-.comm-image-container:active{
-  color: white;
-}
-
-.comm-title-container {
-  position: relative;
-  padding: .25rem;
-  bottom: 15.25rem;
-  height: 15.25rem;
-  opacity: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.781), transparent 40%);
-  transition: opacity 1s;
-}
-
-.comm-title-container:hover {
-  opacity: 1;
-}
-
-.title-nav {
-  font-size: 1.6rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
-}
-
-.title-nav:hover {
-  text-decoration: underline;
-}
-
-.title-nav-active {
-  color: white;
-}
-
-.title-box {
-  position: relative;
-  top: 10.75rem;
-  height: 4rem;
-  padding: .25rem;
-}
-
-.comm-info-container h8 {
-  font-size: 1.5rem;
-}
-
-.comm-rating-info {
-  display: flex;
-  justify-content: space-between;
-  padding: .25rem;
-  position: absolute;
-  top: 8rem;
-}
-
-.comm-rating-info p {
- width: 7rem;
-}
-
-.comm-pricing {
-  margin-left: 4.8rem;
-}
-
-.comm-pricing p {
-  width: 3rem;
-  font-weight: bold;
-} */
-
-/* @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-} */

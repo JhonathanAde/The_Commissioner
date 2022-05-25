@@ -53,9 +53,6 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
       history.push('/signup');
     }
   }
-
-  // checkPath();
-
   
 
   if (authenticated) {

@@ -23,7 +23,6 @@ const ReqeustsPage = ({user}) => {
   const carouselRef = useRef(null);
 
   useEffect(() => {
-    // let imageCards = cardRef.current.querySelector(".carousel-slider").childNodes
     const domStaller = setTimeout(() => {
       let imageCards = cardRef.current.querySelectorAll(".user-request.cardsbody");
       let carouselSlider = carouselRef.current.querySelector(".carousel-slider");
@@ -34,13 +33,6 @@ const ReqeustsPage = ({user}) => {
     }, 200)
     
   }, [cardRef])
- 
-
-  // const staller = setTimeout(() => {
-  //   debugger
-  //   let width = imgCards[0].clientWidth;
-  // }, 5000)
-  
 
   return (
     <div className="request-page" ref={carouselRef}>

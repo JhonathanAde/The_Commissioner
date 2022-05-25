@@ -37,7 +37,6 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
   const [imgDisplay, setImgDisplay] = useState("");
   const [imgWidth, setImgWidth] = useState(0);
   const [imgHeight, setImgHeight] = useState(0);
-  // const [isLandscape, setIsLandscape] = useState(false);
   const [oreientation, setOrientation] = useState(null);
   
   var isLandscape
@@ -69,18 +68,9 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
   useEffect(() => {
     let ratingEl = document.querySelectorAll(".rating-stars")
     
-    // const changeRatingColor = () => {
-    //   ratingEl.style.color = "#ffdc60"
-    // }
-    // setRatingColor(changeRatingColor);
   })
 
    var ratingsAvg = 0;
-
-  //  const changeRatingColor = (e) => {
-  //   setRatingColor ("#ffdc60");
-  //  }
-
   
 
   let imgStyleWidth = {
@@ -156,7 +146,6 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
     } 
     else {
       window.location.reload();
-      // history.push(`/product/${commission.id}`)
     }
     } 
 
@@ -278,8 +267,6 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
                   comm.commission.id === commission.id ? false
                     :
                   <>
-                    {/* <img src={comm.commission.image_url}/> */}
-                    
                       <OtherWorks image={comm.commission.image_url} title={comm.commission.title} id={comm.commission.id}/>
                   </>
                 ))}

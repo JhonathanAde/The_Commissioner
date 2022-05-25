@@ -23,7 +23,6 @@ const OtherWorks = ({image, title, id}) => {
             <img src={image} />
           </div>
         </div>
-        {/* <h1>{title}</h1> */}
       </div>
       </button>
     </div>

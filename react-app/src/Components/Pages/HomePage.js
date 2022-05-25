@@ -3,8 +3,6 @@ import React, {useState, useEffect} from 'react'
 import CommissionCards from '../Card/CommissionCards'
 import { getAllCommissions } from '../services/commission'
 
-// import CommissionForm from '../Forms/CommissionForm'
-
 // CSS
 import "./HomePage.css"
 
@@ -43,7 +41,6 @@ const Homepage = ({authenticated}) => {
     </div>
     </div>
     </div>
-    {/* <Footer /> */}
     </>
   )
 }

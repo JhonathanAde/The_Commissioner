@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import { useParams, useLocation } from "react-router-dom";
 import LoginForm from "../auth/LoginForm";
 import SignUpForm from "../auth/SignUpForm";
-// import { NavLink } from "react-router-dom";
 
 //CSS
 import "./SplashPage.css"
@@ -14,24 +13,7 @@ const SplashPage = ({authenticated, setAuthenticated, setUser, user}) => {
   const [loginForm, setLoginForm] = useState(null);
 
 
-  // if (authenticated) {
-    
-  // }
-
   const {pathname} = useLocation();
-
- 
-  // const signUpVisibility = () => {
-  //   if (login === "login-form"){
-  //     setLogin("splashlogin-form__hidden")
-  //     setSignup("signup-form")
-  //   }
-  // }
-
-  // if(pathname === "/signup"){
-  //   setSignup("signup-display__hidden")
-  //   setLogin("splashlogin-form")
-  // }
 
 
   const checkPath = () => {
@@ -59,8 +41,6 @@ const SplashPage = ({authenticated, setAuthenticated, setUser, user}) => {
     }
 
   }
-
-  // logInVisibility();
 
   return (
     <div className="splashpage">

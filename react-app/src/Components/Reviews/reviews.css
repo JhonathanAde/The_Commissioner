@@ -12,7 +12,6 @@
 .review-card.main {
   display: flex;
   flex-direction: row;
-  /* background-color: var(--card-grey); */
   width: 685px;
   padding: 5px;
   margin-top: 50px;

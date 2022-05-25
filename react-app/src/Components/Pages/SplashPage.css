@@ -1,6 +1,5 @@
 .splashpage {
   min-height: 100%;
-  /* overflow: auto; */
   padding-bottom: 15.2rem;
 }
 
@@ -10,21 +9,16 @@
   align-items: center;
   padding: 0;
   clear: both;
-  /* height: 80rem; */
-  /* background-color: cornflowerblue; */
 }
 
 .splashpage.logincontent {
   display: flex;
   position: relative;
-  /* background-color: coral; */
   width: 150rem;
   height: 873px;
   max-height: 1080px;
   padding: 0;
   margin-bottom: 50px;
-  /* margin: 2rem; */
-  /* clear: both; */
   box-shadow: 0rem 0rem .8rem rgba(0, 0, 0, 0.5);
 }
 
@@ -75,32 +69,23 @@
 
 .splashlogin-form {
   display: block;
-  /* background-color: cadetblue; */
 }
 
 .login-form__hidden {
   display: block;
-  /* background-color: cadetblue; */
   visibility: hidden;
 }
 
 .signup-display {
-  /* position: absolute; */
-  /* z-index: 20; */
-  /* transform: translate(-22rem, -30rem); */
   animation-name: openSignUp;
   animation-duration: .8s;
   visibility: visible;
   transition: visibility 0s;
   margin-bottom: 10px;
-  /* align-self: center; */
-  /* justify-self: flex-start; */
 }
 
 .signup-display__hidden {
-  /* position: absolute; */
   visibility: hidden;
-  /* transform: translate(-22rem, -30rem); */
   animation-name: closeSignUp;
   animation-duration: .8s;
 }

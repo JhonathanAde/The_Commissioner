@@ -6,11 +6,6 @@ import { getRatingsByCommissionId } from '../../services/ratings';
 import { getACommission } from '../../services/commission';
 
 const RequestCards = ({info, testRef}) => {
-  // info.date = Deadline for requested art
-  // info.details = Instructions/Details for requested art
-  // info.image_url = Requested art image
-  // info.title = Title of requested art
-  // info.users.username = Username of Client
 
   const [review, setReviews] = useState(null);
   const [reviewLength, setReviewLength] = useState(0);
@@ -62,7 +57,6 @@ const RequestCards = ({info, testRef}) => {
               <h1>{commissionArtist}</h1>
             </NavLink>
           </div>
-          {/* <p>{info.details}</p> */}
         </div>
         <div className="user-request request-card__importants__container">
           <div id="request-ratings">
