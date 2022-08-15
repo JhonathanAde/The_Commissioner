@@ -23,7 +23,7 @@ const ProfileCommCards = ({com}) => {
               <img src={commission.image_url} alt="Commission-preview"/>
               <div className="protitle-box">
                 <div className="protitle">
-                  <NavLink className="protitle-nav" activeClassName="protitle-nav-active" to={`/product/${commission.id}`}>
+                  <NavLink className="protitle-nav" to={`/product/${commission.id}`}>
                     <h1>{(commission.title)}</h1>
                   </NavLink>
                 </div>

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState, useParams } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { createRating, getRatingsByCommissionId } from '../../services/ratings';
 import Rating from 'react-rating';
 import { getCommissionsById} from '../../services/commission'
@@ -19,7 +19,7 @@ const ProductCard = ({commission, currentUser, authenticated, commissionId}) => 
 
   const {ratingAverage, setRatingAverage} = useContext(UserContext);
   
-  const history = useHistory();
+  const history = useNavigate();
   
   //--- User Info ---
   const {user} = commission;

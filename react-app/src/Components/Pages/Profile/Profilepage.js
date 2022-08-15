@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { useParams, useHistory, useLocation } from "react-router-dom"
+import { useParams, useNavigate, useLocation } from "react-router-dom"
 import { getCommissionsById } from '../../services/commission'
 import { getRequestsById } from '../../services/request'
 import { editBasicInfo, editUserName, uploadProfilePic } from '../../services/auth'
@@ -53,7 +53,7 @@ const Profilepage = ({authenticated, user}) => {
   const [reviewLength, setReviewLength] = useState(0);
   const {userId} = useParams()
   const {pathname} = useLocation();
-  const history = useHistory();
+  const history = useNavigate();
 
   const button_wrapper_styles = {
     position: 'relative',

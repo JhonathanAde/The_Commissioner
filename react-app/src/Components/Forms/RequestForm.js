@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { createRequest } from "../services/request"
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import './CSS/requestform.css'
 
@@ -21,7 +21,7 @@ const RequestForm = ({currentUser, commissionId, commission, seller}) => {
   let detailCharacters = details.length; 
   
   //--- Redirect declaration ---
-  const history = useHistory();
+  const history = useNavigate();
   
   //--- User info ---
   const {user, image_url, price} = commission;

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { BrowserRouter, Route, Switch} from "react-router-dom";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar"
 import { authenticate } from "./Components/services/auth";
 import {UserContext} from "./Components/context/UserContext"
@@ -44,49 +44,49 @@ function App() {
     <BrowserRouter>
     <UserContext.Provider value={{ratingAverage, setRatingAverage}}>
       <NavBar setAuthenticated={setAuthenticated} authenticated={authenticated} setUser={setUser} user={user} />
-      <Switch>
-        <Route path="/login" exact={true}>
+      <Routes>
+        <Route path="/login" exact={true} element={
+          <SplashPage
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+            setUser={setUser}
+            user={user}
+            />}>
+        </Route>
+        <Route path="/signup" exact={true} element={
           <SplashPage
             authenticated={authenticated}
             setAuthenticated={setAuthenticated}
             setUser={setUser}
             user={user}
             />
-        </Route>
-        <Route path="/signup" exact={true}>
-          <SplashPage
-            authenticated={authenticated}
-            setAuthenticated={setAuthenticated}
-            setUser={setUser}
-            user={user}
-            />
-        </Route>
-        <Route path="/request/:commissionId" exact={true}>
+        } />
+        <Route path="/request/:commissionId" exact={true} element={
           <RequestCommissionPage user={user}/>
-        </Route>
-        <Route path="/create-a-commission" exact={true}>
+        }/>
+        <Route path="/create-a-commission" exact={true} element={
           <CreateCommissionPage authenticated={authenticated} user={user}/>
-        </Route>
-        <Route path="/product/:commissionId" exact={true}>
+        } />
+        <Route path="/product/:commissionId" exact={true} element={
           <ProductPage authenticated={authenticated} user={user}/>
-        </Route>
+        } />
 
-        <Route path="/:username/settings">
+        <Route path="/:username/settings" element={
           <SettingsPage user={user}/>
-        </Route>
-        <Route path="/:username/requests">
+        } />
+        <Route path="/:username/requests" element={
           <ReqeustsPage user={user}/>
-        </Route>
-        <Route path="/:username/profile" exact={true}>
+        }/>
+        <Route path="/:username/profile" exact={true} element={
           <Profilepage authenticated={authenticated} user={user}/>
-        </Route>
-        <Route path="/profile/:userId" exact={true}>
+        } />
+        <Route path="/profile/:userId" exact={true} element={
           <Profilepage authenticated={authenticated} user={user}/>
-        </Route>
-        <Route>
-          <Homepage path="/" exact={true} authenticated={authenticated} />
-        </Route>
-      </Switch>
+        }/>
+        <Route path="/" exact={true} element={
+          <Homepage authenticated={authenticated} />
+        } />
+      </Routes>
         </UserContext.Provider>
     </BrowserRouter>
     </div>

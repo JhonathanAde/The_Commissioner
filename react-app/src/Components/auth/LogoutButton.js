@@ -1,10 +1,10 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { logout } from "../services/auth";
 
 
 const LogoutButton = ({setAuthenticated, setUser, user}) => {
-  const history = useHistory();
+  const history = useNavigate();
 
   
   const onLogout = async (e) => {

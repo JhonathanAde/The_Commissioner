@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Redirect, useHistory } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { login } from "../services/auth";
 
 // CSS
@@ -10,7 +10,7 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const history = useHistory()
+  const history = useNavigate()
   const emailInput = document.querySelector("#email-input")
   const passInput = document.querySelector("#password-input")
 
@@ -56,7 +56,7 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
   
 
   if (authenticated) {
-    return <Redirect to="/" />;
+    return <Navigate to="/" />;
   }
 
   return (

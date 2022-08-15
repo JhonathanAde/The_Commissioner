@@ -29,8 +29,8 @@ const CommissionCards = ({comms, authenticated}) => {
   }, [])
 
   
-  let emptyStars = <i class="far fa-star fa-2x"></i>
-  let fullStars = <i class="fas fa-star fa-2x"></i>
+  let emptyStars = <i className="far fa-star fa-2x"></i>
+  let fullStars = <i className="fas fa-star fa-2x"></i>
 
   const calculateAverageRating = () => {
     let sum = 0 
@@ -55,7 +55,7 @@ const CommissionCards = ({comms, authenticated}) => {
           </div>
           <div className="commission-card title-container">
             <div className="title-container title-box">
-            <NavLink to={`/product/${id}`} className="title-container title-nav" activeClassName="title-container title-nav-active" > 
+            <NavLink to={`/product/${id}`} className="title-container title-nav" > 
               <h1>{title}</h1>
             </NavLink>
             </div>
