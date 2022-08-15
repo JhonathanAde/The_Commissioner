@@ -1,4 +1,4 @@
-FROM node:12 AS build-stage
+FROM node:18.4.0 AS build-stage
 
 WORKDIR /react-app
 COPY react-app/. .
@@ -11,7 +11,7 @@ RUN npm run build
 FROM python:3.8
 
 ENV FLASK_APP=app
-ENV FLASK_ENV=production
+ENV FLASK_DEBUG=production
 ENV SQLALCHEMY_ECHO=True
 
 EXPOSE 8000
