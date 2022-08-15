@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Redirect, useHistory } from 'react-router-dom';
+import { Navigate, useNavigate,  } from 'react-router-dom';
 import { signUp } from '../services/auth';
 import states from 'states-us';
 import "./SignUpForm.css"
@@ -13,7 +13,7 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSig
   const [artist, setArtist] = useState(false)
   const [location, setLocation] = useState("")
 
-  const history = useHistory();
+  const history = useNavigate();
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -70,7 +70,7 @@ const SignUpForm = ({authenticated, setAuthenticated, setUser, showlogin, setSig
 
 
   if (authenticated) {
-    return <Redirect to="/" />;
+    return <Navigate to="/" />;
   }
 
   

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {createCommission, uploadCommissionImage} from "../services/commission"
 
 // CSS
@@ -44,7 +44,7 @@ const CommissionForm = ({authenticated, user, image_url, setImage}) => {
   const dateCreated = `${currentYear}-${monthFormat}-${dayFormat}`;
 
   //--- Redirect Declaration ---
-  const history = useHistory()
+  const history = useNavigate()
 
   let imgFileName = document.getElementById('commission-image__input')
   //--- Helper Functions ---

@@ -38,7 +38,7 @@ const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
     <nav className="nav-bar bar-base">
         <div className="nav-bar main-items"> 
           <div className="nav-bar home-icon">
-          <NavLink to="/" exact={true} activeClassName="active">
+          <NavLink to="/" exact="true">
             <img src='https://commissioner-icons.s3.amazonaws.com/Commissioner_logo_white.png' id="main-logo">
             </img>
           </NavLink>
@@ -66,8 +66,8 @@ const NavBar = ({ setAuthenticated, authenticated, setUser, user }) => {
 
             :
             <div>
-              <NavLink to="/signup" exact={true} activeClassName="active" className="nav-links__menu">Sign Up</NavLink>
-              <NavLink to="/login" exact={true} activeClassName="active" className="nav-links__menu">Login</NavLink>
+              <NavLink to="/signup" exact="true"  className="nav-links__menu">Sign Up</NavLink>
+              <NavLink to="/login" exact="true"  className="nav-links__menu">Login</NavLink>
             </div>
           }
           </div>

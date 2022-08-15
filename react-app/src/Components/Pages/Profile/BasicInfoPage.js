@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { editBasicInfo } from '../../services/auth';
 
-import "./CSS/basicinfopage.css";
+// import "./CSS/basicinfopage.css";
 
 const BasicInfoForm = ({user}) => {
 
@@ -15,7 +15,7 @@ const BasicInfoForm = ({user}) => {
   const [website, setWebsite] = useState('');
 
   //--- Redirect Declaration ---//
-  const history = useHistory()
+  const history = useNavigate()
 
 
   //--- Helper Functions ---//

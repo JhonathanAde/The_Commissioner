@@ -1,12 +1,12 @@
 import React from 'react';
 import './CSS/otherworks.css';
 import { NavLink } from 'react-router-dom';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router';
 
 
 const OtherWorks = ({image, title, id}) => {
 
-  const history = useHistory();
+  const history = useNavigate();
   
   return (
     <>

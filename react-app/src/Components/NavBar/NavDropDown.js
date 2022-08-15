@@ -13,7 +13,7 @@ const Dropdown = ({isOpen, setAuthenticated, authenticated, setUser, user,}) => 
       <div className="nav-dropmenu">
         <ul>
           <li>
-            <NavLink to="/create-a-commission" exact={true} className="nav-links" activeClassName="active">
+            <NavLink to="/create-a-commission" exact="true" className="nav-links">
               Create
             </NavLink>
           </li>
