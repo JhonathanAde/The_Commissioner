@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { useParams, useLocation } from "react-router-dom";
-import LoginForm from "../auth/LoginForm";
-import SignUpForm from "../auth/SignUpForm";
+import LoginForm from "../Components/auth/LoginForm";
+import SignUpForm from "../Components/auth/SignUpForm";
 
 //CSS
 import "./SplashPage.css"

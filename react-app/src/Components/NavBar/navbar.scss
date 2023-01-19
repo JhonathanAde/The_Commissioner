@@ -1,0 +1,159 @@
+.navbar {
+  position: relative;
+  width: 100%;
+  top: 0;
+  background-color: black;
+  color: white;
+  z-index: 4;
+  position: sticky;
+
+  li {
+    font-size: 1.6rem;
+
+    a{
+      color: white;
+      text-decoration: none;
+      font-size: 1.6rem;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0rem 1rem;
+    height: 100%;
+  }
+}
+
+.navbar-wrapper {
+  width: 100%;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  padding: 1rem;
+}
+
+.navbar-main-links {
+  width: 100%;
+  padding: 1rem;
+  
+  ul {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+  }
+
+}
+
+.navbar-search {
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+
+  input {
+    width: 100%;
+    height: 3rem;
+  }
+
+  #nav-search-btn {
+    position: absolute;
+    right: 1.1rem;
+    min-height: 3rem;
+    // background-color: red;
+
+    button {
+      min-height: 2.9rem;
+      font-size: 1.6rem;
+      padding: 0 1rem;
+      border: none;
+    }
+  }
+}
+
+.navbar-user-links {
+  width: 100%;
+  padding: 1rem;
+
+  ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5rem;
+  }
+}
+
+
+
+[data-nav-dropdown] {
+  position: relative;
+}
+
+[data-dropdown-menu] {
+  overflow: hidden;
+  // height: 0rem;
+  background-color: black;
+  position: absolute;
+  top: 3.9rem;
+  right: -1rem;
+  padding: 2rem 0rem;
+  z-index: 5;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    li {
+      border-bottom: 1px solid white;
+      width: 100%;
+      // padding: .5rem;
+    }
+  }
+
+}
+
+.nav-overlay {
+  position: absolute;
+  top: 5.5rem;
+  // left: 0.5rem;
+  background-color: black;
+  width: 100%;
+  min-height:100vh ;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.nav-overlay.active {
+  opacity: .5;
+  transition: opacity 150ms ease-in-out;
+  pointer-events: all;
+}
+
+.nav-dropdown-user_menu {
+  opacity: 0;
+  width: 15rem;
+  transition: opacity 150ms ease-in-out, height 150ms ease-in-out;
+}
+.nav-dropdown-user_menu.active {
+  opacity: 1;
+  min-width: 15rem;
+  // height: 17rem;
+  transition: opacity 150ms ease-in-out, height 150ms ease-in-out;
+}
+
+.nav-dropdown-notifications {
+  // visibility: collapse;
+  opacity: 0;
+  min-width: 15rem;
+  transition: opacity 150ms ease-in-out, height 150ms ease-in-out;
+}
+.nav-dropdown-notifications.active {
+  // visibility: visible;
+  opacity: 1;
+  // height: 5rem;
+  transition: opacity 150ms ease-in-out, height 150ms ease-in-out;
+}
+

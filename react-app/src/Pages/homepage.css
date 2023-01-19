@@ -1,0 +1,40 @@
+.homepage-content {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+}
+
+.homepage-hero {
+  display: flex;
+  justify-content: center;
+  background-color: palevioletred;
+  grid-column: span 2;
+  width: 100%;
+  overflow: hidden;
+}
+
+.dummy-photo {
+  width: 100%;
+  max-height: 60rem;
+}
+.dummy-photo picture {
+  width: 100%;
+}
+.dummy-photo picture img {
+  width: 100%;
+}
+
+.homepage-artdisplay {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 2rem 5rem;
+  row-gap: 2rem;
+}
+.homepage-artdisplay h1 {
+  font-size: 4rem;
+  grid-column: span 4;
+}
+
+/*# sourceMappingURL=homepage.css.map */

@@ -1,5 +1,13 @@
-.page-container {
-  display: flex;
-  flex-direction: column;
+body {
   min-height: 100vh;
 }
+
+.app {
+  position: relative;
+}
+
+[data-page] {
+  padding: 2rem;
+}
+
+/*# sourceMappingURL=app.css.map */

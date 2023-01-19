@@ -6,15 +6,15 @@ import { editBasicInfo, editUserName, uploadProfilePic } from '../../services/au
 import BasicInfoForm from './BasicInfoForm'
 import UserNameForm from './UserNameForm'
 import ProfileImageForm from './ProfileImageForm'
-import Modal from '../Modal/Modal'
-import CommissionCards from '../../Card/CommissionCards'
+import Modal from '../../Components/Modal/Modal'
+import CommissionCards from '../../Components/Card/CommissionCards'
 import RequestCards from '../Request/RequestCards'
 import Rating from 'react-rating'
 
 //CSS
 import './CSS/profilepage.css'
-import '../../Card/CommissionCards.css'
-import Footer from '../../Footer/Footer'
+import '../../Components/Card/CommissionCards.css'
+import Footer from '../../Components/Footer/Footer'
 
 const Profilepage = ({authenticated, user}) => {
 

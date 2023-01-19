@@ -4,7 +4,7 @@ import "./footer.css";
 const Footer = () => {
   return (
     <div className="footer-window">
-    <div className="footer-sociallinks">
+    {/* <div className="footer-sociallinks">
       <ul className="creator-info">
         <li>
           <a href="https://github.com/JhonathanAde">
@@ -27,7 +27,7 @@ const Footer = () => {
       <h1>
         © copyright 2021 Jhonathan Ade
       </h1>
-    </div>
+    </div> */}
     </div>
   )
 }

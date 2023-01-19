@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { logout } from "../services/auth";
+import { logout } from "../../services/auth";
 
 
 const LogoutButton = ({setAuthenticated, setUser, user}) => {

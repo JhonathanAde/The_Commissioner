@@ -1,0 +1,30 @@
+html, #root {
+  // width: 100vw;
+  // height: 100vh;
+}
+body {
+  min-height: 100vh;
+}
+
+.app {
+  position: relative;
+  // width: 100%;
+  // background-color: pink;
+}
+
+.app-content {
+  // overflow-x: hidden;
+  // overflow-y: scroll;
+  //  overflow-x: none;
+  // width: 100%;
+}
+
+[data-page] {
+  // position: relative;
+  // margin-top: 10rem;
+  // background-color: blue;
+  // width: 100%;
+  padding: 2rem;
+  // z-index: 1;
+  // overflow-y: scroll;
+}

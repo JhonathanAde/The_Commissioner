@@ -5,7 +5,7 @@ import Rating from 'react-rating';
 import { getCommissionsById} from '../../services/commission'
 import OtherWorks  from './OtherWorks.js'
 
-import ReviewCard from '../../Reviews/reviews';
+import ReviewCard from '../../Components/Reviews/reviews';
 
 // CSS:
 import "./CSS/productcard.css";

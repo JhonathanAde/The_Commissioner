@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Navigate, useNavigate,  } from 'react-router-dom';
-import { signUp } from '../services/auth';
+import { signUp } from '../../services/auth';
 import states from 'states-us';
 import "./SignUpForm.css"
 
