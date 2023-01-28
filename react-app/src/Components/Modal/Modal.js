@@ -27,24 +27,12 @@ export default function Modal({open, children, onClose, title, closeIcon}) {
   if(!open) return null;
 
   return ReactDom.createPortal(
-    <>
-    <div style={overlay_styles}/>
-    <div className="modal-window">
-      <div className="modal-window modal-body">
-        <div id="close-bar">
-          <div />
-          <h4 id="modal-title">{title}</h4>
-          <button onClick={onClose}>
-            <img src={closeIcon.src} />
-          </button>
-        </div>
-      <div className="modal modal-body">
-
-        {children}
-      </div>
-      </div>
+  <div className='modal-main'>
+    <div className={!open ? "modal-overlay" : "modal-overlay active"}/>
+    <div className='modal-body'>
+      {children}
     </div>
-  </>,
+  </div>,
   document.getElementById('portal')
   )
 };

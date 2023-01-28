@@ -91,7 +91,10 @@
   width: 100%;
 }
 #display-card__userimg picture img {
+  display: block;
   width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 #display-card__pricing {

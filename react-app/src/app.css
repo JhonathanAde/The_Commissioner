@@ -2,6 +2,13 @@ body {
   min-height: 100vh;
 }
 
+img {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+  object-fit: contain;
+}
+
 .app {
   position: relative;
 }

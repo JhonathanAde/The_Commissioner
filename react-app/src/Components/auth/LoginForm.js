@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Navigate, useNavigate, NavLink } from "react-router-dom";
 import { login } from "../../services/auth";
 
 // CSS
 import "./LoginForm.css"
 
-const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSignup, showlogin, setLoginForm, pathname}) => {
+const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSignup, showlogin, setLoginForm, pathname, setAuthForm, userMenu}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,6 +13,8 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
   const history = useNavigate()
   const emailInput = document.querySelector("#email-input")
   const passInput = document.querySelector("#password-input")
+  let emailErr = errors.find(el => el.match(/(email\s:)/));
+  let passErr = errors.find(el => el.match(/(password\s:)/));
 
 
 
@@ -23,6 +25,7 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
       setAuthenticated(true);
       setUser(data)
     } else {
+      console.log(data.errors);
       setErrors(data.errors);
     }
   };
@@ -33,7 +36,8 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
     if(!data.errors){
       setAuthenticated(true);
       setUser(data);
-      history.push("/");
+      userMenu(false);
+      history("/");
     }
   }
 
@@ -45,58 +49,67 @@ const LoginForm = ({ authenticated, setAuthenticated, setUser, setLogin, setSign
     setPassword(e.target.value);
   };
 
-  const signUpVisibility = (e) => {
-    e.preventDefault();
-   
-    if (pathname.includes("login")){
-      setLoginForm(true)
-      history.push('/signup');
-    }
-  }
-  
+  useEffect(() => {
+    console.log(errors);
+    
+  }, [errors, emailErr])
 
   if (authenticated) {
     return <Navigate to="/" />;
   }
 
+
   return (
-    <div>
-      <form className="login-form" onSubmit={onLogin}>
-        <div className="login-form login-errors">
-          {errors.map((error, idx) => (
-            <ul id="login-form__error-list">
-              <li key={idx}>
-                *{error}
-              </li>
-            </ul>
-          ))}
+
+    <div className='login-form-body'>
+      <div className="login-form-banner">
+
+      </div>
+      <div className={'login-form-info animate wipe-right'}>
+        <div className='login-form-header'>
+          <h3>Login</h3>
+          <p>
+            Not a member?&nbsp;
+            <NavLink to="#" onClick={() => { setAuthForm("signup")}}>Sign up</NavLink>
+          </p>
         </div>
-        <div className="login-form login-email">
-          <label id="login-email__label">Email</label>
-          <input
-            name="email"
-            type="email"
-            placeholder="Email"
-            id="login-email__input"
-            onChange={updateEmail}
-          ></input>
-        </div>
-        <div className="login-form login-pass">
-          <label id="login-password__label">Password</label>
-          <input 
-            name="password"
-            type="password"
-            placeholder="Password"
-            id="login-password__input"
-            onChange={updatePassword}
-          ></input>
-        </div>
-        <div className="login-form login-buttons">
-          <button id="login-buttons__login" type="submit">Login</button>
-          <button id="login-buttons__demo" onClick={demoLogin}>Demo</button>
-          <button id="login-buttons__signup" onClick={signUpVisibility}>Sign Up</button>
-        </div>
-      </form>
+        <form className='login-form' onSubmit={onLogin}>
+          <div>
+            {errors && errors.map((err, key) => {
+              console.log(err);
+            })}
+          </div>
+          <div className='email-input' data-input-layout>
+            <label>Email</label>
+            <input 
+              onChange={updateEmail}
+              ></input>
+            {emailErr && 
+              <div data-err-field>
+                <p>{emailErr.replace(/(email\s:)/," ")}</p>
+              </div>
+            }
+          </div>
+          <div className='password-input' data-input-layout>
+            <label>Password</label>
+            <input
+              onChange={updatePassword}
+              ></input>
+              {passErr &&
+                <div data-err-field>
+                  <p>{passErr.replace(/(password\s:)/, " ")}</p>
+                </div>
+              }
+          </div>
+
+          <div className='login-button'>
+            <button type="submit">Login</button>
+            <button 
+              onClick={demoLogin}
+              >Demo</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

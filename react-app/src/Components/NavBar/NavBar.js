@@ -1,22 +1,61 @@
 import React, {useState, useEffect} from 'react';
-import { NavLink } from 'react-router-dom' ;
+import { NavLink, useNavigate } from 'react-router-dom' ;
+import { logout } from "../../services/auth";
+import logo from "../../Logo/Commissioner_logo_white.png";
+import states from 'states-us';
+
 
 // Components //
 import Dropdown from './NavDropDown';
+import Modal from '../Modal/Modal';
 
 
 // CSS //
 import "./navbar.css"
+import LoginForm from '../auth/LoginForm';
+import SignUpForm from '../auth/SignUpForm';
 
 
-const NavBar = ({isClicked, active}) => {
+const NavBar = (
+    {isClicked,
+     active,
+     authenticated,
+     user,
+     setAuthenticated,
+     setUser
+    }) => {
+
+  // In Styles //
+  let logoStyles = {
+    backgroundImage: `url('${logo}')`,
+    backgroundSize: 'cover',
+
+  }
 
   // State //
   const [userMenuActive, setUserMenu] = useState(false);
   const [notificationsActive, setNotifcationsMenu] = useState(false);
   const [overlayActive, setOverlay] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [isOpen, setOpen] = useState(false)
+  const [authForm, setAuthForm] = useState("login");
+
+  // Variables //
+  let history = useNavigate();
+  const statesList = states.map( x => x.name)
 
   // Helper Functions //
+
+   const onLogout = async (e) => {
+    await logout();
+    setAuthenticated(false);
+    setUser({});
+    setOverlay(false);
+    setUserMenu(false);
+    setOpen(false);
+    setModalOpen(false);
+    history.push("/");
+  };
 
   const openUserMenu = (e) => {
     e.preventDefault();
@@ -59,54 +98,143 @@ const NavBar = ({isClicked, active}) => {
     return
   }
 
+  useEffect(() => {
+    console.log(user)
+  })
+
+  // 
+
   return(
     <>
-      <nav className='navbar'>
-        <div className='navbar-wrapper'>
-           <div 
-        className={!overlayActive ? 'nav-overlay' : 'nav-overlay active'}
-        onMouseDown={closeMenu}
-        ></div>
-          <section className='navbar-main-links'>
-            <ul>
-              <li>LOGO</li>
-              <li>Discover</li>
-            </ul>
-          </section>
-          <section className='navbar-search'>
-            <input></input>
-            <div id="nav-search-btn">
-              <button>Search</button>
+      {authenticated &&
+        <nav className='navbar'>
+          <div className='navbar-wrapper'>
+            <div 
+          className={!overlayActive ? 'nav-overlay' : 'nav-overlay active'}
+          onMouseDown={closeMenu}
+          ></div>
+            <section className='navbar-main-links'>
+              <ul>
+                <li>
+                  <NavLink to="/" >
+                    <picture>
+                      <img className="nav-main-logo" src={logo}/>
+                    </picture>
+                  </NavLink>
+                </li>
+                <li>Discover</li>
+              </ul>
+            </section>
+            <section className='navbar-search'>
+              <input></input>
+              <div id="nav-search-btn">
+                <button>Search</button>
+              </div>
+            </section>
+            <section className='navbar-user-links'>
+              <ul>
+                <div data-nav-dropdown>
+                  <li>
+                    <NavLink to="#" onClick={openNotificationsMenu}>Notifications</NavLink>
+                  </li>
+                  <Dropdown active={notificationsActive} menuName="notifications">
+                    <ul>
+                      <li>Test</li>
+                    </ul>
+                  </Dropdown>
+                </div>
+                <div data-nav-dropdown>
+                  <li>
+                    <NavLink to="#" onClick={openUserMenu}>
+                      <div className='nav-user-icon' style={{
+                        backgroundImage: `url('${user.profile_pic}')`,
+                        backgroundSize: "cover"
+                      }}></div>
+                    </NavLink>
+                  </li>
+                  <Dropdown active={userMenuActive} menuName="user_menu"> 
+                    <ul>
+                      <li>Profile</li>
+                      <li>Settings</li>
+                      <li>
+                        <NavLink to="#" onClick={onLogout}>Log Out</NavLink>
+                      </li>
+                    </ul> 
+                  </Dropdown>
+                </div>
+              </ul>
+            </section>
+          </div>
+        </nav>
+      }
+    {!authenticated &&
+      <>
+        <nav className='navbar'>
+            <div className='navbar-wrapper'>
+              <div 
+            className={!overlayActive ? 'nav-overlay' : 'nav-overlay active'}
+            onMouseDown={closeMenu}
+            ></div>
+              <section className='navbar-main-links'>
+                <ul>
+                  <li>
+                    <NavLink to="/" >
+                      <picture>
+                        <img className="nav-main-logo" src={logo}/>
+                      </picture>
+                    </NavLink>
+                  </li>
+                  <li>Discover</li>
+                </ul>
+              </section>
+              <section className='navbar-search'>
+                <input></input>
+                <div id="nav-search-btn">
+                  <button>Search</button>
+                </div>
+              </section>
+              <section className='navbar-user-links'>
+                <ul>
+                    <li>
+                      <NavLink to="#" onClick={() => {
+                        setModalOpen(true)
+                        setOpen(true)
+                      }}>Sign In</NavLink>
+                    </li>
+                </ul>
+              </section>
             </div>
-          </section>
-          <section className='navbar-user-links'>
-            <ul>
-              <div data-nav-dropdown>
-                <li>
-                  <NavLink to="#" onClick={openNotificationsMenu}>Notifications</NavLink>
-                </li>
-                <Dropdown active={notificationsActive} menuName="notifications">
-                  <ul>
-                    <li>Test</li>
-                  </ul>
-                </Dropdown>
+          </nav>
+          <Modal open={modalOpen}>
+            <>
+              <div className={isOpen ? 'auth-form animate wipe-up' : 'auth-form animate wipe-down'}>
+                <div className='auth-modal-close'>
+                  <div 
+                    className='close-button-container' 
+                    onClick={() => {
+                      setOpen(false);
+                      setTimeout(() => {
+                        setModalOpen(false);
+                        setAuthForm("login")
+                      }, 200)
+                      }}>
+                    <svg id="close-button" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 446.36 446.36"><rect x="-32.86" y="217.23" width="565.71" height="65.53" transform="translate(-130.38 223.18) rotate(-45)" /><rect x="-32.86" y="217.23" width="565.71" height="65.53" transform="translate(223.18 -130.38) rotate(45)" /></svg>
+                  </div>
+                </div>
+                <div className='auth-form-body'>
+                  
+                  {authForm === "login" &&
+                    <LoginForm  setAuthenticated={setAuthenticated} setUser={setUser} setAuthForm={setAuthForm} userMenu={setUserMenu}/>
+                  }
+                  {authForm === "signup" &&
+                    <SignUpForm setAuthForm={setAuthForm}/>
+                  }
+                </div>
               </div>
-              <div data-nav-dropdown>
-                <li>
-                  <NavLink to="#" onClick={openUserMenu}>User Icon</NavLink>
-                </li>
-                <Dropdown active={userMenuActive} menuName="user_menu"> 
-                  <ul>
-                    <li>Profile</li>
-                    <li>Settings</li>
-                    <li>Log Out</li>
-                  </ul> 
-                </Dropdown>
-              </div>
-            </ul>
-          </section>
-        </div>
-      </nav>
+            </>
+          </Modal>
+      </>
+    }
     </>
   );
 

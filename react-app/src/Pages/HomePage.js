@@ -21,14 +21,21 @@ const Homepage = ({authenticated}) => {
   }
 
   useEffect(() => {
-    (async () => {
-      const getComs = await getAllCommissions()
-      let commissions = getComs.commissions; 
-      setRecentComs(commissions)
-    })()
-  }, [])
+    // (async () => {
+    //   const getComs = await getAllCommissions();
+    //   let commissions = getComs.commissions; 
+    //   setRecentComs(commissions)
+    // })()
+    const fetchData = async () => {
+      const result = await fetch(`/api/commissions`);
+      result.json().then(json => {
+        let {commissions} = json;
+        setRecentComs(commissions);
+      });
+    }
 
-  console.log(recentComs);
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -45,11 +52,10 @@ const Homepage = ({authenticated}) => {
           <article className='homepage-artdisplay'>
             <h1>Recent Commissions</h1>
             {recentComs && recentComs.map((com, key) => {
-              const {commission} = com
               return(
                 <div key={key}>
                   <ComCardHm 
-                    com={commission}
+                    com={com}
                     />
                 </div>
               )

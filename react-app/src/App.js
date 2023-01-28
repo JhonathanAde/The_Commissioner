@@ -15,6 +15,8 @@ import SettingsPage from "./Pages/Profile/SettingsPage";
 import ReqeustsPage from "./Pages/Request/RequestPage";
 import Footer from "./Components/Footer/Footer";
 import "./app.css";
+import "./Utility/anim_util.css";
+
 
 // Utility Files //
 import { useMediaQuery } from "./Utility/mediaQuery";
