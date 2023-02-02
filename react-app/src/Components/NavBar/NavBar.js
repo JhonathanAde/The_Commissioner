@@ -14,6 +14,7 @@ import Modal from '../Modal/Modal';
 import "./navbar.css"
 import LoginForm from '../auth/LoginForm';
 import SignUpForm from '../auth/SignUpForm';
+import CloseButton from '../CloseButton';
 
 
 const NavBar = (
@@ -49,6 +50,14 @@ const NavBar = (
   const statesList = states.map( x => x.name)
 
   // Helper Functions //
+
+    const onClose = () => {
+      setOpen(false);
+      setTimeout(() => {
+        setModalOpen(false);
+        setAuthForm("login")
+      }, 150)
+    }
 
    const onLogout = async (e) => {
     await logout();
@@ -190,8 +199,52 @@ const NavBar = (
               </ul>
             </section>
             <section className='navbar-search'>
-              <input></input>
-            </section>
+                <div className='search-main'>
+                  <input onChange={searchUsers} onBlur={() => {
+                    setSearchClass("search-results hidden");
+                  }} onFocus={() => {
+                    setSearchClass("search-results");
+                  }} placeholder="Search"></input>
+                  <div className={searchClass}>
+                    {results && results.map((data, key) => {
+                      // console.log(data.username);aa
+                      
+                      return (
+                          <div className="search-card" key={key}>
+                            <div className='search-card-img'>
+                              <picture>
+                                <img src={data.profile_pic}/>
+                              </picture>
+                            </div>
+                            <div>
+                              <h1>{data.username}</h1>
+                              <p>{data.first_name}&nbsp;{data.last_name}</p>
+                            </div>
+                        </div>
+                  
+                      )
+                    })}
+
+                    {!results && 
+
+                      <div className='search-card'>
+                        <p>Loading...</p>
+
+                      </div>
+
+                    }
+
+                    { results && results.length === 0 &&
+
+                      <div className='search-card'>
+                        <p>no match</p>
+
+                      </div>
+
+                    }
+                  </div>
+                </div>
+              </section>
             <section className='navbar-user-links'>
               <ul>
                 <div data-nav-dropdown>
@@ -254,7 +307,7 @@ const NavBar = (
                     setSearchClass("search-results hidden");
                   }} onFocus={() => {
                     setSearchClass("search-results");
-                  }}></input>
+                  }} placeholder="Search"></input>
                   <div className={searchClass}>
                     {results && results.map((data, key) => {
                       // console.log(data.username);aa
@@ -311,17 +364,7 @@ const NavBar = (
             <>
               <div className={isOpen ? 'auth-form animate wipe-up' : 'auth-form animate wipe-down'}>
                 <div className='auth-modal-close'>
-                  <div 
-                    className='close-button-container' 
-                    onClick={() => {
-                      setOpen(false);
-                      setTimeout(() => {
-                        setModalOpen(false);
-                        setAuthForm("login")
-                      }, 200)
-                      }}>
-                    <svg id="close-button" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 446.36 446.36"><rect x="-32.86" y="217.23" width="565.71" height="65.53" transform="translate(-130.38 223.18) rotate(-45)" /><rect x="-32.86" y="217.23" width="565.71" height="65.53" transform="translate(223.18 -130.38) rotate(45)" /></svg>
-                  </div>
+                  <CloseButton close={onClose}/>
                 </div>
                 <div className='auth-form-body'>
                   

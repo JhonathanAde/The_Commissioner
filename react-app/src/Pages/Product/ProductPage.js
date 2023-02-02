@@ -7,6 +7,9 @@ import ImgHandler from "../../Components/ImgHandler";
 
 import "./productpage.css";
 import { UserContext } from '../../context/UserContext';
+import Modal from "../../Components/Modal/Modal";
+import RequestForm from "../../Forms/RequestForm";
+import CloseButton from "../../Components/CloseButton";
 
 let fix = 0;
 let mainAvg = 0;
@@ -33,6 +36,8 @@ const ProductPage = ({user, authenticated}) => {
   const [ratingInput, setRatingInput] = useState(0);
   const [comment, setComment] = useState("");
   const [errors, setErrors] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [isOpen, setOpen] = useState(false)
 
   const params = useParams()
   const history = useNavigate();
@@ -95,6 +100,13 @@ const ProductPage = ({user, authenticated}) => {
     }
 
     calculateAverageRating(rating, id);
+
+    const onClose = () => {
+      setOpen(false);
+      setTimeout(() => {
+        setModalOpen(false);
+      }, 170)
+    }
 
 
   //--- Fetch Call ---//
@@ -254,7 +266,10 @@ const ProductPage = ({user, authenticated}) => {
                 <p id="main-description">{description}</p>
 
                 <div className="product-req-button">
-                  <button> Request </button>
+                  <button onClick={() => {
+                    setOpen(true);
+                    setModalOpen(true);
+                  }}> Request </button>
                 </div>
               </div>  
 
@@ -308,6 +323,18 @@ const ProductPage = ({user, authenticated}) => {
             
           </div>
           </div>
+
+          <Modal open={modalOpen}  >
+            <div className={isOpen ? "req-modal animate wipe-up" : "req-modal animate wipe-down"}>
+              <div className="req-modal-close">
+                <CloseButton close={onClose} /> 
+              </div>
+              <div className="req-modal-body">
+                <RequestForm img={imageUrl} title={title} artist={artist}/>
+              </div>
+            </div>
+
+          </Modal>
         </div>
 
       </div>

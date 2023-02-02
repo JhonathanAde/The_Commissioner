@@ -1,138 +1,115 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { createRequest } from "../services/request"
 import { useNavigate } from "react-router-dom";
 
-import './CSS/requestform.css'
+import './requestform.css'
 
 
-const RequestForm = ({currentUser, commissionId, commission, seller}) => {
+const RequestForm = ({img, title, artist}) => {
 
-  
-  //--- State ---
-  const [date, setDate] = useState("");
-  const [details, setDetails] = useState("");
-  const [errors, setErrors] = useState([]);
-  // const [price, setPrice] = useState(0.00);
-  const [references, setReferences] = useState("");
-  const [title, setTitle] = useState("");
-  const [urgency, setUrgency] = useState(false);
-  const [dueDate, setDueDate] = useState(false);
-  const [dueDateClass, setDueDateClass] = useState("request-form request-form__urgent-date")
-  let detailCharacters = details.length; 
-  
-  //--- Redirect declaration ---
-  const history = useNavigate();
-  
-  //--- User info ---
-  const {user, image_url, price} = commission;
-  const {id} = seller;
-  
-  // --- Helper functions ---
-  const updateTitle = (e) => {
-    setTitle(e.target.value);
-  }
-  
-  const updateDetails = (e) => {
-    setDetails(e.target.value);
-  }
+  const [imgWidth, setWidth] = useState(0);
+  const [imgHeight, setHeight] = useState(0);
+  const [orient, setOrient] = useState("");
 
-  const updateReferences = (e) => {
-    setReferences(e.target.files[0]);
-  }
+  useEffect(() => {
+    if(img !== null){
+      let pic = new Image();
+      pic.src = img;
 
-  const updateUrgency = (e) => {
-    setUrgency(e.target.value);
-  }
+      pic.onload = () => {
+        setWidth(pic.width);
+        setHeight(pic.height);
 
-  const updateDate = (e) => {
-    setDate(e.target.value);
-  }
-
-  const showDueDate = (e) => {
-    setDueDate(true);
-    setDueDateClass("request-form request-form__urgent-date-active")
-  }
-
-  const hideDueDate = (e) => {
-    setDueDateClass("request-form request-form__urgent-date")
-    setTimeout(() => {
-      setDueDate(false);
-    }, 400)
-    
-  }
-
-
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    const requestData = new FormData()
-    requestData.append('title', title);
-    requestData.append('details', details);
-    requestData.append('references', references);
-    requestData.append('urgency', urgency);
-    requestData.append('date', date);
-    requestData.append('commission_id', commissionId);
-    requestData.append('price', price);
-    requestData.append('user_id', id);
-    requestData.append('buyer_id', currentUser.id);
-    requestData.append('image_url', image_url);
-    const request = await createRequest(requestData);
-    if (request.errors) {
-      setErrors(request.errors);
-    } else {
-      history.push(`/${currentUser.username}/profile`);
+        if(imgHeight > imgWidth){
+          setOrient("portrait");
+        }
+        else if (imgWidth > imgHeight) {
+          setOrient("landscape");
+        } 
+        else {
+          setOrient("square");
+        }
+      }
     }
-  }
+  }, [])
+
 
   return (
-    <div>
-      <form className="request-form" id="request-form" onSubmit={submitHandler}>
-        <div className="request-form request-form__errors">
-          {errors.map((error, idx) => (
-            <ul id="request-form__errors-list" key={idx}>
-              <li>{error}</li>
-            </ul>
-          ))}
+   <div className="req-form-body">
+    <div className="req-form-banner"></div>
+    
+
+    <div className="req-form-content">
+
+      <div className="req-form-lcol">
+        {orient === "portrait" && 
+        
+          <picture className="req-pic-port">
+            <img src={img}/>
+          </picture>
+          
+        }
+        {orient === "landscape" && 
+        
+          <picture className="req-pic-land">
+            <img src={img}/>
+          </picture>
+
+        }
+        {orient === "square" && 
+        
+          <picture className="req-pic-sq">
+            <img src={img}/>
+          </picture>
+
+        }
+      </div>
+      <div className="req-form-rcol">
+        <div className="req-form-header">
+          <h3>Request</h3>
+          <p>{`${title} by ${artist.username}`}</p>
         </div>
-        <div className="request-form request-form__title">
-          <label id="request-title__label">Title</label>
-          <input id="request-title__input" onChange={updateTitle}></input>
-        </div>
-        <div className="request-form request-form__description">
-          <label id="request-description__label">Description</label>
-          <input id="request-description__input" onChange={updateDetails}></input>
-        </div>
-        <div className="request-form request-form__references">
-          <label id="request-references__label">References</label>
-          <div id="references-input__container">
-            <input id="request-references__input" type="file" onChange={updateReferences}></input>
-            <button id="request-references__input-upload">Upload</button>
+        <form>
+          <div className="req-title-input" data-input-layout>
+            <label>Title</label>
+            <input></input>
           </div>
-        </div>
-        <div className="request-form request-form__urgent">
-          <label id="request-urgent__label">Urgent?</label>
-          <div className="request-form__urgent-choices"> 
-            <label id="urgent-choices__yes">Yes</label>
-            <input name="urgent-choices" type="radio" value={true} onClick={showDueDate}></input>
-
-            <label id="urgent-choices__no">No</label>
-            <input name="urgent-choices" type="radio" value={false} onClick={hideDueDate}></input>
+          <div className="req-detail-input" data-input-layout>
+            <label>Details</label>
+            <textarea></textarea>
           </div>
-
-          { dueDate &&
-
-            <div className={dueDateClass}>
-              <p id="urgent-date__prompt">When is it needed?</p>
-              <input id="urgent-date__input" type="date" onChange={updateDate}></input>
+          <div className="req-file-input" data-input-layout>
+            <label>References</label>
+            <input type="file"></input>
+          </div>
+            <div className="req-urgent-input" data-input-layout>
+              <label>Urgent?</label>
+              <div className="req-urgent-buttons">
+                <div data-status-buttons>
+                  <label>Yes</label>
+                  <input type="radio"></input>
+                </div>
+                <div data-status-buttons>
+                  <label>No</label>
+                  <input type="radio"></input>
+                </div>
+              </div>
             </div>
-          }
-        </div>
+          <div className="req-date-input" data-input-layout>
+            <label>Date</label>
+            <input type="date"></input>
+          </div>
+          <div className="req-submit-btn">
+            <button>Submit</button>
+          </div>
+        </form>
+      </div>
 
-        <div>
-          <button id="request-form__submit-button" type="submit" form="request-form">Submit</button>
-          <input id="request-form__reset-button" type="reset"></input>
-        </div>
-      </form>
+
+
     </div>
+
+   </div>
   )
 }
 
