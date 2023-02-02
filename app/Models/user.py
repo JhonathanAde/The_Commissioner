@@ -48,3 +48,11 @@ class User(db.Model, UserMixin):
       'website': self.website,
       'bio': self.bio,
     }
+
+  def to_safe_dict(self):
+    return {
+      'username': self.username,
+      'profile_pic': self.profile_pic,
+      'first_name': self.first_name,
+      'last_name': self.last_name,
+    }

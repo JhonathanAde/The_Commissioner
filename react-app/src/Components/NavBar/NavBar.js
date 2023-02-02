@@ -39,6 +39,10 @@ const NavBar = (
   const [modalOpen, setModalOpen] = useState(false);
   const [isOpen, setOpen] = useState(false)
   const [authForm, setAuthForm] = useState("login");
+  const [mockData, setMockData] = useState([]);
+  const [searchClass, setSearchClass] = useState("search-results hidden");
+  const [results, setResults] = useState(null);
+  const [userData, setUserData] = useState([]);
 
   // Variables //
   let history = useNavigate();
@@ -98,10 +102,70 @@ const NavBar = (
     return
   }
 
-  useEffect(() => {
-    console.log(user)
-  })
 
+  useEffect(() => {
+    const mockInfo = async () => {
+      let data = await fetch("https://jsonplaceholder.typicode.com/users");
+      data.json().then(json => {
+        // console.log(json);
+        setMockData(json);
+      })
+    }
+
+    const userInfo = async () => {
+      const data = await fetch("/api/users/getuser");
+      data.json().then(json => {
+        setUserData(json);
+        // console.log("user data",json);
+        return
+      })
+    }
+
+    mockInfo();
+    userInfo();
+
+    // console.log(results);
+
+    // console.log(mockData);
+  }, [results]);
+
+
+  const searchUsers = (e) => {
+    e.preventDefault();
+    let result = [];
+
+    let value = e.target.value.toLowerCase();
+
+    if(searchClass === "search-results hidden"){
+      setSearchClass("search-results");
+    }
+
+    userData.forEach((data, idx) => {
+      // console.log(data);
+      // console.log(data.first_name);
+
+      let isMatch;
+
+      if(data.first_name === null){
+        isMatch = false;
+      } else {
+        
+        isMatch = data.username.toLowerCase().includes(value) ||
+        data.first_name.toLowerCase().includes(value);
+      }
+
+      if(isMatch){
+        result.push(userData[idx]);
+      }
+
+      setResults(result);
+    })
+
+      if(!value){
+      setResults(null);
+    }
+
+  }
   // 
 
   return(
@@ -127,9 +191,6 @@ const NavBar = (
             </section>
             <section className='navbar-search'>
               <input></input>
-              <div id="nav-search-btn">
-                <button>Search</button>
-              </div>
             </section>
             <section className='navbar-user-links'>
               <ul>
@@ -188,9 +249,50 @@ const NavBar = (
                 </ul>
               </section>
               <section className='navbar-search'>
-                <input></input>
-                <div id="nav-search-btn">
-                  <button>Search</button>
+                <div className='search-main'>
+                  <input onChange={searchUsers} onBlur={() => {
+                    setSearchClass("search-results hidden");
+                  }} onFocus={() => {
+                    setSearchClass("search-results");
+                  }}></input>
+                  <div className={searchClass}>
+                    {results && results.map((data, key) => {
+                      // console.log(data.username);aa
+                      
+                      return (
+                          <div className="search-card" key={key}>
+                            <div className='search-card-img'>
+                              <picture>
+                                <img src={data.profile_pic}/>
+                              </picture>
+                            </div>
+                            <div>
+                              <h1>{data.username}</h1>
+                              <p>{data.first_name}&nbsp;{data.last_name}</p>
+                            </div>
+                        </div>
+                  
+                      )
+                    })}
+
+                    {!results && 
+
+                      <div className='search-card'>
+                        <p>Loading...</p>
+
+                      </div>
+
+                    }
+
+                    { results && results.length === 0 &&
+
+                      <div className='search-card'>
+                        <p>no match</p>
+
+                      </div>
+
+                    }
+                  </div>
                 </div>
               </section>
               <section className='navbar-user-links'>
