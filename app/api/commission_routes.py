@@ -24,7 +24,7 @@ def validation_errors_to_errors_messages(validation_errors):
 @commission_routes.route('/')
 def get_all_commissions():
   print(Commission)
-  commissions = Commission.query.order_by(func.random()).limit(10).all()
+  commissions = Commission.query.order_by(func.random()).limit(12).all()
   print("commissions", commissions)
   return {"commissions": [commission.to_dict() for commission in commissions] }
 
@@ -33,6 +33,7 @@ def get_all_commissions():
 def get_commissions(id):
   commissions = Commission.query.filter_by(user_id = id).all()
   print("commissions!!!", commissions)
+  # return commissions.to_dict()
   return {"commissions" : [commission.to_dict() for commission in commissions]}
   # return {"commissions" : [commission.to_dict() for commission in commissions]}
 

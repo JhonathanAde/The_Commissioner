@@ -17,3 +17,8 @@ def users():
 def user(id):
   user = User.query.get(id)
   return user.to_dict()
+
+@user_routes.route('/getuser')
+def getUsers():
+  users = User.query.all()
+  return [user.to_safe_dict() for user in users]

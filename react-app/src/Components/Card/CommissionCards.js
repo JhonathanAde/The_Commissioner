@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Rating from 'react-rating';
-import { getRatingsByCommissionId } from '../services/ratings';
+import { getRatingsByCommissionId } from '../../services/ratings';
 
 // CSS
 import "./CommissionCards.css";

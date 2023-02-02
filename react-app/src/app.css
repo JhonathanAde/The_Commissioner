@@ -1,5 +1,20 @@
-.page-container {
-  display: flex;
-  flex-direction: column;
+body {
   min-height: 100vh;
 }
+
+img {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+  object-fit: contain;
+}
+
+.app {
+  position: relative;
+}
+
+[data-page] {
+  padding: 2rem;
+}
+
+/*# sourceMappingURL=app.css.map */

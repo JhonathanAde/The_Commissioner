@@ -1,0 +1,59 @@
+html, #root {
+  // width: 100vw;
+  // height: 100vh;
+}
+body {
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+  object-fit: contain;
+}
+
+.app {
+  position: relative;
+  // width: 100%;
+  // background-color: pink;
+}
+
+.app-content {
+  // overflow-x: hidden;
+  // overflow-y: scroll;
+  //  overflow-x: none;
+  // width: 100%;
+}
+
+[data-page] {
+  // position: relative;
+  // margin-top: 10rem;
+  // background-color: blue;
+  // width: 100%;
+  padding: 2rem;
+  // z-index: 1;
+  // overflow-y: scroll;
+}
+
+.far.fa-star.fa-1x::before {
+  // color:;
+  color: black;
+  // outline: yellow;
+}
+.fas.fa-star.fa-1x::before {
+  // color:yellow;
+  // outline: yellow;
+  color: gold;
+}
+
+.far.fa-star.fa-2x::before {
+  // color:;
+  color: black;
+  // outline: yellow;
+}
+.fas.fa-star.fa-2x::before {
+  // color:yellow;
+  // outline: yellow;
+  color: gold;
+}

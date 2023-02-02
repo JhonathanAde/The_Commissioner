@@ -19,7 +19,7 @@ class Commission(db.Model):
   requests = relationship('Request', back_populates="commissions")
   
   def to_dict(self):
-    return {"commission": {
+    return  {
       "id" : self.id,
       "title": self.title,
       "description": self.description,
@@ -33,4 +33,3 @@ class Commission(db.Model):
       "user": self.user.to_dict(),
       "requests": [request.to_dict() for request in self.requests],
      }
-    }

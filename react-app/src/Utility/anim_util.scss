@@ -1,0 +1,47 @@
+@keyframes wipeup {
+  from {
+    opacity: 0;
+    transform: translate(0rem, 2rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0rem, 0rem);
+  }
+}
+
+@keyframes wipedown {
+  from {
+    opacity: 1;
+    transform: translate(0rem, 0rem);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(0rem, 2rem);
+  }
+}
+
+@keyframes wiperight {
+  from {
+    opacity: 0;
+    transform: translate(-2rem, 0rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0rem, 0rem);
+  }
+}
+
+.animate.wipe-up {
+  animation: wipeup .5s ease-in-out;
+}
+
+.animate.wipe-down {
+  animation: wipedown .2s ease-in-out;
+}
+
+.animate.wipe-right {
+  animation: wiperight .5s ease-in-out;
+}
