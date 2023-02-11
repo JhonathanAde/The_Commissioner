@@ -14,7 +14,23 @@ img {
 }
 
 [data-page] {
-  padding: 2rem;
+  position: relative;
+}
+
+.far.fa-star.fa-1x::before {
+  color: black;
+}
+
+.fas.fa-star.fa-1x::before {
+  color: gold;
+}
+
+.far.fa-star.fa-2x::before {
+  color: black;
+}
+
+.fas.fa-star.fa-2x::before {
+  color: gold;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -268,7 +268,9 @@ const NavBar = (
                   </li>
                   <Dropdown active={userMenuActive} menuName="user_menu"> 
                     <ul>
-                      <li>Profile</li>
+                      <li>
+                        <NavLink to={`/${user.username}/profile`}>Profile</NavLink>    
+                        </li>
                       <li>Settings</li>
                       <li>
                         <NavLink to="#" onClick={onLogout}>Log Out</NavLink>

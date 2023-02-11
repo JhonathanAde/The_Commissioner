@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes, useParams} from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar"
 import { authenticate } from "./services/auth";
 import {UserContext} from "./context/UserContext"

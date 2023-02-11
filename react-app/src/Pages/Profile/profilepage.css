@@ -1,0 +1,163 @@
+.profilepage-visitor-content {
+  position: relative;
+  padding: 2rem;
+}
+
+.profilepage-visitor-banner {
+  position: absolute;
+  background-color: #808080;
+  padding: 10rem 88.85rem;
+  left: 0;
+  z-index: 2;
+}
+
+.profilepage-visitor-artistcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-color: white;
+  width: 25%;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 10rem;
+  top: 13rem;
+  left: 6rem;
+  box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+
+.artist-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.artist-info h1 {
+  padding: 1rem;
+  font-size: 3rem;
+}
+.artist-info p {
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 1.6rem;
+}
+.artist-info a {
+  font-size: 2rem;
+  padding: 1rem;
+}
+.artist-info h3 {
+  font-size: 2rem;
+}
+.artist-info picture {
+  display: block;
+  width: 20rem;
+}
+.artist-info picture img {
+  border-radius: 50%;
+  max-width: 100%;
+  height: auto;
+}
+
+.profilepage-artistcard-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+.profilepage-artistcard-btns button {
+  background: none;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 1.6rem;
+  padding: 1rem 5rem;
+  cursor: pointer;
+}
+
+.profilepage-visitor-body {
+  margin-top: 18rem;
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+
+.visitor-body-left {
+  padding-top: 75rem;
+  grid-column: span 1;
+}
+
+.visitor-body-right {
+  padding-top: 5rem;
+  width: 100%;
+}
+
+.visitor-action-bar {
+  position: relative;
+  width: 100%;
+  padding: 0rem 2rem;
+  border-top: 2px solid lightgray;
+  border-bottom: 2px solid lightgray;
+  z-index: 1;
+}
+
+.actionbar-btn {
+  border: none;
+  background: none;
+  font-size: 2.4rem;
+  padding: 2rem 3rem;
+  z-index: 2;
+}
+
+.actionbar-btn:hover {
+  border-bottom: 3px solid black;
+}
+
+.actionbar-display {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 2rem 4rem;
+}
+
+.profile-comm-cards {
+  width: 35rem;
+  height: 29rem;
+}
+
+.profile-comm-card-wrapper {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+}
+
+.profile-comm-card-img {
+  overflow: hidden;
+  position: relative;
+  background-color: pink;
+  grid-column: span 2;
+  grid-row: span 11;
+  width: 100%;
+}
+.profile-comm-card-img h1 {
+  position: absolute;
+  left: 0;
+  bottom: 20%;
+  z-index: 1;
+}
+.profile-comm-card-img picture {
+  width: 100%;
+}
+.profile-comm-card-img picture img {
+  display: block;
+  width: 100%;
+}
+
+.profile-comm-card-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/*# sourceMappingURL=profilepage.css.map */

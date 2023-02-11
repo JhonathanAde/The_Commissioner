@@ -22,3 +22,10 @@ def user(id):
 def getUsers():
   users = User.query.all()
   return [user.to_safe_dict() for user in users]
+
+@user_routes.route('/user/<int:id>')
+def usersById(id):
+  users = User.query.get(id)
+
+  print(users)
+  return {"userId": users.id,"username": users.username, "firstName": users.first_name, "lastName": users.last_name, "website": users.website, "bio": users.bio, "profilePic": users.profile_pic, "location": users.location }

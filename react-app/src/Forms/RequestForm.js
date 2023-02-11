@@ -5,11 +5,71 @@ import { useNavigate } from "react-router-dom";
 import './requestform.css'
 
 
-const RequestForm = ({img, title, artist}) => {
+const RequestForm = ({img, title, artist, user, commId, price}) => {
 
   const [imgWidth, setWidth] = useState(0);
   const [imgHeight, setHeight] = useState(0);
   const [orient, setOrient] = useState("");
+  const [charCount, setCount] = useState(0);
+  const [isUrgent, setUrgent] = useState(false);
+  const [reqTitle, setTitle] = useState("");
+  const [reqDetails, setDetails] = useState("");
+  const [reqFile, setFile] = useState("");
+  const [reqDate, setDate] = useState("");
+  const [reqRef, setRef] = useState({});
+  const [error, setErrors] = useState([]);
+
+
+  const updateTitle = (e) => {
+    e.preventDefault();
+
+    setTitle(e.target.value);
+  };
+
+  const updateDetails = (e) => {
+    e.preventDefault();
+
+    setDetails(e.target.value);
+    setCount(e.target.value.length);
+  };
+
+  const updateRefs = (e) => {
+    e.preventDefault();
+
+    setRef(e.target.files[0]);
+  };
+
+  const updateDates = (e) => {
+    e.preventDefault();
+
+    setDate(e.target.value);
+  }
+
+
+  const submitRequest = async (e) => {
+    e.preventDefault();
+    const data = new FormData();
+
+    data.append("title", reqTitle);
+    data.append("details", reqDetails);
+    data.append("references", reqRef);
+    data.append("urgency", isUrgent);
+    data.append("date", reqDate);
+    data.append("price", price);
+    data.append("commission_id", commId);
+    data.append("user_id", artist.id);
+    data.append("buyer_id", user.id);
+    data.append("image_url", img);
+
+    const request = await createRequest(data);
+
+    if(request.errors){
+      setErrors(request.errors);
+    } else {
+      window.location.reload();
+    }
+
+  }
 
   useEffect(() => {
     if(img !== null){
@@ -31,7 +91,12 @@ const RequestForm = ({img, title, artist}) => {
         }
       }
     }
-  }, [])
+    console.log("Date: ", reqDate);
+    console.log("Details: ", reqDetails);
+    console.log("References: ", reqRef);
+    console.log("Title: ",reqTitle);
+    console.log(artist);
+  }, [reqDate, reqRef, reqDetails, reqTitle])
 
 
   return (
@@ -69,38 +134,50 @@ const RequestForm = ({img, title, artist}) => {
           <h3>Request</h3>
           <p>{`${title} by ${artist.username}`}</p>
         </div>
-        <form>
+        <form onSubmit={submitRequest}>
           <div className="req-title-input" data-input-layout>
             <label>Title</label>
-            <input></input>
+            <input onChange={updateTitle}></input>
           </div>
           <div className="req-detail-input" data-input-layout>
             <label>Details</label>
-            <textarea></textarea>
+            <textarea onChange={updateDetails}></textarea>
+            <div>
+              <p>Max. {`${charCount} / 250`}</p>
+            </div>
           </div>
           <div className="req-file-input" data-input-layout>
             <label>References</label>
-            <input type="file"></input>
+            <input type="file" onChange={updateRefs}></input>
           </div>
             <div className="req-urgent-input" data-input-layout>
               <label>Urgent?</label>
               <div className="req-urgent-buttons">
                 <div data-status-buttons>
                   <label>Yes</label>
-                  <input type="radio"></input>
+                  <input type="radio" name="urgent" value={true} onClick={() => {
+                    setUrgent(true);
+                  }}></input>
                 </div>
                 <div data-status-buttons>
                   <label>No</label>
-                  <input type="radio"></input>
+                  <input 
+                    type="radio" 
+                    name="urgent" 
+                    value={false}
+                    onClick={() => {
+                      setUrgent(false);
+                    }}
+                    ></input>
                 </div>
               </div>
             </div>
-          <div className="req-date-input" data-input-layout>
-            <label>Date</label>
-            <input type="date"></input>
+          <div className={!isUrgent ? "req-date-input" : "req-date-input active" } data-input-layout>
+            <label>Deadline:</label>
+            <input type="date" onChange={updateDates}></input>
           </div>
           <div className="req-submit-btn">
-            <button>Submit</button>
+            <button type="submit">Submit</button>
           </div>
         </form>
       </div>

@@ -22,7 +22,7 @@ let mainAvg = 0;
 const ProductPage = ({user, authenticated}) => {
 
   //--- State ---//
-  const [commission, setCommission] = useState({})
+  const [commission, setCommission] = useState({});
   const [reviewData, setReview] = useState({});
   const [imageUrl, setImg] = useState(null);
   const [imgWidth, setImgWidth] = useState(0);
@@ -32,6 +32,7 @@ const ProductPage = ({user, authenticated}) => {
   const [description, setDescription] = useState("");
   const [artist, setArtist] = useState({});
   const [artistComs, setArtistComs] = useState([]);
+  const [price, setPrice] = useState(0);
   const [rating, setRating] = useState([]);
   const [ratingInput, setRatingInput] = useState(0);
   const [comment, setComment] = useState("");
@@ -114,11 +115,13 @@ const ProductPage = ({user, authenticated}) => {
     const fetchComData = async (id) => {
       const result = await fetch(`/api/commissions/request/${id}`);
       result.json().then(json => { 
-        const {image_url, title, description, user, commissions} = json;
+        console.log(json);
+        const {image_url, title, description, user, commissions, price} = json;
         setImg(image_url)
         setTitle(title);
         setDescription(description);
         setArtist(user);
+        setPrice(price);
       });
 
     }
@@ -330,7 +333,14 @@ const ProductPage = ({user, authenticated}) => {
                 <CloseButton close={onClose} /> 
               </div>
               <div className="req-modal-body">
-                <RequestForm img={imageUrl} title={title} artist={artist}/>
+                <RequestForm 
+                  img={imageUrl} 
+                  title={title} 
+                  artist={artist} 
+                  user={user} 
+                  commId={id} 
+                  price={price}
+                  />
               </div>
             </div>
 

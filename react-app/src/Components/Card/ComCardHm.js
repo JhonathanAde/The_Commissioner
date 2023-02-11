@@ -18,6 +18,7 @@ const ComCardHm = ({com}) => {
   let average = 0
   const {user, title, price, image_url, id} = com;
   const {username, profile_pic} = user;
+  // console.log(user)
   let emptyStars = <i className="far fa-star fa-1x"></i>
   let fullStars = <i className="fas fa-star fa-1x"></i>
 
@@ -81,7 +82,9 @@ const ComCardHm = ({com}) => {
                 <img src={profile_pic}/>
               </picture>
             </div>
-            <h2>{username}</h2>
+            <h2>
+              <NavLink to={`/profile/${user.id}`}>{username}</NavLink>
+              </h2>
           </div>
           <div id="display-card__ratinginfo" data-displaycard-info>
             <Rating emptySymbol={emptyStars} fullSymbol={fullStars} initialRating={averageRating} readonly/>

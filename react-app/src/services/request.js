@@ -10,5 +10,5 @@ export const createRequest = async (payload) => {
 export const getRequestsById = async(id) => {
   const response = await fetch(`/api/requests/${id}/request`)
 
-return await response.json()
+  return await response.json()
 }
