@@ -161,7 +161,7 @@
   top: 3.9rem;
   right: -1rem;
   padding: 2rem 0rem;
-  z-index: 5;
+  z-index: 3;
 }
 [data-dropdown-menu] ul {
   display: flex;
@@ -194,12 +194,14 @@
 .nav-dropdown-user_menu {
   opacity: 0;
   width: 15rem;
+  pointer-events: none;
   transition: opacity 150ms ease-in-out, height 150ms ease-in-out;
 }
 
 .nav-dropdown-user_menu.active {
   opacity: 1;
   min-width: 15rem;
+  pointer-events: all;
   transition: opacity 150ms ease-in-out, height 150ms ease-in-out;
 }
 
@@ -217,13 +219,8 @@
 .auth-form {
   display: block;
   position: relative;
-  left: -50%;
   background-color: white;
   z-index: 101;
-}
-
-.auth-modal-close {
-  position: relative;
 }
 
 .close-button-container {

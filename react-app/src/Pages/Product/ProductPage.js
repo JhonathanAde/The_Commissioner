@@ -112,6 +112,9 @@ const ProductPage = ({user, authenticated}) => {
 
   //--- Fetch Call ---//
   useEffect(() => {
+
+    window.scrollTo(0, 0);
+
     const fetchComData = async (id) => {
       const result = await fetch(`/api/commissions/request/${id}`);
       result.json().then(json => { 

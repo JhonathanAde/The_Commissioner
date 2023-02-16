@@ -6,8 +6,10 @@ from app.Models import User
 
 
 class BasicInfoForm(FlaskForm):
-  profile_pic = FileField('Profile_pic', validators=[FileAllowed(['jpg', 'jpeg', 'png'], 'jpg, jpeg, and png only!')])
+  profile_pic = StringField('Profile_pic')
   first_name = StringField('First_name')
   last_name = StringField('Last_name')
   website = StringField('Website')
   bio = TextAreaField('Bio')
+  occupation = StringField('Occupation')
+  show_name = BooleanField('Show_name')

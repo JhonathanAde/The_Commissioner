@@ -1,7 +1,6 @@
 .req-modal {
   display: block;
   position: relative;
-  left: -50%;
   background-color: white;
   z-index: 101;
 }

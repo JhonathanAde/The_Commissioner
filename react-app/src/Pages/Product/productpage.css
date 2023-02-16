@@ -2,6 +2,7 @@
 .productpage-content {
   width: 100%;
   display: flex;
+  padding: 1rem 2rem;
   align-items: center;
   margin-top: 2rem;
 }

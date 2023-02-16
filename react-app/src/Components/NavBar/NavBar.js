@@ -195,7 +195,7 @@ const NavBar = (
                     </picture>
                   </NavLink>
                 </li>
-                <li>Discover</li>
+                {/* <li>Discover</li> */}
               </ul>
             </section>
             <section className='navbar-search'>
@@ -248,14 +248,14 @@ const NavBar = (
             <section className='navbar-user-links'>
               <ul>
                 <div data-nav-dropdown>
-                  <li>
+                  {/* <li>
                     <NavLink to="#" onClick={openNotificationsMenu}>Notifications</NavLink>
-                  </li>
-                  <Dropdown active={notificationsActive} menuName="notifications">
+                  </li> */}
+                  {/* <Dropdown active={notificationsActive} menuName="notifications">
                     <ul>
                       <li>Test</li>
                     </ul>
-                  </Dropdown>
+                  </Dropdown> */}
                 </div>
                 <div data-nav-dropdown>
                   <li>
@@ -300,7 +300,7 @@ const NavBar = (
                       </picture>
                     </NavLink>
                   </li>
-                  <li>Discover</li>
+                  {/* <li>Discover</li> */}
                 </ul>
               </section>
               <section className='navbar-search'>
@@ -363,7 +363,6 @@ const NavBar = (
             </div>
           </nav>
           <Modal open={modalOpen}>
-            <>
               <div className={isOpen ? 'auth-form animate wipe-up' : 'auth-form animate wipe-down'}>
                 <div className='auth-modal-close'>
                   <CloseButton close={onClose}/>
@@ -378,7 +377,6 @@ const NavBar = (
                   }
                 </div>
               </div>
-            </>
           </Modal>
       </>
     }

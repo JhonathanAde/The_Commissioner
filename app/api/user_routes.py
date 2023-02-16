@@ -28,4 +28,9 @@ def usersById(id):
   users = User.query.get(id)
 
   print(users)
-  return {"userId": users.id,"username": users.username, "firstName": users.first_name, "lastName": users.last_name, "website": users.website, "bio": users.bio, "profilePic": users.profile_pic, "location": users.location }
+  return {"userId": users.id,"username": users.username, "firstName": users.first_name, "lastName": users.last_name, "website": users.website, 
+  "bio": users.bio, 
+  "profilePic": users.profile_pic, "location": users.location,
+  "occupation": users.occupation,
+  "showName": users.show_name,
+   }

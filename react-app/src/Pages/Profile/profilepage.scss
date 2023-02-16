@@ -6,7 +6,9 @@
 .profilepage-visitor-banner {
   position: absolute;
   background-color: #808080;
-  padding: 10rem 88.85rem;
+  height: 20rem;
+  width: 100%;
+  top: 0;
   left: 0;
   z-index: 2;
 }
@@ -26,7 +28,7 @@
   padding-right: 3rem;
   padding-top: 3rem;
   padding-bottom: 10rem;
-  top: 13rem;
+  top: 9rem;
   left: 6rem;
   box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, .5);
   z-index: 3;
@@ -43,36 +45,62 @@
 
 
   h1{
-    padding: 1rem;
+    padding: .5rem;
     font-size: 3.0rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    color: gray;
   }
 
   p {
     padding: .5rem 1rem;
     text-align: center;
     font-size: 1.6rem;
+    color: grey;
   }
 
   a {
-    font-size: 2rem;
-    padding: 1rem;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+
+  }
+
+  a:hover {
+    background-color: hotpink;
+    
   }
 
   h3 {
-    font-size: 2rem;
+    font-size: 1.4rem;
+    color: grey;
+    padding: 1rem 0;
   }
 
   picture {
     display: block;
     width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    overflow: hidden;
     
     img {
-      border-radius: 50%;
       max-width: 100%;
       height: auto;
     }
   }
 
+}
+
+.artist-aliases {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .profilepage-artistcard-btns {
@@ -123,18 +151,6 @@
   z-index: 1;
 }
 
-.actionbar-btn {
-  border: none;
-  background: none;
-  font-size: 2.4rem;
-  padding: 2rem 3rem;
-  z-index: 2;
-}
-
-.actionbar-btn:hover {
-  border-bottom: 3px solid black;
-}
-
 .actionbar-display {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -143,15 +159,8 @@
 }
 
 .profile-comm-cards {
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
   width: 35rem;
   height: 29rem;
-  // overflow: hidden;
-  // width: 35rem;
-  // height: 30rem;
-  // width: 100%;
 
 }
 
@@ -171,11 +180,25 @@
   grid-row: span 11;
   width: 100%;
 
-  h1 {
+  .profile-comm-card-title {
+    padding: 1rem;
+    font-size: 1.8rem;
     position: absolute;
     left: 0;
-    bottom: 20%;
+    bottom: 10%;
     z-index: 1;
+    color: white;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+  }
+
+  .profile-comm-card-title:hover {
+    text-decoration: underline;
+  }
+
+  .profile-comm-card-title.active {
+    opacity: 1;
+    transition: opacity 150ms ease-in-out;
   }
 
   picture {
@@ -190,7 +213,363 @@
   
 }
 
+.profile-comm-card-overlay {
+  position: absolute;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  bottom: 0;
+  width: 100%;
+  height: 0%;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out, height 150ms ease-in-out;
+}
+
+.profile-comm-card-overlay.active {
+  height: 35%;
+  opacity: .3;
+  transition: opacity 150ms ease-in-out, height 150ms ease-in-out;
+}
+
 .profile-comm-card-info {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  padding: 1rem;
+  grid-column: span 2;
 }
+
+.card-info-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  picture{
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.card-info-ratings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: .5rem;
+
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+.card-info-price {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  font-weight: bold;
+
+  font-size: 1.4rem;
+}
+
+// ------- For User --------//
+.profilepage-user-main {
+  position: relative;
+}
+
+.profilepage-user-content {
+  position: relative;
+  padding: 2rem;
+}
+
+.profilepage-user-banner {
+  position: absolute;
+  background-color: #808080;
+  // padding: 10rem;
+  width: 100%;
+  height: 20rem;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  display: block;
+  padding: 1rem;
+}
+
+
+.profilepage-user-artistcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-color: white;
+  width: 25%;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 10rem;
+  top: 9rem;
+  left: 6rem;
+  box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, .5);
+  z-index: 3;
+ 
+}
+
+
+.profilepage-user-body {
+  // background-color: blueviolet;
+  
+  margin-top: 18rem;
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+
+.user-body-left {
+  // background-color: orange;
+  padding-top: 75rem;
+  grid-column: span 1;
+}
+
+.user-body-right {
+  // background-color: red;
+  padding-top: 5rem;
+  width: 100%;
+}
+
+.user-action-bar {
+  // background-color: goldenrod;
+  position: relative;
+  width: 100%;
+  padding: 0rem 2rem;
+  border-top: 2px solid lightgray;
+  border-bottom: 2px solid lightgray;
+  z-index: 1;
+}
+
+.actionbar-btn {
+  border: none;
+  background: none;
+  font-size: 2.4rem;
+  padding: 2rem 3rem;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.actionbar-btn.active{
+  border-bottom: 3px solid black;
+}
+
+
+.actionbar-display {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  // gap: -10rem;
+  padding: 2rem 4rem;
+}
+
+#settings-button {
+  float: right;
+  border: none;
+  background: none;
+  background-color: transparent;
+  color: white;
+  font-size: 1.4rem;
+  padding: 1rem;
+  transition: background-color 150ms ease-in-out;
+  cursor: pointer;
+}
+
+#settings-button:hover {
+  background-color: black;
+  transition: background-color 150ms ease-in-out;
+}
+
+.settings-modal {
+  position: relative;
+  background-color: white;
+  // width: 50%;
+  // padding: 2rem;
+  z-index: 2000;
+}
+
+.modal-close-banner {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  width: 100%;
+  background-color: black;
+  height: 5rem;
+
+  h1 {
+    color: white;
+    font-size: 2.0rem;
+  }
+}
+
+.settings-modal-body {
+  display: flex;
+  padding: 1rem;
+  // height: 4rem;
+
+}
+
+.settings-options-menu {
+  display: block;
+  background-color: lightgrey;
+  padding: 1rem 3rem;
+  max-height: 20rem;
+
+  ul {
+    list-style: none;
+    // width: 100%;
+  }
+
+  li {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    border-bottom: 2px solid white;
+    font-size: 1.4rem;
+    cursor: pointer;
+    // width: 100%;
+  }
+}
+
+.settings-modal-content {
+  display: flex;
+
+}
+
+.settings-profile-pic {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  padding: 2rem 4rem;
+  border-right: 2px solid lightgray;
+
+  picture {
+    display: block;
+    width: 15rem;
+    height: 15rem;
+    overflow: hidden;
+    border-radius: 50%;
+    
+    img {
+      width: 100%;
+      // height: auto;
+    }
+  }
+
+
+}
+
+.chng-profile-btn {
+  position: relative;
+}
+
+.settings-profile-overlay {
+  position: absolute;
+  background-color: black;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+.settings-profile-overlay:hover {
+  opacity: .3;
+  transition: opacity 150ms ease-in-out;
+}
+
+.basic-info-form {
+  padding: 2rem;
+}
+
+.basic-info-bio {
+
+  textarea {
+    resize: none;
+    font-size: 1.4rem;
+    padding: 1rem;
+    height: 10rem;
+    // width: 40rem;
+  }
+}
+
+.basic-info-form-btns {
+  display: flex;
+  gap: 1rem;
+  padding: 2rem 0rem;
+
+  button {
+    border: none;
+    background: none;
+    background-color: black;
+    color: white;
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: hotpink;
+  }
+}
+
+.settings-security {
+  padding-right: 57rem;
+  padding-bottom: 45.8rem;
+}
+
+.toggle {
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  // background-color: lightgray;
+  padding: .5rem 0;
+}
+
+.toggle-body {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 15%;
+  height: 100%;
+  background-color: lightgray;
+  border-radius: 30px;
+  padding-left: 0rem;
+  transition: padding-left 150ms ease-in-out, background-color 150ms ease-in-out 10ms;
+}
+
+.toggle-body.active {
+  background-color: green;
+  padding-left: 2.5rem;
+  transition: padding-left 150ms ease-in-out, background-color 150ms ease-in-out 10ms;
+}
+
+.toggle-switch {
+  display: block;
+  height: 2rem;
+  width: 2rem;
+  background-color: whitesmoke;
+  border-radius: 50%;
+  box-shadow: .5px .5px 1px 1.5px rgba(0, 0, 0, 0.5);
+}
+
+.basic-info-fullname-toggle {
+  padding: 1.5rem 0rem;
+
+  label {
+    color: gray;
+    font-size: 1.3rem;
+  }
+
+
+}
+
+

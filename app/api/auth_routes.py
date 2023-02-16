@@ -94,10 +94,14 @@ def edit_basic_info(id):
     
     basic_info = User.query.get(id)
 
+    basic_info.profile_pic = form.data['profile_pic']
     basic_info.first_name = form.data['first_name']
     basic_info.last_name = form.data['last_name']
     basic_info.website = form.data['website']
     basic_info.bio = form.data['bio']
+    basic_info.occupation = form.data['occupation']
+    basic_info.show_name = form.data['show_name']
+
 
     db.session.add(basic_info)
     db.session.commit()
@@ -146,7 +150,7 @@ def upload_profile_pic():
 
       return {"image_url": image_path}
     else:
-      print("Files weren't sent!!")
+      return("Files weren't sent!!")
   else:
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 

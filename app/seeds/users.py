@@ -14,7 +14,8 @@ def seed_users():
     first_name='Terrence', 
     last_name='Ntsako', 
     website="https://thetakouniverse.tumblr.com/?fbclid=IwAR0gjig7rGvepvDbZbUmXt_e2cGTbQyuOEiAvZJp1zwy86Oqd5mjnakfSbo", 
-    bio="I'm a South African artist that focuses on both traditional and digital media. My previous clients were Warner Bro’s, Sony, Netflix, Bluesky, and Cartoon Network."
+    bio="I'm a South African artist that focuses on both traditional and digital media. My previous clients were Warner Bro’s, Sony, Netflix, Bluesky, and Cartoon Network.",
+    show_name=False,
     )
 
   artist1 =  User (
@@ -28,7 +29,8 @@ def seed_users():
     first_name='James', 
     last_name='Jean', 
     website="http://www.jamesjean.com/", 
-    bio="I'm a Taiwanese-American artists that fuses contemporary subjects with aesthetic techniques inspired by traditional Chinese scroll paintings, Japanese woodblock prints, and Renaissance portraiture. "
+    bio="I'm a Taiwanese-American artists that fuses contemporary subjects with aesthetic techniques inspired by traditional Chinese scroll paintings, Japanese woodblock prints, and Renaissance portraiture. ",
+    show_name=False,
     )
 
   artist2 = User(
@@ -42,7 +44,8 @@ def seed_users():
     first_name='Takashi', 
     last_name='Murakami', 
     website="https://www.instagram.com/takashipom/?hl=en", 
-    bio="Im a Japanese artist that fuses traditional Japanese painting with Western influences, the realm of fine art with otaku lifestyle (juvenile culture obsessed with toys, anime, and video games), and commercial retail spaces with museums and other public venues. My work is recognized for its ambition, polish, and fine execution."
+    bio="Im a Japanese artist that fuses traditional Japanese painting with Western influences, the realm of fine art with otaku lifestyle (juvenile culture obsessed with toys, anime, and video games), and commercial retail spaces with museums and other public venues. My work is recognized for its ambition, polish, and fine execution.",
+    show_name=False,
     )
 
   artist3 = User(
@@ -56,7 +59,8 @@ def seed_users():
     first_name='Ed', 
     last_name='Kinsella', 
     website="https://www.edwardkinsellaillustration.com/", 
-    bio="Im an artist that graduated with honors from Ringling School of Art and Design in 2006, and my work has since been commissioned by a variety of prestigious magazines and publishers. I've also shown my fine art and illustration in a number of gallery exhibitions."
+    bio="Im an artist that graduated with honors from Ringling School of Art and Design in 2006, and my work has since been commissioned by a variety of prestigious magazines and publishers. I've also shown my fine art and illustration in a number of gallery exhibitions.",
+    show_name=False,
     )
 
   artist4 = User(
@@ -70,7 +74,8 @@ def seed_users():
     first_name='Iwona', 
     last_name='Skiba', 
     website="https://iwonaskibaart.wixsite.com/iwonaskiba", 
-    bio="Im a New Jersey based artist that love to draw fantasy like landscapes and I love drawing plants!"
+    bio="Im a New Jersey based artist that love to draw fantasy like landscapes and I love drawing plants!",
+    show_name=False,
     )
 
   artist5 = User(
@@ -84,7 +89,8 @@ def seed_users():
     first_name='Kai', 
     last_name='Valentine', 
     website="https://kainonaut.com/", 
-    bio="Illustrator, Gamedev, Guitarist, Spaceman."
+    bio="Illustrator, Gamedev, Guitarist, Spaceman.",
+    show_name=False,
     )
 
   fan1 = User(
@@ -98,7 +104,8 @@ def seed_users():
     first_name='Mia', 
     last_name='Campos', 
     website=None, 
-    bio=None
+    bio=None,
+    show_name=False,
     )
 
   fan2 = User(
@@ -112,7 +119,8 @@ def seed_users():
     first_name='Otomo', 
     last_name='Katsuhiro', 
     website=None, 
-    bio=None
+    bio=None,
+    show_name=False,
     )
 
   fan3 = User (
@@ -127,6 +135,7 @@ def seed_users():
     last_name= 'Doe',
     website= '',
     bio= '',
+    show_name=False,
   )
 
 
@@ -142,6 +151,7 @@ def seed_users():
     last_name= 'Peri-peri',
     website='',
     bio='',
+    show_name=False,
   )
 
   fan5 = User (
@@ -156,6 +166,7 @@ def seed_users():
     last_name='Hoshi',
     website='',
     bio='',
+    show_name=False,
   )
 
   fan6 = User (
@@ -170,6 +181,7 @@ def seed_users():
     last_name= 'Reynolds',
     website= '',
     bio= '',
+    show_name=False,
   )
 
 

@@ -18,6 +18,8 @@ class User(db.Model, UserMixin):
   last_name = db.Column(db.String(130), nullable = True)
   website = db.Column(db.String(130), nullable = True)
   bio = db.Column(db.String(500), nullable= True)
+  occupation = db.Column(db.String(50), nullable=True)
+  show_name = db.Column(db.Boolean, nullable=False)
 
   commissions = db.relationship('Commission', back_populates='user', order_by='asc(Commission.id)')
   requests = db.relationship('Request', back_populates='users')
@@ -47,6 +49,8 @@ class User(db.Model, UserMixin):
       'last_name': self.last_name,
       'website': self.website,
       'bio': self.bio,
+      'occupation': self.occupation,
+      'show_name': self.show_name,
     }
 
   def to_safe_dict(self):
